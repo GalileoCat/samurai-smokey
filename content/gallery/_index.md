@@ -1,5 +1,5 @@
 ---
-title: "Samurai Gallery"
+title: "Samurai Smokey Gallery"
 ---
 
 Welcome to the gallery! Click an image to see it in full resolution.
