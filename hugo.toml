@@ -2,3 +2,18 @@ baseURL = 'https://galileocat.github.io/samurai-smokey/'
 languageCode = 'en-us'
 title = 'Samurai Smokey'
 theme = 'ananke'
+
+[[menu.main]]
+  name = "Chapters"
+  url = "/categories/"
+  weight = 10
+
+[[menu.main]]
+  name = "Gallery"
+  url = "/gallery/"
+  weight = 20
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 30
