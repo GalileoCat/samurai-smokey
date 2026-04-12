@@ -1,16 +1,8 @@
-\---
-
+---
 title: "The Sky Burns Black"
-
-date: 2020-01-01
-
-categories: \["Chapter 0"]
-
+date: 2026-04-11
+categories: ["Chapter 1"]
 draft: false
-
-\---
-
-
+---
 
 Coming Soon!
-
