@@ -1,6 +1,6 @@
 \---
 
-title: "About the Creator"
+About the Creator
 
 \---
 
