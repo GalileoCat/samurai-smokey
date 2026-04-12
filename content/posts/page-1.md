@@ -5,4 +5,4 @@ categories: ["Chapter 1"]
 draft: false
 ---
 
-Coming Soon!
+Coming soon!

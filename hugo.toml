@@ -5,7 +5,7 @@ theme = 'ananke'
 
 [[menu.main]]
   name = "Chapters"
-  url = "/categories/"
+  url = "/categories/chapter-1/"
   weight = 10
 
 [[menu.main]]
