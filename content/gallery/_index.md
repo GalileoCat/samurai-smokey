@@ -1,8 +1,6 @@
 \---
 
-Samurai Smokey Gallery
-
-"Character sheets and concept art."
+title: "Samurai Smokey Gallery"
 
 \---
 

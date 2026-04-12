@@ -1,8 +1,10 @@
 \---
 
-About the Creator
+title: "About the Creator"
 
 \---
+
+
 
 Hi, I'm GalileoCat. I'm an artist and the creator of \*\*Samurai Smokey\*\*.
 
