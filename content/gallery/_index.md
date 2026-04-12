@@ -1,8 +1,8 @@
 \---
 
-title: "Samurai Gallery"
+Samurai Smokey Gallery
 
-description: "Character sheets and concept art."
+"Character sheets and concept art."
 
 \---
 
