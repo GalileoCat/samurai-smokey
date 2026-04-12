@@ -1,3 +1,4 @@
 baseURL = 'https://galileocat.github.io/samurai-smokey/'
+languageCode = 'en-us'
 title = 'Samurai Smokey'
 theme = 'lesser-s'
