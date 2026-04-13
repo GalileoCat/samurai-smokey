@@ -17,12 +17,16 @@
     <loc>http://localhost:1313/posts/page-1/</loc>
     <lastmod>2026-04-11T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/drafts/chapter-1/</loc>
+    <lastmod>2020-06-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/drafts/</loc>
+    <lastmod>2020-06-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/about/</loc>
   </url><url>
     <loc>http://localhost:1313/gallery/</loc>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-  </url><url>
-    <loc>http://localhost:1313/drafts/</loc>
   </url>
 </urlset>

@@ -78,19 +78,23 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.js"></script>
 <script>
-    document.addEventListener('click', function(e) {
-        // This checks if we clicked a link inside our comic-grid
-        if (e.target.closest('.comic-grid a')) {
-            e.preventDefault(); // STOPS the browser from loading a new page
-            
-            var lightbox = new SimpleLightbox('.comic-grid a', {
-                overlayOpacity: 0.9,
-                uniqueImages: false
-            });
-            
-            lightbox.open(e.target.closest('a'));
-        }
+    // 1. Initialize the Lightbox globally
+    var lightbox = new SimpleLightbox('a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".webp"]', {
+        overlayOpacity: 0.9,
+        history: false,
+        nav: true,
+        close: true
     });
+
+    // 2. The Fail-Safe Interceptor
+    document.addEventListener('click', function(e) {
+        // Find the closest link to the click
+        var link = e.target.closest('a');
+        
+        // If it's a link to an image, STOP the browser from opening a new page
+        if (link && /\.(jpg|jpeg|png|webp)$/i.test(link.getAttribute('href'))) {
+            e.preventDefault(); 
+            lightbox.open(link); // Manually trigger the lightbox instead
+        }
+    }, true); // The 'true' here makes this a priority listener
 </script>
-  </body>
-</html>

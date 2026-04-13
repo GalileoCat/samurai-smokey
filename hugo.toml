@@ -1,6 +1,6 @@
 baseURL = 'https://samuraismokey.com/'
 languageCode = 'en-us'
-title = 'Home'
+title = 'Samurai Smokey'
 theme = 'ananke'
 
 [menu]
