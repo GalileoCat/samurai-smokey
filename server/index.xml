@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>  on Home</title>
+    <link>https://samuraismokey.com/</link>
+    <description>Recent content in   on Home</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 11 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://samuraismokey.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Sky Burns Black</title>
+      <link>https://samuraismokey.com/posts/page-1/</link>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://samuraismokey.com/posts/page-1/</guid>
+      <description>&lt;p&gt;Coming soon!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About the Creator</title>
+      <link>https://samuraismokey.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://samuraismokey.com/about/</guid>
+      <description>&lt;p&gt;Hi, I&amp;rsquo;m GalileoCat. I&amp;rsquo;m an artist and the creator of &lt;strong&gt;Samurai Smokey&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ko-fi.com/galileo_cat&#34;&gt;Support me on Ko-fi&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://x.com/galileo_cat&#34;&gt;Follow me on Twitter&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

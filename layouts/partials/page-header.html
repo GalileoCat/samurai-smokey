@@ -1,0 +1,11 @@
+{{ $featured_image := partials.Include "func/GetFeaturedImage.html" . }}
+
+<header class="{{ if $featured_image }}cover bg-center{{ else }}{{ .Site.Params.background_color_class | default "bg-black" }}{{ end }}">
+  {{ if $featured_image }}
+    <div class="{{ .Params.cover_dimming_class | default "bg-black-60" }}">
+      {{ partials.Include "site-navigation.html" . }}
+    </div>
+  {{ else }}
+    {{ partials.Include "site-navigation.html" . }}
+  {{ end }}
+</header>

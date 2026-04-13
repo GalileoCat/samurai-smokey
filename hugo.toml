@@ -1,6 +1,6 @@
 baseURL = 'https://samuraismokey.com/'
 languageCode = 'en-us'
-title = 'Samurai Smokey'
+title = 'Home'
 theme = 'ananke'
 
 [[menu.main]]
@@ -20,3 +20,9 @@ theme = 'ananke'
 
 [params]
   custom_css = ["css/custom.css"]
+  
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

@@ -1,0 +1,26 @@
+.gallery-img {
+    transition: transform .2s; /* Animation */
+    width: 300px;
+    margin: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05); /* Zoom in slightly */
+    border: 2px solid #007bff;
+}
+
+.hero-logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 500px;
+    height: auto;
+}
+
+/* Hide the duplicate text title that overlaps the logo */
+.f2.f1-l.fw2.white-90.mb0.lh-title {
+    display: none;
+}
+
+
