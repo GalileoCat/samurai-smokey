@@ -17,7 +17,7 @@ header .pv6-l {
 
 .comic-grid {
     display: grid;
-    /* Forces exactly 4 columns horizontally on desktop */
+    /* Forces exactly 5 columns horizontally on desktop */
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     padding: 40px 0; 
