@@ -1,0 +1,63 @@
+/* --- Global Header & Navigation --- */
+
+/* Forces the header to be as slim as the navigation bar across all pages */
+header .pv4, 
+header .pv6, 
+header .pv6-l {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Hides the giant central titles that overlap or create gap space */
+.lh-title {
+    display: none !important;
+}
+
+/* --- Gallery Grid Layout --- */
+
+.comic-grid {
+    display: grid;
+    /* Forces exactly 4 columns horizontally on desktop */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 40px 0; 
+    justify-items: center;
+}
+
+/* Make images look consistent and professional in the grid */
+.comic-grid img {
+    width: 100%;
+    /* Fixed height keeps the horizontal rows perfectly aligned */
+    height: 400px; 
+    object-fit: cover; 
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Interactive Hover effect */
+.comic-grid img:hover {
+    transform: translateY(-8px); /* Clean lift effect */
+    border-color: #007bff;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+/* --- Responsive Breakpoints --- */
+
+/* Tablet view: Drop to 2 columns so images don't get too skinny */
+@media screen and (max-width: 1024px) {
+    .comic-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Phone view: Single column stack */
+@media screen and (max-width: 600px) {
+    .comic-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .comic-grid img {
+        height: auto; /* Show full art on mobile */
+    }
+}

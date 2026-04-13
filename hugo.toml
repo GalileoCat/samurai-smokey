@@ -3,29 +3,29 @@ languageCode = 'en-us'
 title = 'Home'
 theme = 'ananke'
 
-[[menu.main]]
-  name = "Chapters"
-  url = "/categories/chapter-1/"
-  weight = 10
-
-[[menu.main]]
-  name = "Gallery"
-  url = "/gallery/"
-  weight = 20
+[menu]
+  [[menu.main]]
+    name = "Chapters"
+    url = "/categories/chapter-1/"
+    weight = 10
 
   [[menu.main]]
-  name = "2020 Drafts"
-  url = "/drafts/"
-  weight = 15
+    name = "2020 Drafts"
+    url = "/drafts/"
+    weight = 15
 
-[[menu.main]]
-  name = "About"
-  url = "/about/"
-  weight = 30
+  [[menu.main]]
+    name = "Gallery"
+    url = "/gallery/"
+    weight = 20
+
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 30
 
 [params]
   custom_css = ["css/custom.css"]
-  
 
 [markup]
   [markup.goldmark]
