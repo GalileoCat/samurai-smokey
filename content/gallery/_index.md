@@ -2,7 +2,7 @@
 title: "Gallery"
 ---
 
-Welcome to the gallery! Click an image to see it in full resolution.
+Welcome to the gallery, concept and new art will show up here! Click an image to see it in full resolution.
 
 <div class="comic-grid">
 
