@@ -2,7 +2,8 @@
 <html lang="en" style="background-color: #000;">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/custom.css">
+    {{ $style := resources.Get "css/custom.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.css">
     <title>{{ .Title }}</title>
 </head>
