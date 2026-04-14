@@ -2,8 +2,6 @@
 title: "Chapters"
 draft: false
 ---
-
-[HOME](/)
-***
+The tale of a great samurai named Smokey.
 
 ### Chapter 1: Sky Burns Black (Coming Soon)
