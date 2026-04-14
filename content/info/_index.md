@@ -2,7 +2,11 @@
 title: "Info"
 ---
 
-Hi, I'm GalileoCat. I'm an artist and the creator of **Samurai Smokey**.
+Digital Artist. Comic Creator. Tech Enthusiast.
+
+I create art that lives in the shadows between horror and high-fantasy. Samurai Smokey is my current primary focus. It's a labor of love dedicated to atmospheric storytelling and bold, graphic lines.
+
+This space serves as the definitive, secure archive for all of my work. No algorithms, no noise—just the art.
 
 <div style="margin-top: 30px;">
     <a href="https://ko-fi.com/galileo_cat" target="_blank">Support me on Ko-fi</a><br>
