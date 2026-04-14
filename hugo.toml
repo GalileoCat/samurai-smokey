@@ -1,31 +1,6 @@
-baseURL = 'https://samuraismokey.com/'
+baseURL = '/'
 languageCode = 'en-us'
 title = 'Samurai Smokey'
-theme = 'ananke'
-
-[menu]
-  [[menu.main]]
-    name = "Chapters"
-    url = "/categories/chapter-1/"
-    weight = 10
-
-  [[menu.main]]
-    name = "2020 Drafts"
-    url = "/drafts/"
-    weight = 15
-
-  [[menu.main]]
-    name = "Gallery"
-    url = "/gallery/"
-    weight = 20
-
-  [[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 30
-
-[params]
-  custom_css = ["css/custom.css"]
 
 [markup]
   [markup.goldmark]

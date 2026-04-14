@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #000;">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/custom.css">
+    <title>{{ .Title }}</title>
+</head>
+<body style="background-color: #000; color: #fff; text-align: center; font-family: sans-serif; margin: 0; padding: 50px 20px;">
+    
+    <nav style="margin-bottom: 20px;">
+        <a href="/">HOME</a> | <a href="/archive/">BACK TO ARCHIVE</a>
+    </nav>
+    
+    <hr style="border: 0; border-top: 1px solid #333; width: 60%; margin: 20px auto;">
+    
+    <h1>{{ .Title }}</h1>
+
+    <div class="vertical-reader">
+        {{ .Content }}
+    </div>
+
+    <div style="margin-top: 80px; padding-bottom: 50px;">
+        <hr style="border: 0; border-top: 1px solid #333; width: 40%; margin: 20px auto;">
+        <a href="#" style="font-weight: 900; text-transform: uppercase; letter-spacing: 3px; font-size: 1.2rem;">
+            ↑ Back to Top
+        </a>
+    </div>
+
+</body>
+</html>

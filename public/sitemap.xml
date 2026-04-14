@@ -2,31 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-04-11T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/archive/</loc>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2026-04-11T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/gallery/</loc>
   </url><url>
-    <loc>http://localhost:1313/categories/chapter-1/</loc>
-    <lastmod>2026-04-11T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-04-11T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/archive/2020-ch1/</loc>
   </url><url>
-    <loc>http://localhost:1313/posts/page-1/</loc>
-    <lastmod>2026-04-11T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/comics/chapter-1/</loc>
   </url><url>
-    <loc>http://localhost:1313/drafts/chapter-1/</loc>
-    <lastmod>2020-06-26T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/archive/2020-ch2/</loc>
   </url><url>
-    <loc>http://localhost:1313/drafts/</loc>
-    <lastmod>2020-06-26T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/archive/2020-ch3/</loc>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>//localhost:1313/comics/</loc>
   </url><url>
-    <loc>http://localhost:1313/gallery/</loc>
+    <loc>//localhost:1313/commissions/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>//localhost:1313/</loc>
+  </url><url>
+    <loc>//localhost:1313/info/</loc>
+  </url><url>
+    <loc>//localhost:1313/tags/</loc>
   </url>
 </urlset>

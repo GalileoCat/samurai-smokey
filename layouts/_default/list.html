@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" style="background-color: #000;">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/custom.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.css">
-    <title>Tags</title>
+    <title>{{ .Title }}</title>
 </head>
 <body style="background-color: #000; color: #fff; text-align: center; font-family: sans-serif; margin: 0; padding: 50px 20px;">
     
@@ -14,17 +14,21 @@
     
     <hr style="border: 0; border-top: 1px solid #333; width: 60%; margin: 20px auto;">
     
-    <h1>Tags</h1>
+    <h1>{{ .Title }}</h1>
 
     <div class="category-content">
-        
+        {{ .Content }}
     </div>
 
-    
+    {{ if not .Content }}
     <ul style="list-style: none; padding: 0; margin-top: 30px;">
-        
+        {{ range .Pages }}
+            <li style="margin: 15px 0;">
+                <a href="{{ .Permalink }}" style="font-weight: 900; text-transform: uppercase;">{{ .Title }}</a>
+            </li>
+        {{ end }}
     </ul>
-    
+    {{ end }}
 
     <div style="margin-top: 80px; padding-bottom: 50px;">
         <hr style="border: 0; border-top: 1px solid #333; width: 40%; margin: 20px auto;">
