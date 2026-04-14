@@ -79,3 +79,10 @@ a:hover {
         max-width: 300px;
     }
 }
+footer {
+    text-align: center;
+    letter-spacing: 1px;
+    font-family: 'Courier New', Courier, monospace; /* Monospace gives it a "coded" feel */
+    border-top: 1px solid #222;
+    padding-top: 20px;
+}
