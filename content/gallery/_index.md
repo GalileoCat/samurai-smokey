@@ -2,7 +2,7 @@
 title: "Art Gallery"
 draft: false
 ---
-
+The right place for illustrations and concept art.
 <div class="comic-grid">
 
 [![Illustration 1](/images/gallery/art1.jpg)](/images/gallery/art1.jpg)
