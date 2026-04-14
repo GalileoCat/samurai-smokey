@@ -33,7 +33,7 @@
 
     /* Shifts the bottom buttons to the right */
     .bottom-row {
-        padding-left: 150px; /* Pushes content from the left toward the right */
+        padding-left: 200px; /* Pushes content from the left toward the right */
     }
 
     .nav-row a {
@@ -48,6 +48,16 @@
         width: 100%; 
         height: auto; 
     }
+    /* Add this to your <style> block in index.html */
+/* 1. This spreads the links apart horizontally */
+.bottom-row a:first-child {
+    margin-right: 50px; 
+}
+
+/* 2. This pulls the ENTIRE row up toward the icon */
+.bottom-row {
+    margin-top: -70px !important; 
+}
 </style>
 
 <body>
@@ -59,7 +69,11 @@
     <img src="/images/home-icon.png" alt="GalileoCat Home Icon">
 
     <div class="nav-row bottom-row">
-        <a href="/info/">Info</a>
-        <a href="/commissions/">Commissions</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/commissions/">Commissions</a>
+</div>
+
+    <div style="margin-top: 20px;">
+        <a href="/info/" style="font-size: 0.8rem; opacity: 0.5; letter-spacing: 1px;">Info & Credits</a>
     </div>
 </body>
