@@ -70,12 +70,28 @@ hr {
    3. COMIC READER & GALLERY GRID
    ========================================================== */
 
-/* Vertical Reader (Chapter View) */
+/* VERTICAL READER: Seamless Flow */
+.vertical-reader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000; /* Ensures no white lines if there's a 1px rendering gap */
+}
+
+/* Remove margins from the images and their parent containers */
+.vertical-reader p {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0 !important; /* Critical: removes the tiny space for text descenders */
+}
+
 .vertical-reader img {
     display: block;
-    max-width: 900px;
     width: 100%;
-    margin: 0 auto 10px auto;
+    max-width: 900px; /* Keep your preferred width */
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border: none !important; /* Ensures no borders create gaps */
 }
 
 /* Art Gallery Grid (4 Columns) */
