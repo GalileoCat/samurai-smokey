@@ -4,8 +4,6 @@
   <url>
     <loc>//localhost:1313/comics/</loc>
   </url><url>
-    <loc>//localhost:1313/archive/</loc>
-  </url><url>
     <loc>//localhost:1313/gallery/</loc>
   </url><url>
     <loc>//localhost:1313/categories/</loc>
@@ -29,5 +27,7 @@
     <loc>//localhost:1313/tags/</loc>
   </url><url>
     <loc>//localhost:1313/play/</loc>
+  </url><url>
+    <loc>//localhost:1313/archive/</loc>
   </url>
 </urlset>
