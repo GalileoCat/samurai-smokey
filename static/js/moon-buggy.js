@@ -10,7 +10,7 @@ let gameActive = true;
 
 // Spawn Control Variables (The "Jitter" Logic)
 let spawnTimer = 0;
-let nextSpawnAt = 60; // Initial delay before the first potential spawn
+let nextSpawnAt = 60; 
 
 function draw() {
     if (!gameActive) return;
@@ -44,11 +44,8 @@ function draw() {
     ctx.fillStyle = '#ff4d4d';
     obstacles.forEach((obs, index) => {
         obs.x -= 5;
-        
-        // Draw the block (15x20)
         ctx.fillRect(obs.x, 150, 15, 20);
         
-        // Collision Detection
         if (
             player.x < obs.x + 15 && 
             player.x + player.width > obs.x && 
@@ -59,24 +56,17 @@ function draw() {
             location.reload(); 
         }
 
-        // Cleanup blocks that leave the screen
         if (obs.x < -20) {
             obstacles.splice(index, 1);
         }
     });
 
-    // 4. Procedural Generation with Variable Cooldown
+    // 4. Procedural Generation
     spawnTimer++;
     if (spawnTimer > nextSpawnAt) {
-        // 2% chance per frame once the cooldown is met
         if (Math.random() < 0.02) {
             obstacles.push({ x: 600 });
-            
-            // Reset timer
             spawnTimer = 0;
-            
-            // Set a NEW random cooldown for the next block
-            // This creates a gap of 40 to 120 frames (approx 0.6 to 2 seconds)
             nextSpawnAt = Math.floor(Math.random() * 80) + 40; 
         }
     }
@@ -90,26 +80,25 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
-// 6. Controls
+// 6. Desktop Controls (Spacebar)
 window.addEventListener('keydown', (e) => {
     if (e.code === 'Space' && player.grounded) {
         player.dy = -player.jumpForce;
         player.grounded = false;
     }
-// 6a. Mobile Touch Controls
+});
+
+// 6a. Mobile Touch Controls (Screen Tap)
 window.addEventListener('touchstart', (e) => {
-    // If the game is active and the player is on the ground
     if (gameActive && player.grounded) {
         player.dy = -player.jumpForce;
         player.grounded = false;
     }
     
-    // Prevent default behavior (like zooming or scrolling) while tapping to play
+    // Check if the tap is on the canvas to prevent scrolling/zooming
     if (gameActive && e.target === canvas) {
         e.preventDefault();
     }
 }, { passive: false });
-
-});
 
 draw();
