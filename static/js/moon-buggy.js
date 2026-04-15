@@ -96,6 +96,20 @@ window.addEventListener('keydown', (e) => {
         player.dy = -player.jumpForce;
         player.grounded = false;
     }
+// 6a. Mobile Touch Controls
+window.addEventListener('touchstart', (e) => {
+    // If the game is active and the player is on the ground
+    if (gameActive && player.grounded) {
+        player.dy = -player.jumpForce;
+        player.grounded = false;
+    }
+    
+    // Prevent default behavior (like zooming or scrolling) while tapping to play
+    if (gameActive && e.target === canvas) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
 });
 
 draw();
