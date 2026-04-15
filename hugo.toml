@@ -1,8 +1,0 @@
-baseURL = '/'
-languageCode = 'en-us'
-title = 'Samurai Smokey'
-
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
