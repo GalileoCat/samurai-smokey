@@ -2,20 +2,37 @@
 <html lang="en">
 <head>
 	<meta name="generator" content="Hugo 0.160.1"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    
-<link rel="stylesheet" href="//localhost:1313/css/custom.min.1562172751ca87028e2819f18f9802aa22958f39a846de74e04fb2fa8e66abdf.css" integrity="sha256-FWIXJ1HKhwKOKBnxj5gCqiKVjzmoRt504E&#43;y&#43;o5mq98=">
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Samurai Smokey</title>
-    <style>
-    body { 
-        background-color: #000; 
-        color: #fff; 
-        margin: 0; 
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self';">
+
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+    
+    <link rel="stylesheet" href="//localhost:1313/css/custom.min.f7bd7b75cfbde824a25ee06eddba7eb172ac5c05b0e078b5978c769ea21eee53.css" integrity="sha256-9717dc&#43;96CSiXuBu3bp&#43;sXKsXAWw4Hi1l4x2nqIe7lM=" media="screen">
+</head>
+<body>
+    <nav style="text-align: center; padding: 15px 0;">
+    <a href="/" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px;">HOME</a>
+    <span style="opacity: 0.2; margin: 0 10px;">|</span>
+    <a href="#" id="refresh-btn" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px;">REFRESH SITE</a>
+</nav>
+
+
+    <main>
+        
+<style>
+     
+    .home-container { 
         display: flex; 
         flex-direction: column; 
         align-items: center; 
-        justify-content: center; 
-        height: 100vh; 
+        justify-content: flex-start; 
+        padding-top: 10px; 
         font-family: sans-serif; 
     }
 
@@ -23,68 +40,77 @@
     .nav-row { 
         display: flex;
         justify-content: space-between;
-        width: 320px;  
-        margin: 15px 0; 
+        width: 320px; 
+        margin: 10px 0; 
     }
 
      
-.top-row { 
-    display: flex;
-    justify-content: space-between;
-    width: 300px; 
-    margin-bottom: -5px;  
-    padding-right: 10px; 
-}
+    .top-row { 
+        width: 300px; 
+        margin-bottom: -5px; 
+        padding-right: 10px; 
+        z-index: 2;
+    }
+
+     
+    .home-icon { 
+        max-width: 450px; 
+        width: 100%; 
+        height: auto; 
+        margin: 0 auto;
+    }
 
      
     .bottom-row {
-        padding-left: 10px;  
+        padding-left: 10px;
+        margin-top: 15px !important; 
+        margin-bottom: 25px;  
     }
 
+    .bottom-row a:first-child {
+        margin-right: 20px; 
+    }
+
+     
     .nav-row a {
         font-weight: 900; 
         font-size: 1.4rem;
         text-transform: uppercase;
-        text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 0 0 5px rgba(255,255,255,0.4);
     }
 
-    img { 
-        max-width: 500px; 
-        width: 100%; 
-        height: auto; 
-    }
      
- 
-.bottom-row a:first-child {
-    margin-right: 20px; 
-}
+    .sub-nav-links {
+        margin-top: 5px;
+        text-align: center;
+    }
 
- 
-.bottom-row {
-    margin-top: 10px !important; 
-}
-
+    .sub-nav-links a {
+        display: block;
+        margin-bottom: 8px;
+    }
 </style>
 
-<body>
+<div class="home-container">
     <div class="nav-row top-row">
         <a href="/comics/">Comics</a>
         <a href="/archive/">Archive</a>
     </div>
 
-    <img src="/images/home-icon (2).png" alt="GalileoCat Home Icon">
+    <img src="/images/home-icon (2).png" alt="GalileoCat Home Icon" class="home-icon">
 
     <div class="nav-row bottom-row">
-    <a href="/gallery/">Gallery</a>
-    <a href="/commissions/">Commissions</a>
+        <a href="/gallery/">Gallery</a>
+        <a href="/commissions/">Commissions</a>
+    </div>
+
+    <div class="sub-nav-links">
+        <a href="/info/" style="font-size: 0.8rem; opacity: 0.5; letter-spacing: 1px;">Info & Credits</a>
+        <a href="/play/" style="font-size: 1rem; font-weight: bold;">Take a Break</a>
+    </div>
 </div>
 
-    <div style="margin-top: 20px;">
-        <a href="/info/" style="font-size: 0.8rem; opacity: 0.5; letter-spacing: 1px;">Info & Credits</a>
-    </div>
-    <div class="sub-nav">
-    <div class="game-link">
-        <a href="/play/">Take a Break</a>
-    </div>
-    </div>
+    </main>
+
+    <script src="/js/main.js"></script>
 </body>
+</html>

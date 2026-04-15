@@ -248,6 +248,61 @@ footer {
     }
 }
 
+/* GLOBAL NAVIGATION HEADER */
+nav {
+    position: relative;
+    z-index: 9999; /* Forces it to the very front */
+    background-color: #000;
+    width: 100%;
+    border-bottom: 1px solid #111;
+    margin-bottom: 20px;
+}
+
+nav a {
+    font-size: 0.9rem !important;
+    font-weight: normal !important;
+    text-shadow: none !important; /* Prevents it from looking bulky like the home links */
+}
+/* --- LIST & ARCHIVE PAGE LAYOUT --- */
+.list-container {
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.clean-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.list-link {
+    font-weight: 900;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 15px 0;
+}
+
+.back-to-top-section {
+    margin-top: 80px;
+    padding-bottom: 50px;
+}
+
+.fade-hr {
+    border: 0;
+    border-top: 1px solid #333;
+    width: 40%;
+    margin: 20px auto;
+}
+
+.top-button {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.6;
+}
+
 /* Phone View */
 @media screen and (max-width: 600px) {
     .nav-row {

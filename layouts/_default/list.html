@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" style="background-color: #000;">
-<head>
-    <meta charset="UTF-8">
-    {{ $style := resources.Get "css/custom.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.css">
-    <title>{{ .Title }}</title>
-</head>
-<body style="background-color: #000; color: #fff; text-align: center; font-family: sans-serif; margin: 0; padding: 50px 20px;">
-    
-    <nav>
-        <a href="/">HOME</a> 
-    </nav>
-    
-    <hr style="border: 0; border-top: 1px solid #333; width: 60%; margin: 20px auto;">
+{{ define "main" }}
+<div class="list-container">
+    <nav class="sub-nav">
+        </nav>
     
     <h1>{{ .Title }}</h1>
 
@@ -22,30 +10,28 @@
     </div>
 
     {{ if not .Content }}
-    <ul style="list-style: none; padding: 0; margin-top: 30px;">
+    <ul class="clean-list">
         {{ range .Pages }}
-            <li style="margin: 15px 0;">
-                <a href="{{ .Permalink }}" style="font-weight: 900; text-transform: uppercase;">{{ .Title }}</a>
+            <li>
+                <a href="{{ .Permalink }}" class="list-link">{{ .Title }}</a>
             </li>
         {{ end }}
     </ul>
     {{ end }}
 
-    <div style="margin-top: 80px; padding-bottom: 50px;">
-        <hr style="border: 0; border-top: 1px solid #333; width: 40%; margin: 20px auto;">
-        <a href="#" style="font-weight: 900; text-transform: uppercase; letter-spacing: 3px;">
-            ↑ Back to Top
-        </a>
+    <div class="back-to-top-section">
+        <hr class="fade-hr">
+        <a href="#" class="top-button">↑ Back to Top</a>
     </div>
+</div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            new SimpleLightbox('.comic-grid a', { 
-                overlayOpacity: 0.9, 
-                history: false 
-            });
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new SimpleLightbox('.comic-grid a', { 
+            overlayOpacity: 0.9, 
+            history: false 
         });
-    </script>
-</body>
-</html>
+    });
+</script>
+{{ end }}

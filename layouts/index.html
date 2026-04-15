@@ -1,89 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {{ $style := resources.Get "css/custom.css" | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
-    <meta charset="UTF-8">
-    <title>Samurai Smokey</title>
-    <style>
-    body { 
-        background-color: #000; 
-        color: #fff; 
-        margin: 0; 
+{{ define "main" }}
+<style>
+    /* Home Container: Keeps everything centered and snappy */
+    .home-container { 
         display: flex; 
         flex-direction: column; 
         align-items: center; 
-        justify-content: center; 
-        height: 100vh; 
+        justify-content: flex-start; 
+        padding-top: 10px; 
         font-family: sans-serif; 
     }
 
-    /* Shared row settings */
+    /* Navigation Rows */
     .nav-row { 
         display: flex;
         justify-content: space-between;
-        width: 320px; /* Width remains consistent to maintain symmetry */
-        margin: 15px 0; 
+        width: 320px; 
+        margin: 10px 0; 
     }
 
-    /* Update this block in your <style> in index.html */
-.top-row { 
-    display: flex;
-    justify-content: space-between;
-    width: 300px; 
-    margin-bottom: -5px; /* Lowered from 25px to 5px to pull it down */
-    padding-right: 10px; 
-}
+    /* Top Row: Tight but not overlapping */
+    .top-row { 
+        width: 300px; 
+        margin-bottom: -5px; 
+        padding-right: 10px; 
+        z-index: 2;
+    }
 
-    /* Shifts the bottom buttons to the right */
+    /* Main Icon */
+    .home-icon { 
+        max-width: 450px; 
+        width: 100%; 
+        height: auto; 
+        margin: 0 auto;
+    }
+
+    /* THE ADJUSTMENT: Moved from -15px to 15px to push Gallery/Commissions down */
     .bottom-row {
-        padding-left: 10px; /* Pushes content from the left toward the right */
+        padding-left: 10px;
+        margin-top: 15px !important; 
+        margin-bottom: 25px; /* Added more space before Info/Credits */
     }
 
+    .bottom-row a:first-child {
+        margin-right: 20px; 
+    }
+
+    /* Link Typography */
     .nav-row a {
         font-weight: 900; 
         font-size: 1.4rem;
         text-transform: uppercase;
-        text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 0 0 5px rgba(255,255,255,0.4);
     }
 
-    img { 
-        max-width: 500px; 
-        width: 100%; 
-        height: auto; 
+    /* Sub-Nav: Pulls Info and Play links together */
+    .sub-nav-links {
+        margin-top: 5px;
+        text-align: center;
     }
-    /* Add this to your <style> block in index.html */
-/* 1. This spreads the links apart horizontally */
-.bottom-row a:first-child {
-    margin-right: 20px; 
-}
 
-/* 2. This pulls the ENTIRE row up toward the icon */
-.bottom-row {
-    margin-top: 10px !important; 
-}
-
+    .sub-nav-links a {
+        display: block;
+        margin-bottom: 8px;
+    }
 </style>
 
-<body>
+<div class="home-container">
     <div class="nav-row top-row">
         <a href="/comics/">Comics</a>
         <a href="/archive/">Archive</a>
     </div>
 
-    <img src="/images/home-icon (2).png" alt="GalileoCat Home Icon">
+    <img src="/images/home-icon (2).png" alt="GalileoCat Home Icon" class="home-icon">
 
     <div class="nav-row bottom-row">
-    <a href="/gallery/">Gallery</a>
-    <a href="/commissions/">Commissions</a>
-</div>
+        <a href="/gallery/">Gallery</a>
+        <a href="/commissions/">Commissions</a>
+    </div>
 
-    <div style="margin-top: 20px;">
+    <div class="sub-nav-links">
         <a href="/info/" style="font-size: 0.8rem; opacity: 0.5; letter-spacing: 1px;">Info & Credits</a>
+        <a href="/play/" style="font-size: 1rem; font-weight: bold;">Take a Break</a>
     </div>
-    <div class="sub-nav">
-    <div class="game-link">
-        <a href="/play/">Take a Break</a>
-    </div>
-    </div>
-</body>
+</div>
+{{ end }}
