@@ -26,10 +26,14 @@
         margin: 15px 0; 
     }
 
-    /* Shifts the top buttons to the left */
-    .top-row {
-        padding-right: 10px; /* Pushes content from the right toward the left */
-    }
+    /* Update this block in your <style> in index.html */
+.top-row { 
+    display: flex;
+    justify-content: space-between;
+    width: 300px; 
+    margin-bottom: -5px; /* Lowered from 25px to 5px to pull it down */
+    padding-right: 10px; 
+}
 
     /* Shifts the bottom buttons to the right */
     .bottom-row {
@@ -58,11 +62,12 @@
 .bottom-row {
     margin-top: 10px !important; 
 }
+
 </style>
 
 <body>
     <div class="nav-row top-row">
-        <a href="/comics/">Chapters</a>
+        <a href="/comics/">Comics</a>
         <a href="/archive/">Archive</a>
     </div>
 

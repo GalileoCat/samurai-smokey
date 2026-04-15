@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Chapters on Samurai Smokey</title>
+    <title>All Comics on Samurai Smokey</title>
     <link>//localhost:1313/comics/</link>
-    <description>Recent content in Chapters on Samurai Smokey</description>
+    <description>Recent content in All Comics on Samurai Smokey</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="//localhost:1313/comics/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Chapter 1: Sky Burns Black</title>
-      <link>//localhost:1313/comics/chapter-1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/comics/chapter-1/</guid>
-      <description>&lt;div style=&#34;padding-top: 100px;&#34;&gt;&#xD;&#xA;    &lt;h2 style=&#34;color: #666; letter-spacing: 5px; text-transform: uppercase;&#34;&gt;Coming Soon&lt;/h2&gt;&#xD;&#xA;    &lt;p style=&#34;color: #444;&#34;&gt;Still being worked on. Check back later.&lt;/p&gt;&#xD;&#xA;&lt;/div&gt;</description>
-    </item>
   </channel>
 </rss>

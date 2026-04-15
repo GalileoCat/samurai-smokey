@@ -1,12 +1,15 @@
-/* FORCE BLACKOUT */
+/* ==========================================================
+   1. CORE GLOBAL STYLES (Blackout Theme)
+   ========================================================== */
 html, body {
     background-color: #000 !important;
     color: #fff !important;
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 
-/* NAVIGATION & UNIVERSAL LINKS */
+/* Base Link & Navigation Styling */
 a, a:visited {
     color: #fff !important;
     text-decoration: none;
@@ -15,6 +18,7 @@ a, a:visited {
     display: inline-block; 
 }
 
+/* Hover Effect: Red Glow & Scaling */
 a:hover {
     color: #ff4d4d !important; 
     letter-spacing: 4px !important;
@@ -22,7 +26,51 @@ a:hover {
     text-shadow: 0 0 12px rgba(255, 77, 77, 0.8), 2px 2px 0px #000; 
 }
 
-/* COMIC READER (Vertical Chapters) */
+/* ==========================================================
+   2. ALL COMICS PAGE (Featured Title & Dividers)
+   ========================================================== */
+
+/* The main container for your flagship title (Samurai Smokey) */
+.featured-comic {
+    border: 2px solid #fff;
+    padding: 40px;
+    margin: 30px auto;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.03); /* Subtle dark grey tint */
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Interaction: Makes the featured box "react" to the mouse */
+.featured-comic:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 20px rgba(255, 77, 77, 0.15);
+    border-color: #ff4d4d;
+}
+
+/* Specific styling for the Big Title Link */
+.featured-comic h1 a {
+    color: #ff4d4d !important;
+    font-size: 2.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px #000;
+}
+
+/* Stylized Horizontal Rules (The Gradient Dividers) */
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    margin: 50px 0;
+}
+
+/* ==========================================================
+   3. COMIC READER & GALLERY GRID
+   ========================================================== */
+
+/* Vertical Reader (Chapter View) */
 .vertical-reader img {
     display: block;
     max-width: 900px;
@@ -30,7 +78,7 @@ a:hover {
     margin: 0 auto 10px auto;
 }
 
-/* ART GALLERY GRID */
+/* Art Gallery Grid (4 Columns) */
 .comic-grid {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important; 
@@ -40,11 +88,12 @@ a:hover {
     padding: 0 20px;
 }
 
-/* THE FIX: Prevents Hugo's <p> tags from breaking the horizontal flow */
+/* Prevents Hugo's auto-generated <p> tags from breaking grid layout */
 .comic-grid p {
     display: contents;
 }
 
+/* Individual Image Styling in Gallery */
 .comic-grid img {
     width: 100%;
     height: 250px; 
@@ -60,29 +109,43 @@ a:hover {
     z-index: 2;
 }
 
-/* RESPONSIVE DESIGN */
+/* ==========================================================
+   4. FOOTER & MISC
+   ========================================================== */
+footer {
+    text-align: center;
+    letter-spacing: 1px;
+    font-family: 'Courier New', Courier, monospace;
+    border-top: 1px solid #222;
+    padding: 30px 0;
+    margin-top: 50px;
+    opacity: 0.6;
+}
+
+/* ==========================================================
+   5. RESPONSIVE DESIGN (Mobile Tweaks)
+   ========================================================== */
+
+/* Tablet View (2 Columns) */
 @media screen and (max-width: 768px) {
     .comic-grid {
         grid-template-columns: repeat(2, 1fr) !important;
     }
+    .featured-comic h1 a {
+        font-size: 2rem;
+    }
 }
 
+/* Phone View */
 @media screen and (max-width: 600px) {
     .nav-row {
-        width: 90% !important; /* Prevents home links from cutting off */
+        width: 90% !important; 
     }
     .nav-row a {
         margin: 0 10px;
         font-size: 1rem;
     }
     img {
-        max-width: 300px;
+        max-width: 100%; /* Ensures images don't overflow on small screens */
     }
-}
-footer {
-    text-align: center;
-    letter-spacing: 1px;
-    font-family: 'Courier New', Courier, monospace; /* Monospace gives it a "coded" feel */
-    border-top: 1px solid #222;
-    padding-top: 20px;
 }

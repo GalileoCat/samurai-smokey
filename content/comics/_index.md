@@ -1,7 +1,22 @@
 ---
-title: "Chapters"
-draft: false
+title: "All Comics"
+layout: "list"
 ---
-The tale of a great samurai named Smokey.
 
-### Chapter 1: Sky Burns Black (Coming Soon)
+<div class="featured-comic">
+
+## ★ CURRENT MAIN PROJECT ★
+# [SAMURAI SMOKEY](/comics/SamuraiSmokey/)
+*The tale of a great Samurai named Smokey.*
+
+</div>
+
+---
+
+### UPCOMING TITLES
+
+**Skull Kitten** *(Coming Soon)*
+
+**NOVA - Desert Diaspora** *(Coming Soon)*
+
+---

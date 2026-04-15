@@ -2,21 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>//localhost:1313/comics/</loc>
+  </url><url>
+    <loc>//localhost:1313/comics/samuraismokey/</loc>
+  </url><url>
     <loc>//localhost:1313/archive/</loc>
   </url><url>
     <loc>//localhost:1313/gallery/</loc>
   </url><url>
     <loc>//localhost:1313/categories/</loc>
   </url><url>
-    <loc>//localhost:1313/archive/2020-ch1/</loc>
+    <loc>//localhost:1313/comics/samuraismokey/chapter-1/</loc>
   </url><url>
-    <loc>//localhost:1313/comics/chapter-1/</loc>
+    <loc>//localhost:1313/archive/2020-ch1/</loc>
   </url><url>
     <loc>//localhost:1313/archive/2020-ch2/</loc>
   </url><url>
     <loc>//localhost:1313/archive/2020-ch3/</loc>
-  </url><url>
-    <loc>//localhost:1313/comics/</loc>
   </url><url>
     <loc>//localhost:1313/commissions/</loc>
   </url><url>
