@@ -4,8 +4,6 @@
   <url>
     <loc>//localhost:1313/comics/</loc>
   </url><url>
-    <loc>//localhost:1313/comics/samuraismokey/</loc>
-  </url><url>
     <loc>//localhost:1313/archive/</loc>
   </url><url>
     <loc>//localhost:1313/gallery/</loc>
@@ -25,6 +23,8 @@
     <loc>//localhost:1313/</loc>
   </url><url>
     <loc>//localhost:1313/info/</loc>
+  </url><url>
+    <loc>//localhost:1313/comics/samuraismokey/</loc>
   </url><url>
     <loc>//localhost:1313/tags/</loc>
   </url><url>
