@@ -8,9 +8,13 @@
 </head>
 <body style="background-color: #000; color: #fff; text-align: center; font-family: sans-serif; margin: 0; padding: 50px 20px;">
     
-    <nav style="margin-bottom: 20px;">
-        <a href="/">HOME</a> | <a href="/archive/">BACK TO ARCHIVE</a>
-    </nav>
+    <nav class="chapter-nav" style="text-align: center; margin-top: 20px;">
+    {{ if in .RelPermalink "/archive/" }}
+        <a href="/archive/" style="font-size: 0.8rem; opacity: 0.7;">← BACK TO ARCHIVE</a>
+    {{ else if in .RelPermalink "/samurai-smokey/" }}
+        <a href="/comics/samurai-smokey/" style="font-size: 0.8rem; opacity: 0.7;">← BACK TO CHAPTERS</a>
+    {{ end }}
+</nav>
     
     <hr style="border: 0; border-top: 1px solid #333; width: 60%; margin: 20px auto;">
     

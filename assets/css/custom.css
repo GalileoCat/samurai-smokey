@@ -233,6 +233,18 @@ footer {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
 }
+/* Ensure the footer area is always centered */
+.back-to-top-section, 
+footer, 
+.gallery-wrapper + div { 
+    text-align: center !important;
+    width: 100%;
+    margin: 40px auto;
+}
+
+.top-button, .back-to-top-section a {
+    display: inline-block;
+}
 
 /* ==========================================================
    5. RESPONSIVE DESIGN (Mobile Tweaks)
