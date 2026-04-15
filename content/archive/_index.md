@@ -2,7 +2,6 @@
 title: "The Archive"
 layout: "list"
 ---
-
 <div class="archive-vault">
 
 ## 2020 DRAFT CHAPTERS
