@@ -6,6 +6,8 @@
   </url><url>
     <loc>//localhost:1313/archive/2020-ch2/</loc>
   </url><url>
+    <loc>//localhost:1313/archive/2020-ch3/</loc>
+  </url><url>
     <loc>//localhost:1313/comics/samurai-smokey/</loc>
   </url><url>
     <loc>//localhost:1313/comics/</loc>
@@ -15,8 +17,6 @@
     <loc>//localhost:1313/categories/</loc>
   </url><url>
     <loc>//localhost:1313/comics/samurai-smokey/chapter-1/</loc>
-  </url><url>
-    <loc>//localhost:1313/archive/2020-ch3/</loc>
   </url><url>
     <loc>//localhost:1313/commissions/</loc>
   </url><url>
