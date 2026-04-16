@@ -1,8 +1,13 @@
 ---
-title: "Chapter 1 - Sky Burns Black"
-draft: false
+title: "Season 1 - Don't Be Alarmed"
 ---
-Coming Soon!
+<div class="back-to-top-section" style="text-align: center;">
+    <a href="/comics/food-cats/" style="color: #2fb98f; text-decoration: none; font-family: monospace; letter-spacing: 1px;">← RETURN TO CHAPTER LIST</a>
+</div>
+
+<div style="max-width: 800px; margin: 0 auto; text-align: center;">
+    <img src="/images/foodcats/ch1/page1.jpg" style="width: 100%; margin-bottom: -5px;">
+    <img src="/images/foodcats/ch1/page2.jpg" style="width: 100%; margin-bottom: -5px;">
 
 ### Support & Connect with me!
 <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; justify-content: center;">
@@ -10,3 +15,8 @@ Coming Soon!
     <a href="https://x.com/galileo_cat" target="_blank" style="border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;">TWITTER</a>
     <a href="https://linktr.ee/GalileoCat" target="_blank" style="border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;">LINKTREE</a>
 </div>
+
+</div>
+
+<br><br>
+
