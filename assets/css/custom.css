@@ -233,18 +233,6 @@ footer {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
 }
-/* Ensure the footer area is always centered */
-.back-to-top-section, 
-footer, 
-.gallery-wrapper + div { 
-    text-align: center !important;
-    width: 100%;
-    margin: 40px auto;
-}
-
-.top-button, .back-to-top-section a {
-    display: inline-block;
-}
 
 /* ==========================================================
    5. RESPONSIVE DESIGN (Mobile Tweaks)
@@ -275,91 +263,6 @@ nav a {
     font-weight: normal !important;
     text-shadow: none !important; /* Prevents it from looking bulky like the home links */
 }
-
-/* --- CHAPTER SELECTION SCREEN --- */
-.series-header {
-    text-align: center;
-    padding: 40px 0;
-}
-
-.glitch-title {
-    font-size: 3rem;
-    font-weight: 900;
-    letter-spacing: 5px;
-    margin: 0;
-}
-
-.section-divider {
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid #222;
-    line-height: 0.1em;
-    margin: 40px 0;
-}
-
-.section-divider span {
-    background: #000;
-    padding: 0 20px;
-    font-size: 1.2rem;
-    letter-spacing: 4px;
-    opacity: 0.7;
-}
-
-/* The Chapter Cards */
-.chapter-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.chapter-card {
-    display: block;
-    background: #0a0a0a;
-    border: 1px solid #222;
-    padding: 30px;
-    position: relative;
-    transition: all 0.3s ease;
-    text-decoration: none !important;
-}
-
-.chapter-card:hover {
-    border-color: #ff4d4d;
-    background: rgba(255, 77, 77, 0.05);
-    transform: translateX(10px); /* Subtle slide-out effect */
-}
-
-.chapter-number {
-    font-family: monospace;
-    color: #ff4d4d;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-}
-
-.chapter-info h3 {
-    margin: 10px 0;
-    font-size: 1.5rem;
-    color: #fff;
-}
-
-.status-tag {
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    opacity: 0.5;
-}
-
-/* Style for Locked/Coming Soon Chapters */
-.chapter-card.locked {
-    opacity: 0.4;
-    cursor: not-allowed;
-    border-style: dashed;
-}
-
-.chapter-card.soon:hover {
-    box-shadow: -5px 0 15px rgba(255, 77, 77, 0.2);
-}
-
 /* --- LIST & ARCHIVE PAGE LAYOUT --- */
 .list-container {
     text-align: center;
