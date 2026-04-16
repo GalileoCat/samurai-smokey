@@ -6,3 +6,4 @@ title = 'Samurai Smokey'
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+

@@ -341,3 +341,61 @@ nav a {
     margin-bottom: 50px;
     display: block;
 }
+/* ==========================================================
+   MOBILE RESPONSIVE OVERRIDES (Max Width: 768px)
+   ========================================================== */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Prevent the dreaded "horizontal scroll" */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* 2. Fix the Comic Grid (Switches from 4 columns to 2) */
+    .comic-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        padding: 0 10px !important;
+    }
+
+    /* 3. Make Navigation Touch-Friendly */
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 15px; /* Adds space between links so thumbs don't miss */
+        padding: 20px 0 !important;
+    }
+    
+    nav a {
+        padding: 10px; /* Invisible padding makes the tap target larger */
+    }
+    
+    nav span {
+        margin: 0 !important; /* Removes the hardcoded margin around the | divider */
+    }
+
+    /* 4. Fix Search Bar iOS Zoom Bug */
+    /* iPhones auto-zoom the screen if input text is less than 16px */
+    #searchInput {
+        font-size: 16px !important; 
+        padding: 15px !important;
+    }
+
+    /* 5. Adjust Archive Timeline Spacing */
+    .archive-vault {
+        padding: 0 15px !important; /* Prevents text from touching the screen edges */
+    }
+}
+
+/* For extremely small screens (like older iPhones) */
+@media screen and (max-width: 480px) {
+    /* Compress grid to 1 single column for max image size */
+    .comic-grid {
+        grid-template-columns: 1fr !important;
+    }
+}

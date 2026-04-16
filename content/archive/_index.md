@@ -27,3 +27,4 @@ layout: "list"
 [GO TO GALLERY](/gallery/)
 
 </div>
+
