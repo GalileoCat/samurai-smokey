@@ -4,18 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' https://gc.zgo.at https://cdnjs.cloudflare.com; shadow-box 'none';">
-
     <meta name="referrer" content="no-referrer-when-downgrade">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-
     {{ $style := resources.Get "css/custom.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" media="screen">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.css">
-
     <script data-goatcounter="https://galileocat.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -24,11 +19,9 @@
         <span style="opacity: 0.2; margin: 0 10px;">|</span>
         <a href="#" id="refresh-btn" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px;">REFRESH SITE</a>
     </nav>
-
     <main>
         {{ block "main" . }}{{ end }}
     </main>
-
     <script src="/js/main.js"></script>
 </body>
 </html>
