@@ -317,3 +317,27 @@ nav a {
     }
 }
 
+/* Final Center Fix for Footer Buttons */
+.back-to-top-section {
+    display: block !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 80px 0 !important;
+    padding: 0 !important;
+    clear: both !important;
+    position: relative !important;
+    left: 0 !important;
+}
+
+.back-to-top-section a {
+    margin: 0 auto !important;
+    display: inline-block !important;
+    float: none !important;
+}
+
+/* Force the grid to stop interfering with the footer */
+.gallery-wrapper {
+    width: 100%;
+    margin-bottom: 50px;
+    display: block;
+}
