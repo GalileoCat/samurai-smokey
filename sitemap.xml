@@ -8,9 +8,9 @@
   </url><url>
     <loc>//localhost:1313/archive/2020-ch3/</loc>
   </url><url>
-    <loc>//localhost:1313/comics/samurai-smokey/</loc>
-  </url><url>
     <loc>//localhost:1313/comics/</loc>
+  </url><url>
+    <loc>//localhost:1313/comics/samurai-smokey/</loc>
   </url><url>
     <loc>//localhost:1313/gallery/</loc>
   </url><url>
@@ -19,6 +19,8 @@
     <loc>//localhost:1313/comics/samurai-smokey/chapter-1/</loc>
   </url><url>
     <loc>//localhost:1313/commissions/</loc>
+  </url><url>
+    <loc>//localhost:1313/comics/food-cats/</loc>
   </url><url>
     <loc>//localhost:1313/</loc>
   </url><url>

@@ -195,3 +195,4 @@ window.addEventListener('touchstart', (e) => {
 
 // Start the engine
 draw();
+
