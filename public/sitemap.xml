@@ -10,6 +10,8 @@
   </url><url>
     <loc>//localhost:1313/comics/</loc>
   </url><url>
+    <loc>//localhost:1313/comics/food-cats/</loc>
+  </url><url>
     <loc>//localhost:1313/comics/samurai-smokey/</loc>
   </url><url>
     <loc>//localhost:1313/gallery/</loc>
@@ -20,9 +22,11 @@
   </url><url>
     <loc>//localhost:1313/commissions/</loc>
   </url><url>
-    <loc>//localhost:1313/comics/food-cats/</loc>
-  </url><url>
     <loc>//localhost:1313/</loc>
+  </url><url>
+    <loc>//localhost:1313/comics/food-cats/chapter-2/</loc>
+  </url><url>
+    <loc>//localhost:1313/comics/food-cats/chapter-1/</loc>
   </url><url>
     <loc>//localhost:1313/info/</loc>
   </url><url>
