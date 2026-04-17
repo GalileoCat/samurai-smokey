@@ -30,7 +30,7 @@ a:hover {
    2. ALL COMICS PAGE (Featured Title & Dividers)
    ========================================================== */
 
-/* The main container for your flagship title (Samurai Smokey) */
+/* The main container for Samurai Smokey */
 .featured-comic {
     border: 2px solid #fff;
     padding: 40px;
@@ -88,7 +88,7 @@ hr {
 .vertical-reader img {
     display: block;
     width: 100%;
-    max-width: 900px; /* Keep your preferred width */
+    max-width: 900px; /* Keeps preffered width */
     margin: 0 auto !important;
     padding: 0 !important;
     border: none !important; /* Ensures no borders create gaps */
@@ -124,6 +124,7 @@ hr {
     border-color: #ff4d4d;
     z-index: 2;
 }
+
 
 /* ==========================================================
    4. FOOTER & MISC
@@ -272,6 +273,7 @@ footer {
     border-color: #2fb98f;
 }
 
+
 /* ==========================================================
    5. RESPONSIVE DESIGN (Mobile Tweaks)
    ========================================================== */
@@ -340,6 +342,20 @@ nav a {
     letter-spacing: 3px;
     opacity: 0.6;
 }
+/* ==========================================================
+   LIGHTBOX Z-INDEX OVERRIDE (Tiered Stacking)
+   ========================================================== */
+.sl-overlay {
+    z-index: 99998 !important; /* Layer 1: The dim background covers the site */
+}
+.sl-wrapper {
+    z-index: 99999 !important; /* Layer 2: The image sits on top of the background */
+}
+.sl-navigation, 
+.sl-close {
+    z-index: 100000 !important; /* Layer 3: The buttons sit on the very top */
+}
+
 
 /* Phone View */
 @media screen and (max-width: 600px) {
