@@ -2,6 +2,11 @@
 title: "Art Gallery"
 layout: "list"
 ---
+<div class="archive-vault" style="max-width: 800px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 40px;">
+        <img src="/images/banners/gallerybanner.jpg" alt="Samurai Smokey Archive Banner" style="width: 100%; max-width: 100%; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 0 15px rgba(255, 77, 77, 0.1);">
+
+
 *Selected illustrations, concept sketches, and character designs.*
 <div class="gallery-credits">
     <span>FEATURING ART BY:</span>

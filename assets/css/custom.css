@@ -273,6 +273,43 @@ footer {
     border-color: #2fb98f;
 }
 
+/* ==========================================================
+   ARCHIVE TIMELINE (Image Layout Upgrade)
+   ========================================================== */
+.archive-timeline-container {
+    border-left: 1px solid rgba(255, 255, 255, 0.15); /* The vertical line */
+    padding-left: 30px;
+    margin-left: 20px;
+}
+
+.archive-timeline-entry {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.archive-timeline-entry:hover {
+    transform: translateX(5px);
+    filter: brightness(1.2);
+}
+
+/* The Glowing Dot */
+.archive-timeline-entry::before {
+    content: "";
+    position: absolute;
+    left: -35px; /* Pulls the dot perfectly onto the border line */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 9px;
+    height: 9px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.6);
+}
+
 
 /* ==========================================================
    5. RESPONSIVE DESIGN (Mobile Tweaks)
@@ -453,3 +490,4 @@ nav a {
         grid-template-columns: 1fr !important;
     }
 }
+
