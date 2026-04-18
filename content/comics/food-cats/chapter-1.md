@@ -5,6 +5,13 @@ title: "Season 1 - Don't Be Alarmed"
     <a href="/comics/food-cats/" style="color: #2fb98f; text-decoration: none; font-family: monospace; letter-spacing: 1px;">← RETURN TO CHAPTER LIST</a>
 </div>
 
+## ---------------------------
+
+<div style="margin: 20px 0 40px 0; padding: 20px; border: 1px solid #333; background: #0a0a0a;">
+        <p style="color: #aaa; font-style: italic; font-size: 1.1rem; margin: 0;">Every morning at Cookies house!
+        > u < </p>
+    </div>
+
 <div style="max-width: 800px; margin: 0 auto; text-align: center;">
     <img src="/images/foodcats/ch1/page1.jpg" style="width: 100%; margin-bottom: -5px;">
     <img src="/images/foodcats/ch1/page2.jpg" style="width: 100%; margin-bottom: -5px;">
