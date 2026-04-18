@@ -13,7 +13,7 @@ title: "Season 1 - Milk Bath"
     </div>
 
 <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-    <img src="/images/foodcats/ch2/page1.jpg" style="width: 100%; margin-bottom: -5px;">
+    <img src="/images/foodcats/ch9/page1.jpg" style="width: 100%; margin-bottom: -5px;">
     
 ### Support & Connect with me!
 <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; justify-content: center;">
