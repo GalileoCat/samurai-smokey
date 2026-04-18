@@ -14,6 +14,8 @@
   </url><url>
     <loc>//localhost:1313/comics/samurai-smokey/</loc>
   </url><url>
+    <loc>//localhost:1313/about/</loc>
+  </url><url>
     <loc>//localhost:1313/gallery/</loc>
   </url><url>
     <loc>//localhost:1313/categories/</loc>
@@ -24,9 +26,31 @@
   </url><url>
     <loc>//localhost:1313/</loc>
   </url><url>
+    <loc>//localhost:1313/comics/food-cats/chapter-4/</loc>
+  </url><url>
     <loc>//localhost:1313/comics/food-cats/chapter-2/</loc>
   </url><url>
+    <loc>//localhost:1313/comics/food-cats/chapter-5/</loc>
+  </url><url>
+    <loc>//localhost:1313/comics/food-cats/chapter-3/</loc>
+  </url><url>
     <loc>//localhost:1313/comics/food-cats/chapter-1/</loc>
+  </url><url>
+    <loc>//localhost:1313/comics/food-cats/chapter-10/</loc>
+  </url><url>
+    <loc>//localhost:1313/comics/food-cats/chapter-8/</loc>
+  </url><url>
+    <loc>//localhost:1313/comics/food-cats/chapter-7/</loc>
+  </url><url>
+    <loc>//localhost:1313/comics/food-cats/chapter-6/</loc>
+  </url><url>
+    <loc>//localhost:1313/comics/food-cats/chapter-9/</loc>
+  </url><url>
+    <loc>//localhost:1313/comics/food-cats/chapter-13/</loc>
+  </url><url>
+    <loc>//localhost:1313/comics/food-cats/chapter-11/</loc>
+  </url><url>
+    <loc>//localhost:1313/comics/food-cats/chapter-12/</loc>
   </url><url>
     <loc>//localhost:1313/info/</loc>
   </url><url>
