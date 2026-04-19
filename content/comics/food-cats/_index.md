@@ -15,6 +15,11 @@ title: " "
     </div>
 </div>
     <p style="color: #aaa; font-style: italic; margin-bottom: 40px;">The silly adventures of Food Cats.</p>
+    <div style="margin-bottom: 50px;">
+        <a href="/comics/food-cats/chapter-13/" style="display: inline-block; padding: 15px 35px; background: rgba(47, 185, 143, 0.1); border: 2px solid #2fb98f; color: #fff; text-decoration: none; font-family: monospace; font-size: 1.2rem; font-weight: bold; letter-spacing: 2px; border-radius: 8px; box-shadow: 0 0 20px rgba(47, 185, 143, 0.4); text-transform: uppercase;">
+            ★ Read Latest Update (Ch. 13) ★
+        </a>
+    </div>
     <h2 style="color: #fff; letter-spacing: 4px; margin-bottom: 30px;">CHAPTERS</h2>
     <div style="display: flex; flex-direction: column; gap: 20px; max-width: 600px; margin: 0 auto;">
         <a href="/comics/food-cats/chapter-1/" style="text-decoration: none;">
