@@ -6,7 +6,12 @@ title: "Season 1 - Apple Luck"
 </div>
 
 ## ---------------------------
-
+<div style="max-width: 800px; margin: 0 auto; text-align: center;">
+    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 800px; margin: 0 auto 30px auto; padding: 10px 20px; border: 1px solid #333; background: #0a0a0a; border-radius: 5px;">
+        <a href="/comics/food-cats/chapter-1/" style="color: #2fb98f; text-decoration: none; font-family: monospace; letter-spacing: 1px; font-weight: bold;">← PREV</a>
+        <a href="/comics/food-cats/" style="color: #aaa; text-decoration: none; font-family: monospace; letter-spacing: 2px;">INDEX</a>
+        <a href="/comics/food-cats/chapter-3/" style="color: #2fb98f; text-decoration: none; font-family: monospace; letter-spacing: 1px; font-weight: bold;">NEXT →</a>
+    </div>
 <div style="margin: 20px 0 40px 0; padding: 20px; border: 1px solid #333; background: #0a0a0a;">
         <p style="color: #aaa; font-style: italic; font-size: 1.1rem; margin: 0;">That one lucky text book with the answers written down in it! Thank you mysterious answer guy. * u * </p>
     </div>
@@ -14,7 +19,12 @@ title: "Season 1 - Apple Luck"
 <div style="max-width: 800px; margin: 0 auto; text-align: center;">
     <img src="/images/foodcats/ch2/page1.jpg" style="width: 100%; margin-bottom: -5px;">
     <img src="/images/foodcats/ch2/page2.jpg" style="width: 100%; margin-bottom: -5px;">
-    
+<div style="max-width: 800px; margin: 0 auto; text-align: center;">
+    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 800px; margin: 0 auto 30px auto; padding: 10px 20px; border: 1px solid #333; background: #0a0a0a; border-radius: 5px;">
+        <a href="/comics/food-cats/chapter-1/" style="color: #2fb98f; text-decoration: none; font-family: monospace; letter-spacing: 1px; font-weight: bold;">← PREV</a>
+        <a href="/comics/food-cats/" style="color: #aaa; text-decoration: none; font-family: monospace; letter-spacing: 2px;">INDEX</a>
+        <a href="/comics/food-cats/chapter-3/" style="color: #2fb98f; text-decoration: none; font-family: monospace; letter-spacing: 1px; font-weight: bold;">NEXT →</a>
+    </div>    
 ### Support & Connect with me!
 <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; justify-content: center;">
     <a href="https://ko-fi.com/galileo_cat" target="_blank" style="border: 1px solid #ff4d4d; color: #ff4d4d !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 77, 77, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;">SUPPORT ON KO-FI</a>
