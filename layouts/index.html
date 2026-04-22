@@ -1,85 +1,144 @@
 {{ define "main" }}
+
 <style>
-    /* Home Container: Keeps everything centered and snappy */
-    .home-container { 
-        display: flex; 
-        flex-direction: column; 
-        align-items: center; 
-        justify-content: flex-start; 
-        padding-top: 10px; 
-        font-family: sans-serif; 
-    }
+/* ==========================================================
+   ARCADE 'STAGE SELECT' HOME PAGE
+   ========================================================== */
+.arcade-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
 
-    /* Navigation Rows */
-    .nav-row { 
-        display: flex;
-        justify-content: space-between;
-        width: 320px; 
-        margin: 10px 0; 
-    }
+.arcade-card {
+    position: relative;
+    background: #0a0a0a;
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 40px 20px;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+}
 
-    /* Top Row: Tight but not overlapping */
-    .top-row { 
-        width: 300px; 
-        margin-bottom: -5px; 
-        padding-right: 10px; 
-        z-index: 2;
-    }
+.arcade-card-content {
+    position: relative;
+    z-index: 2;
+}
 
-    /* Main Icon */
-    .home-icon { 
-        max-width: 450px; 
-        width: 100%; 
-        height: auto; 
-        margin: 0 auto;
-    }
+/* CRT Scanline Overlay */
+.arcade-card::after {
+    content: " ";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%);
+    background-size: 100% 4px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.5;
+}
 
-    /* Moved from -15px to 15px to push Gallery/Commissions down */
-    .bottom-row {
-        padding-left: 10px;
-        margin-top: 15px !important; 
-        margin-bottom: 25px; /* Added more space before Info/Credits */
-    }
+/* THE NEON HOVER EFFECTS */
+.arcade-card.comics:hover { border-color: #ff4d4d; box-shadow: 0 0 25px rgba(255, 77, 77, 0.5), inset 0 0 15px rgba(255, 77, 77, 0.2); transform: translateY(-5px); }
+.arcade-card.archive:hover { border-color: #2fb98f; box-shadow: 0 0 25px rgba(47, 185, 143, 0.5), inset 0 0 15px rgba(47, 185, 143, 0.2); transform: translateY(-5px); }
+.arcade-card.gallery:hover { border-color: #00e5ff; box-shadow: 0 0 25px rgba(0, 229, 255, 0.5), inset 0 0 15px rgba(0, 229, 255, 0.2); transform: translateY(-5px); }
+.arcade-card.commission:hover { border-color: #ff00ff; box-shadow: 0 0 25px rgba(255, 0, 255, 0.5), inset 0 0 15px rgba(255, 0, 255, 0.2); transform: translateY(-5px); }
+.arcade-card.info:hover { border-color: #ffb300; box-shadow: 0 0 25px rgba(255, 179, 0, 0.5), inset 0 0 15px rgba(255, 179, 0, 0.2); transform: translateY(-5px); }
+.arcade-card.play:hover { border-color: #b3ff00; box-shadow: 0 0 25px rgba(179, 255, 0, 0.5), inset 0 0 15px rgba(179, 255, 0, 0.2); transform: translateY(-5px); }
 
-    .bottom-row a:first-child {
-        margin-right: 20px; 
-    }
+/* Typography Formatting */
+.arcade-title {
+    color: #fff;
+    font-family: monospace;
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+    margin: 15px 0 10px 0;
+    text-transform: uppercase;
+}
 
-    /* Link Typography */
-    .nav-row a {
-        font-weight: 900; 
-        font-size: 1.4rem;
-        text-transform: uppercase;
-    }
+.arcade-desc {
+    color: #888;
+    font-size: 0.9rem;
+    margin: 0;
+    font-style: italic;
+}
 
-    /* Sub-Nav: Pulls Info and Play links together */
-    .sub-nav-links {
-        margin-top: 5px;
-        text-align: center;
-    }
-
-    .sub-nav-links a {
-        display: block;
-        margin-bottom: 8px;
-    }
+/* Blinking Text Animation */
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+.blinking-text {
+    animation: blink-cursor 1.5s infinite;
+}
 </style>
 
-<div class="home-container">
-    <div class="nav-row top-row">
-        <a href="/comics/">Comics</a>
-        <a href="/archive/">Archive</a>
-    </div>
-
-    <img src="/images/home-icon (2).png" alt="GalileoCat Home Icon" class="home-icon">
-
-    <div class="nav-row bottom-row">
-        <a href="/gallery/">Gallery</a>
-        <a href="/commissions/">Commissions</a>
-    </div>
-
-    <div class="sub-nav-links">
-        <a href="/info/" style="font-size: 0.8rem; opacity: 0.5; letter-spacing: 1px;">Info & Credits</a>
-        <a href="/play/" style="font-size: 1rem; font-weight: bold;">Take a Break</a>
-    </div>
+<div style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
+    <h1 style="color: #fff; font-family: monospace; font-size: 3.5rem; letter-spacing: 5px; margin-bottom: 5px; text-shadow: 0 0 15px rgba(255,255,255,0.3);">MAIN MENU</h1>
+    <p class="blinking-text" style="color: #2fb98f; font-family: monospace; font-size: 1.2rem; letter-spacing: 3px; margin: 0;">> SELECT DESTINATION _</p>
 </div>
+
+<hr class="fade-hr" style="max-width: 800px; margin: 0 auto 30px auto;">
+
+<div class="arcade-grid">
+
+    <a href="/comics/" class="arcade-card comics">
+        <div class="arcade-card-content">
+            <img src="/images/comicsicon/ss.png" style="width: 60px; height: 60px; border-radius: 8px;">
+            <h2 class="arcade-title">COMICS</h2>
+            <p class="arcade-desc">Current and upcoming series.</p>
+        </div>
+    </a>
+
+    <a href="/archive/" class="arcade-card archive">
+        <div class="arcade-card-content">
+            <img src="/images/comicsicon/1.png" style="width: 60px; height: 60px; border-radius: 8px;">
+            <h2 class="arcade-title">ARCHIVE</h2>
+            <p class="arcade-desc">legacy chapters.</p>
+        </div>
+    </a>
+
+    <a href="/gallery/" class="arcade-card gallery">
+        <div class="arcade-card-content">
+            <h2 class="arcade-title" style="font-size: 3rem; margin: 0; color: #fff;">✦</h2>
+            <h2 class="arcade-title">GALLERY</h2>
+            <p class="arcade-desc">Concept art and illustrations.</p>
+        </div>
+    </a>
+
+    <a href="/commissions/" class="arcade-card commission">
+        <div class="arcade-card-content">
+            <h2 class="arcade-title" style="font-size: 3rem; margin: 0; color: #fff;">$</h2>
+            <h2 class="arcade-title">COMMISSION</h2>
+            <p class="arcade-desc">Hire the artist.</p>
+        </div>
+    </a>
+
+    <a href="/info/" class="arcade-card info">
+        <div class="arcade-card-content">
+            <h2 class="arcade-title" style="font-size: 3rem; margin: 0; color: #fff;">?</h2>
+            <h2 class="arcade-title">DATABASE</h2>
+            <p class="arcade-desc">Lore and system info.</p>
+        </div>
+    </a>
+
+    <a href="/play/" class="arcade-card play">
+        <div class="arcade-card-content">
+            <h2 class="arcade-title" style="font-size: 3rem; margin: 0; color: #fff;">►</h2>
+            <h2 class="arcade-title">PLAY</h2>
+            <p class="arcade-desc">Enter the sandbox.</p>
+        </div>
+    </a>
+
+</div>
+
 {{ end }}

@@ -491,3 +491,92 @@ nav a {
     }
 }
 
+/* ==========================================================
+   ARCADE 'STAGE SELECT' HOME PAGE
+   ========================================================== */
+.arcade-grid {
+    display: grid;
+    /* Automatically creates a responsive grid that shrinks for mobile */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.arcade-card {
+    position: relative;
+    background: #0a0a0a;
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 40px 20px;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+}
+
+/* Make sure text stays above the scanline effect */
+.arcade-card-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* CRT Scanline Overlay */
+.arcade-card::after {
+    content: " ";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%);
+    background-size: 100% 4px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* ==========================================
+   THE NEON HOVER EFFECTS
+   ========================================== */
+/* Comics: Smokey Red */
+.arcade-card.comics:hover { border-color: #ff4d4d; box-shadow: 0 0 25px rgba(255, 77, 77, 0.5), inset 0 0 15px rgba(255, 77, 77, 0.2); transform: translateY(-5px); }
+/* Archive: Food Cats Green */
+.arcade-card.archive:hover { border-color: #2fb98f; box-shadow: 0 0 25px rgba(47, 185, 143, 0.5), inset 0 0 15px rgba(47, 185, 143, 0.2); transform: translateY(-5px); }
+/* Gallery: Cyan */
+.arcade-card.gallery:hover { border-color: #00e5ff; box-shadow: 0 0 25px rgba(0, 229, 255, 0.5), inset 0 0 15px rgba(0, 229, 255, 0.2); transform: translateY(-5px); }
+/* Commissions: Magenta */
+.arcade-card.commission:hover { border-color: #ff00ff; box-shadow: 0 0 25px rgba(255, 0, 255, 0.5), inset 0 0 15px rgba(255, 0, 255, 0.2); transform: translateY(-5px); }
+/* Info/Lore: Amber */
+.arcade-card.info:hover { border-color: #ffb300; box-shadow: 0 0 25px rgba(255, 179, 0, 0.5), inset 0 0 15px rgba(255, 179, 0, 0.2); transform: translateY(-5px); }
+/* Play: Lime */
+.arcade-card.play:hover { border-color: #b3ff00; box-shadow: 0 0 25px rgba(179, 255, 0, 0.5), inset 0 0 15px rgba(179, 255, 0, 0.2); transform: translateY(-5px); }
+
+/* Typography Formatting */
+.arcade-title {
+    color: #fff;
+    font-family: monospace;
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+    margin: 15px 0 10px 0;
+    text-transform: uppercase;
+}
+
+.arcade-desc {
+    color: #888;
+    font-size: 0.9rem;
+    margin: 0;
+    font-style: italic;
+}
+
+/* Blinking Text Animation for the Header */
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+.blinking-text {
+    animation: blink-cursor 1.5s infinite;
+}
