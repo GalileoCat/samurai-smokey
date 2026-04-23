@@ -129,6 +129,49 @@
 .blinking-text {
     animation: blink-cursor 1.5s infinite;
 }
+
+/* ==========================================================
+   MOBILE RESPONSIVE OVERRIDES (Arcade Menu)
+   ========================================================== */
+@media screen and (max-width: 768px) {
+    /* 1. Shrink the main header */
+    h1 { font-size: 2.2rem !important; }
+    /* 2. Force single column and reduce gaps */
+    .arcade-grid {
+        grid-template-columns: 1fr; /* Forces 100% width */
+        gap: 20px;
+        padding: 10px;
+        margin: 20px auto;
+    }
+    /* 3. Shrink the card height */
+    .arcade-card {
+        min-height: 100px;
+    }
+    /* 4. Shrink the image panel so text isn't squished */
+    .arcade-icon-wrapper {
+        width: 90px;
+    }
+    /* 5. Phones don't have "hover", so we make the images brighter by default */
+    .arcade-icon-wrapper img {
+        filter: grayscale(40%) brightness(0.8);
+    }
+    /* 6. Reduce text sizes and padding */
+    .arcade-card-content {
+        padding: 15px;
+    }
+    .arcade-title {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+    .arcade-desc {
+        font-size: 0.8rem;
+    }
+    /* 7. Add a "Press" effect for touchscreens instead of a hover effect */
+    .arcade-card:active {
+        transform: scale(0.96);
+    }
+}
+
 </style>
 
 <div style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
