@@ -156,6 +156,47 @@
 .blinking-text {
     animation: blink-cursor 1.5s infinite;
 }
+
+ 
+@media screen and (max-width: 768px) {
+     
+    h1 { font-size: 2.2rem !important; }
+     
+    .arcade-grid {
+        grid-template-columns: 1fr;  
+        gap: 20px;
+        padding: 10px;
+        margin: 20px auto;
+    }
+     
+    .arcade-card {
+        min-height: 100px;
+    }
+     
+    .arcade-icon-wrapper {
+        width: 90px;
+    }
+     
+    .arcade-icon-wrapper img {
+        filter: grayscale(40%) brightness(0.8);
+    }
+     
+    .arcade-card-content {
+        padding: 15px;
+    }
+    .arcade-title {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+    .arcade-desc {
+        font-size: 0.8rem;
+    }
+     
+    .arcade-card:active {
+        transform: scale(0.96);
+    }
+}
+
 </style>
 
 <div style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
