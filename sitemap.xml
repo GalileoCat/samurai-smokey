@@ -16,6 +16,8 @@
   </url><url>
     <loc>//localhost:1313/about/</loc>
   </url><url>
+    <loc>//localhost:1313/play/</loc>
+  </url><url>
     <loc>//localhost:1313/gallery/</loc>
   </url><url>
     <loc>//localhost:1313/categories/</loc>
@@ -24,7 +26,13 @@
   </url><url>
     <loc>//localhost:1313/commissions/</loc>
   </url><url>
+    <loc>//localhost:1313/play/fishclicker/</loc>
+  </url><url>
     <loc>//localhost:1313/</loc>
+  </url><url>
+    <loc>//localhost:1313/play/moonbuggy/</loc>
+  </url><url>
+    <loc>//localhost:1313/play/neonrush/</loc>
   </url><url>
     <loc>//localhost:1313/comics/food-cats/chapter-4/</loc>
   </url><url>
@@ -52,11 +60,11 @@
   </url><url>
     <loc>//localhost:1313/comics/food-cats/chapter-12/</loc>
   </url><url>
+    <loc>//localhost:1313/play/breach/</loc>
+  </url><url>
     <loc>//localhost:1313/info/</loc>
   </url><url>
     <loc>//localhost:1313/tags/</loc>
-  </url><url>
-    <loc>//localhost:1313/play/</loc>
   </url><url>
     <loc>//localhost:1313/archive/</loc>
   </url>

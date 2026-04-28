@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neon Rush | Samurai Smokey</title>
+   <link rel="icon" type="image/png" href="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+
+  <meta name="description" content="The official webcomic archive, gallery, and lore database for Samurai Smokey. Created by GalileoCat.">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; script-src 'self' https://gc.zgo.at https://cdnjs.cloudflare.com; connect-src 'self' https://galileocat.goatcounter.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    
+    <link rel="stylesheet" href="//localhost:1313/css/custom.min.a0087c380a4fe9e0e6cbf165da88255b9e3b2519a995b00a21082fea0c000e15.css" integrity="sha256-oAh8OApP6eDmy/Fl2oglW547JRmplbAKIQgv6gwADhU=" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.css">
+    <script data-goatcounter="https://galileocat.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+    <nav style="text-align: center; padding: 15px 0;">
+        <a href="/" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px;">HOME</a>
+        <span style="opacity: 0.2; margin: 0 10px;">|</span>
+        <a href="#" id="refresh-btn" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px;">REFRESH SITE</a>
+    </nav>
+    <main>
+        
+<style>
+    .game-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 40px auto;
+    }
+    canvas {
+        background-color: #050505;
+        border: 2px solid #00e5ff;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+    }
+    .score-board {
+        color: #00e5ff;
+        font-family: monospace;
+        font-size: 2rem;
+        margin-bottom: 15px;
+        text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+    }
+     
+canvas, .terminal-container, .clicker-container {
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    background: #000 !important;
+    box-shadow: 0 0 40px rgba(0,0,0,1), 0 0 20px var(--glow-color) !important;
+}
+
+ 
+.game-wrapper::after, .terminal-container::after, .clicker-container::after {
+    content: " ";
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 3px, 3px 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+ 
+@keyframes flicker {
+    0% { opacity: 0.97; }
+    5% { opacity: 0.95; }
+    10% { opacity: 0.99; }
+    100% { opacity: 1; }
+}
+canvas { animation: flicker 0.15s infinite; }
+</style>
+
+<div class="game-wrapper">
+    <div class="score-board">
+        SECTOR: <span id="score">1</span> | DATA: <span id="data-score" style="color: #ffb300;">0</span>
+    </div>
+    <canvas id="gameCanvas" width="800" height="400"></canvas>
+    
+    <div style="margin-top: 20px; text-align: center; color: #888; font-family: monospace;">
+        <span style="color: #00e5ff;">[ARROW KEYS]</span> to move | <span style="color: #00e5ff;">[SPACE]</span> to jump<br><br>
+        <a href="/play/" style="color: #aaa; text-decoration: none;">[ ESCAPE / RETURN TO ARCADE ]</a>
+    </div>
+</div>
+
+<script src="/js/neonrush.js"></script>
+
+    </main>
+    <script src="/js/main.js"></script>
+</body>
+</html>

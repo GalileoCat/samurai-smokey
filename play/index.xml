@@ -1,11 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Terminal Break on Samurai Smokey</title>
+    <title>The Arcade on Samurai Smokey</title>
     <link>//localhost:1313/play/</link>
-    <description>Recent content in Terminal Break on Samurai Smokey</description>
+    <description>Recent content in The Arcade on Samurai Smokey</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="//localhost:1313/play/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cyber Defender</title>
+      <link>//localhost:1313/play/defender/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/play/defender/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fish Clicker</title>
+      <link>//localhost:1313/play/fishclicker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/play/fishclicker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Moon Buggy</title>
+      <link>//localhost:1313/play/moonbuggy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/play/moonbuggy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Neon Rush</title>
+      <link>//localhost:1313/play/neonrush/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/play/neonrush/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>System Breach</title>
+      <link>//localhost:1313/play/breach/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/play/breach/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

@@ -5,7 +5,7 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tags | Samurai Smokey</title>
+    <title>Cyber Defender | Samurai Smokey</title>
    <link rel="icon" type="image/png" href="/icon.png">
 <link rel="apple-touch-icon" href="/icon.png">
 
@@ -29,30 +29,62 @@
     </nav>
     <main>
         
-<div class="list-container">
-    <nav class="sub-nav">
-        </nav>
-    
-    <h1>Tags</h1>
+<style>
+    .game-wrapper { display: flex; flex-direction: column; align-items: center; margin: 40px auto; }
+    canvas {
+        background-color: #050505;
+        border: 2px solid #b3ff00;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(179, 255, 0, 0.2);
+    }
+    .score-board {
+        color: #b3ff00;
+        font-family: monospace;
+        font-size: 2rem;
+        margin-bottom: 15px;
+        text-shadow: 0 0 10px rgba(179, 255, 0, 0.5);
+    }
+     
+canvas, .terminal-container, .clicker-container {
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    background: #000 !important;
+    box-shadow: 0 0 40px rgba(0,0,0,1), 0 0 20px var(--glow-color) !important;
+}
 
-    <div class="category-content">
-        
-    </div>
+ 
+.game-wrapper::after, .terminal-container::after, .clicker-container::after {
+    content: " ";
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 3px, 3px 100%;
+    pointer-events: none;
+    z-index: 100;
+}
 
-    
-    <ul class="clean-list">
-        
-    </ul>
-    
+ 
+@keyframes flicker {
+    0% { opacity: 0.97; }
+    5% { opacity: 0.95; }
+    10% { opacity: 0.99; }
+    100% { opacity: 1; }
+}
+canvas { animation: flicker 0.15s infinite; }
+</style>
 
-    <div class="back-to-top-section">
-        <hr class="fade-hr">
-        <a href="#" class="top-button">↑ Back to Top</a>
+<div class="game-wrapper">
+    <div class="score-board">THREAT LEVEL: <span id="score">0</span></div>
+    <canvas id="defenderCanvas" width="800" height="500"></canvas>
+    
+    <div style="margin-top: 20px; text-align: center; color: #888; font-family: monospace;">
+        <span style="color: #b3ff00;">[ARROWS]</span> Move | <span style="color: #b3ff00;">[SPACE]</span> Fire<br><br>
+        <a href="/play/" style="color: #aaa; text-decoration: none;">[ ESCAPE / RETURN TO ARCADE ]</a>
     </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.js"></script>
-<script src="/js/gallery.js"></script>
+<script src="/js/defender.js"></script>
 
     </main>
     <script src="/js/main.js"></script>

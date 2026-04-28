@@ -43,6 +43,34 @@
       <description>&lt;p&gt;Coming Soon!&lt;/p&gt;&#xA;&lt;h3 id=&#34;support--connect-with-me&#34;&gt;Support &amp;amp; Connect with me!&lt;/h3&gt;&#xA;&lt;div style=&#34;display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; justify-content: center;&#34;&gt;&#xD;&#xA;    &lt;a href=&#34;https://ko-fi.com/galileo_cat&#34; target=&#34;_blank&#34; style=&#34;border: 1px solid #ff4d4d; color: #ff4d4d !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 77, 77, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;&#34;&gt;SUPPORT ON KO-FI&lt;/a&gt;&#xD;&#xA;    &lt;a href=&#34;https://x.com/galileo_cat&#34; target=&#34;_blank&#34; style=&#34;border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;&#34;&gt;TWITTER&lt;/a&gt;&#xD;&#xA;    &lt;a href=&#34;https://linktr.ee/GalileoCat&#34; target=&#34;_blank&#34; style=&#34;border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;&#34;&gt;LINKTREE&lt;/a&gt;&#xD;&#xA;&lt;/div&gt;</description>
     </item>
     <item>
+      <title>Cyber Defender</title>
+      <link>//localhost:1313/play/defender/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/play/defender/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fish Clicker</title>
+      <link>//localhost:1313/play/fishclicker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/play/fishclicker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Moon Buggy</title>
+      <link>//localhost:1313/play/moonbuggy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/play/moonbuggy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Neon Rush</title>
+      <link>//localhost:1313/play/neonrush/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/play/neonrush/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Season 1 - Andrena-line</title>
       <link>//localhost:1313/comics/food-cats/chapter-4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -132,6 +160,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/comics/food-cats/chapter-12/</guid>
       <description>&lt;div class=&#34;back-to-top-section&#34; style=&#34;text-align: center;&#34;&gt;&#xD;&#xA;    &lt;a href=&#34;//localhost:1313/comics/food-cats/&#34; style=&#34;color: #2fb98f; text-decoration: none; font-family: monospace; letter-spacing: 1px;&#34;&gt;← RETURN TO CHAPTER LIST&lt;/a&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;h2 id=&#34;heading&#34;&gt;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&lt;/h2&gt;&#xA;&lt;div style=&#34;max-width: 800px; margin: 0 auto; text-align: center;&#34;&gt;&#xD;&#xA;    &lt;div style=&#34;display: flex; justify-content: space-between; align-items: center; max-width: 800px; margin: 0 auto 30px auto; padding: 10px 20px; border: 1px solid #333; background: #0a0a0a; border-radius: 5px;&#34;&gt;&#xD;&#xA;        &lt;a href=&#34;//localhost:1313/comics/food-cats/chapter-11/&#34; style=&#34;color: #2fb98f; text-decoration: none; font-family: monospace; letter-spacing: 1px; font-weight: bold;&#34;&gt;← PREV&lt;/a&gt;&#xD;&#xA;        &lt;a href=&#34;//localhost:1313/comics/food-cats/&#34; style=&#34;color: #aaa; text-decoration: none; font-family: monospace; letter-spacing: 2px;&#34;&gt;INDEX&lt;/a&gt;&#xD;&#xA;        &lt;a href=&#34;//localhost:1313/comics/food-cats/chapter-13/&#34; style=&#34;color: #2fb98f; text-decoration: none; font-family: monospace; letter-spacing: 1px; font-weight: bold;&#34;&gt;NEXT →&lt;/a&gt;&#xD;&#xA;    &lt;/div&gt;&#xD;&#xA;&lt;div style=&#34;margin: 20px 0 40px 0; padding: 20px; border: 1px solid #333; background: #0a0a0a;&#34;&gt;&#xD;&#xA;        &lt;p style=&#34;color: #aaa; font-style: italic; font-size: 1.1rem; margin: 0;&#34;&gt;it&#39;s snot always a simple sneeze.&#xD;&#xA;        &lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>System Breach</title>
+      <link>//localhost:1313/play/breach/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/play/breach/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>
