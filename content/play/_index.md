@@ -78,7 +78,7 @@ title: "The Arcade"
             <div class="thumb-wrap"><img src="/images/comicsicon/moonbuggy.png"></div>
             <div class="card-meta">
                 <h2>Moon Buggy</h2>
-                <p>One-button physics survival. Navigate the lunar surface.</p>
+                <p>One-button survival. Navigate the lunar surface.</p>
                 <span class="play-tag">Launch</span>
             </div>
         </a>
@@ -86,7 +86,7 @@ title: "The Arcade"
             <div class="thumb-wrap"><img src="/images/comicsicon/breach.png"></div>
             <div class="card-meta">
                 <h2>System Breach</h2>
-                <p>Terminal decryption protocol. Bypass the security layers.</p>
+                <p>Bypass the security layers.</p>
                 <span class="play-tag">Decrypt</span>
             </div>
         </a>
@@ -94,7 +94,7 @@ title: "The Arcade"
             <div class="thumb-wrap"><img src="/images/comicsicon/feedcats.png"></div>
             <div class="card-meta">
                 <h2>Fish Clicker</h2>
-                <p>Automated feline nutrition. Feed the kitty, save the world.</p>
+                <p>Feed the kitty, save the world.</p>
                 <span class="play-tag">Feed</span>
             </div>
         </a>
@@ -102,8 +102,16 @@ title: "The Arcade"
             <div class="thumb-wrap"><img src="/images/comicsicon/neonrush.png"></div>
             <div class="card-meta">
                 <h2>Neon Rush</h2>
-                <p>Avoid the system purge. High-velocity platforming sequence.</p>
+                <p>Avoid the system purge.</p>
                 <span class="play-tag">Escape</span>
+            </div>
+        </a>
+        <a href="/play/neongrid/" class="game-card neon">
+            <div class="thumb-wrap"><img src="/images/comicsicon/neongrid.png"></div>
+            <div class="card-meta">
+                <h2>Neon Grid</h2>
+                <p>Standardize the data blocks.</p>
+                <span class="play-tag">Initialize</span>
             </div>
         </a>
         <a href="/play/defender/" class="game-card def">

@@ -5,7 +5,7 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cyber Defender | Samurai Smokey</title>
+    <title>Neon Grid | Samurai Smokey</title>
    <link rel="icon" type="image/png" href="/icon.png">
 <link rel="apple-touch-icon" href="/icon.png">
 
@@ -29,61 +29,77 @@
     </nav>
     <main>
         
+<nav style="padding: 20px; text-align: center; border-bottom: 1px solid #222; background: #000;">
+    <a href="/" style="color: #888; text-decoration: none; font-family: monospace; margin: 0 15px; letter-spacing: 2px;">[ HOME ]</a>
+    <a href="/play/" style="color: #00f2ff; text-decoration: none; font-family: monospace; margin: 0 15px; letter-spacing: 2px;">[ ARCADE ]</a>
+</nav>
+
 <style>
-    .game-wrapper { display: flex; flex-direction: column; align-items: center; margin: 40px auto; }
+    .game-wrapper { 
+        display: flex; 
+        gap: 30px; 
+        justify-content: center; 
+        align-items: flex-start; 
+        margin: 60px auto; 
+        min-height: 70vh;
+    }
     canvas {
         background-color: #050505;
-        border: 2px solid #b3ff00;
-        border-radius: 8px;
-        box-shadow: 0 0 20px rgba(179, 255, 0, 0.2);
+        border: 2px solid #00f2ff;
+        border-radius: 4px;
+        box-shadow: 0 0 30px rgba(0, 242, 255, 0.15);
     }
-    .score-board {
-        color: #b3ff00;
+    .stats-panel {
         font-family: monospace;
-        font-size: 2rem;
-        margin-bottom: 15px;
-        text-shadow: 0 0 10px rgba(179, 255, 0, 0.5);
+        color: #00f2ff;
+        background: rgba(0, 242, 255, 0.05);
+        padding: 25px;
+        border: 1px solid #00f2ff;
+        border-radius: 4px;
+        min-width: 180px;
+        box-shadow: 0 0 15px rgba(0, 242, 255, 0.05);
     }
-     
-canvas, .terminal-container, .clicker-container {
-    position: relative;
-    border: 1px solid rgba(255,255,255,0.1) !important;
-    background: #000 !important;
-    box-shadow: 0 0 40px rgba(0,0,0,1), 0 0 20px var(--glow-color) !important;
-}
-
- 
-.game-wrapper::after, .terminal-container::after, .clicker-container::after {
-    content: " ";
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
-                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-    background-size: 100% 3px, 3px 100%;
-    pointer-events: none;
-    z-index: 100;
-}
-
- 
-@keyframes flicker {
-    0% { opacity: 0.97; }
-    5% { opacity: 0.95; }
-    10% { opacity: 0.99; }
-    100% { opacity: 1; }
-}
-canvas { animation: flicker 0.15s infinite; }
+    .stat-label { font-size: 0.8rem; letter-spacing: 2px; color: #666; }
+    .stat-val { font-size: 2rem; margin-bottom: 25px; color: #fff; text-shadow: 0 0 10px #00f2ff; }
+    
+    .control-hint { font-size: 0.75rem; color: #555; line-height: 1.8; }
+    .control-hint b { color: #00f2ff; }
 </style>
 
 <div class="game-wrapper">
-    <div class="score-board">THREAT LEVEL: <span id="score">0</span></div>
-    <canvas id="defenderCanvas" width="800" height="500"></canvas>
+    <canvas id="gridCanvas" width="360" height="660"></canvas>
     
-    <div style="margin-top: 20px; text-align: center; color: #888; font-family: monospace;">
-        <span style="color: #b3ff00;">[ARROWS]</span> Move | <span style="color: #b3ff00;">[SPACE]</span> Fire<br><br>
-        <a href="/play/" style="color: #aaa; text-decoration: none;">[ ESCAPE / RETURN TO ARCADE ]</a>
+    <div class="stats-panel">
+        <div class="stat-label">BUFFER LOAD</div>
+        <div id="score" class="stat-val">0</div>
+        
+        <div class="stat-label">DEFRAGGED</div>
+        <div id="lines" class="stat-val">0</div>
+        
+        <hr style="border: 0; border-top: 1px solid #222; margin: 25px 0;">
+        
+        <div class="control-hint">
+            <b>[UP]</b> ROTATE<br>
+            <b>[ARROWS]</b> MOVE<br>
+            <b>[DOWN]</b> SOFT DROP<br>
+            <b>[HOLD DOWN]</b> HARD DROP<br>
+            <b>[SPACE BAR] </b> INSTANT DROP</b>
+        </div>
+        <br>
+        <a href="/play/" style="color: #ff00ff; text-decoration: none; font-family: monospace; font-size: 0.8rem;">[ ABORT MISSION ]</a>
     </div>
 </div>
+<div id="gameOverOverlay" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 360px; height: 660px; background: rgba(5, 5, 5, 0.95); z-index: 1000; flex-direction: column; align-items: center; justify-content: center; border: 2px solid #ff2d55; box-shadow: 0 0 50px rgba(255, 45, 85, 0.3); border-radius: 4px; cursor: pointer;">
+    <h1 style="color: #ff2d55; font-family: monospace; font-size: 2rem; text-align: center; text-shadow: 0 0 10px #ff2d55; margin-bottom: 0;">CRITICAL FAILURE</h1>
+    <p style="color: #fff; font-family: monospace; letter-spacing: 2px; margin-top: 5px;">BUFFER OVERFLOW</p>
+    <div id="finalScore" style="color: #00f2ff; font-family: monospace; font-size: 1.2rem; margin: 30px 0;">LOAD: 0</div>
+    <p style="color: #00f2ff; font-family: monospace; font-size: 0.8rem; letter-spacing: 2px; animate: blink 1s infinite;">[ CLICK ANYWHERE TO REBOOT ]</p>
 </div>
+
+<style>
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+</style>
+
 <div style="text-align: center; margin-top: 60px; padding-bottom: 40px;">
     <h3 style="color: #fff; font-family: monospace; letter-spacing: 2px;">Support & Connect with me!</h3>
     <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; justify-content: center;">
@@ -99,7 +115,8 @@ canvas { animation: flicker 0.15s infinite; }
         <a href="/commissions/" style="color: #666; text-decoration: none; margin: 0 10px;">COMMISSIONS</a>
     </div>
 </footer>
-<script src="/js/defender.js"></script>
+
+<script src="/js/neongrid.js"></script>
 
     </main>
     <script src="/js/main.js"></script>

@@ -1,0 +1,90 @@
+{{ define "main" }}
+<nav style="padding: 20px; text-align: center; border-bottom: 1px solid #222; background: #000;">
+    <a href="/" style="color: #888; text-decoration: none; font-family: monospace; margin: 0 15px; letter-spacing: 2px;">[ HOME ]</a>
+    <a href="/play/" style="color: #00f2ff; text-decoration: none; font-family: monospace; margin: 0 15px; letter-spacing: 2px;">[ ARCADE ]</a>
+</nav>
+
+<style>
+    .game-wrapper { 
+        display: flex; 
+        gap: 30px; 
+        justify-content: center; 
+        align-items: flex-start; 
+        margin: 60px auto; 
+        min-height: 70vh;
+    }
+    canvas {
+        background-color: #050505;
+        border: 2px solid #00f2ff;
+        border-radius: 4px;
+        box-shadow: 0 0 30px rgba(0, 242, 255, 0.15);
+    }
+    .stats-panel {
+        font-family: monospace;
+        color: #00f2ff;
+        background: rgba(0, 242, 255, 0.05);
+        padding: 25px;
+        border: 1px solid #00f2ff;
+        border-radius: 4px;
+        min-width: 180px;
+        box-shadow: 0 0 15px rgba(0, 242, 255, 0.05);
+    }
+    .stat-label { font-size: 0.8rem; letter-spacing: 2px; color: #666; }
+    .stat-val { font-size: 2rem; margin-bottom: 25px; color: #fff; text-shadow: 0 0 10px #00f2ff; }
+    
+    .control-hint { font-size: 0.75rem; color: #555; line-height: 1.8; }
+    .control-hint b { color: #00f2ff; }
+</style>
+
+<div class="game-wrapper">
+    <canvas id="gridCanvas" width="360" height="660"></canvas>
+    
+    <div class="stats-panel">
+        <div class="stat-label">BUFFER LOAD</div>
+        <div id="score" class="stat-val">0</div>
+        
+        <div class="stat-label">DEFRAGGED</div>
+        <div id="lines" class="stat-val">0</div>
+        
+        <hr style="border: 0; border-top: 1px solid #222; margin: 25px 0;">
+        
+        <div class="control-hint">
+            <b>[UP]</b> ROTATE<br>
+            <b>[ARROWS]</b> MOVE<br>
+            <b>[DOWN]</b> SOFT DROP<br>
+            <b>[HOLD DOWN]</b> HARD DROP<br>
+            <b>[SPACE BAR] </b> INSTANT DROP</b>
+        </div>
+        <br>
+        <a href="/play/" style="color: #ff00ff; text-decoration: none; font-family: monospace; font-size: 0.8rem;">[ ABORT MISSION ]</a>
+    </div>
+</div>
+<div id="gameOverOverlay" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 360px; height: 660px; background: rgba(5, 5, 5, 0.95); z-index: 1000; flex-direction: column; align-items: center; justify-content: center; border: 2px solid #ff2d55; box-shadow: 0 0 50px rgba(255, 45, 85, 0.3); border-radius: 4px; cursor: pointer;">
+    <h1 style="color: #ff2d55; font-family: monospace; font-size: 2rem; text-align: center; text-shadow: 0 0 10px #ff2d55; margin-bottom: 0;">CRITICAL FAILURE</h1>
+    <p style="color: #fff; font-family: monospace; letter-spacing: 2px; margin-top: 5px;">BUFFER OVERFLOW</p>
+    <div id="finalScore" style="color: #00f2ff; font-family: monospace; font-size: 1.2rem; margin: 30px 0;">LOAD: 0</div>
+    <p style="color: #00f2ff; font-family: monospace; font-size: 0.8rem; letter-spacing: 2px; animate: blink 1s infinite;">[ CLICK ANYWHERE TO REBOOT ]</p>
+</div>
+
+<style>
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+</style>
+
+<div style="text-align: center; margin-top: 60px; padding-bottom: 40px;">
+    <h3 style="color: #fff; font-family: monospace; letter-spacing: 2px;">Support & Connect with me!</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; justify-content: center;">
+        <a href="https://ko-fi.com/galileo_cat" target="_blank" style="border: 1px solid #ff4d4d; color: #ff4d4d !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 77, 77, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;">SUPPORT ON KO-FI</a>
+        <a href="https://x.com/galileo_cat" target="_blank" style="border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;">TWITTER</a>
+        <a href="https://linktr.ee/GalileoCat" target="_blank" style="border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;">LINKTREE</a>
+    </div>
+</div>
+<footer style="margin-top: 80px; padding: 40px; text-align: center; border-top: 1px solid #222; color: #444; font-family: monospace;">
+    <p>© 2026 Galileo_Cat // MADE WITH HUGO</p>
+    <div style="margin-top: 10px;">
+        <a href="/info/" style="color: #666; text-decoration: none; margin: 0 10px;">ABOUT</a> | 
+        <a href="/commissions/" style="color: #666; text-decoration: none; margin: 0 10px;">COMMISSIONS</a>
+    </div>
+</footer>
+
+<script src="/js/neongrid.js"></script>
+{{ end }}
