@@ -1,0 +1,108 @@
+{{ define "main" }}
+<style>
+    .clicker-container { max-width: 800px; margin: 40px auto; text-align: center; background: #0a0a0a; border: 2px solid #2fb98f; border-radius: 15px; padding: 40px 20px; color: #fff; box-shadow: 0 0 20px rgba(47, 185, 143, 0.2); }
+    .score-board { font-family: monospace; font-size: 2rem; margin-bottom: 30px; }
+    .score-board span { color: #2fb98f; font-weight: bold; font-size: 3rem; }
+    .cat-button { font-family: monospace; font-size: 4rem; color: #ff4d4d; background: none; border: 2px dashed #ff4d4d; border-radius: 50%; width: 250px; height: 250px; cursor: pointer; margin: 0 auto 30px auto; display: flex; align-items: center; justify-content: center; transition: transform 0.1s, box-shadow 0.1s; user-select: none; }
+    .cat-button:active { transform: scale(0.9); box-shadow: 0 0 30px rgba(255, 77, 77, 0.6); background: rgba(255, 77, 77, 0.1); }
+    .shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 500px; margin: 0 auto; }
+    .shop-item { background: #111; border: 1px solid #333; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+    .shop-item:hover { border-color: #2fb98f; background: rgba(47, 185, 143, 0.1); }
+    .shop-item.disabled { opacity: 0.4; cursor: not-allowed; border-color: #333; background: #111; }
+/* --- NEW CLICKER ANIMATIONS --- */
+    
+    /* The floating +1 text */
+    .click-anim {
+        position: fixed;
+        color: #2fb98f;
+        font-weight: bold;
+        font-family: monospace;
+        font-size: 1.5rem;
+        pointer-events: none; /* Prevents the text from blocking your next click */
+        animation: floatUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        z-index: 9999;
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(0) scale(1); opacity: 1; }
+        100% { transform: translateY(-70px) scale(1.5); opacity: 0; }
+    }
+
+    /* The Cat Wiggle */
+    .cat-button.clicked {
+        animation: catWiggle 0.2s ease-in-out;
+    }
+
+    @keyframes catWiggle {
+        0% { transform: scale(0.9) rotate(0deg); }
+        25% { transform: scale(0.95) rotate(-5deg); }
+        50% { transform: scale(0.95) rotate(5deg); }
+        75% { transform: scale(0.95) rotate(-5deg); }
+        100% { transform: scale(1) rotate(0deg); }
+    }
+    
+</style>
+
+<div class="clicker-container">
+    <h2 style="font-family: monospace; letter-spacing: 2px; color: #888;">FOOD CATS IDLE PROTOCOL</h2>
+    <div class="score-board">
+        FISH: <span id="fish-count">0</span>
+        <div style="font-size: 1rem; color: #aaa; margin-top: 10px;" id="fish-sec">0 fish per second</div>
+    </div>
+    <div class="cat-button" id="cat-button">(=^w^=)</div>
+    <div class="shop-grid" style="max-width: 650px;">
+        <div class="shop-item disabled" id="upgrade1">
+            <h3 style="margin: 0; color: #2fb98f;">Auto-Feeder</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+1 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost1">50</span></p>
+        </div>
+        <div class="shop-item disabled" id="upgrade2">
+            <h3 style="margin: 0; color: #00e5ff;">Premium Salmon</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+5 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost2">250</span></p>
+        </div>
+        <div class="shop-item disabled" id="upgrade3">
+            <h3 style="margin: 0; color: #b3ff00;">Tuna Pyramid</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+15 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost3">1000</span></p>
+        </div>
+        <div class="shop-item disabled" id="upgrade4">
+            <h3 style="margin: 0; color: #ffb300;">Sushi Chef Cat</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+50 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost4">5000</span></p>
+        </div>
+        <div class="shop-item disabled" id="upgrade5">
+            <h3 style="margin: 0; color: #ff4d4d;">Fishing Trawler</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+200 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost5">25000</span></p>
+        </div>
+        <div class="shop-item disabled" id="upgrade6">
+            <h3 style="margin: 0; color: #ff00ff;">Deep Sea Sub</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+1,000 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost6">150000</span></p>
+        </div>
+        <div class="shop-item disabled" id="upgrade7">
+            <h3 style="margin: 0; color: #ffffff;">Orbital Cannon</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+5,000 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost7">1000000</span></p>
+        </div>
+        <div class="shop-item disabled" id="upgrade8">
+            <h3 style="margin: 0; color: #9d00ff;">Cosmic Leviathan</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+25,000 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost8">10000000</span></p>
+        </div>
+    </div>
+    <div style="margin-top: 40px;">
+        <a href="/play/" style="color: #aaa; text-decoration: none; font-family: monospace;">[ RETURN TO ARCADE ]</a>
+    </div>
+</div>
+<div style="text-align: center; margin-top: 60px; padding-bottom: 40px;">
+    <h3 style="color: #fff; font-family: monospace; letter-spacing: 2px;">Support & Connect with me!</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; justify-content: center;">
+        <a href="https://ko-fi.com/galileo_cat" target="_blank" style="border: 1px solid #ff4d4d; color: #ff4d4d !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 77, 77, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;">SUPPORT ON KO-FI</a>
+        <a href="https://x.com/galileo_cat" target="_blank" style="border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;">TWITTER</a>
+        <a href="https://linktr.ee/GalileoCat" target="_blank" style="border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;">LINKTREE</a>
+    </div>
+</div>
+<script src="/js/fishclicker.js"></script>
+{{ end }}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>System Breach | Samurai Smokey</title>
+   <link rel="icon" type="image/png" href="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+
+  <meta name="description" content="The official webcomic archive, gallery, and lore database for Samurai Smokey. Created by GalileoCat.">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; script-src 'self' https://gc.zgo.at https://cdnjs.cloudflare.com; connect-src 'self' https://galileocat.goatcounter.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    
+    <link rel="stylesheet" href="//localhost:1313/css/custom.min.a0087c380a4fe9e0e6cbf165da88255b9e3b2519a995b00a21082fea0c000e15.css" integrity="sha256-oAh8OApP6eDmy/Fl2oglW547JRmplbAKIQgv6gwADhU=" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.css">
+    <script data-goatcounter="https://galileocat.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+    <nav style="text-align: center; padding: 15px 0;">
+        <a href="/" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px;">HOME</a>
+        <span style="opacity: 0.2; margin: 0 10px;">|</span>
+        <a href="#" id="refresh-btn" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px;">REFRESH SITE</a>
+    </nav>
+    <main>
+        
+<style>
+    .terminal-container { background-color: #050505; border: 2px solid #333; border-radius: 10px; padding: 30px; max-width: 800px; margin: 40px auto; font-family: 'Courier New', Courier, monospace; color: #b3ff00; text-shadow: 0 0 5px rgba(179, 255, 0, 0.5); box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 0 15px rgba(179, 255, 0, 0.1); position: relative; overflow: hidden; transition: border-color 0.3s; }
+    .terminal-container::after { content: " "; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%); background-size: 100% 4px; pointer-events: none; z-index: 10;}
+    .terminal-header { border-bottom: 1px solid #b3ff00; padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase; }
+    .terminal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; position: relative; z-index: 5; }
+    .word-list span { display: inline-block; cursor: pointer; transition: background 0.1s; }
+    .word-list span:hover { background-color: #b3ff00; color: #000; }
+    .terminal-log { background: #000; border: 1px solid #333; padding: 15px; height: 250px; overflow-y: auto; color: #fff; text-shadow: none; display: flex; flex-direction: column;}
+    
+     
+    .tutorial-block { color: #888; font-size: 0.85rem; border-bottom: 1px dashed #333; padding-bottom: 10px; margin-bottom: 10px; }
+    
+     
+     
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+        20%, 40%, 60%, 80% { transform: translateX(8px); }
+    }
+    .anim-shake { animation: shake 0.5s; }
+
+     
+    @keyframes pulse-red {
+        0% { box-shadow: inset 0 0 20px rgba(0,0,0,0.9), 0 0 15px rgba(255, 77, 77, 0.2); border-color: #ff4d4d; }
+        50% { box-shadow: inset 0 0 60px rgba(255, 77, 77, 0.4), 0 0 30px rgba(255, 77, 77, 0.6); border-color: #ff4d4d; }
+        100% { box-shadow: inset 0 0 20px rgba(0,0,0,0.9), 0 0 15px rgba(255, 77, 77, 0.2); border-color: #ff4d4d; }
+    }
+    .anim-fail { animation: pulse-red 1s infinite; color: #ff4d4d; text-shadow: 0 0 5px rgba(255, 77, 77, 0.5); }
+
+     
+    @keyframes pulse-green {
+        0% { box-shadow: inset 0 0 20px rgba(0,0,0,0.9), 0 0 15px rgba(179, 255, 0, 0.2); border-color: #b3ff00; }
+        50% { box-shadow: inset 0 0 60px rgba(179, 255, 0, 0.4), 0 0 30px rgba(179, 255, 0, 0.6); border-color: #b3ff00; }
+        100% { box-shadow: inset 0 0 20px rgba(0,0,0,0.9), 0 0 15px rgba(179, 255, 0, 0.2); border-color: #b3ff00; }
+    }
+    .anim-success { animation: pulse-green 1.5s infinite; }
+     
+canvas, .terminal-container, .clicker-container {
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    background: #000 !important;
+    box-shadow: 0 0 40px rgba(0,0,0,1), 0 0 20px var(--glow-color) !important;
+}
+
+ 
+.game-wrapper::after, .terminal-container::after, .clicker-container::after {
+    content: " ";
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 3px, 3px 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+ 
+@keyframes flicker {
+    0% { opacity: 0.97; }
+    5% { opacity: 0.95; }
+    10% { opacity: 0.99; }
+    100% { opacity: 1; }
+}
+canvas { animation: flicker 0.15s infinite; }
+</style>
+
+<div class="terminal-container" id="main-terminal">
+    <div class="terminal-header">
+        <h2 style="margin: 0 0 5px 0;">ROBCO INDUSTRIES UNIFIED OS</h2>
+        <p style="margin: 0;">Attempts Remaining: <span id="attempts">4</span></p>
+    </div>
+    <div class="terminal-grid">
+        <div class="word-list" id="word-board" style="line-height: 1.8; word-break: break-all;"></div>
+        
+        <div class="terminal-log" id="game-log">
+            <div class="tutorial-block">
+                <strong style="color:#b3ff00;">[TUTORIAL]</strong> Guess the secret 5-letter password.<br>
+                A "Match" means you guessed the exact letter in the exact position.<br>
+                <em>Ex: If target is GHOST, guessing GLIDE gives (1/5) for the 'G'.</em>
+            </div>
+            <div id="log-entries">
+                > SYSTEM BOOTUP SEQUENCE INITIATED...<br>
+                > ENTER PASSWORD NOW.<br>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 20px;">
+        <a href="/play/" style="color: #aaa; text-decoration: none;">[ ESCAPE / RETURN TO ARCADE ]</a>
+        <a href="javascript:location.reload();" style="color: #aaa; text-decoration: none; float: right;">[ REBOOT SYSTEM ]</a>
+    </div>
+</div>
+
+<div style="text-align: center; margin-top: 60px; padding-bottom: 40px;">
+    <h3 style="color: #fff; font-family: monospace; letter-spacing: 2px;">Support & Connect with me!</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; justify-content: center;">
+        <a href="https://ko-fi.com/galileo_cat" target="_blank" style="border: 1px solid #ff4d4d; color: #ff4d4d !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 77, 77, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;">SUPPORT ON KO-FI</a>
+        <a href="https://x.com/galileo_cat" target="_blank" style="border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;">TWITTER</a>
+        <a href="https://linktr.ee/GalileoCat" target="_blank" style="border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;">LINKTREE</a>
+    </div>
+</div>
+
+<script src="/js/breach.js"></script>
+
+    </main>
+    <script src="/js/main.js"></script>
+</body>
+</html>

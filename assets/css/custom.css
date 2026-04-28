@@ -580,3 +580,24 @@ nav a {
 .blinking-text {
     animation: blink-cursor 1.5s infinite;
 }
+/* --- ARCADE MENU GLOBAL FIX --- */
+.arcade-icon-wrapper {
+    width: 130px !important; /* Restores the side-panel look */
+    flex-shrink: 0;
+    border-right: 2px solid #333 !important;
+    border-bottom: none !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.arcade-icon-wrapper img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; 
+    object-position: center !important; 
+}
+
+/* Make sure it still shrinks nicely on mobile phones */
+@media screen and (max-width: 768px) {
+    .arcade-icon-wrapper { width: 90px !important; }
+}
