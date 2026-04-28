@@ -125,7 +125,7 @@ title: "The Arcade"
             <div class="card-meta">
                 <span class="mobile-status status-no">Not Mobile Friendly</span>
                 <h2>Cyber Defender</h2>
-                <p>Ypu vs Aliens.</p>
+                <p>You vs Aliens.</p>
                 <span class="play-tag">Defend</span>
             </div>
         </a>
