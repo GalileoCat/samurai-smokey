@@ -35,7 +35,7 @@
  
 .arcade-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));  
     gap: 30px;
     max-width: 1050px;
     margin: 40px auto;
@@ -51,14 +51,14 @@
     overflow: hidden;
     transition: all 0.3s ease;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;  
     align-items: stretch;
     min-height: 130px;
 }
 
  
 .arcade-icon-wrapper {
-    width: 130px; 
+    width: 130px;  
     flex-shrink: 0;
     border-right: 2px solid #333;
     position: relative;
@@ -70,7 +70,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(100%) brightness(0.5); 
+    filter: grayscale(100%) brightness(0.5);  
     transition: all 0.4s ease;
 }
 
@@ -99,40 +99,34 @@
 }
 
  
-.support-badge {
-    display: inline-block;
-    font-size: 0.6rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-    padding: 2px 8px;
-    border-radius: 4px;
-    width: fit-content;
-    font-family: monospace;
-}
-.badge-yes { background: rgba(179, 255, 0, 0.1); color: #b3ff00; border: 1px solid #b3ff00; }
-.badge-no { background: rgba(255, 45, 85, 0.1); color: #ff2d55; border: 1px solid #ff2d55; }
-
  
 .arcade-card:hover { transform: translateY(-5px); }
+
+ 
 .arcade-card:hover .arcade-icon-wrapper img { filter: grayscale(0%) brightness(1); transform: scale(1.1); }
 
+ 
+ 
 .arcade-card.comics:hover { border-color: #ff4d4d; box-shadow: 0 0 25px rgba(255, 77, 77, 0.5); }
 .arcade-card.comics:hover .arcade-icon-wrapper { border-right-color: #ff4d4d; }
 
+ 
 .arcade-card.archive:hover { border-color: #2fb98f; box-shadow: 0 0 25px rgba(47, 185, 143, 0.5); }
 .arcade-card.archive:hover .arcade-icon-wrapper { border-right-color: #2fb98f; }
 
+ 
 .arcade-card.gallery:hover { border-color: #00e5ff; box-shadow: 0 0 25px rgba(0, 229, 255, 0.5); }
 .arcade-card.gallery:hover .arcade-icon-wrapper { border-right-color: #00e5ff; }
 
+ 
 .arcade-card.commission:hover { border-color: #ff00ff; box-shadow: 0 0 25px rgba(255, 0, 255, 0.5); }
 .arcade-card.commission:hover .arcade-icon-wrapper { border-right-color: #ff00ff; }
 
+ 
 .arcade-card.info:hover { border-color: #ffb300; box-shadow: 0 0 25px rgba(255, 179, 0, 0.5); }
 .arcade-card.info:hover .arcade-icon-wrapper { border-right-color: #ffb300; }
 
+ 
 .arcade-card.play:hover { border-color: #b3ff00; box-shadow: 0 0 25px rgba(179, 255, 0, 0.5); }
 .arcade-card.play:hover .arcade-icon-wrapper { border-right-color: #b3ff00; }
 
@@ -154,32 +148,60 @@
     line-height: 1.3;
 }
 
-@keyframes blink-cursor { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-.blinking-text { animation: blink-cursor 1.5s infinite; }
+ 
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+.blinking-text {
+    animation: blink-cursor 1.5s infinite;
+}
 
  
 @media screen and (max-width: 768px) {
+     
     h1 { font-size: 2.2rem !important; }
+     
     .arcade-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;  
         gap: 20px;
         padding: 10px;
         margin: 20px auto;
     }
-    .arcade-card { min-height: 100px; }
-    .arcade-icon-wrapper { width: 90px; }
-    .arcade-icon-wrapper img { filter: grayscale(40%) brightness(0.8); }
-    .arcade-card-content { padding: 15px; }
-    .arcade-title { font-size: 1.3rem; letter-spacing: 1px; }
-    .arcade-desc { font-size: 0.8rem; }
-    .arcade-card:active { transform: scale(0.96); }
+     
+    .arcade-card {
+        min-height: 100px;
+    }
+     
+    .arcade-icon-wrapper {
+        width: 90px;
+    }
+     
+    .arcade-icon-wrapper img {
+        filter: grayscale(40%) brightness(0.8);
+    }
+     
+    .arcade-card-content {
+        padding: 15px;
+    }
+    .arcade-title {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+    .arcade-desc {
+        font-size: 0.8rem;
+    }
+     
+    .arcade-card:active {
+        transform: scale(0.96);
+    }
 }
+
 </style>
 
 <div style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
     <h1 style="color: #fff; font-family: monospace; font-size: 3.5rem; letter-spacing: 5px; margin-bottom: 5px; text-shadow: 0 0 15px rgba(255,255,255,0.3);">MAIN MENU</h1>
     <p class="blinking-text" style="color: #2fb98f; font-family: monospace; font-size: 1.2rem; letter-spacing: 3px; margin: 0;">> SELECT DESTINATION _</p>
-    <p style="color: #444; font-family: monospace; font-size: 0.8rem; letter-spacing: 1px; margin-top: 10px;">Mobile support coming soon for most of the games.</p>
 </div>
 
 <hr class="fade-hr" style="max-width: 800px; margin: 0 auto 30px auto;">
@@ -191,7 +213,6 @@
             <img src="/images/comicsicon/ss.png" alt="Comics Icon">
         </div>
         <div class="arcade-card-content">
-            <span class="support-badge badge-no">Not Mobile Friendly</span>
             <h2 class="arcade-title">COMICS</h2>
             <p class="arcade-desc">Current and upcoming series.</p>
         </div>
@@ -202,7 +223,6 @@
             <img src="/images/comicsicon/1.png" alt="Archive Icon">
         </div>
         <div class="arcade-card-content">
-            <span class="support-badge badge-no">Not Mobile Friendly</span>
             <h2 class="arcade-title">ARCHIVE</h2>
             <p class="arcade-desc">Legacy chapters.</p>
         </div>
@@ -213,7 +233,6 @@
             <img src="/images/comicsicon/gallery.jpg" alt="Gallery Icon">
         </div>
         <div class="arcade-card-content">
-            <span class="support-badge badge-no">Not Mobile Friendly</span>
             <h2 class="arcade-title">GALLERY</h2>
             <p class="arcade-desc">Concept art and illustrations.</p>
         </div>
@@ -224,7 +243,6 @@
             <img src="/images/comicsicon/comms.jpg" alt="Commissions Icon">
         </div>
         <div class="arcade-card-content">
-            <span class="support-badge badge-no">Not Mobile Friendly</span>
             <h2 class="arcade-title">COMMISSIONS</h2>
         </div>
     </a>
@@ -234,7 +252,6 @@
             <img src="/images/comicsicon/database.jpg" alt="Database Icon">
         </div>
         <div class="arcade-card-content">
-            <span class="support-badge badge-no">Not Mobile Friendly</span>
             <h2 class="arcade-title">DATABASE</h2>
             <p class="arcade-desc">Website Info</p>
         </div>
@@ -245,7 +262,6 @@
             <img src="/images/comicsicon/play.jpg" alt="Play Icon">
         </div>
         <div class="arcade-card-content">
-            <span class="support-badge badge-yes">Mobile Friendly</span>
             <h2 class="arcade-title">PLAY</h2>
             <p class="arcade-desc">Take a break</p>
         </div>
