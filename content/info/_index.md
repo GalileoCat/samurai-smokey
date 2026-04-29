@@ -131,7 +131,7 @@ title: "System Information"
                 <div class="ms-box-head">My Details</div>
                 <div class="ms-box-body" style="font-size: 0.85rem; line-height: 1.6;">
                     <p><b>Status:</b> Coding</p>
-                    <p><b>Discord:</b> @galileocat</p>
+                    <p><b>Mood:</b> Sleepy</p>
                 </div>
             </div>
         </div>
