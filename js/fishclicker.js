@@ -1,18 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. GAME STATE (REBALANCED ECONOMY) ---
+    // --- 1. GAME STATE (WITH NAMES ADDED!) ---
     let fish = 0;
     let fishPerSec = 0;
     
-    // Costs lowered dramatically for a faster, more fun early game
     const upgrades = [
-        { id: 1, baseCost: 15, cps: 1, count: 0 },
-        { id: 2, baseCost: 100, cps: 5, count: 0 },
-        { id: 3, baseCost: 500, cps: 15, count: 0 },
-        { id: 4, baseCost: 3000, cps: 50, count: 0 },
-        { id: 5, baseCost: 10000, cps: 200, count: 0 },
-        { id: 6, baseCost: 50000, cps: 1000, count: 0 },
-        { id: 7, baseCost: 250000, cps: 5000, count: 0 },
-        { id: 8, baseCost: 1000000, cps: 25000, count: 0 }
+        { id: 1, name: "Auto-Feeder", baseCost: 15, cps: 1, count: 0 },
+        { id: 2, name: "Premium Salmon", baseCost: 100, cps: 5, count: 0 },
+        { id: 3, name: "Tuna Pyramid", baseCost: 500, cps: 15, count: 0 },
+        { id: 4, name: "Sushi Chef Cat", baseCost: 3000, cps: 50, count: 0 },
+        { id: 5, name: "Fishing Trawler", baseCost: 10000, cps: 200, count: 0 },
+        { id: 6, name: "Deep Sea Sub", baseCost: 50000, cps: 1000, count: 0 },
+        { id: 7, name: "Orbital Cannon", baseCost: 250000, cps: 5000, count: 0 },
+        { id: 8, name: "Cosmic Leviathan", baseCost: 1000000, cps: 25000, count: 0 }
     ];
 
     // --- 2. LOAD SAVE DATA ---
@@ -32,10 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const uiFishSec = document.getElementById('fish-sec');
     const catBtn = document.getElementById('cat-button');
     const bubbleContainer = document.getElementById('bubble-container');
-    const gameContainer = document.querySelector('.clicker-container'); // NEW: Target for Screen Shake
+    const gameContainer = document.querySelector('.clicker-container');
 
-    // --- 4. CORE ENGINE ---
-    // Active clicking now gives you 20% of your CPS (up from 10%) so clicking stays strong!
+    // --- 4. CORE ENGINE & PSYCHOLOGY HOOKS ---
+
+    // Number Formatter (e.g. 1,500,000 -> 1.50M)
+    function formatNumber(num) {
+        if (num >= 1000000000) return (num / 1000000000).toFixed(2) + 'B';
+        if (num >= 1000000) return (num / 1000000).toFixed(2) + 'M';
+        if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+        return Math.floor(num).toString();
+    }
+
     function getClickPower() { return 1 + Math.floor(fishPerSec * 0.2); }
     function getCost(upgrade) { return Math.floor(upgrade.baseCost * Math.pow(1.15, upgrade.count)); }
 
@@ -43,11 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let total = 0;
         upgrades.forEach(u => { total += u.cps * u.count; });
         fishPerSec = total;
-        uiFishSec.innerText = `${fishPerSec.toLocaleString()} fish per second`;
+        uiFishSec.innerText = `${formatNumber(fishPerSec)} fish per second`;
         updateCatFace();
     }
 
-    // DYNAMIC CAT EXPRESSIONS (Lowered thresholds so you see them faster!)
     function updateCatFace() {
         if (fishPerSec < 5) catBtn.innerText = "(=^w^=)";
         else if (fishPerSec < 25) catBtn.innerText = "(=✧w✧=)";
@@ -56,32 +62,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateUI() {
-        uiFish.innerText = Math.floor(fish).toLocaleString();
+        uiFish.innerText = formatNumber(fish);
+        
         upgrades.forEach(u => {
             const btn = document.getElementById(`upgrade${u.id}`);
             const costSpan = document.getElementById(`cost${u.id}`);
             if (!btn || !costSpan) return;
             
             const cost = getCost(u);
-            costSpan.innerText = cost.toLocaleString();
-            
             let nameElement = btn.querySelector('h3');
-            if (u.count > 0) {
-                let baseName = nameElement.innerText.split(' (')[0];
-                nameElement.innerText = `${baseName} (${u.count})`;
-            }
 
-            if (fish >= cost) btn.classList.remove('disabled');
-            else btn.classList.add('disabled');
+            // CURIOSITY GAP LOGIC: Reveal if they have 50% of base cost OR already own one
+            if (fish >= u.baseCost * 0.5 || u.count > 0) {
+                nameElement.innerText = u.count > 0 ? `${u.name} (${u.count})` : u.name;
+                costSpan.innerText = formatNumber(cost);
+                
+                // Color formatting based on affordability
+                if (fish >= cost) {
+                    btn.classList.remove('disabled');
+                    btn.style.opacity = '1';
+                } else {
+                    btn.classList.add('disabled');
+                    btn.style.opacity = '0.5';
+                }
+            } else {
+                // Obscure late-game items
+                nameElement.innerText = "???";
+                costSpan.innerText = "???";
+                btn.classList.add('disabled');
+                btn.style.opacity = '0.2'; // Make it very dark
+            }
         });
     }
 
-    // Main Game Loops
+    // Save Game every 5 seconds
     setInterval(() => {
         const data = { fish: fish, upgrades: upgrades.map(u => ({ id: u.id, count: u.count })) };
         localStorage.setItem('galileocat_fishclicker', JSON.stringify(data));
     }, 5000);
 
+    // Main Game Loop (10 ticks a second)
     setInterval(() => {
         fish += fishPerSec / 10;
         updateUI();
@@ -89,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 5. VISUAL EFFECTS ENGINE ---
     
-    // Ambient Bubbles
     setInterval(() => {
         let bubble = document.createElement('div');
         bubble.classList.add('bg-bubble');
@@ -102,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => bubble.remove(), 10000);
     }, 800);
 
-    // Physics Particle Engine
     let particles = [];
     function spawnFishParticles(x, y) {
         for (let i = 0; i < 4; i++) {
@@ -140,11 +158,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     requestAnimationFrame(animateParticles);
 
-    // Floating text
-    function createFloatingText(x, y, amount) {
+    // UPDATED: Floating text now handles CRITS
+    function createFloatingText(x, y, amount, isCrit = false) {
         const floatText = document.createElement('div');
         floatText.classList.add('click-anim');
-        floatText.innerText = `+${amount.toLocaleString()}`; 
+        
+        if (isCrit) {
+            floatText.innerText = `CRIT! +${formatNumber(amount)}`;
+            floatText.style.color = '#ffcc00';
+            floatText.style.fontSize = '2.5rem';
+            floatText.style.textShadow = '0 0 20px #ffcc00';
+        } else {
+            floatText.innerText = `+${formatNumber(amount)}`; 
+        }
+
         const randomOffsetX = (Math.random() - 0.5) * 60;
         floatText.style.left = `${x + randomOffsetX}px`;
         floatText.style.top = `${y - 30}px`;
@@ -152,7 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => floatText.remove(), 1000);
     }
 
-    // FIXED: Target the container, not the body, and force reflow
     function screenShake() {
         if (!gameContainer) return;
         gameContainer.style.animation = 'none';
@@ -170,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (fish >= cost) {
                     fish -= cost;
                     u.count++;
-                    screenShake(); // Will now aggressively shake the box!
+                    screenShake(); 
                     calculateCPS();
                     updateUI();
                 }
@@ -179,20 +205,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     catBtn.addEventListener('click', (e) => {
-        const power = getClickPower();
+        let power = getClickPower();
+        let isCrit = Math.random() < 0.05; // 5% chance for a massive hit
+        
+        if (isCrit) {
+            power *= 10;
+            screenShake(); // Always shake on a crit
+        }
+        
         fish += power;
         updateUI();
 
-        // FIXED: Fool-proof wiggle animation trigger
         catBtn.style.animation = 'none';
         void catBtn.offsetWidth; 
         catBtn.style.animation = 'catWiggle 0.15s ease-in-out';
 
-        createFloatingText(e.clientX, e.clientY, power);
+        createFloatingText(e.clientX, e.clientY, power, isCrit);
         spawnFishParticles(e.clientX, e.clientY);
     });
 
     // Initialize
     calculateCPS();
     updateUI();
+
+    // --- 7. RESET SAVE LOGIC ---
+    const resetBtn = document.getElementById('reset-save');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Stop the link from jumping the page
+            
+            // Ask for confirmation so they don't click it by accident
+            if (confirm("CRITICAL WARNING: This will permanently delete your entire fish empire. Are you sure?")) {
+                localStorage.removeItem('galileocat_fishclicker'); // Delete the save file
+                location.reload(); // Refresh the page to reset everything to 0
+            }
+        });
+    }
 });
+
+
