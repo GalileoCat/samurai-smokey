@@ -105,7 +105,7 @@ title: "System Information"
                 <div class="ms-box-body">
                     <img src="/images/home-icon.jpg" class="ms-profile-pic">
                     <span class="ms-online">Online Now!</span>
-                    <p style="font-size: 0.85rem; text-align: center;">"Archiving the shadows..."</p>
+                    <p style="font-size: 0.85rem; text-align: center;">"Jackets are the eyes of the soul."</p>
                     <p style="font-size: 0.8rem; margin-top: 10px;">
                         <b style="color: #6699cc;">Male</b><br>
                         <b style="color: #6699cc;">Location:</b> The Void
