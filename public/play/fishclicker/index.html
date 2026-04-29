@@ -30,17 +30,92 @@
     <main>
         
 <style>
-    .clicker-container { max-width: 800px; margin: 40px auto; text-align: center; background: #0a0a0a; border: 2px solid #2fb98f; border-radius: 15px; padding: 40px 20px; color: #fff; box-shadow: 0 0 20px rgba(47, 185, 143, 0.2); }
+    body {
+         
+        background: radial-gradient(circle at center, #0a1512 0%, #000000 100%);
+    }
+
+    .clicker-container { 
+        max-width: 800px; 
+        margin: 40px auto; 
+        text-align: center; 
+        background: rgba(10, 10, 10, 0.85); 
+        border: 2px solid #2fb98f; 
+        border-radius: 15px; 
+        padding: 40px 20px; 
+        color: #fff; 
+        box-shadow: 0 0 40px rgba(47, 185, 143, 0.15), inset 0 0 20px rgba(47, 185, 143, 0.1); 
+        position: relative;
+        z-index: 10;
+        backdrop-filter: blur(5px);
+    }
+
     .score-board { font-family: monospace; font-size: 2rem; margin-bottom: 30px; }
-    .score-board span { color: #2fb98f; font-weight: bold; font-size: 3rem; }
-    .cat-button { font-family: monospace; font-size: 4rem; color: #ff4d4d; background: none; border: 2px dashed #ff4d4d; border-radius: 50%; width: 250px; height: 250px; cursor: pointer; margin: 0 auto 30px auto; display: flex; align-items: center; justify-content: center; transition: transform 0.1s, box-shadow 0.1s; user-select: none; }
-    .cat-button:active { transform: scale(0.9); box-shadow: 0 0 30px rgba(255, 77, 77, 0.6); background: rgba(255, 77, 77, 0.1); }
-    .shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 500px; margin: 0 auto; }
-    .shop-item { background: #111; border: 1px solid #333; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.2s; }
-    .shop-item:hover { border-color: #2fb98f; background: rgba(47, 185, 143, 0.1); }
-    .shop-item.disabled { opacity: 0.4; cursor: not-allowed; border-color: #333; background: #111; }
- 
+    .score-board span { 
+        color: #2fb98f; 
+        font-weight: bold; 
+        font-size: 3.5rem; 
+        text-shadow: 0 0 20px rgba(47, 185, 143, 0.6);
+    }
     
+     
+    .cat-button { 
+        font-family: monospace; 
+        font-size: 4rem; 
+        color: #ff4d4d; 
+        background: radial-gradient(circle, rgba(255, 77, 77, 0.15) 0%, transparent 70%); 
+        border: 2px dashed #ff4d4d; 
+        border-radius: 50%; 
+        width: 260px; 
+        height: 260px; 
+        cursor: pointer; 
+        margin: 0 auto 30px auto; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        transition: transform 0.05s, box-shadow 0.1s; 
+        user-select: none; 
+        box-shadow: 0 0 30px rgba(255, 77, 77, 0.2), inset 0 0 20px rgba(255, 77, 77, 0.2);
+        animation: breath 3s infinite ease-in-out;
+    }
+    .cat-button:active { 
+        transform: scale(0.85); 
+        box-shadow: 0 0 50px rgba(255, 77, 77, 0.8), inset 0 0 40px rgba(255, 77, 77, 0.5); 
+        background: rgba(255, 77, 77, 0.3); 
+        color: #fff;
+    }
+
+    @keyframes breath {
+        0%, 100% { box-shadow: 0 0 30px rgba(255, 77, 77, 0.2), inset 0 0 20px rgba(255, 77, 77, 0.2); }
+        50% { box-shadow: 0 0 50px rgba(255, 77, 77, 0.4), inset 0 0 30px rgba(255, 77, 77, 0.3); }
+    }
+
+    .shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 650px; margin: 0 auto; }
+    .shop-item { 
+        background: rgba(0, 0, 0, 0.5); 
+        border: 1px solid #333; 
+        padding: 15px; 
+        border-radius: 8px; 
+        cursor: pointer; 
+        transition: all 0.2s; 
+        position: relative;
+        overflow: hidden;
+    }
+    .shop-item:hover { 
+        border-color: #2fb98f; 
+        background: rgba(47, 185, 143, 0.15); 
+        box-shadow: 0 0 15px rgba(47, 185, 143, 0.3);
+        transform: translateY(-2px);
+    }
+    .shop-item.disabled { 
+        opacity: 0.4; 
+        cursor: not-allowed; 
+        border-color: #222; 
+        background: #050505; 
+        transform: none;
+        box-shadow: none;
+    }
+
      
     .click-anim {
         position: fixed;
@@ -48,39 +123,65 @@
         font-weight: bold;
         font-family: monospace;
         font-size: 1.5rem;
-        pointer-events: none;  
+        pointer-events: none; 
         animation: floatUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         z-index: 9999;
+        text-shadow: 0 0 10px #2fb98f;
     }
-
     @keyframes floatUp {
         0% { transform: translateY(0) scale(1); opacity: 1; }
-        100% { transform: translateY(-70px) scale(1.5); opacity: 0; }
+        100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+    }
+
+    .cat-button.clicked { animation: catWiggle 0.15s ease-in-out; }
+    @keyframes catWiggle {
+        0% { transform: scale(0.85) rotate(0deg); }
+        25% { transform: scale(0.9) rotate(-8deg); }
+        50% { transform: scale(0.9) rotate(8deg); }
+        75% { transform: scale(0.9) rotate(-8deg); }
+        100% { transform: scale(1) rotate(0deg); }
     }
 
      
-    .cat-button.clicked {
-        animation: catWiggle 0.2s ease-in-out;
+    @keyframes shakeScreen {
+        0% { transform: translate(0, 0); }
+        20% { transform: translate(-5px, 5px); }
+        40% { transform: translate(5px, -5px); }
+        60% { transform: translate(-5px, -5px); }
+        80% { transform: translate(5px, 5px); }
+        100% { transform: translate(0, 0); }
     }
+    .shake { animation: shakeScreen 0.2s cubic-bezier(.36,.07,.19,.97) both; }
 
-    @keyframes catWiggle {
-        0% { transform: scale(0.9) rotate(0deg); }
-        25% { transform: scale(0.95) rotate(-5deg); }
-        50% { transform: scale(0.95) rotate(5deg); }
-        75% { transform: scale(0.95) rotate(-5deg); }
-        100% { transform: scale(1) rotate(0deg); }
+     
+    #bubble-container {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        pointer-events: none; z-index: 1; overflow: hidden;
     }
-    
+    .bg-bubble {
+        position: absolute; bottom: -50px;
+        background: rgba(47, 185, 143, 0.1);
+        border: 1px solid rgba(47, 185, 143, 0.2);
+        border-radius: 50%;
+        animation: rise linear forwards;
+    }
+    @keyframes rise {
+        to { transform: translateY(-120vh) translateX(20px); opacity: 0; }
+    }
 </style>
 
+<div id="bubble-container"></div>
+
 <div class="clicker-container">
-    <h2 style="font-family: monospace; letter-spacing: 2px; color: #888;">FEED THE KITTY</h2>
+    <h2 style="font-family: monospace; letter-spacing: 2px; color: #888; margin-top: 0;">FEED THE KITTY</h2>
     <div class="score-board">
         FISH: <span id="fish-count">0</span>
         <div style="font-size: 1rem; color: #aaa; margin-top: 10px;" id="fish-sec">0 fish per second</div>
     </div>
+    
     <div class="cat-button" id="cat-button">(=^w^=)</div>
-    <div class="shop-grid" style="max-width: 650px;">
+    
+    <div class="shop-grid">
         <div class="shop-item disabled" id="upgrade1">
             <h3 style="margin: 0; color: #2fb98f;">Auto-Feeder</h3>
             <p style="margin: 5px 0; font-size: 0.8rem;">+1 Fish / sec</p>
@@ -126,22 +227,11 @@
         <a href="/play/" style="color: #aaa; text-decoration: none; font-family: monospace;">[ RETURN TO ARCADE ]</a>
     </div>
 </div>
-</div>
-<div style="text-align: center; margin-top: 60px; padding-bottom: 40px;">
-    <h3 style="color: #fff; font-family: monospace; letter-spacing: 2px;">Support & Connect with me!</h3>
-    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; justify-content: center;">
-        <a href="https://ko-fi.com/galileo_cat" target="_blank" style="border: 1px solid #ff4d4d; color: #ff4d4d !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 77, 77, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;">SUPPORT ON KO-FI</a>
-        <a href="https://x.com/galileo_cat" target="_blank" style="border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;">TWITTER</a>
-        <a href="https://linktr.ee/GalileoCat" target="_blank" style="border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;">LINKTREE</a>
-    </div>
-</div>
-<footer style="margin-top: 80px; padding: 40px; text-align: center; border-top: 1px solid #222; color: #444; font-family: monospace;">
+
+<footer style="margin-top: 80px; padding: 40px; text-align: center; border-top: 1px solid #222; color: #444; font-family: monospace; position: relative; z-index: 10;">
     <p>© 2026 Galileo_Cat // MADE WITH HUGO</p>
-    <div style="margin-top: 10px;">
-        <a href="/info/" style="color: #666; text-decoration: none; margin: 0 10px;">ABOUT</a> | 
-        <a href="/commissions/" style="color: #666; text-decoration: none; margin: 0 10px;">COMMISSIONS</a>
-    </div>
 </footer>
+
 <script src="/js/fishclicker.js"></script>
 
     </main>
