@@ -114,7 +114,7 @@ title: "The Arcade"
         <a href="/play/neongrid/" class="game-card neon">
             <div class="thumb-wrap"><img src="/images/comicsicon/neongrid.png"></div>
             <div class="card-meta">
-                <span class="mobile-status status-no">Not Mobile Friendly</span>
+                <span class="mobile-status status-ok">Mobile Friendly</span>
                 <h2>Neon Grid</h2>
                 <p>Standardize the data blocks.</p>
                 <span class="play-tag">Initialize</span>
