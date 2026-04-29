@@ -161,7 +161,7 @@ title: "System Information"
                         <div><div class="ms-friend-thumb" style="background-image: url('/images/comicsicon/skull.png');"></div>Skull</div>
                         <div><div class="ms-friend-thumb" style="background-image: url('/images/comicsicon/catnip.png');"></div>Catnip</div>
                         <div><div class="ms-friend-thumb" style="background-image: url('/images/comicsicon/liz.png');"></div>Liz</div>
-                        <div><div class="ms-friend-thumb" style="background-image: url('/images/comicsicon/Babu.png');"></div>Babu</div>
+                        <div><div class="ms-friend-thumb" style="background-image: url('/images/comicsicon/babu.png');"></div>Babu</div>
                     </div>
                 </div>
             </div>
