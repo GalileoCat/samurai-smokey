@@ -54,11 +54,25 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCatFace();
     }
 
+    // DYNAMIC CAT EXPRESSIONS (The Evolution of Greed)
     function updateCatFace() {
-        if (fishPerSec < 5) catBtn.innerText = "(=^w^=)";
-        else if (fishPerSec < 25) catBtn.innerText = "(=✧w✧=)";
-        else if (fishPerSec < 100) catBtn.innerText = "(=✪w✪=)";
-        else catBtn.innerText = "(=𖦹w𖦹=)";
+        if (fishPerSec < 5) catBtn.innerText = "(=^w^=)";               // 1. Happy
+        else if (fishPerSec < 25) catBtn.innerText = "(=✧w✧=)";         // 2. Sparkly
+        else if (fishPerSec < 100) catBtn.innerText = "(=✪w✪=)";        // 3. Star-struck
+        else if (fishPerSec < 500) catBtn.innerText = "(=𖦹w𖦹=)";        // 4. Hypnotized
+        else if (fishPerSec < 1500) catBtn.innerText = "(=◉ω◉=)";       // 5. Hyper-focused
+        else if (fishPerSec < 5000) catBtn.innerText = "(=♥ω♥=)";       // 6. Obsessed
+        else if (fishPerSec < 15000) catBtn.innerText = "(=💲w💲=)";    // 7. Capitalist Kitty
+        else if (fishPerSec < 50000) catBtn.innerText = "(ↀДↀ)";        // 8. Overclocked
+        else if (fishPerSec < 150000) catBtn.innerText = "( ⓛ ω ⓛ *)";  // 9. Awakened
+        else if (fishPerSec < 500000) catBtn.innerText = "(=🔥ω🔥=)";   // 10. Blazing
+        else if (fishPerSec < 1500000) catBtn.innerText = "[=◓ω◓=]";    // 11. Mecha-Cat
+        else if (fishPerSec < 5000000) catBtn.innerText = "(=⚡ω⚡=)";   // 12. Pure Energy
+        else if (fishPerSec < 25000000) catBtn.innerText = "(=👁️ ω 👁️=)"; // 13. Eldritch Entity
+        else if (fishPerSec < 100000000) catBtn.innerText = "(=🌌ω🌌=)";// 14. Cosmic
+        else if (fishPerSec < 500000000) catBtn.innerText = "(=⟁ω⟁=)";  // 15. Ascended
+        else if (fishPerSec < 1000000000) catBtn.innerText = "(=∅ω∅=)"; // 16. The Singularity
+        else catBtn.innerText = "(=♾️ω♾️=)";                            // 17. Infinite Cat
     }
 
     function updateUI() {
