@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. GAME STATE ---
     let fish = 0;
     let fishPerSec = 0;
+    let lastSavedTime = null; // Used for offline progress
     
     const upgrades = [
         { id: 1, name: "Auto-Feeder", baseCost: 15, cps: 1, count: 0 },
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedData) {
         const parsed = JSON.parse(savedData);
         fish = parsed.fish || 0;
+        lastSavedTime = parsed.lastSaved || null;
         if (parsed.upgrades) {
             parsed.upgrades.forEach((savedUpg, index) => {
                 if (upgrades[index]) upgrades[index].count = savedUpg.count;
@@ -45,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function getClickPower() { return 1 + Math.floor(fishPerSec * 0.2); }
     function getCost(upgrade) { return Math.floor(upgrade.baseCost * Math.pow(1.15, upgrade.count)); }
 
-    // MILESTONES LOGIC: Doubles production at 10, 25, 50, 100, 200
+    // MILESTONES: Doubles production at 10, 25, 50, 100, 200
     function getMultiplier(count) {
         let multi = 1;
         if (count >= 10) multi *= 2;
@@ -67,18 +69,46 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCatFace();
     }
 
-    // Expanded Cat Faces for massive progression
     function updateCatFace() {
-        if (fishPerSec < 5) catBtn.innerText = "(=^w^=)";
-        else if (fishPerSec < 25) catBtn.innerText = "(=✧w✧=)";
-        else if (fishPerSec < 100) catBtn.innerText = "(=✪w✪=)";
-        else if (fishPerSec < 500) catBtn.innerText = "(=𖦹w𖦹=)";
-        else if (fishPerSec < 5000) catBtn.innerText = "(=♥ω♥=)";
-        else if (fishPerSec < 50000) catBtn.innerText = "(ↀДↀ)";
-        else if (fishPerSec < 500000) catBtn.innerText = "(=🔥ω🔥=)";
-        else if (fishPerSec < 5000000) catBtn.innerText = "(=⚡ω⚡=)";
-        else if (fishPerSec < 50000000) catBtn.innerText = "(=🌌ω🌌=)";
-        else catBtn.innerText = "(=♾️ω♾️=)";
+        if (fishPerSec < 5) catBtn.innerText = "(=^w^=)";               
+        else if (fishPerSec < 15) catBtn.innerText = "(=^.^=)";         
+        else if (fishPerSec < 30) catBtn.innerText = "(=✧w✧=)";         
+        else if (fishPerSec < 60) catBtn.innerText = "(=☆w☆=)";         
+        else if (fishPerSec < 100) catBtn.innerText = "(=✪w✪=)";        
+        else if (fishPerSec < 200) catBtn.innerText = "(=◎w◎=)";        
+        else if (fishPerSec < 350) catBtn.innerText = "(=OωO=)";        
+        else if (fishPerSec < 500) catBtn.innerText = "(=𖦹w𖦹=)";        
+        else if (fishPerSec < 750) catBtn.innerText = "(=@w@=)";        
+        else if (fishPerSec < 1000) catBtn.innerText = "(=◉ω◉=)";       
+        else if (fishPerSec < 1500) catBtn.innerText = "(=ꙨωꙨ=)";       
+        else if (fishPerSec < 2500) catBtn.innerText = "(=♥ω♥=)";       
+        else if (fishPerSec < 4000) catBtn.innerText = "(=💖ω💖=)";     
+        else if (fishPerSec < 7000) catBtn.innerText = "(=💎ω💎=)";     
+        else if (fishPerSec < 10000) catBtn.innerText = "(=💲w💲=)";    
+        else if (fishPerSec < 15000) catBtn.innerText = "(=💰ω💰=)";    
+        else if (fishPerSec < 25000) catBtn.innerText = "(=📈ω📈=)";    
+        else if (fishPerSec < 40000) catBtn.innerText = "(ↀДↀ)";        
+        else if (fishPerSec < 60000) catBtn.innerText = "(=⚙️ω⚙️=)";      
+        else if (fishPerSec < 90000) catBtn.innerText = "( ⓛ ω ⓛ *)";  
+        else if (fishPerSec < 150000) catBtn.innerText = "(=☢️ω☢️=)";    
+        else if (fishPerSec < 250000) catBtn.innerText = "(=☣️ω☣️=)";    
+        else if (fishPerSec < 400000) catBtn.innerText = "(=🔥ω🔥=)";   
+        else if (fishPerSec < 600000) catBtn.innerText = "(=☄️ω☄️=)";    
+        else if (fishPerSec < 1000000) catBtn.innerText = "[=◓ω◓=]";    
+        else if (fishPerSec < 1500000) catBtn.innerText = "[=🤖ω🤖=]";  
+        else if (fishPerSec < 2500000) catBtn.innerText = "(=⚡ω⚡=)";   
+        else if (fishPerSec < 4000000) catBtn.innerText = "(=🌀ω🌀=)";   
+        else if (fishPerSec < 7000000) catBtn.innerText = "(=👁️ ω 👁️=)"; 
+        else if (fishPerSec < 12000000) catBtn.innerText = "(=🦑ω🦑=)"; 
+        else if (fishPerSec < 25000000) catBtn.innerText = "(=🛸ω🛸=)"; 
+        else if (fishPerSec < 50000000) catBtn.innerText = "(=🌌ω🌌=)"; 
+        else if (fishPerSec < 100000000) catBtn.innerText = "(=🪐ω🪐=)";
+        else if (fishPerSec < 250000000) catBtn.innerText = "(=⟁ω⟁=)";  
+        else if (fishPerSec < 500000000) catBtn.innerText = "(=👁️‍🗨️ω👁️‍🗨️=)";
+        else if (fishPerSec < 750000000) catBtn.innerText = "(=⏳ω⏳=)"; 
+        else if (fishPerSec < 1000000000) catBtn.innerText = "(=∅ω∅=)"; 
+        else if (fishPerSec < 2500000000) catBtn.innerText = "(=🧬ω🧬=)";
+        else catBtn.innerText = "(=♾️ω♾️=)";                            
     }
 
     function updateUI() {
@@ -93,10 +123,20 @@ document.addEventListener('DOMContentLoaded', () => {
             let nameElement = btn.querySelector('h3');
 
             if (fish >= u.baseCost * 0.5 || u.count > 0) {
-                let multi = getMultiplier(u.count);
-                // If it has a multiplier, show a star so they know it's boosted!
-                let starStr = multi > 1 ? ' ⭐' : '';
-                nameElement.innerText = u.count > 0 ? `${u.name} (${u.count})${starStr}` : u.name;
+                // TIER PROGRESSION VISUALS
+                let stars = "";
+                let isMaxTier = false;
+
+                if (u.count >= 10) stars = " ⭐";
+                if (u.count >= 25) stars = " ⭐⭐";
+                if (u.count >= 50) stars = " ⭐⭐⭐";
+                if (u.count >= 100) stars = " ⭐⭐⭐⭐";
+                if (u.count >= 200) {
+                    stars = " 🌟🌟🌟🌟🌟";
+                    isMaxTier = true;
+                }
+
+                nameElement.innerText = u.count > 0 ? `${u.name} (${u.count})${stars}` : u.name;
                 costSpan.innerText = formatNumber(cost);
                 
                 if (fish >= cost) {
@@ -106,20 +146,36 @@ document.addEventListener('DOMContentLoaded', () => {
                     btn.classList.add('disabled');
                     btn.style.opacity = '0.5';
                 }
+
+                // APPLY PREMIUM "MAX TIER" STYLING
+                if (isMaxTier) {
+                    btn.style.borderColor = '#ffcc00';
+                    btn.style.boxShadow = '0 0 15px rgba(255, 204, 0, 0.4), inset 0 0 10px rgba(255, 204, 0, 0.1)';
+                    btn.style.background = 'rgba(60, 45, 0, 0.6)'; // Rich dark gold tint
+                    nameElement.style.color = '#ffcc00'; // Make title gold too
+                    nameElement.style.textShadow = '0 0 5px #ffcc00';
+                }
+
             } else {
                 nameElement.innerText = "???";
                 costSpan.innerText = "???";
                 btn.classList.add('disabled');
-                btn.style.opacity = '0.2';
+                btn.style.opacity = '0.2'; 
             }
         });
     }
 
+    // Save Game every 5 seconds, now including a timestamp
     setInterval(() => {
-        const data = { fish: fish, upgrades: upgrades.map(u => ({ id: u.id, count: u.count })) };
+        const data = { 
+            fish: fish, 
+            lastSaved: Date.now(),
+            upgrades: upgrades.map(u => ({ id: u.id, count: u.count })) 
+        };
         localStorage.setItem('galileocat_fishclicker', JSON.stringify(data));
     }, 5000);
 
+    // Main Game Loop
     setInterval(() => {
         fish += fishPerSec / 10;
         updateUI();
@@ -166,14 +222,17 @@ document.addEventListener('DOMContentLoaded', () => {
             let p = particles[i];
             p.vy += 0.5; // Gravity
             p.x += p.vx; p.y += p.vy; p.life -= 0.02;
+            
             p.element.style.transform = `translate(${p.x - parseFloat(p.element.style.left)}px, ${p.y - parseFloat(p.element.style.top)}px) rotate(${p.vx * 10}deg)`;
             p.element.style.opacity = p.life;
+
             if (p.life <= 0) { p.element.remove(); particles.splice(i, 1); }
         }
         requestAnimationFrame(animateParticles);
     }
     requestAnimationFrame(animateParticles);
 
+    // Modified to accept a raw string so it can handle Crits and Milestones
     function createFloatingText(x, y, textString, isSpecial = false) {
         const floatText = document.createElement('div');
         floatText.classList.add('click-anim');
@@ -181,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isSpecial) {
             floatText.innerText = textString;
             floatText.style.color = '#ffcc00';
-            floatText.style.fontSize = '2.5rem';
+            floatText.style.fontSize = '2rem';
             floatText.style.textShadow = '0 0 20px #ffcc00';
             floatText.style.zIndex = '10000';
         } else {
@@ -202,9 +261,8 @@ document.addEventListener('DOMContentLoaded', () => {
         gameContainer.style.animation = 'shakeScreen 0.2s cubic-bezier(.36,.07,.19,.97) both';
     }
 
-    // --- 6. GOLDEN KITTY EVENT (THE SNITCH) ---
+    // --- 6. GOLDEN KITTY EVENT ---
     function queueGoldenKitty() {
-        // Spawns randomly between 1 to 3 minutes
         const delay = Math.random() * 120000 + 60000; 
         setTimeout(spawnGoldenKitty, delay);
     }
@@ -213,14 +271,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const kitty = document.createElement('div');
         kitty.innerText = '✨😺✨';
         kitty.style.position = 'fixed';
-        // Keep it away from the absolute edges
         kitty.style.left = (Math.random() * (window.innerWidth - 100) + 50) + 'px';
         kitty.style.top = (Math.random() * (window.innerHeight - 100) + 50) + 'px';
         kitty.style.fontSize = '4rem';
         kitty.style.cursor = 'pointer';
         kitty.style.zIndex = '10000';
         kitty.style.filter = 'drop-shadow(0 0 20px #ffcc00)';
-        kitty.style.animation = 'catWiggle 0.5s infinite'; // Uses your existing wiggle
+        kitty.style.animation = 'catWiggle 0.5s infinite'; 
         kitty.style.userSelect = 'none';
         kitty.style.transition = 'opacity 0.5s';
 
@@ -232,29 +289,27 @@ document.addEventListener('DOMContentLoaded', () => {
             clicked = true;
             kitty.remove();
             
-            // Reward: 5 Minutes worth of Fish (or 500 minimum if early game)
-            let reward = Math.max(500, fishPerSec * 300);
+            // NERFED: Grants 30 Seconds worth of Fish (or 100 minimum)
+            let reward = Math.max(100, fishPerSec * 30);
             fish += reward;
             
             screenShake();
             createFloatingText(e.clientX, e.clientY, `LUCKY! +${formatNumber(reward)}`, true);
             spawnFishParticles(e.clientX, e.clientY);
-            spawnFishParticles(e.clientX, e.clientY); // Double blast!
+            spawnFishParticles(e.clientX, e.clientY); // Double explosion!
             
             updateUI();
         };
 
-        // Disappears after exactly 4 seconds
         setTimeout(() => {
             if (!clicked && kitty.parentNode) {
                 kitty.style.opacity = '0';
                 setTimeout(() => kitty.remove(), 500);
             }
-            queueGoldenKitty(); // Start the timer for the next one
+            queueGoldenKitty(); 
         }, 4000);
     }
-
-    // Start the Golden Kitty loop
+    
     queueGoldenKitty();
 
     // --- 7. INTERACTIONS ---
@@ -270,15 +325,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     u.count++;
                     let newMulti = getMultiplier(u.count);
                     
-                    // MILESTONE POPUP!
+                    // MILESTONE LEVEL UP POPUP
                     if (newMulti > oldMulti) {
-                        createFloatingText(e.clientX, e.clientY, `${u.name} x2 MULTIPLIER!`, true);
+                        let popupStars = "⭐";
+                        if (u.count === 25) popupStars = "⭐⭐";
+                        if (u.count === 50) popupStars = "⭐⭐⭐";
+                        if (u.count === 100) popupStars = "⭐⭐⭐⭐";
+                        if (u.count === 200) popupStars = "🌟 MAX TIER 🌟";
+
+                        createFloatingText(e.clientX, e.clientY, `${u.name} LEVEL UP! ${popupStars}`, true);
                         screenShake();
                     } else {
-                        // Regular upgrade
-                        gameContainer.style.animation = 'none';
-                        void gameContainer.offsetWidth; 
-                        gameContainer.style.animation = 'shakeScreen 0.1s cubic-bezier(.36,.07,.19,.97) both';
+                        if(gameContainer) {
+                            gameContainer.style.animation = 'none';
+                            void gameContainer.offsetWidth; 
+                            gameContainer.style.animation = 'shakeScreen 0.1s cubic-bezier(.36,.07,.19,.97) both';
+                        }
                     }
 
                     calculateCPS();
@@ -320,7 +382,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initialize
+    // --- 9. INITIALIZATION & OFFLINE PROGRESS ---
     calculateCPS();
     updateUI();
+
+    if (lastSavedTime && fishPerSec > 0) {
+        let secondsOffline = Math.floor((Date.now() - lastSavedTime) / 1000);
+        if (secondsOffline > 60) {
+            let offlineEarnings = secondsOffline * fishPerSec;
+            fish += offlineEarnings;
+            updateUI();
+            
+            setTimeout(() => {
+                alert(`Welcome back! While you were sleeping, your cats caught ${formatNumber(offlineEarnings)} fish!`);
+            }, 500);
+        }
+    }
 });
