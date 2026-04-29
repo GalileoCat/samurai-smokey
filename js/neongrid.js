@@ -11,7 +11,8 @@ if (canvas) {
     let score = 0;
     let lines = 0;
     let dropStart = Date.now();
-    let shakeTime = 0; // Moved to the top for safety!
+    let shakeTime = 0;
+
 
     const COLORS = {
         VACANT: "#050505",
@@ -34,40 +35,65 @@ if (canvas) {
         [[[0,0,1],[1,1,1]], COLORS.L]
     ];
 
-    // --- PARTICLE SYSTEM ---
+    // --- PARTICLE & VFX SYSTEM ---
     let particles = [];
+    let floaters = []; // NEW: Floating text array
 
-    function createParticles(x, y, color) {
-        for (let i = 0; i < 8; i++) {
+    function createParticles(x, y, color, amount = 8) {
+        for (let i = 0; i < amount; i++) {
             particles.push({
-                x: x,
-                y: y,
-                xv: (Math.random() - 0.5) * 10,
-                yv: (Math.random() - 0.5) * 10,
-                life: 30,
+                x: x, y: y,
+                xv: (Math.random() - 0.5) * 12,
+                yv: (Math.random() - 0.5) * 12,
+                life: 30 + Math.random() * 10,
                 color: color
             });
         }
     }
 
-    function updateParticles() {
+    // NEW: Spawn floating points text
+    function createFloater(x, y, text, color) {
+        floaters.push({ x: x, y: y, text: text, color: color, life: 50, maxLife: 50 });
+    }
+
+    function updateVFX() {
+        // Particles
         for (let i = particles.length - 1; i >= 0; i--) {
             let p = particles[i];
-            p.x += p.xv;
-            p.y += p.yv;
-            p.life--;
+            p.x += p.xv; p.y += p.yv; p.life--;
             if (p.life <= 0) particles.splice(i, 1);
+        }
+        // Floating Text
+        for (let i = floaters.length - 1; i >= 0; i--) {
+            let f = floaters[i];
+            f.y -= 0.8; // Float upwards
+            f.life--;
+            if (f.life <= 0) floaters.splice(i, 1);
         }
     }
 
-    function drawParticles() {
+    function drawVFX() {
+        // Draw Particles
         particles.forEach(p => {
-            ctx.globalAlpha = p.life / 30;
+            ctx.globalAlpha = p.life / 40;
             ctx.fillStyle = p.color;
-            ctx.fillRect(p.x, p.y, 4, 4);
+            ctx.fillRect(p.x, p.y, Math.random()*4+2, Math.random()*4+2); // Flicker size
+        });
+        
+        // Draw Floating Text
+        ctx.textAlign = "center";
+        ctx.font = "bold 16px monospace";
+        floaters.forEach(f => {
+            ctx.globalAlpha = f.life / f.maxLife;
+            ctx.fillStyle = f.color;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = f.color;
+            ctx.fillText(f.text, f.x, f.y);
         });
         ctx.globalAlpha = 1.0;
+        ctx.shadowBlur = 0;
     }
+
 
     // 2. DRAWING FUNCTIONS
     function drawSquare(x, y, color, isGhost = false){
@@ -79,7 +105,10 @@ if (canvas) {
             ctx.strokeRect(0, 0, SQ, SQ);
         } else {
             if (isGhost) {
-                ctx.globalAlpha = 0.2;
+                ctx.globalAlpha = 0.15;
+                ctx.fillStyle = color;
+                ctx.fillRect(2, 2, SQ - 4, SQ - 4);
+                ctx.globalAlpha = 0.4;
                 ctx.strokeStyle = color;
                 ctx.lineWidth = 2;
                 ctx.strokeRect(2, 2, SQ - 4, SQ - 4);
@@ -162,7 +191,7 @@ if (canvas) {
 
         lock() {
             const shape = this.tetromino[this.activeRotation];
-            shakeTime = 5; // Small shake on every lock
+            shakeTime = 3; 
 
             for (let r = 0; r < shape.length; r++) {
                 for (let c = 0; c < shape[r].length; c++) {
@@ -172,24 +201,44 @@ if (canvas) {
                         return;
                     }
                     grid[this.y + r][this.x + c] = this.color;
+                    // Sparkles on lock
+                    createParticles((this.x + c) * SQ + SQ/2, (this.y + r) * SQ + SQ/2, "#fff", 2);
                 }
             }
 
-            // Line clearing with particles
+            // --- UPGRADED LINE CLEARING (Combos!) ---
+            let linesClearedThisTurn = 0;
+            let clearY = 0; // Track where the text should float from
+
             for (let r = 0; r < ROW; r++) {
                 if (grid[r].every(sq => sq !== COLORS.VACANT)) {
-                    // Spawn particles for the whole row
                     for (let c = 0; c < COL; c++) {
-                        createParticles(c * SQ + SQ/2, r * SQ + SQ/2, grid[r][c]);
+                        createParticles(c * SQ + SQ/2, r * SQ + SQ/2, grid[r][c], 5);
                     }
-                    
                     grid.splice(r, 1);
                     grid.unshift(new Array(COL).fill(COLORS.VACANT));
-                    lines++;
-                    score += 100;
-                    shakeTime = 15; // Bigger shake for clearing lines
+                    linesClearedThisTurn++;
+                    clearY = r * SQ; 
                 }
             }
+
+            if (linesClearedThisTurn > 0) {
+                lines += linesClearedThisTurn;
+                
+                // Exponential scoring: 1=100, 2=300, 3=500, 4=800
+                let pointsGained = 0;
+                let msg = "";
+                let vfxColor = "#00f2ff";
+
+                if (linesClearedThisTurn === 1) { pointsGained = 100; msg = "+100"; shakeTime = 8; }
+                if (linesClearedThisTurn === 2) { pointsGained = 300; msg = "DOUBLE! +300"; shakeTime = 12; vfxColor = "#b3ff00"; }
+                if (linesClearedThisTurn === 3) { pointsGained = 500; msg = "TRIPLE! +500"; shakeTime = 15; vfxColor = "#ffb300"; }
+                if (linesClearedThisTurn >= 4) { pointsGained = 800; msg = "OVERLOAD! +800"; shakeTime = 25; vfxColor = "#ff2d55"; }
+
+                score += pointsGained;
+                createFloater(canvas.width / 2, clearY, msg, vfxColor);
+            }
+
             document.getElementById("score").innerText = score;
             document.getElementById("lines").innerText = lines;
         }
@@ -209,8 +258,7 @@ if (canvas) {
     function rebootSystem() {
         if (gameActive) return;
         for(let r = 0; r < ROW; r++) { grid[r].fill(COLORS.VACANT); }
-        score = 0;
-        lines = 0;
+        score = 0; lines = 0; floaters = []; particles = [];
         document.getElementById("score").innerText = "0";
         document.getElementById("lines").innerText = "0";
         
@@ -243,17 +291,21 @@ if (canvas) {
 
         ctx.save();
         if (shakeTime > 0) {
-            ctx.translate((Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5);
+            ctx.translate((Math.random() - 1 ) * shakeTime, (Math.random() - 1 ) * shakeTime);
             shakeTime--;
         }
 
-        ctx.clearRect(-10, -10, canvas.width + 20, canvas.height + 20);
+        ctx.clearRect(-20, -20, canvas.width + 40, canvas.height + 40);
+        
         drawGrid();
-        updateParticles();
-        drawParticles();
+        
+        updateVFX();   // Manage text and particles
+        drawVFX();     // Draw text and particles
 
         let now = Date.now();
-        if (now - dropStart > 500) {
+        // Speed up the game as lines increase!
+        let speed = Math.max(100, 500 - (lines * 5)); 
+        if (now - dropStart > speed) {
             p.moveDown();
             dropStart = now;
         }
@@ -274,14 +326,14 @@ if (canvas) {
 
         if(e.key === "ArrowLeft" && !p.collision(-1, 0, p.tetromino[p.activeRotation])) p.x--;
         if(e.key === "ArrowRight" && !p.collision(1, 0, p.tetromino[p.activeRotation])) p.x++;
-        if(e.key === "ArrowDown") p.moveDown();
+        if(e.key === "ArrowDown") { p.moveDown(); score += 1; document.getElementById("score").innerText = score; }
         if(e.key === "ArrowUp") {
             let nextPattern = p.tetromino[(p.activeRotation + 1) % 4];
             if(!p.collision(0, 0, nextPattern)) p.activeRotation = (p.activeRotation + 1) % 4;
         }
         if (e.key === " ") { 
-            while (!p.collision(0, 1, p.tetromino[p.activeRotation])) { p.y++; }
-            shakeTime = 10; 
+            while (!p.collision(0, 1, p.tetromino[p.activeRotation])) { p.y++; score += 2;} // Points for hard drop!
+            shakeTime = 8; 
             p.lock();
             if (gameActive) newPiece();
         }
@@ -305,17 +357,14 @@ if (canvas) {
         let dy = touchEndY - touchStartY;
 
         if (Math.abs(dx) < 10 && Math.abs(dy) < 10) {
-            // Tap = Rotate
             let nextPattern = p.tetromino[(p.activeRotation + 1) % 4];
             if(!p.collision(0, 0, nextPattern)) p.activeRotation = (p.activeRotation + 1) % 4;
         } else if (Math.abs(dx) > Math.abs(dy)) {
-            // Swipe Horizontal = Move
             if (dx > 30 && !p.collision(1, 0, p.tetromino[p.activeRotation])) p.x++;
             else if (dx < -30 && !p.collision(-1, 0, p.tetromino[p.activeRotation])) p.x--;
         } else if (dy > 30) {
-            // Swipe Down = Hard Drop
-            while(!p.collision(0, 1, p.tetromino[p.activeRotation])) { p.y++; }
-            shakeTime = 10;
+            while(!p.collision(0, 1, p.tetromino[p.activeRotation])) { p.y++; score += 2; }
+            shakeTime = 8;
             p.lock();
             if (gameActive) newPiece();
         }
