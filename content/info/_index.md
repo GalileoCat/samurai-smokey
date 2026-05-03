@@ -94,6 +94,24 @@ title: "System Information"
         background-position: center;
     }
 
+    .ms-links-list {
+        list-style-type: square;
+        padding-left: 20px;
+        margin: 0;
+    }
+    .ms-links-list li {
+        margin-bottom: 8px;
+    }
+    .ms-links-list a {
+        color: #6699cc;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .ms-links-list a:hover {
+        text-decoration: underline;
+        color: #ff00ff;
+    }
+
     @media (max-width: 768px) { .ms-grid { grid-template-columns: 1fr; } }
 </style>
 
@@ -111,7 +129,7 @@ title: "System Information"
                         <b style="color: #6699cc;">Location:</b> The Void
                     </p>
                 </div>
-            </div>
+            </div>           
             <div class="ms-box">
                 <div class="ms-box-head">Contacting galileo_cat</div>
                 <div class="ms-box-body" style="padding: 0;">
@@ -134,7 +152,15 @@ title: "System Information"
                     <p><b>Mood:</b> Sleepy</p>
                 </div>
             </div>
-        </div>
+            <div class="ms-box">
+                <div class="ms-box-head">Cool Links & Webring</div>
+                <div class="ms-box-body" style="font-size: 0.85rem; line-height: 1.4;">
+                    <ul class="ms-links-list">
+                        <li><a href="https://chabbytabby.com" target="_blank">ChabbyTabby.com</a><br><span style="font-size: 0.75rem; color: #ccc;">A cool site I built for ChabbyTabby!</span></li>
+                    </ul>
+                </div>
+            </div>
+            </div>       
         <div class="ms-right">
             <div class="ms-box">
                 <div class="ms-box-head">galileo_cat's Interests</div>
@@ -142,7 +168,7 @@ title: "System Information"
                     <p><b style="color: #6699cc;">General:</b> Art, Mystery, Adventure, Game Dev, Cyber Defense</p>
                     <p><b style="color: #6699cc;">Music:</b> The Strokes, The Voidz, The Weeknd, Joji</p>
                 </div>
-            </div>
+            </div>            
             <div class="ms-box">
                 <div class="ms-box-head">About Me</div>
                 <div class="ms-box-body" style="font-size: 0.95rem; line-height: 1.6;">
@@ -165,7 +191,9 @@ title: "System Information"
                     </div>
                 </div>
             </div>
-        </div> </div> <footer style="margin-top: 50px; font-size: 0.75rem; opacity: 0.5; text-align: center; padding-bottom: 40px; font-family: monospace;">
+        </div> 
+    </div> 
+    <footer style="margin-top: 50px; font-size: 0.75rem; opacity: 0.5; text-align: center; padding-bottom: 40px; font-family: monospace;">
         SYSTEM LOG: BUILT WITH HUGO | HOSTED VIA GITHUB | MAINTAINED BY GALILEOCAT
     </footer>
 </div>
