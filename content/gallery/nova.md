@@ -1,5 +1,5 @@
 ---
-title: "Project: Nova"
+title: " "
 layout: "list"
 ---
 <div class="archive-vault" style="max-width: 800px; margin: 0 auto;">

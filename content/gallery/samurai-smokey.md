@@ -1,5 +1,5 @@
 ---
-title: "Samurai Smokey Archive"
+title: " "
 layout: "list"
 ---
 <div class="archive-vault" style="max-width: 800px; margin: 0 auto;">
@@ -9,7 +9,7 @@ layout: "list"
         <p>Concepts, character sheets, and cover art for the SS series.</p>
     </div>
     <div class="comic-grid">
-    
+
 [![Chapter 01 Nightmare Illustration 2020](/images/gallery/art16.jpg)](/images/gallery/art16.jpg)
 [![Video Game Concept Cover 2020](/images/gallery/art15.jpg)](/images/gallery/art15.jpg)
 [![Smokey and Sage 01 - 2021](/images/gallery/art14.jpg)](/images/gallery/art14.jpg)
