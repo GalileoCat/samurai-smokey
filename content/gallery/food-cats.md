@@ -10,7 +10,7 @@ layout: "list"
     </div>
      <div class="comic-grid">
 
-[![Commission Name](/images/title-icon.png)](/images/title-icon.png)
+[![GalileoCat01](/images/gallery/foodcats/banner.jpg)](/images/gallery/foodcats/banner.jpg)
 
 </div>
 </div>

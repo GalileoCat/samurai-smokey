@@ -11,6 +11,7 @@ layout: "list"
     <div class="comic-grid">
 
 [![GalileoCat01](/images/gallery/art12.jpg)](/images/gallery/art12.jpg)
+[![GalileoCat01](/images/gallery/personalart/p1.jpg)](/images/gallery/personalart/p1.jpg)
 
 </div>
 </div>

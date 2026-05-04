@@ -6,14 +6,14 @@ layout: "list"
 <div class="archive-vault" style="max-width: 900px; margin: 0 auto;">
     <div style="text-align: center; margin-bottom: 40px;">
         <img src="/images/banners/gallerybanner.jpg" alt="Gallery Banner" style="width: 100%; border-radius: 8px; box-shadow: 0 0 15px rgba(255, 77, 77, 0.2);">
-        <p style="font-style: italic; margin-top: 10px;">I hope you enjoy my art!</p>
+        <p style="font-style: italic; margin-top: 10px;">I hope you enjoy my art!</p><br><p>---</p>
     </div>
     <div class="gallery-nav-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 50px;">  
         <a href="/gallery/commissions" style="text-decoration: none; color: inherit;">
             <div class="nav-card" style="border: 2px solid #ff4d4d; padding: 20px; text-align: center; border-radius: 8px; background: rgba(255,255,255,0.05);">
                 <img src="/images/title-icon.png" style="width: 50px; margin-bottom: 10px;">
                 <h3 style="margin: 0; color: #ff4d4d;">COMMISSIONS</h3>
-                <small>Professional works & requests</small>
+                <small>Commissions and requests</small>
             </div>
         </a>
         <a href="/gallery/personal" style="text-decoration: none; color: inherit;">

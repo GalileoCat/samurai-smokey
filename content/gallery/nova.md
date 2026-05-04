@@ -10,7 +10,13 @@ layout: "list"
     </div>
      <div class="comic-grid">
 
-[![Commission Name](/images/title-icon.png)](/images/title-icon.png)
+[![GalileoCat01](/images/gallery/nova/1.jpg)](/images/gallery/nova/1.jpg)
+[![GalileoCat01](/images/gallery/nova/2.jpg)](/images/gallery/nova/2.jpg)
+[![GalileoCat01](/images/gallery/nova/3.jpg)](/images/gallery/nova/3.jpg)
+[![GalileoCat01](/images/gallery/nova/4.png)](/images/gallery/nova/4.png)
+[![GalileoCat01](/images/gallery/nova/5.png)](/images/gallery/nova/5.png)
+[![GalileoCat01](/images/gallery/nova/6.jpg)](/images/gallery/nova/6.jpg)
 
 </div>
+
 </div>

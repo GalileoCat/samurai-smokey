@@ -14,9 +14,19 @@
   </url><url>
     <loc>//localhost:1313/comics/samurai-smokey/</loc>
   </url><url>
-    <loc>//localhost:1313/about/</loc>
+    <loc>//localhost:1313/gallery/commissions/</loc>
   </url><url>
-    <loc>//localhost:1313/gallery/</loc>
+    <loc>//localhost:1313/gallery/food-cats/</loc>
+  </url><url>
+    <loc>//localhost:1313/gallery/nova/</loc>
+  </url><url>
+    <loc>//localhost:1313/gallery/personal/</loc>
+  </url><url>
+    <loc>//localhost:1313/gallery/samurai-smokey/</loc>
+  </url><url>
+    <loc>//localhost:1313/gallery/skull-kitten/</loc>
+  </url><url>
+    <loc>//localhost:1313/about/</loc>
   </url><url>
     <loc>//localhost:1313/categories/</loc>
   </url><url>
@@ -71,5 +81,7 @@
     <loc>//localhost:1313/play/</loc>
   </url><url>
     <loc>//localhost:1313/archive/</loc>
+  </url><url>
+    <loc>//localhost:1313/gallery/</loc>
   </url>
 </urlset>
