@@ -1,46 +1,67 @@
 ---
-title: "Art Gallery"
+title: "The Archive Vault"
 layout: "list"
 ---
-<div class="archive-vault" style="max-width: 800px; margin: 0 auto;">
+
+<div class="archive-vault" style="max-width: 900px; margin: 0 auto;">
     <div style="text-align: center; margin-bottom: 40px;">
-        <img src="/images/banners/gallerybanner.jpg" alt="Samurai Smokey Archive Banner" style="width: 100%; max-width: 100%; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 0 15px rgba(255, 77, 77, 0.1);">
-
-
-*Selected illustrations, concept sketches, and character designs.*
-<div class="gallery-credits">
-    <span>FEATURING ART BY:</span>
-    <div class="credit-links">
-        <a href="https://x.com/Galileo_Cat" target="_blank">@GalileoCat</a>
-        <a href="https://x.com/chabbytabbyy" target="_blank">@IntrovertChabby</a>
-        <a href="https://x.com/Skull_Kitten" target="_blank">@StellarKitten</a>
+        <img src="/images/banners/gallerybanner.jpg" alt="Gallery Banner" style="width: 100%; border-radius: 8px; box-shadow: 0 0 15px rgba(255, 77, 77, 0.2);">
+        <p style="font-style: italic; margin-top: 10px;">I hope you enjoy my art!</p>
     </div>
-</div>
-
-<div class="gallery-wrapper">
-
----
-
-<div class="comic-grid">
+    <div class="gallery-nav-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 50px;">  
+        <a href="/gallery/commissions" style="text-decoration: none; color: inherit;">
+            <div class="nav-card" style="border: 2px solid #ff4d4d; padding: 20px; text-align: center; border-radius: 8px; background: rgba(255,255,255,0.05);">
+                <img src="/images/title-icon.png" style="width: 50px; margin-bottom: 10px;">
+                <h3 style="margin: 0; color: #ff4d4d;">COMMISSIONS</h3>
+                <small>Professional works & requests</small>
+            </div>
+        </a>
+        <a href="/gallery/personal" style="text-decoration: none; color: inherit;">
+            <div class="nav-card" style="border: 2px solid #ff4d4d; padding: 20px; text-align: center; border-radius: 8px; background: rgba(255,255,255,0.05);">
+                <img src="/images/title-icon.png" style="width: 50px; margin-bottom: 10px;">
+                <h3 style="margin: 0; color: #ff4d4d;">PERSONAL ART</h3>
+                <small>Fan art & original sketches</small>
+            </div>
+        </a>
+        <a href="/gallery/samurai-smokey" style="text-decoration: none; color: inherit;">
+            <div class="nav-card" style="border: 1px solid #666; padding: 20px; text-align: center; border-radius: 8px;">
+                <img src="/images/title-icon.png" style="width: 50px; margin-bottom: 10px;">
+                <h3 style="margin: 0;">SAMURAI SMOKEY</h3>
+                <small>Official comic concepts</small>
+            </div>
+        </a>
+        <a href="/gallery/skull-kitten" style="text-decoration: none; color: inherit;">
+            <div class="nav-card" style="border: 1px solid #666; padding: 20px; text-align: center; border-radius: 8px;">
+                <img src="/images/title-icon.png" style="width: 50px; margin-bottom: 10px;">
+                <h3 style="margin: 0;">SKULL KITTEN</h3>
+                <small>Official comic concepts</small>
+            </div>
+        </a>
+        <a href="/gallery/food-cats" style="text-decoration: none; color: inherit;">
+            <div class="nav-card" style="border: 1px solid #666; padding: 20px; text-align: center; border-radius: 8px;">
+                <img src="/images/title-icon.png" style="width: 50px; margin-bottom: 10px;">
+                <h3 style="margin: 0;">FOOD CATS</h3>
+                <small>Official comic concepts</small>
+            </div>
+        </a>
+        <a href="/gallery/nova" style="text-decoration: none; color: inherit;">
+            <div class="nav-card" style="border: 1px solid #666; padding: 20px; text-align: center; border-radius: 8px;">
+                <img src="/images/title-icon.png" style="width: 50px; margin-bottom: 10px;">
+                <h3 style="margin: 0;">NOVA - Desert Diaspora</h3>
+                <small>Official comic concepts</small>
+            </div>
+        </a>
+    </div>
+    <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+    <h2 style="text-align: center;">Featured Art</h2>
+  <div class="comic-grid">
 
 [![GalileoCat01](/images/gallery/art12.jpg)](/images/gallery/art12.jpg)
-[![Chapter 01 Nightmare Illustration 2020](/images/gallery/art16.jpg)](/images/gallery/art16.jpg)
-[![Video Game Concept Cover 2020](/images/gallery/art15.jpg)](/images/gallery/art15.jpg)
 [![Smokey and Sage 01 - 2021](/images/gallery/art14.jpg)](/images/gallery/art14.jpg)
-[![Sketch Concept 01 - 2022](/images/gallery/art13.jpg)](/images/gallery/art13.jpg)
 [![Cover Page Arc 1 - 2020](/images/gallery/art1.jpg)](/images/gallery/art1.jpg)
 [![Smokey Concept 1 - 2023](/images/gallery/art2.jpg)](/images/gallery/art2.jpg)
 [![Original Tapas Cover - 2022](/images/gallery/art3.png)](/images/gallery/art3.png)
 [![Squad 15 - 2024](/images/gallery/art4.jpg)](/images/gallery/art4.jpg)
-[![Original Chapter 1 Cover - 2020](/images/gallery/art5.png)](/images/gallery/art5.png)
-[![Smokey Chibi](/images/gallery/art6.jpg)](/images/gallery/art6.jpg)
-[![Simba Chibi - 2024](/images/gallery/art7.jpg)](/images/gallery/art7.jpg)
-[![Katana Reference - 2023](/images/gallery/art8.jpg)](/images/gallery/art8.jpg)
-[![Sage Chibi - 2024](/images/gallery/art9.jpg)](/images/gallery/art9.jpg)
-[![Babu Chibi - 2024](/images/gallery/art10.jpg)](/images/gallery/art10.jpg)
-[![Smokey Standing - 2021](/images/gallery/art11.jpg)](/images/gallery/art11.jpg)
-[![Original Smokey Concept 2019](/images/gallery/art17.jpg)](/images/gallery/art17.jpg)
-
 
 </div>
 
