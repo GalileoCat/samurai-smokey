@@ -1,5 +1,5 @@
 ---
-title: "The Arcade"
+title: " "
 ---
 
 <style>

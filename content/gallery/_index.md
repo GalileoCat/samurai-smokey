@@ -1,5 +1,5 @@
 ---
-title: "The Archive Vault"
+title: " "
 layout: "list"
 ---
 

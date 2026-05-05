@@ -1,5 +1,5 @@
 ---
-title: "System Information"
+title: " "
 ---
 
 <style>
