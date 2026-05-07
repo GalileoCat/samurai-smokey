@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sakura Drift | Samurai Smokey</title>
+    <link rel="icon" type="image/png" href="/icon.png">
+    <link rel="apple-touch-icon" href="/icon.png">
+    
+      <meta name="description" content="The official webcomic archive, gallery, and lore database for Samurai Smokey. Created by GalileoCat.">
+    
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdnjs.cloudflare.com; connect-src 'self' https://galileocat.goatcounter.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    
+    
+    <link rel="stylesheet" href="//localhost:1313/css/custom.min.59500a6fbe4d5225a52fbfa0cae07e42ae74e0d3cb7cde64d6eedcc97446b189.css" integrity="sha256-WVAKb75NUiWlL7&#43;gyuB&#43;Qq504NPLfN5k1u7cyXRGsYk=" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.css">
+    <script data-goatcounter="https://galileocat.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+    <nav style="text-align: center; padding: 15px 0; position: relative; z-index: 9999;">
+        <a href="/" id="dynamic-home-link" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px; text-decoration: none; color: inherit;">HOME</a>
+        <span style="opacity: 0.2; margin: 0 10px;">|</span>
+        <a href="#" id="refresh-btn" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px; text-decoration: none; color: inherit;">REFRESH SITE</a>
+    </nav>
+
+    <main>
+        
+
+<a href="/themes/" style="position: fixed; top: 20px; right: 20px; z-index: 10000; color: #2fb98f; font-family: monospace; text-decoration: none; border: 1px solid #2fb98f; padding: 8px 15px; background: rgba(0,0,0,0.8); transition: 0.3s;">[ CHANGE THEME ]</a>
+
+
+
+
+<style>
+ 
+:root {
+    --dusk-sky: #ff7e5f;
+    --dune-gold: #feb47b;
+    --glyph-glow: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+}
+
+body, html {
+    margin: 0; padding: 0;
+    overflow: hidden;
+     
+    background: linear-gradient(135deg, var(--dusk-sky) 0%, var(--dune-gold) 100%);
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;  
+}
+
+ 
+#wind-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 0;
+    mix-blend-mode: screen;  
+}
+
+ 
+.journey-viewport {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+ 
+.glyph-launch {
+    margin-bottom: 60px;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+     
+    animation: breathe 4s ease-in-out infinite;
+}
+
+.glyph-launch img {
+    width: 80px; height: 80px;
+    filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(255,255,255,0.8));
+    transition: all 0.5s ease;
+}
+
+.glyph-text {
+    margin-top: 15px;
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    opacity: 0.8;
+    transition: opacity 0.5s;
+}
+
+.glyph-launch:hover img {
+    transform: scale(1.1);
+    filter: brightness(0) invert(1) drop-shadow(0 0 30px rgba(255,255,255,1));
+}
+.glyph-launch:hover .glyph-text { opacity: 1; letter-spacing: 10px; }
+
+ 
+.waypoint-layout {
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+    pointer-events: auto;
+}
+
+.waypoint-card {
+    position: relative;
+    width: 180px;
+    height: 280px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    
+     
+    animation: float-up-down 6s ease-in-out infinite;
+}
+
+ 
+.waypoint-card:nth-child(1) { animation-delay: 0s; }
+.waypoint-card:nth-child(2) { animation-delay: -1.5s; }
+.waypoint-card:nth-child(3) { animation-delay: -3s; }
+.waypoint-card:nth-child(4) { animation-delay: -4.5s; }
+
+.waypoint-art {
+    width: 100%; height: 60%;
+    object-fit: cover;
+    opacity: 0.6;
+    mix-blend-mode: overlay;  
+    transition: all 0.5s ease;
+}
+
+.waypoint-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    text-align: center;
+}
+
+.waypoint-title {
+    color: #fff;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    margin: 0;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.waypoint-sub {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+ 
+.waypoint-card:hover {
+    transform: translateY(-15px) scale(1.02) !important;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15), 0 0 30px rgba(255,255,255,0.2);
+    animation-play-state: paused;  
+}
+
+.waypoint-card:hover .waypoint-art {
+    opacity: 1;
+    mix-blend-mode: normal;
+}
+
+ 
+@keyframes breathe {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes float-up-down {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+</style>
+
+<canvas id="wind-canvas"></canvas>
+
+<div class="journey-viewport">
+    
+    <a href="/play/" class="glyph-launch">
+        <img src="/images/comicsicon/1.png" alt="Play">
+        <div class="glyph-text">Take A Break</div>
+    </a>
+
+    <div class="waypoint-layout">
+        
+        <a href="/comics/" class="waypoint-card">
+            <img src="/images/comicsicon/ss.png" class="waypoint-art">
+            <div class="waypoint-info">
+                <h2 class="waypoint-title">Comics</h2>
+                <div class="waypoint-sub">Visions</div>
+            </div>
+        </a>
+
+        <a href="/gallery/" class="waypoint-card">
+            <img src="/images/comicsicon/gallery.jpg" class="waypoint-art">
+            <div class="waypoint-info">
+                <h2 class="waypoint-title">Gallery</h2>
+                <div class="waypoint-sub">Memories</div>
+            </div>
+        </a>
+
+        <a href="/archive/" class="waypoint-card">
+            <img src="/images/comicsicon/1.png" class="waypoint-art">
+            <div class="waypoint-info">
+                <h2 class="waypoint-title">Archive</h2>
+                <div class="waypoint-sub">History</div>
+            </div>
+        </a>
+
+        <a href="/commissions/" class="waypoint-card">
+            <img src="/images/comicsicon/comms.jpg" class="waypoint-art">
+            <div class="waypoint-info">
+                <h2 class="waypoint-title">Orders</h2>
+                <div class="waypoint-sub">Requests</div>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+<script>
+    
+    
+    
+    const canvas = document.getElementById('wind-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    
+    let mouse = { x: width/2, y: height/2 };
+    let trail = [];
+const trailLength = 10; 
+
+    
+    let sand = [];
+    const sandCount = 100;
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
+
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    });
+
+    
+    for(let i=0; i<sandCount; i++) {
+        sand.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() * 2) + 0.5, 
+            vy: (Math.random() * 1) - 0.5,
+            size: Math.random() * 2.5
+        });
+    }
+
+    function animate() {
+        
+        ctx.clearRect(0, 0, width, height);
+
+        
+        ctx.fillStyle = 'rgba(255, 230, 180, 0.6)';
+        sand.forEach(p => {
+            
+            p.x += p.vx;
+            p.y += p.vy + Math.sin(Date.now() * 0.001 + p.x) * 0.5; 
+
+            
+            if(p.x > width) p.x = 0;
+            if(p.y > height) p.y = 0;
+            if(p.y < 0) p.y = height;
+
+            
+            let dx = mouse.x - p.x;
+            let dy = mouse.y - p.y;
+            let dist = Math.sqrt(dx*dx + dy*dy);
+            if(dist < 150) {
+                p.x -= dx * 0.02;
+                p.y -= dy * 0.02;
+            }
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+            ctx.fill();
+        });
+
+        
+        
+        trail.push({x: mouse.x, y: mouse.y});
+        if(trail.length > trailLength) trail.shift();
+
+        if(trail.length > 1) {
+            ctx.beginPath();
+            ctx.moveTo(trail[0].x, trail[0].y);
+            
+            for(let i = 1; i < trail.length - 1; i++) {
+                
+                let xc = (trail[i].x + trail[i+1].x) / 2;
+                let yc = (trail[i].y + trail[i+1].y) / 2;
+                ctx.quadraticCurveTo(trail[i].x, trail[i].y, xc, yc);
+            }
+            
+            
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#ffffff';
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            
+            
+            for(let i = 1; i < trail.length; i++) {
+                ctx.lineWidth = (i / trailLength) * 8; 
+                ctx.stroke();
+            }
+            ctx.shadowBlur = 0; 
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+</script>
+
+
+
+<script src="/js/theme-switcher.js"></script>
+
+    </main>
+
+    <script>
+        (function() {
+            document.addEventListener("DOMContentLoaded", function() {
+                const homeLink = document.getElementById("dynamic-home-link");
+                const refreshBtn = document.getElementById("refresh-btn");
+                const path = window.location.pathname;
+
+                
+                if (path.includes("sonic") || path.includes("flower")) {
+                    localStorage.setItem("samurai_active_theme", path);
+                } else if (path === "/" || path === "/index.html") {
+                    
+                    localStorage.setItem("samurai_active_theme", "/");
+                }
+                
+
+                
+                const saved = localStorage.getItem("samurai_active_theme");
+                if (saved && homeLink) {
+                    homeLink.href = saved;
+                }
+
+                
+                if (refreshBtn) {
+                    refreshBtn.addEventListener("click", function(e) {
+                        e.preventDefault();
+                        window.location.reload();
+                    });
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
