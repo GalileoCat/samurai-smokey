@@ -1,0 +1,572 @@
+{{ define "main" }}
+
+<a href="/themes/" style="position: fixed; top: 20px; right: 20px; z-index: 10000; color: #2fb98f; font-family: monospace; text-decoration: none; border: 1px solid #2fb98f; padding: 8px 15px; background: rgba(0,0,0,0.8); transition: 0.3s;">[ CHANGE THEME ]</a>
+
+{{ if (in .Permalink "/sonic/") }}
+<style>
+/* ==========================================================
+   SONIC MEGA COLLECTION PLUS (PS2 ERA UI)
+   ========================================================== */
+:root {
+    --sega-blue: #0033cc;
+    --dark-blue: #001144;
+    --sonic-red: #cc0000;
+    --highlight-yellow: #ffe600;
+    --highlight-orange: #ff6600;
+}
+
+body, html {
+    margin: 0; padding: 0;
+    background: var(--dark-blue);
+    overflow: hidden;
+    font-family: 'Impact', 'Arial Black', sans-serif; /* Chunky PS2 Fonts */
+}
+
+/* 1. SCROLLING CHECKERBOARD BACKGROUND */
+.retro-bg {
+    position: fixed;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background-color: var(--sega-blue);
+    background-image: 
+        linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15)),
+        linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.15));
+    background-size: 80px 80px;
+    background-position: 0 0, 40px 40px;
+    animation: pan-bg 15s linear infinite;
+    z-index: 0;
+}
+
+@keyframes pan-bg {
+    100% { background-position: 80px 80px, 120px 120px; }
+}
+
+/* Scanline Overlay for CRT feel */
+.scanlines {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: repeating-linear-gradient(rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.2) 3px, rgba(0,0,0,0.2) 4px);
+    z-index: 1; pointer-events: none;
+}
+
+/* 2. THE MENU CONTAINER */
+.mega-menu-viewport {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Top Banner Header */
+.menu-header {
+    background: var(--sonic-red);
+    color: var(--highlight-yellow);
+    padding: 10px 100px;
+    font-size: 2.5rem;
+    font-style: italic;
+    border: 4px solid #fff;
+    box-shadow: 5px 5px 0 #000;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transform: skewX(-15deg);
+}
+
+.menu-header span {
+    display: block;
+    transform: skewX(15deg); /* Un-skew the text */
+    text-shadow: 2px 2px 0 #000;
+}
+
+/* 3. THE SLANTED CARDS (Flex Layout) */
+.card-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    height: 55vh;
+    gap: 10px;
+}
+
+.mega-card {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    border: 5px solid #fff;
+    /* The core Y2K trick: Skew the whole container */
+    transform: skewX(-12deg);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Fast, snappy bounce */
+    cursor: pointer;
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.6);
+    text-decoration: none;
+}
+
+/* Un-skew the image wrapper so the art isn't distorted */
+.card-image-wrapper {
+    width: 140%; /* Make wider to cover the slanted corners */
+    height: 100%;
+    transform: skewX(12deg) translateX(-15%);
+    overflow: hidden;
+    background: #111;
+}
+
+.card-image-wrapper img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(0.6) contrast(1.2);
+    transition: all 0.2s ease;
+}
+
+/* Halftone dot overlay on the unselected cards */
+.card-image-wrapper::after {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(rgba(0,0,0,0.8) 2px, transparent 0);
+    background-size: 8px 8px;
+    transition: opacity 0.2s;
+}
+
+/* Chunky Typography */
+.card-title {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) skewX(12deg); /* Un-skew */
+    color: #fff;
+    font-size: 2rem;
+    font-style: italic;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    z-index: 10;
+    transition: all 0.2s;
+}
+
+/* 4. HOVER PHYSICS (The "Select" State) */
+.mega-card:hover {
+    flex: 2.5; /* Snaps open aggressively */
+    border-color: var(--highlight-yellow);
+    box-shadow: 12px 12px 0 var(--highlight-orange);
+    z-index: 20;
+    transform: skewX(-12deg) translateY(-10px); /* Pops up */
+}
+
+.mega-card:hover .card-image-wrapper img {
+    filter: grayscale(0%) brightness(1.1) contrast(1.1);
+    transform: scale(1.05);
+}
+
+/* Remove the halftone dots on hover */
+.mega-card:hover .card-image-wrapper::after { opacity: 0; }
+
+.mega-card:hover .card-title {
+    color: var(--highlight-yellow);
+    font-size: 2.5rem;
+    bottom: 30px;
+    text-shadow: 4px 4px 0 var(--sonic-red), 0 0 10px #000;
+}
+/* Optimize for 6 cards */
+.card-container {
+    gap: 8px; /* Slightly tighter gap to fit the 6th card */
+}
+
+.mega-card {
+    flex: 1;
+    min-width: 0; /* Prevents cards from blowing out the container width */
+}
+
+.mega-card:hover {
+    flex: 3; /* Increased from 2.5 so the active card feels even more prominent among 6 */
+}
+
+.card-title {
+    font-size: 1.5rem; /* Slightly smaller default size so they don't overlap when closed */
+    white-space: nowrap;
+}
+
+.mega-card:hover .card-title {
+    font-size: 2.2rem; /* Pops big on hover */
+}
+
+</style>
+
+<div class="retro-bg"></div>
+<div class="scanlines"></div>
+
+<div class="mega-menu-viewport">
+    
+    <div class="menu-header">
+        <span>MAIN MENU</span>
+    </div>
+
+    <div class="card-container">
+    <a href="/comics/" class="mega-card">
+        <div class="card-image-wrapper"><img src="/images/comicsicon/ss.png"></div>
+        <div class="card-title">Comics</div>
+    </a>
+
+    <a href="/gallery/" class="mega-card">
+        <div class="card-image-wrapper"><img src="/images/comicsicon/gallery.jpg"></div>
+        <div class="card-title">Gallery</div>
+    </a>
+
+    <a href="/play/" class="mega-card" style="border-color: var(--highlight-orange);">
+        <div class="card-image-wrapper">
+            <img src="/images/comicsicon/1.png" style="filter: sepia(100%) hue-rotate(320deg) saturate(300%);">
+        </div>
+        <div class="card-title" style="color: var(--highlight-orange);">PLAY</div>
+    </a>
+
+    <a href="/commissions/" class="mega-card">
+        <div class="card-image-wrapper"><img src="/images/comicsicon/comms.jpg"></div>
+        <div class="card-title">Orders</div>
+    </a>
+
+    <a href="/archive/" class="mega-card">
+        <div class="card-image-wrapper">
+            <img src="/images/comicsicon/1.png"> </div>
+        <div class="card-title">Archive</div>
+    </a>
+
+    <a href="/info/" class="mega-card">
+        <div class="card-image-wrapper"><img src="/images/comicsicon/database.jpg"></div>
+        <div class="card-title">System</div>
+    </a>
+</div>
+</div>
+
+{{ end }}
+
+{{ if (in .Permalink "/flower/") }}
+<style>
+/* ==========================================================
+   THE GOLDEN WIND (THATGAMECOMPANY INSPIRED)
+   ========================================================== */
+:root {
+    --dusk-sky: #ff7e5f;
+    --dune-gold: #feb47b;
+    --glyph-glow: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+}
+
+body, html {
+    margin: 0; padding: 0;
+    overflow: hidden;
+    /* The emotional gradient background */
+    background: linear-gradient(135deg, var(--dusk-sky) 0%, var(--dune-gold) 100%);
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* Elegant, classic serif */
+}
+
+/* 1. THE WIND CANVAS */
+#wind-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 0;
+    mix-blend-mode: screen; /* Makes the golden dust glow */
+}
+
+/* 2. THE FLOATING UI */
+.journey-viewport {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+/* The Glowing Play Glyph */
+.glyph-launch {
+    margin-bottom: 60px;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    /* Gentle breathing animation */
+    animation: breathe 4s ease-in-out infinite;
+}
+
+.glyph-launch img {
+    width: 80px; height: 80px;
+    filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(255,255,255,0.8));
+    transition: all 0.5s ease;
+}
+
+.glyph-text {
+    margin-top: 15px;
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    opacity: 0.8;
+    transition: opacity 0.5s;
+}
+
+.glyph-launch:hover img {
+    transform: scale(1.1);
+    filter: brightness(0) invert(1) drop-shadow(0 0 30px rgba(255,255,255,1));
+}
+.glyph-launch:hover .glyph-text { opacity: 1; letter-spacing: 10px; }
+
+/* 3. THE SOFT WAYPOINTS (Menu Cards) */
+.waypoint-layout {
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+    pointer-events: auto;
+}
+
+.waypoint-card {
+    position: relative;
+    width: 180px;
+    height: 280px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    
+    /* Staggered breathing animations so they float organically */
+    animation: float-up-down 6s ease-in-out infinite;
+}
+
+/* Stagger the floats */
+.waypoint-card:nth-child(1) { animation-delay: 0s; }
+.waypoint-card:nth-child(2) { animation-delay: -1.5s; }
+.waypoint-card:nth-child(3) { animation-delay: -3s; }
+.waypoint-card:nth-child(4) { animation-delay: -4.5s; }
+
+.waypoint-art {
+    width: 100%; height: 60%;
+    object-fit: cover;
+    opacity: 0.6;
+    mix-blend-mode: overlay; /* Blends beautifully with the sunset */
+    transition: all 0.5s ease;
+}
+
+.waypoint-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    text-align: center;
+}
+
+.waypoint-title {
+    color: #fff;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    margin: 0;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.waypoint-sub {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+/* Hover Interaction: The Light Bloom */
+.waypoint-card:hover {
+    transform: translateY(-15px) scale(1.02) !important;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15), 0 0 30px rgba(255,255,255,0.2);
+    animation-play-state: paused; /* Stop floating when hovering */
+}
+
+.waypoint-card:hover .waypoint-art {
+    opacity: 1;
+    mix-blend-mode: normal;
+}
+
+/* KEYFRAMES */
+@keyframes breathe {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes float-up-down {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+</style>
+
+<canvas id="wind-canvas"></canvas>
+
+<div class="journey-viewport">
+    
+    <a href="/play/" class="glyph-launch">
+        <img src="/images/comicsicon/1.png" alt="Play">
+        <div class="glyph-text">Take A Break</div>
+    </a>
+
+    <div class="waypoint-layout">
+        
+        <a href="/comics/" class="waypoint-card">
+            <img src="/images/comicsicon/ss.png" class="waypoint-art">
+            <div class="waypoint-info">
+                <h2 class="waypoint-title">Comics</h2>
+                <div class="waypoint-sub">Visions</div>
+            </div>
+        </a>
+
+        <a href="/gallery/" class="waypoint-card">
+            <img src="/images/comicsicon/gallery.jpg" class="waypoint-art">
+            <div class="waypoint-info">
+                <h2 class="waypoint-title">Gallery</h2>
+                <div class="waypoint-sub">Memories</div>
+            </div>
+        </a>
+
+        <a href="/archive/" class="waypoint-card">
+            <img src="/images/comicsicon/1.png" class="waypoint-art">
+            <div class="waypoint-info">
+                <h2 class="waypoint-title">Archive</h2>
+                <div class="waypoint-sub">History</div>
+            </div>
+        </a>
+
+        <a href="/commissions/" class="waypoint-card">
+            <img src="/images/comicsicon/comms.jpg" class="waypoint-art">
+            <div class="waypoint-info">
+                <h2 class="waypoint-title">Orders</h2>
+                <div class="waypoint-sub">Requests</div>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+<script>
+    // ==========================================
+    // THE KINETIC RIBBON & SAND ENGINE
+    // ==========================================
+    const canvas = document.getElementById('wind-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    // The "Scarf" trail history
+    let mouse = { x: width/2, y: height/2 };
+    let trail = [];
+const trailLength = 10; // Much faster for the MacBook to handle
+
+    // Golden Sand particles
+    let sand = [];
+    const sandCount = 200;
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
+
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    });
+
+    // Initialize Sand
+    for(let i=0; i<sandCount; i++) {
+        sand.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() * 2) + 0.5, // Constant wind moving right
+            vy: (Math.random() * 1) - 0.5,
+            size: Math.random() * 2.5
+        });
+    }
+
+    function animate() {
+        // Clear canvas with a very slight fade for motion blur
+        ctx.clearRect(0, 0, width, height);
+
+        // 1. DRAW THE WIND (Golden Sand)
+        ctx.fillStyle = 'rgba(255, 230, 180, 0.6)';
+        sand.forEach(p => {
+            // Move with the wind
+            p.x += p.vx;
+            p.y += p.vy + Math.sin(Date.now() * 0.001 + p.x) * 0.5; // Organic wave
+
+            // Wrap around screen
+            if(p.x > width) p.x = 0;
+            if(p.y > height) p.y = 0;
+            if(p.y < 0) p.y = height;
+
+            // React gently to the mouse
+            let dx = mouse.x - p.x;
+            let dy = mouse.y - p.y;
+            let dist = Math.sqrt(dx*dx + dy*dy);
+            if(dist < 150) {
+                p.x -= dx * 0.02;
+                p.y -= dy * 0.02;
+            }
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+            ctx.fill();
+        });
+
+        // 2. DRAW THE SCARF (Ribbon Trail)
+        // Add current mouse to trail
+        trail.push({x: mouse.x, y: mouse.y});
+        if(trail.length > trailLength) trail.shift();
+
+        if(trail.length > 1) {
+            ctx.beginPath();
+            ctx.moveTo(trail[0].x, trail[0].y);
+            
+            for(let i = 1; i < trail.length - 1; i++) {
+                // Smooth bezier curve between points
+                let xc = (trail[i].x + trail[i+1].x) / 2;
+                let yc = (trail[i].y + trail[i+1].y) / 2;
+                ctx.quadraticCurveTo(trail[i].x, trail[i].y, xc, yc);
+            }
+            
+            // Style the glowing ribbon
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#ffffff';
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            
+            // Ribbon gets thicker towards the mouse
+            for(let i = 1; i < trail.length; i++) {
+                ctx.lineWidth = (i / trailLength) * 8; 
+                ctx.stroke();
+            }
+            ctx.shadowBlur = 0; // Reset
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+</script>
+
+{{ end }}
+
+<script src="/js/theme-switcher.js"></script>
+{{ end }}

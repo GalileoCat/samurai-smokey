@@ -601,3 +601,73 @@ nav a {
 @media screen and (max-width: 768px) {
     .arcade-icon-wrapper { width: 90px !important; }
 }
+.theme-selection-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.select-header {
+    font-family: 'Impact', sans-serif;
+    letter-spacing: 5px;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255,255,255,0.3);
+    margin-bottom: 50px;
+}
+
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.theme-preview-card {
+    height: 400px;
+    border: 2px solid rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Backgrounds for each card */
+.terminal-card { background: #0a0a0a; border-color: #2fb98f; }
+.sakura-card { background: linear-gradient(135deg, #ff7e5f, #feb47b); }
+.sonic-card { background: #0033cc; }
+
+.theme-info {
+    padding: 30px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    width: 100%;
+    text-align: left;
+}
+
+.theme-info span { color: rgba(255,255,255,0.5); font-family: monospace; }
+.theme-info h2 { color: #fff; margin: 5px 0; font-size: 1.8rem; }
+.theme-info p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin: 0; }
+
+/* Hover Effects */
+.theme-preview-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: #fff;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.sonic-card:hover { background: #cc0000; } /* Flashes Red like Sonic! */
+.terminal-card:hover { box-shadow: 0 0 20px #2fb98f; }
+.shinobi-card { background: #050508; border-color: #ff6600; }
+.shinobi-card:hover { box-shadow: 0 0 20px #ff6600; border-color: #fff; }
+/* Add this to your theme selection CSS */
+.choice-btn[onclick*="shinobi"] {
+    border-color: #ff6600; /* Naruto Orange */
+    background: rgba(255, 102, 0, 0.1);
+}
+
+.choice-btn[onclick*="shinobi"]:hover {
+    background: #ff6600;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.6);
+}

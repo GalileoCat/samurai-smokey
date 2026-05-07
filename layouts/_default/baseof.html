@@ -2,50 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-<!--
-==============================================================
-  ____      _     _ _ _             ____      _   
- / ___| __ _| |   (_) | | ___  ___  / ___|__ _| |_ 
-| |  _ / _` | |   | | | |/ _ \/ _ \| |   / _` | __|
-| |_| | (_| | |___| | | |  __/ (_) | |__| (_| | |_ 
- \____|\__,_|_____|_|_|_|\___|\___/ \____\__,_|\__|
-
-======================================================================
-      [ SYSTEM COMPILED & SECURED ]
-      >> ARCHIVE ESTABLISHED: 2026
-      >> DESIGN & ARCHITECTURE: GALILEOCAT
-      >> ALL UNAUTHORIZED ACCESS LOGGED.
-======================================================================
--->
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-   <link rel="icon" type="image/png" href="/icon.png">
-<link rel="apple-touch-icon" href="/icon.png">
-{{ if .Description }}
-  <meta name="description" content="{{ .Description }}">
-{{ else }}
-  <meta name="description" content="The official webcomic archive, gallery, and lore database for Samurai Smokey. Created by GalileoCat.">
-{{ end }}
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; script-src 'self' https://gc.zgo.at https://cdnjs.cloudflare.com; connect-src 'self' https://galileocat.goatcounter.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;">
+    <link rel="icon" type="image/png" href="/icon.png">
+    <link rel="apple-touch-icon" href="/icon.png">
+    {{ if .Description }}
+      <meta name="description" content="{{ .Description }}">
+    {{ else }}
+      <meta name="description" content="The official webcomic archive, gallery, and lore database for Samurai Smokey. Created by GalileoCat.">
+    {{ end }}
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdnjs.cloudflare.com; connect-src 'self' https://galileocat.goatcounter.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;">
+    
     <meta name="referrer" content="no-referrer-when-downgrade">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    
     {{ $style := resources.Get "css/custom.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" media="screen">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.css">
-    <script data-goatcounter="https://galileocat.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+    <script data-goatcounter="https://galileocat.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
-    <nav style="text-align: center; padding: 15px 0;">
-        <a href="/" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px;">HOME</a>
+    <nav style="text-align: center; padding: 15px 0; position: relative; z-index: 9999;">
+        <a href="/" id="dynamic-home-link" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px; text-decoration: none; color: inherit;">HOME</a>
         <span style="opacity: 0.2; margin: 0 10px;">|</span>
-        <a href="#" id="refresh-btn" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px;">REFRESH SITE</a>
+        <a href="#" id="refresh-btn" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px; text-decoration: none; color: inherit;">REFRESH SITE</a>
     </nav>
+
     <main>
         {{ block "main" . }}{{ end }}
     </main>
-    <script src="/js/main.js"></script>
+
+    <script>
+        (function() {
+            document.addEventListener("DOMContentLoaded", function() {
+                const homeLink = document.getElementById("dynamic-home-link");
+                const refreshBtn = document.getElementById("refresh-btn");
+                const path = window.location.pathname;
+
+                // 1. SAVE LOGIC: Capture theme paths or the CRT (Default) path
+                if (path.includes("sonic") || path.includes("flower")) {
+                    localStorage.setItem("samurai_active_theme", path);
+                } else if (path === "/" || path === "/index.html") {
+                    // This locks in the CRT Terminal if they are on the root
+                    localStorage.setItem("samurai_active_theme", "/");
+                }
+                
+
+                // 2. APPLY LOGIC: Force the HOME link to stay on the chosen path
+                const saved = localStorage.getItem("samurai_active_theme");
+                if (saved && homeLink) {
+                    homeLink.href = saved;
+                }
+
+                // 3. REFRESH BUTTON LOGIC
+                if (refreshBtn) {
+                    refreshBtn.addEventListener("click", function(e) {
+                        e.preventDefault();
+                        window.location.reload();
+                    });
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
