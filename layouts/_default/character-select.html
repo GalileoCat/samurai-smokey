@@ -1,0 +1,201 @@
+{{ define "main" }}
+<style>
+    :root {
+        --terminal-green: #2fb98f;
+        --dark-bg: #0a0a0a;
+        --panel-bg: #151515;
+    }
+
+    body {
+        background-color: var(--dark-bg);
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        margin: 0;
+    }
+
+    .select-viewport {
+        padding: 50px 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .category-title {
+        border-left: 5px solid var(--terminal-green);
+        padding-left: 15px;
+        margin: 40px 0 20px 0;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--terminal-green);
+    }
+
+    /* Grid Setup */
+    .character-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+        margin-bottom: 50px;
+    }
+
+    /* Character Card */
+    .char-card {
+        background: var(--panel-bg);
+        border: 1px solid #333;
+        position: relative;
+        overflow: hidden;
+        transition: 0.3s;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .char-card:hover {
+        border-color: var(--terminal-green);
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(47, 185, 143, 0.2);
+    }
+
+    .char-portrait {
+        width: 100%;
+        aspect-ratio: 1/1;
+        background: #222;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .char-portrait img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+    }
+
+    .char-name {
+        font-size: 0.8rem;
+        margin-top: 8px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #ccc;
+    }
+
+    /* File Locked Overlay */
+    .status-tag {
+        font-size: 0.6rem;
+        color: #ff4444;
+        background: rgba(255, 0, 0, 0.1);
+        padding: 2px 5px;
+        margin-top: 5px;
+        display: inline-block;
+        border: 1px solid #ff4444;
+    }
+
+    .squad-label {
+        font-size: 0.7rem;
+        color: #666;
+        margin-bottom: 5px;
+        display: block;
+    }
+</style>
+
+<div class="select-viewport">
+    <h1 style="text-align: center; letter-spacing: 10px; color: var(--terminal-green);">CHARACTER DATABASE</h1>
+    <h3 class="category-title">Fire Flies</h3>
+    <div class="character-grid">
+        {{ range (slice "??? Smokey" "Sage The Princess" "Babu The Wise" "Simba The Smith" "Dahlia The Nurse" "Liz The Cook" "Suki The Scout" "??? The Sniper" "??? The Princess" "??? The Dragon" "??? The Bat" "???? The Reaper") }}
+        <div class="char-card">
+            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+            <div class="char-name">{{ . }}</div>
+            <div class="status-tag">FILE LOCKED</div>
+        </div>
+        {{ end }}
+    </div>
+    {{ $squads := dict 
+        "Squad 1 – Apex Blades" (slice "Valtor" "Neb" "Nima" "Jax")
+        "Squad 2 – Ember Lance" (slice "Valeria" "Mistral" "Bel" "Cyrus")
+        "Squad 3 – Mirage Cell" (slice "Caldera" "Lior" "Julie" "Finn")
+        "Squad 4 – Titan Ward" (slice "Garran" "Adara" "Elise" "Toby")
+        "Squad 5 – Seraph Line" (slice "Leira" "Drew" "Cherry" "Kellen")
+        "Squad 6 – Obsidian Fang" (slice "Silas" "Vex" "Vosk" "Lin")
+        "Squad 7 – Horizon Break" (slice "Star" "Graves" "Matcha" "Fry")
+        "Squad 8 – Vortex Core" (slice "Mars" "Reva" "Tsulala" "Maddox")
+        "Squad 9 – Iron Pulse" (slice "Tessa" "Calderon" "Yu" "Maya")
+        "Squad 10 – Viper Syndicate" (slice "Syther" "Kate" "Juno" "Renzo")
+        "Squad 11 – Draconis Howl" (slice "Freya" "Yarek" "Bampi" "Kairos")
+        "Squad 12 – Nova Echo" (slice "Nova" "Azari" "Bexi" "Orion")
+        "Squad 13 – Abyss Tide" (slice "Nerida" "Mak" "Ariel" "Jett")
+        "Squad 14 – Breakpoint Riot" (slice "Brisa" "Rocco" "Jessie" "Dezmar")
+        "Squad 15 – Aegis Wardens" (slice "Sally" "Smokey" "Miyagi" "Kiki" "Bruno")
+    }}
+
+    {{ range $squadName, $members := $squads }}
+    <h3 class="category-title">{{ $squadName }}</h3>
+    <div class="character-grid">
+        {{ range $members }}
+        <div class="char-card">
+            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+            <div class="char-name">{{ . }}</div>
+            <div class="status-tag">FILE LOCKED</div>
+        </div>
+        {{ end }}
+    </div>
+    {{ end }}
+
+
+    <h3 class="category-title">Main Enemies</h3>
+    <div class="character-grid">
+        <div class="char-card">
+            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+            <div class="char-name">Katie The Witch</div>
+            <div class="status-tag">FILE LOCKED</div>
+        </div>
+        <div class="char-card">
+            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+            <div class="char-name">Tendo</div>
+            <div class="status-tag">FILE LOCKED</div>
+        </div>
+          <div class="char-card">
+            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+            <div class="char-name">????</div>
+            <div class="status-tag">FILE LOCKED</div>
+        </div>
+        <div class="char-card">
+            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+            <div class="char-name">????</div>
+            <div class="status-tag">FILE LOCKED</div>
+        </div>
+        <div class="char-card">
+            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+            <div class="char-name">????</div>
+            <div class="status-tag">FILE LOCKED</div>
+        </div>
+    </div>
+
+    <h3 class="category-title">Katie's Commanders</h3>
+    <div class="character-grid">
+        {{ range (slice "Ophelia of The Mist" "Link The Pharaoh of Ash" "Nightmare Boba" "Jiji Queen of Lightning" "Witch of The East Summer" "Witch of The West Miria" "Head of War Priscilla") }}
+        <div class="char-card">
+            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+            <div class="char-name">{{ . }}</div>
+            <div class="status-tag">FILE LOCKED</div>
+        </div>
+        {{ end }}
+    </div>
+
+    <h3 class="category-title">Katies Minions</h3>
+    <div class="character-grid">
+        <div class="char-card">
+            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+            <div class="char-name">Neva The Giant Rat</div>
+            <div class="status-tag">FILE LOCKED</div>
+            
+        </div>
+          <div class="char-card">
+            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+            <div class="char-name">??? The Giant Spider</div>
+            <div class="status-tag">FILE LOCKED</div>
+        </div>
+    </div>
+
+</div>
+{{ end }}

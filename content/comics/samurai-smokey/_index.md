@@ -64,7 +64,26 @@ layout: "list"
     <img src="/images/title-icon.png" alt="Samurai Smokey" style="max-width: 600px; width: 100%; height: auto; margin-bottom: 15px;">
     <p class="series-subtitle" style="opacity: 0.7; letter-spacing: 2px; font-style: italic;">The story of a great Samurai named Smokey.</p>
 </div>
-
+<div style="text-align: center; margin: 20px 0 40px 0;">
+    <a href="/comics/samurai-smokey/characters/" style="
+        display: inline-block;
+        padding: 15px 40px;
+        background: transparent;
+        border: 2px solid #2fb98f;
+        color: #2fb98f;
+        text-decoration: none;
+        font-family: monospace;
+        font-weight: bold;
+        letter-spacing: 3px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        border-radius: 4px;
+    " 
+    onmouseover="this.style.background='#2fb98f'; this.style.color='#0a0a0a'; this.style.boxShadow='0 0 20px rgba(47, 185, 143, 0.4)';"
+    onmouseout="this.style.background='transparent'; this.style.color='#2fb98f'; this.style.boxShadow='none';">
+        [ VIEW CHARACTER DATABASE ]
+    </a>
+</div>
 <hr>
 
 <div class="chapter-vault">
