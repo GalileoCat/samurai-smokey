@@ -6,196 +6,164 @@
         --panel-bg: #151515;
     }
 
-    body {
-        background-color: var(--dark-bg);
-        color: white;
-        font-family: 'Courier New', Courier, monospace;
-        margin: 0;
+    .select-viewport { padding: 40px 20px; max-width: 1200px; margin: auto; font-family: monospace; }
+    
+    /* FILTER MENU */
+    .filter-menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 40px;
+        position: sticky;
+        top: 10px;
+        z-index: 100;
+        background: rgba(10, 10, 10, 0.9);
+        padding: 15px;
+        border: 1px solid #333;
     }
 
-    .select-viewport {
-        padding: 50px 20px;
-        max-width: 1200px;
-        margin: auto;
-    }
-
-    .category-title {
-        border-left: 5px solid var(--terminal-green);
-        padding-left: 15px;
-        margin: 40px 0 20px 0;
+    .filter-btn {
+        padding: 8px 15px;
+        background: transparent;
+        border: 1px solid #444;
+        color: #888;
+        cursor: pointer;
+        font-size: 0.75rem;
         text-transform: uppercase;
-        letter-spacing: 3px;
-        color: var(--terminal-green);
+        transition: 0.3s;
     }
 
-    /* Grid Setup */
+    .filter-btn:hover, .filter-btn.active {
+        border-color: var(--terminal-green);
+        color: var(--terminal-green);
+        background: rgba(47, 185, 143, 0.1);
+    }
+
+    /* GRID LOGIC */
+    .squad-group { display: none; animation: fadeIn 0.4s ease-in-out; }
+    .squad-group.active { display: block; }
+
     .character-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 15px;
-        margin-bottom: 50px;
     }
 
-    /* Character Card */
     .char-card {
         background: var(--panel-bg);
-        border: 1px solid #333;
-        position: relative;
-        overflow: hidden;
-        transition: 0.3s;
-        text-align: center;
+        border: 1px solid #222;
         padding-bottom: 10px;
+        text-align: center;
+        transition: 0.3s;
     }
 
-    .char-card:hover {
-        border-color: var(--terminal-green);
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(47, 185, 143, 0.2);
-    }
+    .char-card:hover { border-color: var(--terminal-green); transform: translateY(-3px); }
+    .char-portrait { width: 100%; aspect-ratio: 1/1; background: #222; overflow: hidden; }
+    .char-portrait img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; filter: grayscale(1); }
+    .char-name { font-size: 0.8rem; margin: 10px 5px; color: #eee; font-weight: bold; text-transform: uppercase; }
+    .status-tag { font-size: 0.6rem; color: #ff4444; border: 1px solid #ff4444; padding: 2px 5px; display: inline-block; }
 
-    .char-portrait {
-        width: 100%;
-        aspect-ratio: 1/1;
-        background: #222;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-    }
-
-    .char-portrait img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.5;
-        filter: grayscale(100%);
-    }
-
-    .char-name {
-        font-size: 0.8rem;
-        margin-top: 8px;
-        font-weight: bold;
-        text-transform: uppercase;
-        color: #ccc;
-    }
-
-    /* File Locked Overlay */
-    .status-tag {
-        font-size: 0.6rem;
-        color: #ff4444;
-        background: rgba(255, 0, 0, 0.1);
-        padding: 2px 5px;
-        margin-top: 5px;
-        display: inline-block;
-        border: 1px solid #ff4444;
-    }
-
-    .squad-label {
-        font-size: 0.7rem;
-        color: #666;
-        margin-bottom: 5px;
-        display: block;
-    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 </style>
 
 <div class="select-viewport">
-    <h1 style="text-align: center; letter-spacing: 10px; color: var(--terminal-green);">CHARACTER DATABASE</h1>
-    <h3 class="category-title">Fire Flies</h3>
-    <div class="character-grid">
-        {{ range (slice "??? Smokey" "Sage The Princess" "Babu The Wise" "Simba The Smith" "Dahlia The Nurse" "Liz The Cook" "Suki The Scout" "??? The Sniper" "??? The Princess" "??? The Dragon" "??? The Bat" "???? The Reaper") }}
-        <div class="char-card">
-            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
-            <div class="char-name">{{ . }}</div>
-            <div class="status-tag">FILE LOCKED</div>
+    <h1 style="text-align: center; letter-spacing: 10px; color: var(--terminal-green); margin-bottom: 30px;">CHARACTER DATABASE</h1>
+
+    <div class="filter-menu">
+        <button class="filter-btn active" onclick="filterSquad('fireflies')">Fire Flies</button>
+        <button class="filter-btn" onclick="filterSquad('squads-1-5')">Squads 1-5</button>
+        <button class="filter-btn" onclick="filterSquad('squads-6-10')">Squads 6-10</button>
+        <button class="filter-btn" onclick="filterSquad('squads-11-15')">Squads 11-15</button>
+        <button class="filter-btn" onclick="filterSquad('hostiles')">Hostiles</button>
+    </div>
+
+    <div id="fireflies" class="squad-group active">
+        <div class="character-grid">
+            {{ range (slice "??? Smokey" "Sage The Princess" "Babu The Wise" "Simba The Smith" "Dahlia The Nurse" "Liz The Cook" "Suki The Scout" "??? The Sniper" "??? The Princess" "??? The Dragon" "??? The Bat" "???? The Reaper") }}
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">{{ . }}</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            {{ end }}
         </div>
+    </div>
+
+    <div id="squads-1-5" class="squad-group">
+        {{ $squads1 := dict "Squad 1 – Apex Blades" (slice "Valtor" "Neb" "Nima" "Jax") "Squad 2 – Ember Lance" (slice "Valeria" "Mistral" "Bel" "Cyrus") "Squad 3 – Mirage Cell" (slice "Caldera" "Lior" "Julie" "Finn") "Squad 4 – Titan Ward" (slice "Garran" "Adara" "Elise" "Toby") "Squad 5 – Seraph Line" (slice "Leira" "Drew" "Cherry" "Kellen") }}
+        {{ range $name, $members := $squads1 }}
+            <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">{{ $name }}</h3>
+            <div class="character-grid">
+                {{ range $members }}<div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">{{ . }}</div><div class="status-tag">FILE LOCKED</div></div>{{ end }}
+            </div>
         {{ end }}
     </div>
-    {{ $squads := dict 
-        "Squad 1 – Apex Blades" (slice "Valtor" "Neb" "Nima" "Jax")
-        "Squad 2 – Ember Lance" (slice "Valeria" "Mistral" "Bel" "Cyrus")
-        "Squad 3 – Mirage Cell" (slice "Caldera" "Lior" "Julie" "Finn")
-        "Squad 4 – Titan Ward" (slice "Garran" "Adara" "Elise" "Toby")
-        "Squad 5 – Seraph Line" (slice "Leira" "Drew" "Cherry" "Kellen")
-        "Squad 6 – Obsidian Fang" (slice "Silas" "Vex" "Vosk" "Lin")
-        "Squad 7 – Horizon Break" (slice "Star" "Graves" "Matcha" "Fry")
-        "Squad 8 – Vortex Core" (slice "Mars" "Reva" "Tsulala" "Maddox")
-        "Squad 9 – Iron Pulse" (slice "Tessa" "Calderon" "Yu" "Maya")
-        "Squad 10 – Viper Syndicate" (slice "Syther" "Kate" "Juno" "Renzo")
-        "Squad 11 – Draconis Howl" (slice "Freya" "Yarek" "Bampi" "Kairos")
-        "Squad 12 – Nova Echo" (slice "Nova" "Azari" "Bexi" "Orion")
-        "Squad 13 – Abyss Tide" (slice "Nerida" "Mak" "Ariel" "Jett")
-        "Squad 14 – Breakpoint Riot" (slice "Brisa" "Rocco" "Jessie" "Dezmar")
-        "Squad 15 – Aegis Wardens" (slice "Sally" "Smokey" "Miyagi" "Kiki" "Bruno")
+
+   <div id="squads-6-10" class="squad-group">
+    {{ $orderedSquads2 := slice 
+        (dict "name" "Squad 6 – Obsidian Fang" "members" (slice "Silas" "Vex" "Vosk" "Lin"))
+        (dict "name" "Squad 7 – Horizon Break" "members" (slice "Star" "Graves" "Matcha" "Fry"))
+        (dict "name" "Squad 8 – Vortex Core" "members" (slice "Mars" "Reva" "Tsulala" "Maddox"))
+        (dict "name" "Squad 9 – Iron Pulse" "members" (slice "Tessa" "Calderon" "Yu" "Maya"))
+        (dict "name" "Squad 10 – Viper Syndicate" "members" (slice "Syther" "Kate" "Juno" "Renzo"))
     }}
 
-    {{ range $squadName, $members := $squads }}
-    <h3 class="category-title">{{ $squadName }}</h3>
-    <div class="character-grid">
-        {{ range $members }}
-        <div class="char-card">
-            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
-            <div class="char-name">{{ . }}</div>
-            <div class="status-tag">FILE LOCKED</div>
+    {{ range $orderedSquads2 }}
+        <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">
+            {{ .name }}
+        </h3>
+        <div class="character-grid">
+            {{ range .members }}
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">{{ . }}</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            {{ end }}
         </div>
-        {{ end }}
-    </div>
     {{ end }}
+</div>
 
-
-    <h3 class="category-title">Main Enemies</h3>
-    <div class="character-grid">
-        <div class="char-card">
-            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
-            <div class="char-name">Katie The Witch</div>
-            <div class="status-tag">FILE LOCKED</div>
-        </div>
-        <div class="char-card">
-            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
-            <div class="char-name">Tendo</div>
-            <div class="status-tag">FILE LOCKED</div>
-        </div>
-          <div class="char-card">
-            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
-            <div class="char-name">????</div>
-            <div class="status-tag">FILE LOCKED</div>
-        </div>
-        <div class="char-card">
-            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
-            <div class="char-name">????</div>
-            <div class="status-tag">FILE LOCKED</div>
-        </div>
-        <div class="char-card">
-            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
-            <div class="char-name">????</div>
-            <div class="status-tag">FILE LOCKED</div>
-        </div>
-    </div>
-
-    <h3 class="category-title">Katie's Commanders</h3>
-    <div class="character-grid">
-        {{ range (slice "Ophelia of The Mist" "Link The Pharaoh of Ash" "Nightmare Boba" "Jiji Queen of Lightning" "Witch of The East Summer" "Witch of The West Miria" "Head of War Priscilla") }}
-        <div class="char-card">
-            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
-            <div class="char-name">{{ . }}</div>
-            <div class="status-tag">FILE LOCKED</div>
-        </div>
+    <div id="squads-11-15" class="squad-group">
+        {{ $squads3 := dict "Squad 11 – Draconis Howl" (slice "Freya" "Yarek" "Bampi" "Kairos") "Squad 12 – Nova Echo" (slice "Nova" "Azari" "Bexi" "Orion") "Squad 13 – Abyss Tide" (slice "Nerida" "Mak" "Ariel" "Jett") "Squad 14 – Breakpoint Riot" (slice "Brisa" "Rocco" "Jessie" "Dezmar") "Squad 15 – Aegis Wardens" (slice "Sally" "Smokey" "Miyagi" "Kiki" "Bruno") }}
+        {{ range $name, $members := $squads3 }}
+            <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">{{ $name }}</h3>
+            <div class="character-grid">
+                {{ range $members }}<div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">{{ . }}</div><div class="status-tag">FILE LOCKED</div></div>{{ end }}
+            </div>
         {{ end }}
     </div>
 
-    <h3 class="category-title">Katies Minions</h3>
-    <div class="character-grid">
-        <div class="char-card">
-            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
-            <div class="char-name">Neva The Giant Rat</div>
-            <div class="status-tag">FILE LOCKED</div>
-            
-        </div>
-          <div class="char-card">
-            <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
-            <div class="char-name">??? The Giant Spider</div>
-            <div class="status-tag">FILE LOCKED</div>
+    <div id="hostiles" class="squad-group">
+        <h3 style="color: #ff4444; font-size: 0.9rem; border-bottom: 1px solid #422; padding-bottom: 5px; margin-top: 30px;">HIGH THREAT TARGETS</h3>
+        <div class="character-grid">
+            {{ range (slice "Katie The Witch" "Tendo" "Ophelia of The Mist" "Link The Pharaoh of Ash" "Nightmare Boba" "Jiji Queen of Lightning" "Witch of The East Summer" "Witch of The West Miria" "Head of War Priscilla" "Neva The Giant Rat" "??? The Giant Spider") }}
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">{{ . }}</div>
+                <div class="status-tag" style="color:#ff4444; border-color:#ff4444;">FILE LOCKED</div>
+            </div>
+            {{ end }}
         </div>
     </div>
 
 </div>
+
+<script>
+    function filterSquad(id) {
+        // Hide all groups
+        document.querySelectorAll('.squad-group').forEach(group => group.classList.remove('active'));
+        // Deactivate all buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        
+        // Show selected group
+        document.getElementById(id).classList.add('active');
+        // Activate clicked button
+        event.currentTarget.classList.add('active');
+        
+        // Scroll to top of viewport
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
 {{ end }}
