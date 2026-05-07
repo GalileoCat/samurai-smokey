@@ -2,20 +2,20 @@
 <html lang="en">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <script>
-    
-    (function() {
-        const savedTheme = localStorage.getItem("samurai_active_theme");
-        const currentPath = window.location.pathname;
+        (function() {
+            const savedTheme = localStorage.getItem("samurai_active_theme");
+            const currentPath = window.location.pathname;
 
-        
-        
-        if (savedTheme && savedTheme !== "/" && currentPath === "/") {
-            window.location.href = savedTheme;
-        }
-    })();
-</script>
+            
+            
+            if (savedTheme && savedTheme !== "/" && currentPath === "/" && !document.referrer.includes('/themes/')) {
+                window.location.href = savedTheme;
+            }
+        })();
+    </script>
+
     <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sakura Drift | Samurai Smokey</title>
     <link rel="icon" type="image/png" href="/icon.png">
     <link rel="apple-touch-icon" href="/icon.png">
@@ -380,6 +380,16 @@ const trailLength = 10;
     </main>
 
     <script>
+        
+        window.setHomeTheme = function(themeName) {
+            let target = "/";
+            if (themeName === 'sonic') target = "/themes/sonic/";
+            if (themeName === 'flower') target = "/themes/flower/";
+            
+            localStorage.setItem("samurai_active_theme", target);
+            console.log("Theme Memory Set To: " + target);
+        };
+
         (function() {
             document.addEventListener("DOMContentLoaded", function() {
                 const homeLink = document.getElementById("dynamic-home-link");
@@ -393,7 +403,6 @@ const trailLength = 10;
                     
                     localStorage.setItem("samurai_active_theme", "/");
                 }
-                
 
                 
                 const saved = localStorage.getItem("samurai_active_theme");
