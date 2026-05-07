@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
     <script>
-    // 1. Check if a theme was saved in a previous session
-    (function() {
-        const savedTheme = localStorage.getItem("samurai_active_theme");
-        const currentPath = window.location.pathname;
+        (function() {
+            const savedTheme = localStorage.getItem("samurai_active_theme");
+            const currentPath = window.location.pathname;
 
-        // 2. Only redirect if the user is at the root '/' 
-        // and we have a theme that isn't the root.
-        if (savedTheme && savedTheme !== "/" && currentPath === "/") {
-            window.location.href = savedTheme;
-        }
-    })();
-</script>
+            // Only redirect if at root and we have a saved theme that ISN'T root
+            // Added a check to see if we just came from the theme picker to avoid loops
+            if (savedTheme && savedTheme !== "/" && currentPath === "/" && !document.referrer.includes('/themes/')) {
+                window.location.href = savedTheme;
+            }
+        })();
+    </script>
+
     <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
     <link rel="icon" type="image/png" href="/icon.png">
     <link rel="apple-touch-icon" href="/icon.png">
@@ -48,28 +48,37 @@
     </main>
 
     <script>
+        // 2. THE THEME SETTER: This is what the Picker buttons talk to
+        window.setHomeTheme = function(themeName) {
+            let target = "/";
+            if (themeName === 'sonic') target = "/themes/sonic/";
+            if (themeName === 'flower') target = "/themes/flower/";
+            
+            localStorage.setItem("samurai_active_theme", target);
+            console.log("Theme Memory Set To: " + target);
+        };
+
         (function() {
             document.addEventListener("DOMContentLoaded", function() {
                 const homeLink = document.getElementById("dynamic-home-link");
                 const refreshBtn = document.getElementById("refresh-btn");
                 const path = window.location.pathname;
 
-                // 1. SAVE LOGIC: Capture theme paths or the CRT (Default) path
+                // 3. AUTO-SAVE: If user manually browses to a theme, remember it
                 if (path.includes("sonic") || path.includes("flower")) {
                     localStorage.setItem("samurai_active_theme", path);
                 } else if (path === "/" || path === "/index.html") {
-                    // This locks in the CRT Terminal if they are on the root
+                    // This ensures the "Mimic" glitch stops—root is root.
                     localStorage.setItem("samurai_active_theme", "/");
                 }
-                
 
-                // 2. APPLY LOGIC: Force the HOME link to stay on the chosen path
+                // 4. APPLY LOGIC: Keep the HOME link pointing to the preferred realm
                 const saved = localStorage.getItem("samurai_active_theme");
                 if (saved && homeLink) {
                     homeLink.href = saved;
                 }
 
-                // 3. REFRESH BUTTON LOGIC
+                // 5. REFRESH LOGIC
                 if (refreshBtn) {
                     refreshBtn.addEventListener("click", function(e) {
                         e.preventDefault();
