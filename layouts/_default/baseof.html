@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+    // 1. Check if a theme was saved in a previous session
+    (function() {
+        const savedTheme = localStorage.getItem("samurai_active_theme");
+        const currentPath = window.location.pathname;
+
+        // 2. Only redirect if the user is at the root '/' 
+        // and we have a theme that isn't the root.
+        if (savedTheme && savedTheme !== "/" && currentPath === "/") {
+            window.location.href = savedTheme;
+        }
+    })();
+</script>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
