@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <script>
+    
+    (function() {
+        const savedTheme = localStorage.getItem("samurai_active_theme");
+        const currentPath = window.location.pathname;
+
+        
+        
+        if (savedTheme && savedTheme !== "/" && currentPath === "/") {
+            window.location.href = savedTheme;
+        }
+    })();
+</script>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Select Interface | Samurai Smokey</title>
@@ -99,9 +112,9 @@
         </a>
 
         <div class="choice-btn btn-locked">
-            <div class="status-tag">ENCRYPTED</div>
-            <div class="choice-title">SHINOBI</div>
-            <div class="choice-sub">Hidden Leaf Archive</div>
+            <div class="status-tag">OFFLINE</div>
+            <div class="choice-title">SMOKEY</div>
+            <div class="choice-sub">SQUAD 15 AEGIS WARDEN</div>
         </div>
     </div>
 </div>

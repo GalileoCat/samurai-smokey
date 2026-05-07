@@ -52,7 +52,7 @@
   </url><url>
     <loc>//localhost:1313/play/neonrush/</loc>
   </url><url>
-    <loc>//localhost:1313/flower/</loc>
+    <loc>//localhost:1313/themes/flower/</loc>
   </url><url>
     <loc>//localhost:1313/comics/food-cats/chapter-4/</loc>
   </url><url>
@@ -82,7 +82,7 @@
   </url><url>
     <loc>//localhost:1313/themes/</loc>
   </url><url>
-    <loc>//localhost:1313/shinobi/</loc>
+    <loc>//localhost:1313/themes/shinobi/</loc>
   </url><url>
     <loc>//localhost:1313/play/breach/</loc>
   </url><url>
@@ -90,6 +90,6 @@
   </url><url>
     <loc>//localhost:1313/archive/</loc>
   </url><url>
-    <loc>//localhost:1313/sonic/</loc>
+    <loc>//localhost:1313/themes/sonic/</loc>
   </url>
 </urlset>
