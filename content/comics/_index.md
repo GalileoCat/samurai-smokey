@@ -34,7 +34,7 @@
                     <span style="color: #555; font-size: 0.7rem; letter-spacing: 1px;">[ CLASSIFIED ]</span>
                 </div>
                 <p style="color: #fff; font-weight: bold; margin: 15px 0 5px 0; font-size: 1.1rem;">NOVA</p>
-                <p style="color: #888; font-size: 0.8rem; font-style: italic; margin: 0;">Desert Diaspora</p>
+                <p style="color: #888; font-size: 0.8rem; font-style: italic; margin: 0;">Desierto Diaspora</p>
             </div>
 
 </div>
