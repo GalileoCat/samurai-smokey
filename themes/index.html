@@ -94,14 +94,52 @@
         position: absolute; top: 10px; right: 10px; 
         font-size: 0.6rem; padding: 2px 8px; border: 1px solid #444; color: #888;
     }
+     
+    .btn-smokey {
+        background-image: 
+            linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), 
+            url('/images/comicsicon/art11.jpg');
+        
+         
+        background-size: cover; 
+        
+         
+        background-position: center top; 
+        
+        border-color: #e61919 !important;
+        transition: all 0.4s ease;
+    }
+
+    .btn-smokey:hover {
+         
+        background-size: 110%; 
+        background-position: center 10%;
+        border-color: #ffb300 !important;
+    }
+
+     
+    .btn-smokey:hover {
+         
+        background-image: 
+            linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+            url('/images/gallery/art11.jpg');
+        
+        border-color: #ffb300 !important;  
+        transform: translateY(-1px) scale(1.02);  
+        box-shadow: 0 10px 30px -5px rgba(230, 25, 25, 0.6), 0 0 15px rgba(255, 179, 0, 0.3);
+    }
 </style>
 
 <div class="picker-container">
-    <h1 style="letter-spacing: 8px; margin-bottom: 60px; color: #fff; opacity: 0.9;">SELECT INTERFACE</h1>
+    <h1 style="letter-spacing: 8px; margin-bottom: 10px; color: #fff; opacity: 0.9;">SELECT INTERFACE</h1>
+    
+    <p style="color: #888; font-family: monospace; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 60px; text-transform: uppercase;">
+        [  Note: Themes are currently utilizing placeholder assets. Visual updates pending. ]
+    </p>
     
     <div class="picker-grid">
         <a href="/" class="choice-btn btn-default" onclick="setHomeTheme('arcade')">
-            <div class="status-tag">STABLE</div>
+            <div class="status-tag" style="color: #19e63f; border-color: #19e645;">MOBILE FRIENDLY</div>
             <div class="choice-title">CRT TERMINAL</div>
             <div class="choice-sub">SQUAD 12 TERMINAL</div>
         </a>
@@ -116,9 +154,10 @@
             <div class="status-tag">NOT MOBILE FRIENDLY</div>
             <div class="choice-title">NOVA DESIERTO DIASPORA</div>
             <div class="choice-sub">THE GOLDEN WIND</div>
-        <a href="/themes/smokey/" class="choice-btn btn-smokey" onclick="setHomeTheme('smokey')">
-            <div class="status-tag" style="color: #e61919; border-color: #e61919;">MOBILE FRIENDLY</div>
-            <div class="choice-title" style="color: #e61919;">SMOKEY</div>
+       <a href="/themes/smokey/" class="choice-btn btn-smokey" onclick="setHomeTheme('smokey')">
+            <div class="status-tag" style="color: #19e63f; border-color: #19e645;">MOBILE FRIENDLY</div>
+            
+            <div class="choice-title">SMOKEY</div>
             <div class="choice-sub">Radiant Dawns Hero</div>
         </a>
 
