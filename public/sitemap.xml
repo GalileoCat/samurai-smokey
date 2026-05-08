@@ -34,6 +34,8 @@
   </url><url>
     <loc>//localhost:1313/about/</loc>
   </url><url>
+    <loc>//localhost:1313/themes/smokey/</loc>
+  </url><url>
     <loc>//localhost:1313/categories/</loc>
   </url><url>
     <loc>//localhost:1313/comics/samurai-smokey/chapter-1/</loc>

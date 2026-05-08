@@ -22,6 +22,15 @@ themes:
     path: "/themes/sonic/"
     desc: "CLICK TO PLAY"
     color: "#0033cc"
+
+  - name: "ASH & IRON"
+    id: "smokey"
+    path: "/themes/smokey/"
+    desc: "CINEMATIC BOSS INTERFACE"
+    color: "#e61919"
+
+
+
 ---
 
 Select your preferred interface to browse the Samurai Smokey website.

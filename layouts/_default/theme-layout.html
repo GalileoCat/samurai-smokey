@@ -576,5 +576,137 @@ const trailLength = 10; // Much faster for the MacBook to handle
 
 {{ end }}
 
+{{ if (in .Permalink "/smokey/") }}
+<style>
+    :root {
+        --smokey-bg: #030303;
+        --blood-red: #e6dc19;
+        --ember-glow: rgba(220, 230, 25, 0.4);
+        --card-bg: rgba(15, 15, 15, 0.8);
+    }
+
+    body { background-color: var(--smokey-bg); color: white; margin: 0; overflow-x: hidden; font-family: 'Arial Black', Impact, sans-serif; }
+
+   #ember-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; background: radial-gradient(circle at 50% 120%, rgba(255, 215, 0, 0.08), transparent 60%); }
+
+    .smokey-viewport { position: relative; z-index: 10; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding-top: 50px; }
+
+    .title-container { position: relative; margin-bottom: 50px; text-align: center; }
+    .main-title { font-size: 5rem; letter-spacing: 15px; margin: 0; color: #fff; text-transform: uppercase; position: relative; text-shadow: 0 10px 30px var(--ember-glow); }
+    .sub-title { color: var(--blood-red); font-family: monospace; font-size: 1.2rem; letter-spacing: 8px; margin-top: -10px; text-transform: uppercase; }
+
+    .smokey-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; width: 90%; max-width: 1100px; perspective: 1000px; }
+
+    .smokey-card { background: var(--card-bg); border: 1px solid #333; padding: 40px 20px; text-decoration: none; text-align: center; position: relative; overflow: hidden; backdrop-filter: blur(10px); transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%); }
+
+    .smokey-card::before { content: ""; position: absolute; top: -50%; left: -150%; width: 20%; height: 200%; background: rgba(255, 255, 255, 0.8); transform: rotate(45deg); box-shadow: 0 0 20px #fff, 0 0 40px var(--blood-red); transition: all 0.5s ease-in-out; opacity: 0; }
+    .smokey-card:hover { border-color: var(--blood-red); transform: translateY(-10px) scale(1.02); box-shadow: 0 15px 30px rgba(0,0,0,0.8), -5px 5px 20px var(--ember-glow); z-index: 20; }
+    .smokey-card:hover::before { left: 150%; opacity: 1; }
+
+    .card-icon { font-size: 3rem; color: #555; margin-bottom: 15px; transition: 0.3s; display: block; }
+    .smokey-card:hover .card-icon { color: #fff; text-shadow: 0 0 15px var(--blood-red); transform: scale(1.1); }
+    .card-title { color: #fff; font-size: 1.5rem; letter-spacing: 4px; margin: 0; }
+    .card-desc { color: #777; font-family: monospace; font-size: 0.85rem; margin-top: 10px; }
+</style>
+
+<canvas id="ember-canvas"></canvas>
+
+<div class="smokey-viewport">
+    <div class="title-container">
+        <h1 class="main-title">SMOKEY</h1>
+        <p class="sub-title">RADIANT DAWNS HERO</p>
+    </div>
+
+    <div class="smokey-grid">
+        <a href="/comics/" class="smokey-card">
+            <img src="/images/comicsicon/ss.png" style="width: 70px; height: 70px; margin-bottom: 10px; filter: grayscale(100%); transition: 0.3s;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
+            <h2 class="card-title">COMICS</h2>
+            <p class="card-desc">Current and upcoming series.</p>
+        </a>
+        
+        <a href="/archive/" class="smokey-card">
+            <span class="card-icon">◈</span>
+            <h2 class="card-title">ARCHIVE</h2>
+            <p class="card-desc">legacy chapters.</p>
+        </a>
+
+        <a href="/gallery/" class="smokey-card">
+            <span class="card-icon">✦</span>
+            <h2 class="card-title">GALLERY</h2>
+            <p class="card-desc">Concept art and illustrations.</p>
+        </a>
+
+        <a href="/commissions/" class="smokey-card">
+            <span class="card-icon">$</span>
+            <h2 class="card-title">ORDERS</h2>
+            <p class="card-desc">Commissions & Requests.</p>
+        </a>
+
+        <a href="/info/" class="smokey-card">
+            <span class="card-icon">🗇</span>
+            <h2 class="card-title">DATABASE</h2>
+            <p class="card-desc">Site Info.</p>
+        </a>
+        
+        <a href="/play/" class="smokey-card">
+            <span class="card-icon">⚔</span>
+            <h2 class="card-title">PLAY</h2>
+            <p class="card-desc">Get a High Score!</p>
+        </a>
+    </div>
+
+<script>
+    const canvas = document.getElementById('ember-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const embers = [];
+        class Ember {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + Math.random() * 100;
+                this.size = Math.random() * 3 + 1;
+                this.speedY = Math.random() * 1.5 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 1;
+                this.opacity = Math.random() * 0.8 + 0.2;
+                this.life = Math.random() * 100;
+            }
+            update() {
+                this.y -= this.speedY;
+                this.x += Math.sin(this.life / 20) * this.speedX;
+                this.life++;
+                this.opacity -= 0.002;
+                if (this.y < 0 || this.opacity <= 0) {
+                    this.y = canvas.height + 10;
+                    this.x = Math.random() * canvas.width;
+                    this.opacity = Math.random() * 0.8 + 0.2;
+                }
+            }
+           draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                // Changed from Red to Gold (RGB: 255, 215, 0)
+                ctx.fillStyle = `rgba(255, 215, 0, ${this.opacity})`;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = "#ffb300"; // Golden glow
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 60; i++) embers.push(new Ember());
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            embers.forEach(ember => { ember.update(); ember.draw(); });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    }
+</script>
+{{ end }}
+
 <script src="/js/theme-switcher.js"></script>
 {{ end }}
