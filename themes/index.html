@@ -44,6 +44,13 @@
     <main>
         
 <style>
+     
+    .btn-default:hover { border-color: #2fb98f; box-shadow: 0 0 20px rgba(47, 185, 143, 0.3); }
+    .btn-sonic:hover { border-color: #0033cc; box-shadow: 0 0 20px rgba(0, 51, 204, 0.4); }
+    .btn-flower:hover { border-color: #feb47b; box-shadow: 0 0 20px rgba(254, 180, 123, 0.4); }
+    .btn-smokey:hover { border-color: #e61919; box-shadow: 0 0 20px rgba(230, 25, 25, 0.4); }  
+    .btn-locked { opacity: 0.4; cursor: not-allowed; border-style: dashed; }
+
     .picker-container { 
         text-align: center; 
         padding: 80px 20px; 
@@ -109,12 +116,16 @@
             <div class="status-tag">NOT MOBILE FRIENDLY</div>
             <div class="choice-title">NOVA DESIERTO DIASPORA</div>
             <div class="choice-sub">THE GOLDEN WIND</div>
+        <a href="/themes/smokey/" class="choice-btn btn-smokey" onclick="setHomeTheme('smokey')">
+            <div class="status-tag" style="color: #e61919; border-color: #e61919;">MOBILE FRIENDLY</div>
+            <div class="choice-title" style="color: #e61919;">SMOKEY</div>
+            <div class="choice-sub">Radiant Dawns Hero</div>
         </a>
 
         <div class="choice-btn btn-locked">
             <div class="status-tag">OFFLINE</div>
-            <div class="choice-title">SMOKEY</div>
-            <div class="choice-sub">SQUAD 15 AEGIS WARDEN</div>
+            <div class="choice-title">More Coming Soon</div>
+            <div class="choice-sub"></div>
         </div>
     </div>
 </div>
@@ -127,6 +138,7 @@
             let target = "/";
             if (themeName === 'sonic') target = "/themes/sonic/";
             if (themeName === 'flower') target = "/themes/flower/";
+            if (themeName === 'smokey') target = "/themes/smokey/";
             
             localStorage.setItem("samurai_active_theme", target);
             console.log("Theme Memory Set To: " + target);

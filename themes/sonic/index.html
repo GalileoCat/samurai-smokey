@@ -283,6 +283,8 @@ body, html {
 
 
 
+
+
 <script src="/js/theme-switcher.js"></script>
 
     </main>
@@ -293,6 +295,7 @@ body, html {
             let target = "/";
             if (themeName === 'sonic') target = "/themes/sonic/";
             if (themeName === 'flower') target = "/themes/flower/";
+            if (themeName === 'smokey') target = "/themes/smokey/";
             
             localStorage.setItem("samurai_active_theme", target);
             console.log("Theme Memory Set To: " + target);
