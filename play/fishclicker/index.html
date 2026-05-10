@@ -1,4 +1,302 @@
-<!doctype html><html lang=en><head><meta name=viewport content="width=device-width,initial-scale=1"><script>(function(){const e=localStorage.getItem("samurai_active_theme"),t=window.location.pathname;e&&e!=="/"&&t==="/"&&!document.referrer.includes("/themes/")&&(window.location.href=e)})()</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Fish Clicker | Samurai Smokey</title><link rel=icon type=image/png href=/icon.png><link rel=apple-touch-icon href=/icon.png><meta name=description content="The official webcomic archive, gallery, and lore database for Samurai Smokey. Created by GalileoCat."><meta http-equiv=Content-Security-Policy content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdnjs.cloudflare.com; connect-src 'self' https://galileocat.goatcounter.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;"><meta name=referrer content="no-referrer-when-downgrade"><meta http-equiv=X-Frame-Options content="SAMEORIGIN"><meta http-equiv=X-Content-Type-Options content="nosniff"><link rel=stylesheet href=/css/custom.min.59500a6fbe4d5225a52fbfa0cae07e42ae74e0d3cb7cde64d6eedcc97446b189.css integrity="sha256-WVAKb75NUiWlL7+gyuB+Qq504NPLfN5k1u7cyXRGsYk=" media=screen><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.css><script data-goatcounter=https://galileocat.goatcounter.com/count async src=//gc.zgo.at/count.js></script></head><body><nav style="text-align:center;padding:15px 0;position:relative;z-index:9999"><a href=/ id=dynamic-home-link style=font-size:.8rem;opacity:.6;letter-spacing:2px;text-decoration:none;color:inherit>HOME</a>
-<span style="opacity:.2;margin:0 10px">|</span>
-<a href=# id=refresh-btn style=font-size:.8rem;opacity:.6;letter-spacing:2px;text-decoration:none;color:inherit>REFRESH SITE</a></nav><main><style>body{background:radial-gradient(circle at center,#0a1512 0%,#000000 100%)}.clicker-container{max-width:800px;margin:40px auto;text-align:center;background:rgba(10,10,10,.85);border:2px solid #2fb98f;border-radius:15px;padding:40px 20px;color:#fff;box-shadow:0 0 40px rgba(47,185,143,.15),inset 0 0 20px rgba(47,185,143,.1);position:relative;z-index:10;backdrop-filter:blur(5px)}.score-board{font-family:monospace;font-size:2rem;margin-bottom:30px}.score-board span{color:#2fb98f;font-weight:700;font-size:3.5rem;text-shadow:0 0 20px rgba(47,185,143,.6)}.cat-button{font-family:monospace;font-size:3rem;white-space:nowrap;color:#ff4d4d;background:radial-gradient(circle,rgba(255,77,77,.15) 0%,transparent 70%);border:2px dashed #ff4d4d;border-radius:50%;width:260px;height:260px;cursor:pointer;margin:0 auto 30px;display:flex;align-items:center;justify-content:center;transition:transform .05s,box-shadow .1s;user-select:none;box-shadow:0 0 30px rgba(255,77,77,.2),inset 0 0 20px rgba(255,77,77,.2);animation:breath 3s infinite ease-in-out}.cat-button:active{transform:scale(.85);box-shadow:0 0 50px rgba(255,77,77,.8),inset 0 0 40px rgba(255,77,77,.5);background:rgba(255,77,77,.3);color:#fff}@keyframes breath{0%,100%{box-shadow:0 0 30px rgba(255,77,77,.2),inset 0 0 20px rgba(255,77,77,.2)}50%{box-shadow:0 0 50px rgba(255,77,77,.4),inset 0 0 30px rgba(255,77,77,.3)}}.shop-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:650px;margin:0 auto}.shop-item{background:rgba(0,0,0,.5);border:1px solid #333;padding:15px;border-radius:8px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}.shop-item:hover{border-color:#2fb98f;background:rgba(47,185,143,.15);box-shadow:0 0 15px rgba(47,185,143,.3);transform:translateY(-2px)}.shop-item.disabled{opacity:.4;cursor:not-allowed;border-color:#222;background:#050505;transform:none;box-shadow:none}.click-anim{position:fixed;color:#2fb98f;font-weight:700;font-family:monospace;font-size:1.5rem;pointer-events:none;animation:floatUp 1s cubic-bezier(.25,1,.5,1)forwards;z-index:9999;text-shadow:0 0 10px #2fb98f}@keyframes floatUp{0%{transform:translateY(0)scale(1);opacity:1}100%{transform:translateY(-100px)scale(1.5);opacity:0}}.cat-button.clicked{animation:catWiggle .15s ease-in-out}@keyframes catWiggle{0%{transform:scale(.85)rotate(0)}25%{transform:scale(.9)rotate(-8deg)}50%{transform:scale(.9)rotate(8deg)}75%{transform:scale(.9)rotate(-8deg)}100%{transform:scale(1)rotate(0)}}@keyframes shakeScreen{0%{transform:translate(0,0)}20%{transform:translate(-5px,5px)}40%{transform:translate(5px,-5px)}60%{transform:translate(-5px,-5px)}80%{transform:translate(5px,5px)}100%{transform:translate(0,0)}}.shake{animation:shakeScreen .2s cubic-bezier(.36,.07,.19,.97)both}#bubble-container{position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:1;overflow:hidden}.bg-bubble{position:absolute;bottom:-50px;background:rgba(47,185,143,.1);border:1px solid rgba(47,185,143,.2);border-radius:50%;animation:rise linear forwards}@keyframes rise{to{transform:translateY(-120vh)translateX(20px);opacity:0}}</style><div id=bubble-container></div><div class=clicker-container><h2 style=font-family:monospace;letter-spacing:2px;color:#888;margin-top:0>FEED THE KITTY</h2><div class=score-board>FISH: <span id=fish-count>0</span><div style=font-size:1rem;color:#aaa;margin-top:10px id=fish-sec>0 fish per second</div></div><div class=cat-button id=cat-button>(=^w^=)</div><div class=shop-grid><div class="shop-item disabled" id=upgrade1><h3 style=margin:0;color:#2fb98f>Auto-Feeder</h3><p style="margin:5px 0;font-size:.8rem">+1 Fish / sec</p><p style=margin:0;font-family:monospace>Cost: <span id=cost1>50</span></p></div><div class="shop-item disabled" id=upgrade2><h3 style=margin:0;color:#00e5ff>Premium Salmon</h3><p style="margin:5px 0;font-size:.8rem">+5 Fish / sec</p><p style=margin:0;font-family:monospace>Cost: <span id=cost2>250</span></p></div><div class="shop-item disabled" id=upgrade3><h3 style=margin:0;color:#b3ff00>Tuna Pyramid</h3><p style="margin:5px 0;font-size:.8rem">+15 Fish / sec</p><p style=margin:0;font-family:monospace>Cost: <span id=cost3>1000</span></p></div><div class="shop-item disabled" id=upgrade4><h3 style=margin:0;color:#ffb300>Sushi Chef Cat</h3><p style="margin:5px 0;font-size:.8rem">+50 Fish / sec</p><p style=margin:0;font-family:monospace>Cost: <span id=cost4>5000</span></p></div><div class="shop-item disabled" id=upgrade5><h3 style=margin:0;color:#ff4d4d>Fishing Trawler</h3><p style="margin:5px 0;font-size:.8rem">+200 Fish / sec</p><p style=margin:0;font-family:monospace>Cost: <span id=cost5>25000</span></p></div><div class="shop-item disabled" id=upgrade6><h3 style=margin:0;color:#f0f>Deep Sea Sub</h3><p style="margin:5px 0;font-size:.8rem">+1,000 Fish / sec</p><p style=margin:0;font-family:monospace>Cost: <span id=cost6>150000</span></p></div><div class="shop-item disabled" id=upgrade7><h3 style=margin:0;color:#fff>Orbital Cannon</h3><p style="margin:5px 0;font-size:.8rem">+5,000 Fish / sec</p><p style=margin:0;font-family:monospace>Cost: <span id=cost7>1000000</span></p></div><div class="shop-item disabled" id=upgrade8><h3 style=margin:0;color:#9d00ff>Cosmic Leviathan</h3><p style="margin:5px 0;font-size:.8rem">+25,000 Fish / sec</p><p style=margin:0;font-family:monospace>Cost: <span id=cost8>10000000</span></p></div></div><div style=margin-top:40px;display:flex;justify-content:space-between;max-width:650px;margin-left:auto;margin-right:auto><a href=/play/ style=color:#aaa;text-decoration:none;font-family:monospace>[ RETURN TO ARCADE ]</a>
-<a href=# id=reset-save style=color:#ff4d4d;text-decoration:none;font-family:monospace>[ RESET SAVE ]</a></div></div><footer style="margin-top:80px;padding:40px;text-align:center;border-top:1px solid #222;color:#444;font-family:monospace;position:relative;z-index:10"><p>© 2026 Galileo_Cat // MADE WITH HUGO</p></footer><script src=/js/fishclicker.js></script></main><script>window.setHomeTheme=function(e){let t="/";e==="sonic"&&(t="/themes/sonic/"),e==="flower"&&(t="/themes/flower/"),e==="smokey"&&(t="/themes/smokey/"),e==="popit"&&(t="/themes/popit/"),e==="bubble"&&(t="/themes/bubble/"),e==="cardboard"&&(t="/themes/cardboard/"),localStorage.setItem("samurai_active_theme",t),console.log("Theme securely saved as: "+t)},function(){const e=localStorage.getItem("samurai_active_theme"),t=window.location.pathname;e&&e!=="/"&&(t==="/"||t==="/index.html")&&!document.referrer.includes("/themes/")&&window.location.replace(e),document.addEventListener("DOMContentLoaded",function(){const t=document.getElementById("dynamic-home-link"),n=document.getElementById("refresh-btn");e&&t&&(t.href=e),n&&n.addEventListener("click",function(e){e.preventDefault(),window.location.reload()})})}()</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem("samurai_active_theme");
+            const currentPath = window.location.pathname;
+
+            
+            
+            if (savedTheme && savedTheme !== "/" && currentPath === "/" && !document.referrer.includes('/themes/')) {
+                window.location.href = savedTheme;
+            }
+        })();
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fish Clicker | Samurai Smokey</title>
+    <link rel="icon" type="image/png" href="/icon.png">
+    <link rel="apple-touch-icon" href="/icon.png">
+    
+      <meta name="description" content="The official webcomic archive, gallery, and lore database for Samurai Smokey. Created by GalileoCat.">
+    
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdnjs.cloudflare.com; connect-src 'self' https://galileocat.goatcounter.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    
+    
+    <link rel="stylesheet" href="//localhost:1313/css/custom.min.59500a6fbe4d5225a52fbfa0cae07e42ae74e0d3cb7cde64d6eedcc97446b189.css" integrity="sha256-WVAKb75NUiWlL7&#43;gyuB&#43;Qq504NPLfN5k1u7cyXRGsYk=" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.css">
+    <script data-goatcounter="https://galileocat.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+    <nav style="text-align: center; padding: 15px 0; position: relative; z-index: 9999;">
+        <a href="/" id="dynamic-home-link" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px; text-decoration: none; color: inherit;">HOME</a>
+        <span style="opacity: 0.2; margin: 0 10px;">|</span>
+        <a href="#" id="refresh-btn" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px; text-decoration: none; color: inherit;">REFRESH SITE</a>
+    </nav>
+
+    <main>
+        
+<style>
+    body {
+         
+        background: radial-gradient(circle at center, #0a1512 0%, #000000 100%);
+    }
+
+    .clicker-container { 
+        max-width: 800px; 
+        margin: 40px auto; 
+        text-align: center; 
+        background: rgba(10, 10, 10, 0.85); 
+        border: 2px solid #2fb98f; 
+        border-radius: 15px; 
+        padding: 40px 20px; 
+        color: #fff; 
+        box-shadow: 0 0 40px rgba(47, 185, 143, 0.15), inset 0 0 20px rgba(47, 185, 143, 0.1); 
+        position: relative;
+        z-index: 10;
+        backdrop-filter: blur(5px);
+    }
+
+    .score-board { font-family: monospace; font-size: 2rem; margin-bottom: 30px; }
+    .score-board span { 
+        color: #2fb98f; 
+        font-weight: bold; 
+        font-size: 3.5rem; 
+        text-shadow: 0 0 20px rgba(47, 185, 143, 0.6);
+    }
+    
+     
+    .cat-button { 
+        font-family: monospace; 
+        font-size: 3rem;  
+        white-space: nowrap;  
+        color: #ff4d4d; 
+        background: radial-gradient(circle, rgba(255, 77, 77, 0.15) 0%, transparent 70%); 
+        border: 2px dashed #ff4d4d; 
+        border-radius: 50%; 
+        width: 260px; 
+        height: 260px; 
+        cursor: pointer; 
+        margin: 0 auto 30px auto; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        transition: transform 0.05s, box-shadow 0.1s; 
+        user-select: none; 
+        box-shadow: 0 0 30px rgba(255, 77, 77, 0.2), inset 0 0 20px rgba(255, 77, 77, 0.2);
+        animation: breath 3s infinite ease-in-out;
+    }
+    .cat-button:active { 
+        transform: scale(0.85); 
+        box-shadow: 0 0 50px rgba(255, 77, 77, 0.8), inset 0 0 40px rgba(255, 77, 77, 0.5); 
+        background: rgba(255, 77, 77, 0.3); 
+        color: #fff;
+    }
+
+    @keyframes breath {
+        0%, 100% { box-shadow: 0 0 30px rgba(255, 77, 77, 0.2), inset 0 0 20px rgba(255, 77, 77, 0.2); }
+        50% { box-shadow: 0 0 50px rgba(255, 77, 77, 0.4), inset 0 0 30px rgba(255, 77, 77, 0.3); }
+    }
+
+    .shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 650px; margin: 0 auto; }
+    .shop-item { 
+        background: rgba(0, 0, 0, 0.5); 
+        border: 1px solid #333; 
+        padding: 15px; 
+        border-radius: 8px; 
+        cursor: pointer; 
+        transition: all 0.2s; 
+        position: relative;
+        overflow: hidden;
+    }
+    .shop-item:hover { 
+        border-color: #2fb98f; 
+        background: rgba(47, 185, 143, 0.15); 
+        box-shadow: 0 0 15px rgba(47, 185, 143, 0.3);
+        transform: translateY(-2px);
+    }
+    .shop-item.disabled { 
+        opacity: 0.4; 
+        cursor: not-allowed; 
+        border-color: #222; 
+        background: #050505; 
+        transform: none;
+        box-shadow: none;
+    }
+
+     
+    .click-anim {
+        position: fixed;
+        color: #2fb98f;
+        font-weight: bold;
+        font-family: monospace;
+        font-size: 1.5rem;
+        pointer-events: none; 
+        animation: floatUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        z-index: 9999;
+        text-shadow: 0 0 10px #2fb98f;
+    }
+    @keyframes floatUp {
+        0% { transform: translateY(0) scale(1); opacity: 1; }
+        100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+    }
+
+    .cat-button.clicked { animation: catWiggle 0.15s ease-in-out; }
+    @keyframes catWiggle {
+        0% { transform: scale(0.85) rotate(0deg); }
+        25% { transform: scale(0.9) rotate(-8deg); }
+        50% { transform: scale(0.9) rotate(8deg); }
+        75% { transform: scale(0.9) rotate(-8deg); }
+        100% { transform: scale(1) rotate(0deg); }
+    }
+
+     
+    @keyframes shakeScreen {
+        0% { transform: translate(0, 0); }
+        20% { transform: translate(-5px, 5px); }
+        40% { transform: translate(5px, -5px); }
+        60% { transform: translate(-5px, -5px); }
+        80% { transform: translate(5px, 5px); }
+        100% { transform: translate(0, 0); }
+    }
+    .shake { animation: shakeScreen 0.2s cubic-bezier(.36,.07,.19,.97) both; }
+
+     
+    #bubble-container {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        pointer-events: none; z-index: 1; overflow: hidden;
+    }
+    .bg-bubble {
+        position: absolute; bottom: -50px;
+        background: rgba(47, 185, 143, 0.1);
+        border: 1px solid rgba(47, 185, 143, 0.2);
+        border-radius: 50%;
+        animation: rise linear forwards;
+    }
+    @keyframes rise {
+        to { transform: translateY(-120vh) translateX(20px); opacity: 0; }
+    }
+</style>
+
+<div id="bubble-container"></div>
+
+<div class="clicker-container">
+    <h2 style="font-family: monospace; letter-spacing: 2px; color: #888; margin-top: 0;">FEED THE KITTY</h2>
+    <div class="score-board">
+        FISH: <span id="fish-count">0</span>
+        <div style="font-size: 1rem; color: #aaa; margin-top: 10px;" id="fish-sec">0 fish per second</div>
+    </div>
+    
+    <div class="cat-button" id="cat-button">(=^w^=)</div>
+    
+    <div class="shop-grid">
+        <div class="shop-item disabled" id="upgrade1">
+            <h3 style="margin: 0; color: #2fb98f;">Auto-Feeder</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+1 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost1">50</span></p>
+        </div>
+        <div class="shop-item disabled" id="upgrade2">
+            <h3 style="margin: 0; color: #00e5ff;">Premium Salmon</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+5 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost2">250</span></p>
+        </div>
+        <div class="shop-item disabled" id="upgrade3">
+            <h3 style="margin: 0; color: #b3ff00;">Tuna Pyramid</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+15 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost3">1000</span></p>
+        </div>
+        <div class="shop-item disabled" id="upgrade4">
+            <h3 style="margin: 0; color: #ffb300;">Sushi Chef Cat</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+50 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost4">5000</span></p>
+        </div>
+        <div class="shop-item disabled" id="upgrade5">
+            <h3 style="margin: 0; color: #ff4d4d;">Fishing Trawler</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+200 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost5">25000</span></p>
+        </div>
+        <div class="shop-item disabled" id="upgrade6">
+            <h3 style="margin: 0; color: #ff00ff;">Deep Sea Sub</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+1,000 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost6">150000</span></p>
+        </div>
+        <div class="shop-item disabled" id="upgrade7">
+            <h3 style="margin: 0; color: #ffffff;">Orbital Cannon</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+5,000 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost7">1000000</span></p>
+        </div>
+        <div class="shop-item disabled" id="upgrade8">
+            <h3 style="margin: 0; color: #9d00ff;">Cosmic Leviathan</h3>
+            <p style="margin: 5px 0; font-size: 0.8rem;">+25,000 Fish / sec</p>
+            <p style="margin: 0; font-family: monospace;">Cost: <span id="cost8">10000000</span></p>
+        </div>
+    </div>
+    <div style="margin-top: 40px; display: flex; justify-content: space-between; max-width: 650px; margin-left: auto; margin-right: auto;">
+        <a href="/play/" style="color: #aaa; text-decoration: none; font-family: monospace;">[ RETURN TO ARCADE ]</a>
+        <a href="#" id="reset-save" style="color: #ff4d4d; text-decoration: none; font-family: monospace;">[ RESET SAVE ]</a>
+    </div>
+</div>
+
+<footer style="margin-top: 80px; padding: 40px; text-align: center; border-top: 1px solid #222; color: #444; font-family: monospace; position: relative; z-index: 10;">
+    <p>© 2026 Galileo_Cat // MADE WITH HUGO</p>
+</footer>
+
+<script src="/js/fishclicker.js"></script>
+
+    </main>
+
+    <script>
+        
+        window.setHomeTheme = function(themeName) {
+            let target = "/";
+            if (themeName === 'sonic') target = "/themes/sonic/";
+            if (themeName === 'flower') target = "/themes/flower/";
+            if (themeName === 'smokey') target = "/themes/smokey/";
+            if (themeName === 'popit') target = "/themes/popit/";
+            if (themeName === 'bubble') target = "/themes/bubble/"; 
+            if (themeName === 'cardboard') target = "/themes/cardboard/";
+
+            localStorage.setItem("samurai_active_theme", target);
+            console.log("Theme securely saved as: " + target);
+        };
+
+        
+        (function() {
+            const savedTheme = localStorage.getItem("samurai_active_theme");
+            const currentPath = window.location.pathname;
+
+            
+            
+            if (savedTheme && savedTheme !== "/" && (currentPath === "/" || currentPath === "/index.html") && !document.referrer.includes('/themes/')) {
+                window.location.replace(savedTheme);
+            }
+
+            
+            document.addEventListener("DOMContentLoaded", function() {
+                const homeLink = document.getElementById("dynamic-home-link");
+                const refreshBtn = document.getElementById("refresh-btn");
+
+                
+                if (savedTheme && homeLink) {
+                    homeLink.href = savedTheme;
+                }
+
+                if (refreshBtn) {
+                    refreshBtn.addEventListener("click", function(e) {
+                        e.preventDefault();
+                        window.location.reload();
+                    });
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

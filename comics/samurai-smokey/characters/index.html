@@ -1,7 +1,565 @@
-<!doctype html><html lang=en><head><meta name=viewport content="width=device-width,initial-scale=1"><script>(function(){const e=localStorage.getItem("samurai_active_theme"),t=window.location.pathname;e&&e!=="/"&&t==="/"&&!document.referrer.includes("/themes/")&&(window.location.href=e)})()</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Character Files | Samurai Smokey</title><link rel=icon type=image/png href=/icon.png><link rel=apple-touch-icon href=/icon.png><meta name=description content="The official webcomic archive, gallery, and lore database for Samurai Smokey. Created by GalileoCat."><meta http-equiv=Content-Security-Policy content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdnjs.cloudflare.com; connect-src 'self' https://galileocat.goatcounter.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;"><meta name=referrer content="no-referrer-when-downgrade"><meta http-equiv=X-Frame-Options content="SAMEORIGIN"><meta http-equiv=X-Content-Type-Options content="nosniff"><link rel=stylesheet href=/css/custom.min.59500a6fbe4d5225a52fbfa0cae07e42ae74e0d3cb7cde64d6eedcc97446b189.css integrity="sha256-WVAKb75NUiWlL7+gyuB+Qq504NPLfN5k1u7cyXRGsYk=" media=screen><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.css><script data-goatcounter=https://galileocat.goatcounter.com/count async src=//gc.zgo.at/count.js></script></head><body><nav style="text-align:center;padding:15px 0;position:relative;z-index:9999"><a href=/ id=dynamic-home-link style=font-size:.8rem;opacity:.6;letter-spacing:2px;text-decoration:none;color:inherit>HOME</a>
-<span style="opacity:.2;margin:0 10px">|</span>
-<a href=# id=refresh-btn style=font-size:.8rem;opacity:.6;letter-spacing:2px;text-decoration:none;color:inherit>REFRESH SITE</a></nav><main><style>:root{--terminal-green:#2fb98f;--dark-bg:#0a0a0a;--panel-bg:#151515}.select-viewport{padding:40px 20px;max-width:1200px;margin:auto;font-family:monospace}.filter-menu{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px;position:sticky;top:10px;z-index:100;background:rgba(10,10,10,.9);padding:15px;border:1px solid #333}.filter-btn{padding:8px 15px;background:0 0;border:1px solid #444;color:#888;cursor:pointer;font-size:.75rem;text-transform:uppercase;transition:.3s}.filter-btn:hover,.filter-btn.active{border-color:var(--terminal-green);color:var(--terminal-green);background:rgba(47,185,143,.1)}.squad-group{display:none;animation:fadeIn .4s ease-in-out}.squad-group.active{display:block}.character-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:15px}.char-card{background:var(--panel-bg);border:1px solid #222;padding-bottom:10px;text-align:center;transition:.3s}.char-card:hover{border-color:var(--terminal-green);transform:translateY(-3px)}.char-portrait{width:100%;aspect-ratio:1/1;background:#222;overflow:hidden}.char-portrait img{width:100%;height:100%;object-fit:cover;opacity:.4;filter:grayscale(1)}.char-name{font-size:.8rem;margin:10px 5px;color:#eee;font-weight:700;text-transform:uppercase}.status-tag{font-size:.6rem;color:#f44;border:1px solid #f44;padding:2px 5px;display:inline-block}@keyframes fadeIn{from{opacity:0}to{opacity:1}}</style><div class=select-viewport><h1 style=text-align:center;letter-spacing:10px;color:var(--terminal-green);margin-bottom:30px>CHARACTER DATABASE</h1><div class=filter-menu><button class="filter-btn active" onclick='filterSquad("fireflies")'>Fire Flies</button>
-<button class=filter-btn onclick='filterSquad("squads-1-5")'>Squads 1-5</button>
-<button class=filter-btn onclick='filterSquad("squads-6-10")'>Squads 6-10</button>
-<button class=filter-btn onclick='filterSquad("squads-11-15")'>Squads 11-15</button>
-<button class=filter-btn onclick='filterSquad("hostiles")'>Hostiles</button></div><div id=fireflies class="squad-group active"><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>??? Smokey</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Sage The Princess</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Babu The Wise</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Simba The Smith</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Dahlia The Nurse</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Liz The Cook</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Suki The Scout</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>??? The Sniper</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>??? The Princess</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>??? The Dragon</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>??? The Bat</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>???? The Reaper</div><div class=status-tag>FILE LOCKED</div></div></div></div><div id=squads-1-5 class=squad-group><h3 style="color:var(--terminal-green);font-size:.9rem;border-bottom:1px solid #333;padding-bottom:5px;margin-top:30px">Squad 1 – Apex Blades</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Valtor</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Neb</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Nima</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Jax</div><div class=status-tag>FILE LOCKED</div></div></div><h3 style="color:var(--terminal-green);font-size:.9rem;border-bottom:1px solid #333;padding-bottom:5px;margin-top:30px">Squad 2 – Ember Lance</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Valeria</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Mistral</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Bel</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Cyrus</div><div class=status-tag>FILE LOCKED</div></div></div><h3 style="color:var(--terminal-green);font-size:.9rem;border-bottom:1px solid #333;padding-bottom:5px;margin-top:30px">Squad 3 – Mirage Cell</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Caldera</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Lior</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Julie</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Finn</div><div class=status-tag>FILE LOCKED</div></div></div><h3 style="color:var(--terminal-green);font-size:.9rem;border-bottom:1px solid #333;padding-bottom:5px;margin-top:30px">Squad 4 – Titan Ward</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Garran</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Adara</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Elise</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Toby</div><div class=status-tag>FILE LOCKED</div></div></div><h3 style="color:var(--terminal-green);font-size:.9rem;border-bottom:1px solid #333;padding-bottom:5px;margin-top:30px">Squad 5 – Seraph Line</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Leira</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Drew</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Cherry</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Kellen</div><div class=status-tag>FILE LOCKED</div></div></div></div><div id=squads-6-10 class=squad-group><h3 style="color:var(--terminal-green);font-size:.9rem;border-bottom:1px solid #333;padding-bottom:5px;margin-top:30px">Squad 6 – Obsidian Fang</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Silas</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Vex</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Vosk</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Lin</div><div class=status-tag>FILE LOCKED</div></div></div><h3 style="color:var(--terminal-green);font-size:.9rem;border-bottom:1px solid #333;padding-bottom:5px;margin-top:30px">Squad 7 – Horizon Break</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Star</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Graves</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Matcha</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Fry</div><div class=status-tag>FILE LOCKED</div></div></div><h3 style="color:var(--terminal-green);font-size:.9rem;border-bottom:1px solid #333;padding-bottom:5px;margin-top:30px">Squad 8 – Vortex Core</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Mars</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Reva</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Tsulala</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Maddox</div><div class=status-tag>FILE LOCKED</div></div></div><h3 style="color:var(--terminal-green);font-size:.9rem;border-bottom:1px solid #333;padding-bottom:5px;margin-top:30px">Squad 9 – Iron Pulse</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Tessa</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Calderon</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Yu</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Maya</div><div class=status-tag>FILE LOCKED</div></div></div><h3 style="color:var(--terminal-green);font-size:.9rem;border-bottom:1px solid #333;padding-bottom:5px;margin-top:30px">Squad 10 – Viper Syndicate</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Syther</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Kate</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Juno</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Renzo</div><div class=status-tag>FILE LOCKED</div></div></div></div><div id=squads-11-15 class=squad-group><h3 style="color:var(--terminal-green);font-size:.9rem;border-bottom:1px solid #333;padding-bottom:5px;margin-top:30px">Squad 11 – Draconis Howl</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Freya</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Yarek</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Bampi</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Kairos</div><div class=status-tag>FILE LOCKED</div></div></div><h3 style="color:var(--terminal-green);font-size:.9rem;border-bottom:1px solid #333;padding-bottom:5px;margin-top:30px">Squad 12 – Nova Echo</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Nova</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Azari</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Bexi</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Orion</div><div class=status-tag>FILE LOCKED</div></div></div><h3 style="color:var(--terminal-green);font-size:.9rem;border-bottom:1px solid #333;padding-bottom:5px;margin-top:30px">Squad 13 – Abyss Tide</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Nerida</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Mak</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Ariel</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Jett</div><div class=status-tag>FILE LOCKED</div></div></div><h3 style="color:var(--terminal-green);font-size:.9rem;border-bottom:1px solid #333;padding-bottom:5px;margin-top:30px">Squad 14 – Breakpoint Riot</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Brisa</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Rocco</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Jessie</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Dezmar</div><div class=status-tag>FILE LOCKED</div></div></div><h3 style="color:var(--terminal-green);font-size:.9rem;border-bottom:1px solid #333;padding-bottom:5px;margin-top:30px">Squad 15 – Aegis Wardens</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Sally</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Smokey</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Miyagi</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Kiki</div><div class=status-tag>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Bruno</div><div class=status-tag>FILE LOCKED</div></div></div></div><div id=hostiles class=squad-group><h3 style="color:#f44;font-size:.9rem;border-bottom:1px solid #422;padding-bottom:5px;margin-top:30px">HIGH THREAT TARGETS</h3><div class=character-grid><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Katie The Witch</div><div class=status-tag style=color:#f44;border-color:#f44>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Tendo</div><div class=status-tag style=color:#f44;border-color:#f44>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Ophelia of The Mist</div><div class=status-tag style=color:#f44;border-color:#f44>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Link The Pharaoh of Ash</div><div class=status-tag style=color:#f44;border-color:#f44>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Nightmare Boba</div><div class=status-tag style=color:#f44;border-color:#f44>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Jiji Queen of Lightning</div><div class=status-tag style=color:#f44;border-color:#f44>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Witch of The East Summer</div><div class=status-tag style=color:#f44;border-color:#f44>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Witch of The West Miria</div><div class=status-tag style=color:#f44;border-color:#f44>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Head of War Priscilla</div><div class=status-tag style=color:#f44;border-color:#f44>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>Neva The Giant Rat</div><div class=status-tag style=color:#f44;border-color:#f44>FILE LOCKED</div></div><div class=char-card><div class=char-portrait><img src=/images/comicsicon/ss.png></div><div class=char-name>??? The Giant Spider</div><div class=status-tag style=color:#f44;border-color:#f44>FILE LOCKED</div></div></div></div></div><script>function filterSquad(e){document.querySelectorAll(".squad-group").forEach(e=>e.classList.remove("active")),document.querySelectorAll(".filter-btn").forEach(e=>e.classList.remove("active")),document.getElementById(e).classList.add("active"),event.currentTarget.classList.add("active"),window.scrollTo({top:0,behavior:"smooth"})}</script></main><script>window.setHomeTheme=function(e){let t="/";e==="sonic"&&(t="/themes/sonic/"),e==="flower"&&(t="/themes/flower/"),e==="smokey"&&(t="/themes/smokey/"),e==="popit"&&(t="/themes/popit/"),e==="bubble"&&(t="/themes/bubble/"),e==="cardboard"&&(t="/themes/cardboard/"),localStorage.setItem("samurai_active_theme",t),console.log("Theme securely saved as: "+t)},function(){const e=localStorage.getItem("samurai_active_theme"),t=window.location.pathname;e&&e!=="/"&&(t==="/"||t==="/index.html")&&!document.referrer.includes("/themes/")&&window.location.replace(e),document.addEventListener("DOMContentLoaded",function(){const t=document.getElementById("dynamic-home-link"),n=document.getElementById("refresh-btn");e&&t&&(t.href=e),n&&n.addEventListener("click",function(e){e.preventDefault(),window.location.reload()})})}()</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem("samurai_active_theme");
+            const currentPath = window.location.pathname;
+
+            
+            
+            if (savedTheme && savedTheme !== "/" && currentPath === "/" && !document.referrer.includes('/themes/')) {
+                window.location.href = savedTheme;
+            }
+        })();
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Character Files | Samurai Smokey</title>
+    <link rel="icon" type="image/png" href="/icon.png">
+    <link rel="apple-touch-icon" href="/icon.png">
+    
+      <meta name="description" content="The official webcomic archive, gallery, and lore database for Samurai Smokey. Created by GalileoCat.">
+    
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdnjs.cloudflare.com; connect-src 'self' https://galileocat.goatcounter.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    
+    
+    <link rel="stylesheet" href="//localhost:1313/css/custom.min.59500a6fbe4d5225a52fbfa0cae07e42ae74e0d3cb7cde64d6eedcc97446b189.css" integrity="sha256-WVAKb75NUiWlL7&#43;gyuB&#43;Qq504NPLfN5k1u7cyXRGsYk=" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.css">
+    <script data-goatcounter="https://galileocat.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+    <nav style="text-align: center; padding: 15px 0; position: relative; z-index: 9999;">
+        <a href="/" id="dynamic-home-link" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px; text-decoration: none; color: inherit;">HOME</a>
+        <span style="opacity: 0.2; margin: 0 10px;">|</span>
+        <a href="#" id="refresh-btn" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px; text-decoration: none; color: inherit;">REFRESH SITE</a>
+    </nav>
+
+    <main>
+        
+<style>
+    :root {
+        --terminal-green: #2fb98f;
+        --dark-bg: #0a0a0a;
+        --panel-bg: #151515;
+    }
+
+    .select-viewport { padding: 40px 20px; max-width: 1200px; margin: auto; font-family: monospace; }
+    
+     
+    .filter-menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 40px;
+        position: sticky;
+        top: 10px;
+        z-index: 100;
+        background: rgba(10, 10, 10, 0.9);
+        padding: 15px;
+        border: 1px solid #333;
+    }
+
+    .filter-btn {
+        padding: 8px 15px;
+        background: transparent;
+        border: 1px solid #444;
+        color: #888;
+        cursor: pointer;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        transition: 0.3s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+        border-color: var(--terminal-green);
+        color: var(--terminal-green);
+        background: rgba(47, 185, 143, 0.1);
+    }
+
+     
+    .squad-group { display: none; animation: fadeIn 0.4s ease-in-out; }
+    .squad-group.active { display: block; }
+
+    .character-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .char-card {
+        background: var(--panel-bg);
+        border: 1px solid #222;
+        padding-bottom: 10px;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .char-card:hover { border-color: var(--terminal-green); transform: translateY(-3px); }
+    .char-portrait { width: 100%; aspect-ratio: 1/1; background: #222; overflow: hidden; }
+    .char-portrait img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; filter: grayscale(1); }
+    .char-name { font-size: 0.8rem; margin: 10px 5px; color: #eee; font-weight: bold; text-transform: uppercase; }
+    .status-tag { font-size: 0.6rem; color: #ff4444; border: 1px solid #ff4444; padding: 2px 5px; display: inline-block; }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+</style>
+
+<div class="select-viewport">
+    <h1 style="text-align: center; letter-spacing: 10px; color: var(--terminal-green); margin-bottom: 30px;">CHARACTER DATABASE</h1>
+
+    <div class="filter-menu">
+        <button class="filter-btn active" onclick="filterSquad('fireflies')">Fire Flies</button>
+        <button class="filter-btn" onclick="filterSquad('squads-1-5')">Squads 1-5</button>
+        <button class="filter-btn" onclick="filterSquad('squads-6-10')">Squads 6-10</button>
+        <button class="filter-btn" onclick="filterSquad('squads-11-15')">Squads 11-15</button>
+        <button class="filter-btn" onclick="filterSquad('hostiles')">Hostiles</button>
+    </div>
+
+    <div id="fireflies" class="squad-group active">
+        <div class="character-grid">
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">??? Smokey</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Sage The Princess</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Babu The Wise</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Simba The Smith</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Dahlia The Nurse</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Liz The Cook</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Suki The Scout</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">??? The Sniper</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">??? The Princess</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">??? The Dragon</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">??? The Bat</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">???? The Reaper</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="squads-1-5" class="squad-group">
+        
+        
+            <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">Squad 1 – Apex Blades</h3>
+            <div class="character-grid">
+                <div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Valtor</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Neb</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Nima</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Jax</div><div class="status-tag">FILE LOCKED</div></div>
+            </div>
+        
+            <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">Squad 2 – Ember Lance</h3>
+            <div class="character-grid">
+                <div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Valeria</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Mistral</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Bel</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Cyrus</div><div class="status-tag">FILE LOCKED</div></div>
+            </div>
+        
+            <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">Squad 3 – Mirage Cell</h3>
+            <div class="character-grid">
+                <div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Caldera</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Lior</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Julie</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Finn</div><div class="status-tag">FILE LOCKED</div></div>
+            </div>
+        
+            <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">Squad 4 – Titan Ward</h3>
+            <div class="character-grid">
+                <div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Garran</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Adara</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Elise</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Toby</div><div class="status-tag">FILE LOCKED</div></div>
+            </div>
+        
+            <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">Squad 5 – Seraph Line</h3>
+            <div class="character-grid">
+                <div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Leira</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Drew</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Cherry</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Kellen</div><div class="status-tag">FILE LOCKED</div></div>
+            </div>
+        
+    </div>
+
+   <div id="squads-6-10" class="squad-group">
+    
+
+    
+        <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">
+            Squad 6 – Obsidian Fang
+        </h3>
+        <div class="character-grid">
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Silas</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Vex</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Vosk</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Lin</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+        </div>
+    
+        <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">
+            Squad 7 – Horizon Break
+        </h3>
+        <div class="character-grid">
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Star</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Graves</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Matcha</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Fry</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+        </div>
+    
+        <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">
+            Squad 8 – Vortex Core
+        </h3>
+        <div class="character-grid">
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Mars</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Reva</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Tsulala</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Maddox</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+        </div>
+    
+        <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">
+            Squad 9 – Iron Pulse
+        </h3>
+        <div class="character-grid">
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Tessa</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Calderon</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Yu</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Maya</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+        </div>
+    
+        <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">
+            Squad 10 – Viper Syndicate
+        </h3>
+        <div class="character-grid">
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Syther</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Kate</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Juno</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Renzo</div>
+                <div class="status-tag">FILE LOCKED</div>
+            </div>
+            
+        </div>
+    
+</div>
+
+    <div id="squads-11-15" class="squad-group">
+        
+        
+            <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">Squad 11 – Draconis Howl</h3>
+            <div class="character-grid">
+                <div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Freya</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Yarek</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Bampi</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Kairos</div><div class="status-tag">FILE LOCKED</div></div>
+            </div>
+        
+            <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">Squad 12 – Nova Echo</h3>
+            <div class="character-grid">
+                <div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Nova</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Azari</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Bexi</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Orion</div><div class="status-tag">FILE LOCKED</div></div>
+            </div>
+        
+            <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">Squad 13 – Abyss Tide</h3>
+            <div class="character-grid">
+                <div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Nerida</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Mak</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Ariel</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Jett</div><div class="status-tag">FILE LOCKED</div></div>
+            </div>
+        
+            <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">Squad 14 – Breakpoint Riot</h3>
+            <div class="character-grid">
+                <div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Brisa</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Rocco</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Jessie</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Dezmar</div><div class="status-tag">FILE LOCKED</div></div>
+            </div>
+        
+            <h3 style="color: var(--terminal-green); font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 5px; margin-top: 30px;">Squad 15 – Aegis Wardens</h3>
+            <div class="character-grid">
+                <div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Sally</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Smokey</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Miyagi</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Kiki</div><div class="status-tag">FILE LOCKED</div></div><div class="char-card"><div class="char-portrait"><img src="/images/comicsicon/ss.png"></div><div class="char-name">Bruno</div><div class="status-tag">FILE LOCKED</div></div>
+            </div>
+        
+    </div>
+
+    <div id="hostiles" class="squad-group">
+        <h3 style="color: #ff4444; font-size: 0.9rem; border-bottom: 1px solid #422; padding-bottom: 5px; margin-top: 30px;">HIGH THREAT TARGETS</h3>
+        <div class="character-grid">
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Katie The Witch</div>
+                <div class="status-tag" style="color:#ff4444; border-color:#ff4444;">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Tendo</div>
+                <div class="status-tag" style="color:#ff4444; border-color:#ff4444;">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Ophelia of The Mist</div>
+                <div class="status-tag" style="color:#ff4444; border-color:#ff4444;">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Link The Pharaoh of Ash</div>
+                <div class="status-tag" style="color:#ff4444; border-color:#ff4444;">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Nightmare Boba</div>
+                <div class="status-tag" style="color:#ff4444; border-color:#ff4444;">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Jiji Queen of Lightning</div>
+                <div class="status-tag" style="color:#ff4444; border-color:#ff4444;">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Witch of The East Summer</div>
+                <div class="status-tag" style="color:#ff4444; border-color:#ff4444;">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Witch of The West Miria</div>
+                <div class="status-tag" style="color:#ff4444; border-color:#ff4444;">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Head of War Priscilla</div>
+                <div class="status-tag" style="color:#ff4444; border-color:#ff4444;">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">Neva The Giant Rat</div>
+                <div class="status-tag" style="color:#ff4444; border-color:#ff4444;">FILE LOCKED</div>
+            </div>
+            
+            <div class="char-card">
+                <div class="char-portrait"><img src="/images/comicsicon/ss.png"></div>
+                <div class="char-name">??? The Giant Spider</div>
+                <div class="status-tag" style="color:#ff4444; border-color:#ff4444;">FILE LOCKED</div>
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function filterSquad(id) {
+        
+        document.querySelectorAll('.squad-group').forEach(group => group.classList.remove('active'));
+        
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        
+        
+        document.getElementById(id).classList.add('active');
+        
+        event.currentTarget.classList.add('active');
+        
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+    </main>
+
+    <script>
+        
+        window.setHomeTheme = function(themeName) {
+            let target = "/";
+            if (themeName === 'sonic') target = "/themes/sonic/";
+            if (themeName === 'flower') target = "/themes/flower/";
+            if (themeName === 'smokey') target = "/themes/smokey/";
+            if (themeName === 'popit') target = "/themes/popit/";
+            if (themeName === 'bubble') target = "/themes/bubble/"; 
+            if (themeName === 'cardboard') target = "/themes/cardboard/";
+
+            localStorage.setItem("samurai_active_theme", target);
+            console.log("Theme securely saved as: " + target);
+        };
+
+        
+        (function() {
+            const savedTheme = localStorage.getItem("samurai_active_theme");
+            const currentPath = window.location.pathname;
+
+            
+            
+            if (savedTheme && savedTheme !== "/" && (currentPath === "/" || currentPath === "/index.html") && !document.referrer.includes('/themes/')) {
+                window.location.replace(savedTheme);
+            }
+
+            
+            document.addEventListener("DOMContentLoaded", function() {
+                const homeLink = document.getElementById("dynamic-home-link");
+                const refreshBtn = document.getElementById("refresh-btn");
+
+                
+                if (savedTheme && homeLink) {
+                    homeLink.href = savedTheme;
+                }
+
+                if (refreshBtn) {
+                    refreshBtn.addEventListener("click", function(e) {
+                        e.preventDefault();
+                        window.location.reload();
+                    });
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
