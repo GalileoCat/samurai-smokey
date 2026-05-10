@@ -1,149 +1,237 @@
 {{ define "main" }}
 <style>
-    /* THEME SPECIFIC GLOWS */
-    .btn-default:hover { border-color: #2fb98f; box-shadow: 0 0 20px rgba(47, 185, 143, 0.3); }
-    .btn-sonic:hover { border-color: #0033cc; box-shadow: 0 0 20px rgba(0, 51, 204, 0.4); }
-    .btn-flower:hover { border-color: #feb47b; box-shadow: 0 0 20px rgba(254, 180, 123, 0.4); }
-    .btn-smokey:hover { border-color: #e61919; box-shadow: 0 0 20px rgba(230, 25, 25, 0.4); } /* ADD THIS */
-    .btn-locked { opacity: 0.4; cursor: not-allowed; border-style: dashed; }
+    /* ==========================================================
+       HOLOGRAPHIC KINETIC GRID (FIDGET UI)
+       ========================================================== */
+    body, html { margin: 0; padding: 0; background: #050505; overflow-x: hidden; }
+
+    /* The glowing orb that follows the mouse */
+    #ambient-glow {
+        position: fixed; top: 50%; left: 50%;
+        width: 600px; height: 600px;
+        background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+        border-radius: 50%; pointer-events: none;
+        transform: translate(-50%, -50%);
+        z-index: 0; transition: background 0.4s ease, width 0.4s ease, height 0.4s ease;
+    }
 
     .picker-container { 
-        text-align: center; 
-        padding: 80px 20px; 
+        position: relative; z-index: 10;
+        text-align: center; padding: 80px 20px; 
         font-family: 'Impact', sans-serif; 
-        background: #050505; 
         min-height: 100vh;
     }
     
+    .picker-title {
+        letter-spacing: 12px; margin-bottom: 10px; color: #fff; 
+        text-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+
     .picker-grid { 
-        display: grid; 
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-        gap: 25px; 
-        max-width: 1100px; 
-        margin: 0 auto; 
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        gap: 30px; max-width: 1100px; margin: 0 auto; 
+        perspective: 1200px; /* REQUIRED FOR 3D EFFECT */
     }
     
+    /* The 3D Card Base */
     .choice-btn { 
-        display: block;
-        padding: 40px 20px; 
-        background: rgba(255,255,255,0.02); 
-        border: 1px solid #333; 
-        color: #fff; 
-        text-decoration: none;
+        display: flex; flex-direction: column; justify-content: center;
+        padding: 40px 20px; min-height: 120px;
+        background: rgba(255,255,255,0.03); 
+        border: 1px solid #333; border-radius: 15px; 
+        color: #fff; text-decoration: none;
         position: relative;
-        overflow: hidden;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        
+        /* Smooth return to normal when mouse leaves */
+        transition: transform 0.2s ease-out, box-shadow 0.3s ease, border-color 0.3s ease; 
+        transform-style: preserve-3d; /* Allows inner elements to float */
+        
+        /* Load Animation */
+        opacity: 0; animation: drop-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     }
 
-    /* THEME SPECIFIC GLOWS */
-    .btn-default:hover { border-color: #2fb98f; box-shadow: 0 0 20px rgba(47, 185, 143, 0.3); }
-    .btn-sonic:hover { border-color: #0033cc; box-shadow: 0 0 20px rgba(0, 51, 204, 0.4); }
-    .btn-flower:hover { border-color: #feb47b; box-shadow: 0 0 20px rgba(254, 180, 123, 0.4); }
-    .btn-locked { opacity: 0.4; cursor: not-allowed; border-style: dashed; }
+    @keyframes drop-in {
+        from { opacity: 0; transform: translateZ(-100px) translateY(-20px) rotateX(-10deg); }
+        to { opacity: 1; transform: translateZ(0) translateY(0) rotateX(0deg); }
+    }
+    .choice-btn:nth-child(1) { animation-delay: 0.1s; }
+    .choice-btn:nth-child(2) { animation-delay: 0.2s; }
+    .choice-btn:nth-child(3) { animation-delay: 0.3s; }
+    .choice-btn:nth-child(4) { animation-delay: 0.4s; }
+    .choice-btn:nth-child(5) { animation-delay: 0.5s; }
+    .choice-btn:nth-child(6) { animation-delay: 0.6s; }
+    .choice-btn:nth-child(7) { animation-delay: 0.7s; }
 
-    .choice-btn:hover { transform: translateY(-8px); background: rgba(255,255,255,0.05); }
-    
-    .choice-title { font-size: 1.8rem; font-style: italic; margin-bottom: 5px; letter-spacing: 2px; text-transform: uppercase; }
-    .choice-sub { font-family: monospace; font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 3px; }
+    /* Fidget Click Physics */
+    .choice-btn:active { transform: scale(0.95) !important; transition: transform 0.1s !important; }
+
+    /* Holographic Floating Elements */
+    .content-wrapper {
+        transform: translateZ(40px); /* Pushes text closer to the screen */
+        pointer-events: none; /* Stops text from messing up mouse tracking */
+    }
+
+    .choice-title { 
+        font-size: 1.8rem; font-style: italic; margin-bottom: 8px; 
+        letter-spacing: 3px; text-transform: uppercase; 
+        text-shadow: 2px 4px 10px rgba(0,0,0,0.8);
+    }
+    .choice-sub { font-family: monospace; font-size: 0.8rem; color: #ccc; text-transform: uppercase; letter-spacing: 3px; }
     
     .status-tag { 
-        position: absolute; top: 10px; right: 10px; 
-        font-size: 0.6rem; padding: 2px 8px; border: 1px solid #444; color: #888;
-    }
-    /* btn-smokey: The new boss interface button */
-    .btn-smokey {
-        background-image: 
-            linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), 
-            url('/images/comicsicon/art11.jpg');
-        
-        /* 1. This "zooms out" by forcing the image to fit the card */
-        background-size: cover; 
-        
-        /* 2. This pins the camera to the top where his face is */
-        background-position: center top; 
-        
-        border-color: #e61919 !important;
-        transition: all 0.4s ease;
-    }
-    /* Add this line right under .btn-smokey */
-    .btn-popit:hover { border-color: #ff4da6; box-shadow: 0 0 20px rgba(255, 77, 166, 0.4); }
-    /* Add this under .btn-popit:hover */
-    .btn-bubble:hover { border-color: #20b2aa; box-shadow: 0 0 20px rgba(32, 178, 170, 0.4); }
-    .btn-smokey:hover {
-        /* On hover, we can "zoom in" slightly for a cinematic effect */
-        background-size: 110%; 
-        background-position: center 10%;
-        border-color: #ffb300 !important;
+        position: absolute; top: 15px; right: 15px; 
+        font-family: monospace; font-size: 0.65rem; font-weight: bold;
+        padding: 4px 10px; border: 1px solid #444; border-radius: 20px; 
+        color: #888; background: rgba(0, 0, 0, 0.8); 
+        letter-spacing: 1px;
+        transform: translateZ(20px); /* Floats slightly above background */
     }
 
-    /* Cinematic Hover Glow effect */
-    .btn-smokey:hover {
-        /* Lighten the dark overlay, but keep it readable */
-        background-image: 
-            linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-            url('/images/gallery/art11.jpg');
-        
-        border-color: #ffb300 !important; /* Gold border glow */
-        transform: translateY(-1px) scale(1.02); /* Pop and size up */
-        box-shadow: 0 10px 30px -5px rgba(230, 25, 25, 0.6), 0 0 15px rgba(255, 179, 0, 0.3);
+    /* Cinematic Smokey Override */
+    .btn-smokey {
+        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('/images/comicsicon/art11.jpg');
+        background-size: cover; background-position: center top; 
+        border-color: #333;
     }
-    
+    .btn-smokey:hover {
+        background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('/images/comicsicon/art11.jpg');
+    }
+    .btn-locked { opacity: 0.4; cursor: not-allowed; border-style: dashed; }
 </style>
 
+<div id="ambient-glow"></div>
+
 <div class="picker-container">
-    <h1 style="letter-spacing: 8px; margin-bottom: 10px; color: #fff; opacity: 0.9;">SELECT INTERFACE</h1>
-    
+    <h1 class="picker-title">SELECT INTERFACE</h1>
     <p style="color: #888; font-family: monospace; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 60px; text-transform: uppercase;">
-        [  Note: Themes are currently utilizing placeholder assets. Visual updates pending. ]
+        [ Note: Themes are using placeholders, will update them with dedicated images soon. ]
     </p>
     
     <div class="picker-grid">
-        <a href="/" class="choice-btn btn-default" onclick="setHomeTheme('arcade')">
+        <a href="/" class="choice-btn btn-default" data-color="rgba(47, 185, 143, " onclick="setHomeTheme('arcade')">
             <div class="status-tag" style="color: #19e63f; border-color: #19e645;">MOBILE FRIENDLY</div>
-            <div class="choice-title">CRT TERMINAL</div>
-            <div class="choice-sub">SQUAD 12 TERMINAL</div>
+            <div class="content-wrapper">
+                <div class="choice-title">CRT TERMINAL</div>
+                <div class="choice-sub">SQUAD 12 TERMINAL</div>
+            </div>
         </a>
 
-        <a href="/themes/sonic/" class="choice-btn btn-sonic" onclick="setHomeTheme('sonic')">
+        <a href="/themes/sonic/" class="choice-btn btn-sonic" data-color="rgba(0, 51, 204, " onclick="setHomeTheme('sonic')">
             <div class="status-tag">NOT MOBILE FRIENDLY</div>
-            <div class="choice-title">OVERDRIVE</div>
-            <div class="choice-sub">CLICK TO PLAY</div>
+            <div class="content-wrapper">
+                <div class="choice-title">OVERDRIVE</div>
+                <div class="choice-sub">CLICK TO PLAY</div>
+            </div>
         </a>
 
-        <a href="/themes/flower/" class="choice-btn btn-flower" onclick="setHomeTheme('flower')">
+        <a href="/themes/flower/" class="choice-btn btn-flower" data-color="rgba(254, 180, 123, " onclick="setHomeTheme('flower')">
             <div class="status-tag">NOT MOBILE FRIENDLY</div>
-            <div class="choice-title">NOVA DESIERTO DIASPORA</div>
-            <div class="choice-sub">THE GOLDEN WIND</div>
-       <a href="/themes/smokey/" class="choice-btn btn-smokey" onclick="setHomeTheme('smokey')">
-            <div class="status-tag" style="color: #19e63f; border-color: #19e645;">MOBILE FRIENDLY</div>
-            
-            <div class="choice-title">SMOKEY</div>
-            <div class="choice-sub">Radiant Dawns Hero</div>
+            <div class="content-wrapper">
+                <div class="choice-title">NOVA DESIERTO DIASPORA</div>
+                <div class="choice-sub">THE GOLDEN WIND</div>
+            </div>
         </a>
 
-      <a href="/themes/popit/" class="choice-btn btn-popit" onclick="setHomeTheme('popit')">
+        <a href="/themes/smokey/" class="choice-btn btn-smokey" data-color="rgba(230, 25, 25, " onclick="setHomeTheme('smokey')">
             <div class="status-tag" style="color: #19e63f; border-color: #19e645;">MOBILE FRIENDLY</div>
-            <div class="choice-title" style="color: #ffd700;">Sticker Scrap</div>
-            <div class="choice-sub">Imagination</div>
-        </a>
-        <a href="/themes/bubble/" class="choice-btn btn-bubble" onclick="setHomeTheme('bubble')">
-            <div class="status-tag" style="color: #19e63f; border-color: #19e645;">MOBILE FRIENDLY</div>
-            <div class="choice-title" style="color: #fff;">BUBBLE MENU</div>
-            <div class="choice-sub">Soft Bubbles</div>
+            <div class="content-wrapper">
+                <div class="choice-title" style="color: #ffb300;">SMOKEY</div>
+                <div class="choice-sub">Radiant Dawns Hero</div>
+            </div>
         </a>
 
-        <a href="/themes/cardboard/" class="choice-btn btn-cardboard" onclick="setHomeTheme('cardboard')">
-    <div class="status-tag" style="color: #19e63f; border-color: #19e645;">MOBILE FRIENDLY</div>
-    <div class="choice-title" style="color: #c28e5c;">POPIT</div>
-    <div class="choice-sub">SIMPLE MENU</div>
-</a>
+        <a href="/themes/popit/" class="choice-btn btn-popit" data-color="rgba(255, 77, 166, " onclick="setHomeTheme('popit')">
+            <div class="status-tag" style="color: #19e63f; border-color: #19e645;">MOBILE FRIENDLY</div>
+            <div class="content-wrapper">
+                <div class="choice-title" style="color: #ffd700;">Sticker Scrap</div>
+                <div class="choice-sub">Imagination</div>
+            </div>
+        </a>
 
+        <a href="/themes/bubble/" class="choice-btn btn-bubble" data-color="rgba(32, 178, 170, " onclick="setHomeTheme('bubble')">
+            <div class="status-tag" style="color: #19e63f; border-color: #19e645;">MOBILE FRIENDLY</div>
+            <div class="content-wrapper">
+                <div class="choice-title" style="color: #fff;">BUBBLE MENU</div>
+                <div class="choice-sub">Soft Bubbles</div>
+            </div>
+        </a>
+
+        <a href="/themes/cardboard/" class="choice-btn btn-cardboard" data-color="rgba(194, 142, 92, " onclick="setHomeTheme('cardboard')">
+            <div class="status-tag" style="color: #19e63f; border-color: #19e645;">MOBILE FRIENDLY</div>
+            <div class="content-wrapper">
+                <div class="choice-title" style="color: #c28e5c;">POPIT</div>
+                <div class="choice-sub">SIMPLE MENU</div>
+            </div>
+        </a>
 
         <div class="choice-btn btn-locked">
             <div class="status-tag">OFFLINE</div>
-            <div class="choice-title">More Coming Soon</div>
-            <div class="choice-sub"></div>
+            <div class="content-wrapper">
+                <div class="choice-title">More Coming Soon</div>
+                <div class="choice-sub"></div>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+    // ==========================================================
+    // KINETIC FIDGET LOGIC
+    // ==========================================================
+    const cards = document.querySelectorAll('.choice-btn:not(.btn-locked)');
+    const glow = document.getElementById('ambient-glow');
+
+    // 1. Ambient Glow Mouse Tracker
+    document.addEventListener('mousemove', (e) => {
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+    });
+
+    cards.forEach(card => {
+        // 2. 3D Card Tilt Physics
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left; // Mouse X inside card
+            const y = e.clientY - rect.top;  // Mouse Y inside card
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            // Calculate tilt (Max 12 degrees)
+            const rotateX = ((y - centerY) / centerY) * -12; 
+            const rotateY = ((x - centerX) / centerX) * 12;
+            
+            card.style.transform = `scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        // 3. Theme-Specific Color Swapping on Hover
+        card.addEventListener('mouseenter', () => {
+            const rawColor = card.getAttribute('data-color');
+            if (rawColor) {
+                // Instantly inject the specific theme color into the ambient glow!
+                glow.style.background = `radial-gradient(circle, ${rawColor} 0.15) 0%, transparent 60%)`;
+                glow.style.width = '800px';
+                glow.style.height = '800px';
+                
+                // Also give the card a matching glowing border
+                card.style.borderColor = `${rawColor} 1)`;
+                card.style.boxShadow = `0 15px 35px -5px ${rawColor} 0.4)`;
+            }
+        });
+
+        // 4. Reset Physics on Leave
+        card.addEventListener('mouseleave', () => {
+            // Snap the card back to flat
+            card.style.transform = `scale(1) rotateX(0deg) rotateY(0deg)`;
+            card.style.borderColor = '#333';
+            card.style.boxShadow = 'none';
+            
+            // Return ambient glow to subtle white
+            glow.style.background = `radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%)`;
+            glow.style.width = '600px';
+            glow.style.height = '600px';
+        });
+    });
+</script>
 {{ end }}
