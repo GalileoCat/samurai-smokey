@@ -109,7 +109,10 @@
         border-color: #e61919 !important;
         transition: all 0.4s ease;
     }
-
+     
+    .btn-popit:hover { border-color: #ff4da6; box-shadow: 0 0 20px rgba(255, 77, 166, 0.4); }
+     
+    .btn-bubble:hover { border-color: #20b2aa; box-shadow: 0 0 20px rgba(32, 178, 170, 0.4); }
     .btn-smokey:hover {
          
         background-size: 110%; 
@@ -128,6 +131,7 @@
         transform: translateY(-1px) scale(1.02);  
         box-shadow: 0 10px 30px -5px rgba(230, 25, 25, 0.6), 0 0 15px rgba(255, 179, 0, 0.3);
     }
+    
 </style>
 
 <div class="picker-container">
@@ -161,6 +165,24 @@
             <div class="choice-sub">Radiant Dawns Hero</div>
         </a>
 
+      <a href="/themes/popit/" class="choice-btn btn-popit" onclick="setHomeTheme('popit')">
+            <div class="status-tag" style="color: #ff4da6; border-color: #ff4da6;">CRAFTWORLD</div>
+            <div class="choice-title" style="color: #ffd700;">Sticker Scrap</div>
+            <div class="choice-sub">Imagination</div>
+        </a>
+        <a href="/themes/bubble/" class="choice-btn btn-bubble" onclick="setHomeTheme('bubble')">
+            <div class="status-tag" style="color: #20b2aa; border-color: #20b2aa;">AQUA OASIS</div>
+            <div class="choice-title" style="color: #fff;">BUBBLE MENU</div>
+            <div class="choice-sub">Soft Bubbles</div>
+        </a>
+
+        <a href="/themes/cardboard/" class="choice-btn btn-cardboard" onclick="setHomeTheme('cardboard')">
+    <div class="status-tag" style="color: #8d6e63; border-color: #8d6e63;">BOX MODE</div>
+    <div class="choice-title" style="color: #c28e5c;">POPIT</div>
+    <div class="choice-sub">SIMPLE MENU</div>
+</a>
+
+
         <div class="choice-btn btn-locked">
             <div class="status-tag">OFFLINE</div>
             <div class="choice-title">More Coming Soon</div>
@@ -178,32 +200,35 @@
             if (themeName === 'sonic') target = "/themes/sonic/";
             if (themeName === 'flower') target = "/themes/flower/";
             if (themeName === 'smokey') target = "/themes/smokey/";
+            if (themeName === 'popit') target = "/themes/popit/";
+            if (themeName === 'bubble') target = "/themes/bubble/"; 
+            if (themeName === 'cardboard') target = "/themes/cardboard/";
             
             localStorage.setItem("samurai_active_theme", target);
-            console.log("Theme Memory Set To: " + target);
+            console.log("Theme securely saved as: " + target);
         };
 
+        
         (function() {
+            const savedTheme = localStorage.getItem("samurai_active_theme");
+            const currentPath = window.location.pathname;
+
+            
+            
+            if (savedTheme && savedTheme !== "/" && (currentPath === "/" || currentPath === "/index.html") && !document.referrer.includes('/themes/')) {
+                window.location.replace(savedTheme);
+            }
+
+            
             document.addEventListener("DOMContentLoaded", function() {
                 const homeLink = document.getElementById("dynamic-home-link");
                 const refreshBtn = document.getElementById("refresh-btn");
-                const path = window.location.pathname;
 
                 
-                if (path.includes("sonic") || path.includes("flower")) {
-                    localStorage.setItem("samurai_active_theme", path);
-                } else if (path === "/" || path === "/index.html") {
-                    
-                    localStorage.setItem("samurai_active_theme", "/");
+                if (savedTheme && homeLink) {
+                    homeLink.href = savedTheme;
                 }
 
-                
-                const saved = localStorage.getItem("samurai_active_theme");
-                if (saved && homeLink) {
-                    homeLink.href = saved;
-                }
-
-                
                 if (refreshBtn) {
                     refreshBtn.addEventListener("click", function(e) {
                         e.preventDefault();
