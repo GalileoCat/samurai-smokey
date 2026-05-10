@@ -2,51 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>  on Samurai Smokey</title>
-    <link>//localhost:52510/play/</link>
+    <link>//localhost:1313/play/</link>
     <description>Recent content in   on Samurai Smokey</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="//localhost:52510/play/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/play/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cyber Defender</title>
-      <link>//localhost:52510/play/defender/</link>
+      <link>//localhost:1313/play/defender/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:52510/play/defender/</guid>
+      <guid>//localhost:1313/play/defender/</guid>
       <description></description>
     </item>
     <item>
       <title>Fish Clicker</title>
-      <link>//localhost:52510/play/fishclicker/</link>
+      <link>//localhost:1313/play/fishclicker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:52510/play/fishclicker/</guid>
+      <guid>//localhost:1313/play/fishclicker/</guid>
       <description></description>
     </item>
     <item>
       <title>Moon Buggy</title>
-      <link>//localhost:52510/play/moonbuggy/</link>
+      <link>//localhost:1313/play/moonbuggy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:52510/play/moonbuggy/</guid>
+      <guid>//localhost:1313/play/moonbuggy/</guid>
       <description></description>
     </item>
     <item>
       <title>Neon Grid</title>
-      <link>//localhost:52510/play/neongrid/</link>
+      <link>//localhost:1313/play/neongrid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:52510/play/neongrid/</guid>
+      <guid>//localhost:1313/play/neongrid/</guid>
       <description></description>
     </item>
     <item>
       <title>Neon Rush</title>
-      <link>//localhost:52510/play/neonrush/</link>
+      <link>//localhost:1313/play/neonrush/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:52510/play/neonrush/</guid>
+      <guid>//localhost:1313/play/neonrush/</guid>
       <description></description>
     </item>
     <item>
       <title>System Breach</title>
-      <link>//localhost:52510/play/breach/</link>
+      <link>//localhost:1313/play/breach/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:52510/play/breach/</guid>
+      <guid>//localhost:1313/play/breach/</guid>
       <description></description>
     </item>
   </channel>

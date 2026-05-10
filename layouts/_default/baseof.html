@@ -48,38 +48,41 @@
     </main>
 
     <script>
-        // 2. THE THEME SETTER: This is what the Picker buttons talk to
+        // 1. THE SAVER: Only runs when a user clicks a button on the Theme Picker
         window.setHomeTheme = function(themeName) {
             let target = "/";
             if (themeName === 'sonic') target = "/themes/sonic/";
             if (themeName === 'flower') target = "/themes/flower/";
             if (themeName === 'smokey') target = "/themes/smokey/";
+            if (themeName === 'popit') target = "/themes/popit/";
+            if (themeName === 'bubble') target = "/themes/bubble/"; // <-- NEW LINE HERE
+            if (themeName === 'cardboard') target = "/themes/cardboard/";
             
             localStorage.setItem("samurai_active_theme", target);
-            console.log("Theme Memory Set To: " + target);
+            console.log("Theme securely saved as: " + target);
         };
 
+        // 2. THE ROUTER: Runs immediately to check memory
         (function() {
+            const savedTheme = localStorage.getItem("samurai_active_theme");
+            const currentPath = window.location.pathname;
+
+            // If user goes to the main URL, teleport them to their saved theme!
+            // (Uses .replace so it doesn't break their browser's "Back" button)
+            if (savedTheme && savedTheme !== "/" && (currentPath === "/" || currentPath === "/index.html") && !document.referrer.includes('/themes/')) {
+                window.location.replace(savedTheme);
+            }
+
+            // 3. THE UI UPDATER: Runs once the page loads to fix links
             document.addEventListener("DOMContentLoaded", function() {
                 const homeLink = document.getElementById("dynamic-home-link");
                 const refreshBtn = document.getElementById("refresh-btn");
-                const path = window.location.pathname;
 
-                // 3. AUTO-SAVE: If user manually browses to a theme, remember it
-                if (path.includes("sonic") || path.includes("flower")) {
-                    localStorage.setItem("samurai_active_theme", path);
-                } else if (path === "/" || path === "/index.html") {
-                    // This ensures the "Mimic" glitch stops—root is root.
-                    localStorage.setItem("samurai_active_theme", "/");
+                // Makes sure the "HOME" nav button takes them to their specific theme
+                if (savedTheme && homeLink) {
+                    homeLink.href = savedTheme;
                 }
 
-                // 4. APPLY LOGIC: Keep the HOME link pointing to the preferred realm
-                const saved = localStorage.getItem("samurai_active_theme");
-                if (saved && homeLink) {
-                    homeLink.href = saved;
-                }
-
-                // 5. REFRESH LOGIC
                 if (refreshBtn) {
                     refreshBtn.addEventListener("click", function(e) {
                         e.preventDefault();

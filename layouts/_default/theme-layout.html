@@ -708,5 +708,662 @@ const trailLength = 10; // Much faster for the MacBook to handle
 </script>
 {{ end }}
 
+{{ if (in .Permalink "/popit/") }}
+
+<style>
+/* ==========================================================
+   CRAFTWORLD OVERLOAD (LBP SCRAPBOOK MODE) + COLOR PICKER
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Nunito:wght@900&display=swap');
+
+:root {
+    /* The default cutting mat color */
+    --scrap-bg: #1a4b8c;
+}
+
+body, html {
+    margin: 0; padding: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    
+    /* ADD !IMPORTANT RIGHT HERE: */
+    background-color: var(--scrap-bg) !important; 
+    
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.1) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255,255,255,0.1) 2px, transparent 2px),
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    font-family: 'Permanent Marker', cursive;
+    transition: background-color 0.5s ease;
+}
+
+
+/* Floating Craft Materials in the background */
+.craft-debris {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0;
+}
+.debris {
+    position: absolute; background: #fff; opacity: 0.1;
+    animation: spin-drift 20s linear infinite;
+}
+.debris:nth-child(1) { width: 50px; height: 50px; border-radius: 50%; left: 10%; top: 20%; animation-duration: 25s; }
+.debris:nth-child(2) { width: 80px; height: 80px; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); left: 80%; top: 60%; animation-duration: 15s; }
+.debris:nth-child(3) { width: 60px; height: 120px; left: 50%; top: 80%; animation-duration: 30s; }
+
+@keyframes spin-drift {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-100vh) rotate(360deg); }
+}
+
+/* The Messy Desk Container */
+.scrapbook-viewport {
+    position: relative; z-index: 10;
+    max-width: 1000px;
+    margin: 80px auto;
+    display: flex; flex-wrap: wrap; justify-content: center;
+    padding: 20px;
+}
+
+/* Cardboard Cutout Title */
+.scrapbook-title {
+    width: 100%; text-align: center; margin-bottom: 20px;
+}
+.scrapbook-title h1 {
+    display: inline-block;
+    color: #fff; font-size: 4.5rem; margin: 0;
+    background: url('https://www.transparenttextures.com/patterns/cardboard-flat.png'), #c28e5c;
+    padding: 10px 40px;
+    border: 4px solid #5a3c1c;
+    border-radius: 10px;
+    box-shadow: 10px 10px 0 rgba(0,0,0,0.4);
+    transform: rotate(-3deg);
+    text-shadow: 2px 2px 0 #5a3c1c;
+}
+
+/* Paint Swatches */
+.paint-tray {
+    width: 100%; display: flex; justify-content: center; gap: 15px;
+    margin-bottom: 60px;
+}
+.paint-swatch {
+    width: 35px; height: 35px; border-radius: 50%;
+    border: 3px solid #fff; cursor: pointer;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.paint-swatch:hover { transform: scale(1.3) rotate(10deg); }
+
+/* Polaroids / Stickers */
+.scrap-item {
+    position: relative;
+    background: #f8f8f8;
+    padding: 15px 15px 45px 15px;
+    margin: 35px 20px; /* Adds 10px top/bottom and 15px left/right space */
+    text-decoration: none;
+    box-shadow: 5px 10px 15px rgba(0,0,0,0.5);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    border: 1px solid #ddd;
+    transform: rotate(var(--rot)) scale(1);
+    z-index: var(--z);
+}
+
+.scrap-item:nth-child(1) { --rot: -12deg; --z: 1; }
+.scrap-item:nth-child(2) { --rot: 8deg; --z: 2; margin-top: 40px; }
+.scrap-item:nth-child(3) { --rot: -5deg; --z: 3; margin-top: -20px; }
+.scrap-item:nth-child(4) { --rot: 15deg; --z: 4; margin-top: 30px; }
+.scrap-item:nth-child(5) { --rot: -18deg; --z: 5; margin-top: 10px; }
+.scrap-item:nth-child(6) { --rot: 6deg; --z: 6; margin-top: -10px; }
+
+/* The Masking Tape */
+.scrap-item::before {
+    content: ""; position: absolute;
+    top: -15px; left: 50%;
+    transform: translateX(-50%) rotate(var(--tape-rot, -5deg));
+    width: 80px; height: 30px;
+    background: rgba(255, 255, 200, 0.6);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    z-index: 5;
+    border-left: 2px dashed rgba(0,0,0,0.1);
+    border-right: 2px dashed rgba(0,0,0,0.1);
+}
+
+.scrap-item:nth-child(even)::before { --tape-rot: 8deg; }
+
+/* Image Wrapper */
+.photo-wrapper {
+    width: 200px; height: 200px;
+    background: #111; overflow: hidden;
+    border: 2px solid #ccc;
+}
+
+.photo-wrapper img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: sepia(0.3) contrast(1.2);
+    transition: all 0.3s;
+}
+
+/* The Marker Text */
+.marker-label {
+    position: absolute; bottom: 10px; left: 0; width: 100%;
+    text-align: center; color: #111;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+/* THE CRAZY HOVER PHYSICS */
+.scrap-item:hover {
+    transform: rotate(0deg) scale(1.4) translateY(-30px) !important;
+    z-index: 100 !important;
+    box-shadow: 0 30px 50px rgba(0,0,0,0.8);
+    background: #fff;
+}
+
+.scrap-item:hover .photo-wrapper img {
+    filter: sepia(0) contrast(1.1);
+    transform: scale(1.1);
+}
+
+.scrap-item:hover::before {
+    opacity: 0.2;
+    transform: translateX(-50%) rotate(-15deg) translateY(-10px);
+}
+</style>
+
+<div class="craft-debris">
+    <div class="debris"></div><div class="debris"></div><div class="debris"></div>
+</div>
+
+<div class="scrapbook-viewport">
+    
+    <div class="scrapbook-title">
+        <h1>WELCOME!</h1>
+    </div>
+
+    <div class="paint-tray">
+        <div class="paint-swatch" style="background: #2ec4c4;" onclick="updateScrapTheme('#2ec4c4')" title="Blueprint Blue"></div>
+        <div class="paint-swatch" style="background: #63d347;" onclick="updateScrapTheme('#63d347')" title="Felt Green"></div>
+        <div class="paint-swatch" style="background: #ff8800;" onclick="updateScrapTheme('#ff8800')" title="Sticker Red"></div>
+        <div class="paint-swatch" style="background: #6a1b9a;" onclick="updateScrapTheme('#6a1b9a')" title="Magic Purple"></div>
+        <div class="paint-swatch" style="background: #e65100;" onclick="updateScrapTheme('#e65100')" title="Cardboard Orange"></div>
+        <div class="paint-swatch" style="background: #f391e1;" onclick="updateScrapTheme('#f391e1')" title="Popit Pink"></div>
+    </div>
+
+    <a href="/comics/" class="scrap-item">
+        <div class="photo-wrapper"><img src="/images/comicsicon/ss.png" alt="Comics"></div>
+        <div class="marker-label">Comics!</div>
+    </a>
+
+    <a href="/archive/" class="scrap-item">
+        <div class="photo-wrapper"><img src="/images/comicsicon/1.png" alt="Archive"></div>
+        <div class="marker-label">Archive</div>
+    </a>
+
+    <a href="/gallery/" class="scrap-item">
+        <div class="photo-wrapper"><img src="/images/comicsicon/gallery.jpg" alt="Gallery"></div>
+        <div class="marker-label">Gallery</div>
+    </a>
+
+    <a href="/commissions/" class="scrap-item">
+        <div class="photo-wrapper"><img src="/images/comicsicon/comms.jpg" alt="Orders"></div>
+        <div class="marker-label">Commissions</div>
+    </a>
+
+    <a href="/info/" class="scrap-item">
+        <div class="photo-wrapper"><img src="/images/comicsicon/database.jpg" alt="Info"></div>
+        <div class="marker-label">System</div>
+    </a>
+
+    <a href="/play/" class="scrap-item">
+        <div class="photo-wrapper"><img src="/images/comicsicon/play.jpg" alt="Play"></div>
+        <div class="marker-label">Play</div>
+    </a>
+
+</div>
+
+<script>
+    function updateScrapTheme(bgHex) {
+        document.documentElement.style.setProperty('--scrap-bg', bgHex);
+        localStorage.setItem('scrap_bg_color', bgHex);
+    }
+
+    (function() {
+        const savedColor = localStorage.getItem('scrap_bg_color');
+        if (savedColor) {
+            document.documentElement.style.setProperty('--scrap-bg', savedColor);
+        }
+    })();
+</script>
+
+
+{{ end }}
+{{ if (in .Permalink "/bubble/") }}
+<style>
+/* ==========================================================
+   THE FLOATING BUBBLE MENU
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+
+:root {
+    /* Default ocean blue */
+    --bubble-bg-top: #0a192f;
+    --bubble-bg-bottom: #20b2aa;
+}
+
+body, html {
+    margin: 0; padding: 0; min-height: 100vh; overflow-x: hidden;
+    background: linear-gradient(135deg, var(--bubble-bg-top), var(--bubble-bg-bottom)) !important;
+    font-family: 'Quicksand', sans-serif;
+    transition: background 0.8s ease;
+}
+
+/* Background floating particles */
+.ambient-bubbles {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;
+}
+.ambient-bubble {
+    position: absolute; bottom: -50px; background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%; border: 1px solid rgba(255,255,255,0.2);
+    animation: rise 15s infinite ease-in;
+}
+.ambient-bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 12s; }
+.ambient-bubble:nth-child(2) { width: 80px; height: 80px; left: 40%; animation-duration: 18s; animation-delay: 2s; }
+.ambient-bubble:nth-child(3) { width: 30px; height: 30px; left: 70%; animation-duration: 10s; animation-delay: 5s; }
+.ambient-bubble:nth-child(4) { width: 60px; height: 60px; left: 90%; animation-duration: 16s; }
+
+@keyframes rise {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+}
+
+.bubble-viewport {
+    position: relative; z-index: 10; max-width: 900px; margin: 60px auto;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding: 20px;
+}
+
+.bubble-title { width: 100%; text-align: center; margin-bottom: 20px; }
+.bubble-title h1 {
+    color: #fff; font-size: 4rem; letter-spacing: 5px; text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    margin: 0; font-weight: 700;
+}
+
+/* Color Picker Tray */
+.bubble-tray {
+    width: 100%; display: flex; justify-content: center; gap: 15px; margin-bottom: 40px;
+}
+.bubble-swatch {
+    width: 30px; height: 30px; border-radius: 50%; cursor: pointer;
+    border: 2px solid rgba(255,255,255,0.6); box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s, border-color 0.3s;
+}
+.bubble-swatch:hover { transform: scale(1.3); border-color: #fff; }
+
+/* The Main Bubbles */
+.bubble-item {
+    position: relative; width: 180px; height: 180px; border-radius: 50%;
+    text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 0 20px rgba(255,255,255,0.2), 0 15px 25px rgba(0,0,0,0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Individual floating animations */
+    animation: gentle-bob 4s infinite ease-in-out alternate;
+}
+
+/* Offset the bobbing so they don't move together */
+.bubble-item:nth-child(2) { animation-delay: 0.5s; }
+.bubble-item:nth-child(3) { animation-delay: 1.2s; }
+.bubble-item:nth-child(4) { animation-delay: 0.8s; }
+.bubble-item:nth-child(5) { animation-delay: 1.5s; }
+.bubble-item:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes gentle-bob {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-15px); }
+}
+
+/* Inner Image */
+.bubble-img-wrapper {
+    width: 100px; height: 100px; border-radius: 50%; overflow: hidden;
+    margin-bottom: 10px; border: 2px solid rgba(255,255,255,0.5);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+.bubble-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+
+/* Bubble Label */
+.bubble-label {
+    color: #fff; font-size: 1.2rem; text-shadow: 0 2px 5px rgba(0,0,0,0.5); font-weight: bold;
+}
+
+/* Hover Physics - "Expanding Bubble" */
+.bubble-item:hover {
+    background: rgba(255, 255, 255, 0.2); border-color: rgba(255,255,255,0.8);
+    box-shadow: inset 0 0 30px rgba(255,255,255,0.5), 0 20px 40px rgba(0,0,0,0.4);
+    /* Pauses the bobbing and pushes it forward */
+    animation-play-state: paused; transform: scale(1.15) translateY(-10px); z-index: 20;
+}
+.bubble-item:hover .bubble-img-wrapper img { transform: scale(1.15); }
+
+/* Glass Reflection effect */
+.bubble-item::after {
+    content: ''; position: absolute; top: 5%; left: 15%; width: 40%; height: 30%;
+    border-radius: 50%; background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+    transform: rotate(-30deg); pointer-events: none;
+}
+</style>
+
+<div class="ambient-bubbles">
+    <div class="ambient-bubble"></div><div class="ambient-bubble"></div>
+    <div class="ambient-bubble"></div><div class="ambient-bubble"></div>
+</div>
+
+<div class="bubble-viewport">
+    <div class="bubble-title">
+        <h1>OASIS MENU</h1>
+    </div>
+
+    <div class="bubble-tray">
+        <div class="bubble-swatch" style="background: linear-gradient(135deg, #0a192f, #20b2aa);" onclick="updateBubbleTheme('#0a192f', '#20b2aa')" title="Ocean"></div>
+        <div class="bubble-swatch" style="background: linear-gradient(135deg, #2b1055, #7597de);" onclick="updateBubbleTheme('#2b1055', '#7597de')" title="Dusk"></div>
+        <div class="bubble-swatch" style="background: linear-gradient(135deg, #4b1248, #f0c27b);" onclick="updateBubbleTheme('#4b1248', '#f0c27b')" title="Sunset"></div>
+        <div class="bubble-swatch" style="background: linear-gradient(135deg, #11998e, #38ef7d);" onclick="updateBubbleTheme('#11998e', '#38ef7d')" title="Mint"></div>
+        <div class="bubble-swatch" style="background: linear-gradient(135deg, #870000, #190a05);" onclick="updateBubbleTheme('#870000', '#190a05')" title="Volcano"></div>
+    </div>
+
+    <a href="/comics/" class="bubble-item">
+        <div class="bubble-img-wrapper"><img src="/images/comicsicon/ss.png" alt="Comics"></div>
+        <div class="bubble-label">Comics</div>
+    </a>
+    <a href="/archive/" class="bubble-item">
+        <div class="bubble-img-wrapper"><img src="/images/comicsicon/1.png" alt="Archive"></div>
+        <div class="bubble-label">Archive</div>
+    </a>
+    <a href="/gallery/" class="bubble-item">
+        <div class="bubble-img-wrapper"><img src="/images/comicsicon/gallery.jpg" alt="Gallery"></div>
+        <div class="bubble-label">Gallery</div>
+    </a>
+    <a href="/commissions/" class="bubble-item">
+        <div class="bubble-img-wrapper"><img src="/images/comicsicon/comms.jpg" alt="Orders"></div>
+        <div class="bubble-label">Orders</div>
+    </a>
+    <a href="/info/" class="bubble-item">
+        <div class="bubble-img-wrapper"><img src="/images/comicsicon/database.jpg" alt="Info"></div>
+        <div class="bubble-label">System</div>
+    </a>
+    <a href="/play/" class="bubble-item">
+        <div class="bubble-img-wrapper"><img src="/images/comicsicon/play.jpg" alt="Play"></div>
+        <div class="bubble-label">Play</div>
+    </a>
+</div>
+
+<script>
+    function updateBubbleTheme(topHex, bottomHex) {
+        document.documentElement.style.setProperty('--bubble-bg-top', topHex);
+        document.documentElement.style.setProperty('--bubble-bg-bottom', bottomHex);
+        localStorage.setItem('bubble_bg_top', topHex);
+        localStorage.setItem('bubble_bg_bottom', bottomHex);
+    }
+
+    (function() {
+        const savedTop = localStorage.getItem('bubble_bg_top');
+        const savedBottom = localStorage.getItem('bubble_bg_bottom');
+        if (savedTop && savedBottom) {
+            document.documentElement.style.setProperty('--bubble-bg-top', savedTop);
+            document.documentElement.style.setProperty('--bubble-bg-bottom', savedBottom);
+        }
+    })();
+</script>
+{{ end }}
+
+{{ if (in .Permalink "/cardboard/") }}
+
+<!-- Pop-it Color Changer Button -->
+<button id="popit-color-btn" style="position: fixed; top: 85px; right: 20px; z-index: 10000; background: #ff4da6; color: white; border: none; border-radius: 50%; width: 70px; height: 70px; font-size: 32px; box-shadow: 0 8px 0 #cc0066, 0 12px 25px rgba(0,0,0,0.5); cursor: pointer; transition: all 0.2s;">
+    🎨
+</button>
+
+<style>
+/* ==========================================================
+   LITTLE BIG PLANET "POPIT" MENU THEME
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap');
+
+:root {
+    --bg-start: #8a5a44;
+    --bg-end: #3e2723;
+    --menu-bg: rgba(40, 40, 40, 0.45);
+    --border-color: rgba(255, 255, 255, 0.85);
+    --accent: #ffd700;
+}
+
+body, html {
+    margin: 0; padding: 0;
+    background: radial-gradient(circle at center, var(--bg-start), var(--bg-end));
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+    transition: background 0.8s ease;
+}
+
+/* Floating dust particles */
+.pod-dust {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: radial-gradient(rgba(255,255,255,0.1) 2px, transparent 0);
+    background-size: 40px 40px;
+    z-index: 0;
+    pointer-events: none;
+    animation: drift 20s linear infinite;
+}
+@keyframes drift { 
+    from { background-position: 0 0; } 
+    to { background-position: 100px 100px; } 
+}
+
+/* The Main Popit Container */
+.popit-menu {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    margin: 60px auto;
+    background: var(--menu-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 4px solid var(--border-color);
+    border-radius: 35px;
+    padding: 30px;
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.5),
+        inset 0 0 20px rgba(255,255,255,0.2);
+    animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(0.5deg); }
+}
+
+/* Popit Header Bar */
+.popit-header {
+    background: rgba(0,0,0,0.2);
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    border: 2px dashed rgba(255,255,255,0.3);
+}
+.popit-title {
+    color: #fff;
+    font-size: 2.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 0 #000, 0 0 10px rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+}
+
+/* The Grid */
+.popit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    padding: 10px;
+}
+
+/* The Sticker Buttons */
+.popit-item {
+    position: relative;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+.sticker-wrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: 20px;
+    border: 6px solid #fff;
+    overflow: hidden;
+    box-shadow:
+        0 10px 20px rgba(0,0,0,0.4),
+        inset 0 4px 0 rgba(255,255,255,0.5);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: #222;
+}
+.sticker-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+/* Hover Effects */
+.popit-item:hover {
+    transform: scale(1.15) rotate(-3deg);
+    z-index: 20;
+}
+.popit-item:hover .sticker-wrapper {
+    border-color: var(--accent);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6), 0 0 20px var(--accent);
+}
+.popit-item:hover .sticker-wrapper img {
+    transform: scale(1.1);
+}
+
+/* Text Labels */
+.sticker-label {
+    margin-top: 15px;
+    color: #fff;
+    font-size: 1.2rem;
+    background: rgba(0,0,0,0.6);
+    padding: 5px 15px;
+    border-radius: 15px;
+    border: 2px solid rgba(255,255,255,0.5);
+    text-shadow: 1px 1px 0 #000;
+    transition: all 0.2s;
+}
+.popit-item:hover .sticker-label {
+    background: var(--accent);
+    color: #000;
+    border-color: #fff;
+    text-shadow: none;
+    transform: translateY(5px);
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+    .popit-menu { margin: 20px; padding: 20px; }
+    .sticker-wrapper { width: 110px; height: 110px; border-width: 4px; }
+    .popit-grid { gap: 15px; grid-template-columns: repeat(2, 1fr); }
+    .popit-title { font-size: 1.8rem; }
+}
+</style>
+
+<div class="pod-dust"></div>
+
+<div class="popit-menu">
+    <div class="popit-header">
+        <h1 class="popit-title">MAIN MENU</h1>
+    </div>
+    <div class="popit-grid">
+        <a href="/comics/" class="popit-item">
+            <div class="sticker-wrapper"><img src="/images/comicsicon/ss.png" alt="Comics"></div>
+            <div class="sticker-label">Comics</div>
+        </a>
+        <a href="/archive/" class="popit-item">
+            <div class="sticker-wrapper"><img src="/images/comicsicon/1.png" alt="Archive"></div>
+            <div class="sticker-label">Archive</div>
+        </a>
+        <a href="/gallery/" class="popit-item">
+            <div class="sticker-wrapper"><img src="/images/comicsicon/gallery.jpg" alt="Gallery"></div>
+            <div class="sticker-label">Gallery</div>
+        </a>
+        <a href="/commissions/" class="popit-item">
+            <div class="sticker-wrapper"><img src="/images/comicsicon/comms.jpg" alt="Orders"></div>
+            <div class="sticker-label">Orders</div>
+        </a>
+        <a href="/info/" class="popit-item">
+            <div class="sticker-wrapper"><img src="/images/comicsicon/database.jpg" alt="Info"></div>
+            <div class="sticker-label">System</div>
+        </a>
+        <a href="/play/" class="popit-item">
+            <div class="sticker-wrapper"><img src="/images/comicsicon/play.jpg" alt="Play"></div>
+            <div class="sticker-label">Play</div>
+        </a>
+    </div>
+</div>
+
+<!-- Pop-it Color Palette -->
+<div id="popit-palette" style="display:none; position: fixed; top: 170px; right: 25px; background: rgba(30,30,30,0.95); border: 6px solid #fff; border-radius: 30px; padding: 20px; z-index: 9999; width: 290px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); backdrop-filter: blur(10px);">
+    <h3 style="color:#fff; text-align:center; margin: 0 0 18px 0; font-size: 1.4rem; text-shadow: 1px 1px 2px #000;">Pod Color</h3>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
+        <div class="color-swatch" style="background:#8a5a44; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#8a5a44" data-end="#3e2723" title="Classic"></div>
+        <div class="color-swatch" style="background:#0d7bc4; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#0d7bc4" data-end="#0a3d5e" title="Blue"></div>
+        <div class="color-swatch" style="background:#e91e63; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#e91e63" data-end="#6d1b3f" title="Pink"></div>
+        <div class="color-swatch" style="background:#9c27b0; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#9c27b0" data-end="#4a1259" title="Purple"></div>
+        <div class="color-swatch" style="background:#00c853; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#00c853" data-end="#1b5e20" title="Green"></div>
+        <div class="color-swatch" style="background:#ff9800; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#ff9800" data-end="#c25a00" title="Orange"></div>
+        <div class="color-swatch" style="background:#f44336; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#f44336" data-end="#7f1d1d" title="Red"></div>
+        <div class="color-swatch" style="background:#ffd700; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#ffd700" data-end="#b36b00" title="Yellow"></div>
+    </div>
+</div>
+
+<script>
+// Pop-it Color Changer Logic
+const colorBtn = document.getElementById('popit-color-btn');
+const palette = document.getElementById('popit-palette');
+
+colorBtn.addEventListener('click', () => {
+    palette.style.display = palette.style.display === 'block' ? 'none' : 'block';
+});
+
+document.querySelectorAll('.color-swatch').forEach(swatch => {
+    swatch.addEventListener('click', () => {
+        const start = swatch.getAttribute('data-start');
+        const end = swatch.getAttribute('data-end');
+
+        document.documentElement.style.setProperty('--bg-start', start);
+        document.documentElement.style.setProperty('--bg-end', end);
+
+        // Small click feedback
+        colorBtn.style.transform = 'scale(0.85)';
+        setTimeout(() => { colorBtn.style.transform = 'scale(1)'; }, 180);
+    });
+});
+
+// Close palette when clicking outside
+document.addEventListener('click', (e) => {
+    if (!colorBtn.contains(e.target) && !palette.contains(e.target)) {
+        palette.style.display = 'none';
+    }
+});
+</script>
+
+{{ end }}
+
 <script src="/js/theme-switcher.js"></script>
 {{ end }}

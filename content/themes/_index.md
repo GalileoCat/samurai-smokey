@@ -29,6 +29,17 @@ themes:
     desc: "CINEMATIC BOSS INTERFACE"
     color: "#e61919"
 
+  - name: "CRAFTWORLD"
+    id: "popit"
+    path: "/themes/popit/"
+    desc: "TACTILE UI SANDBOX"
+    color: "#ff4da6"
+    
+  - name: "AQUA OASIS"
+    id: "bubble"
+    path: "/themes/bubble/"
+    desc: "GLASS BUBBLE UI"
+    color: "#20b2aa"
 
 
 ---
