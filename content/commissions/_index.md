@@ -283,7 +283,6 @@ title: " "
                 <ul style="list-style: none; padding: 0; line-height: 2;">
                     <li style="color: #bbb;">✦ Full NSFW / Explicit Content</li>
                     <li style="color: #bbb;">✦ Mecha / Complex Machinery</li>
-                    <li style="color: #bbb;">✦ Political / Hate Imagery</li>
                     <li style="color: #bbb;">✦ Realistic Portraits (Photos)</li>
                     <li style="color: #bbb;">✦ AI-Generated Concepts</li>
                 </ul>
