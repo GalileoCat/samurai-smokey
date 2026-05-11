@@ -170,7 +170,7 @@ title: " "
             </ul>
         </div>
         <div class="art-card">
-            <div class="art-preview" style="background-image: url('/images/gallery/commissions/6.jpg');"></div>
+            <div class="art-preview" style="background-image: url('/images/gallery/commissions/9.jpg');"></div>
             <h3>Waist & Bust</h3>
             <div class="price-circle">$50</div>
             <ul class="list-style">
