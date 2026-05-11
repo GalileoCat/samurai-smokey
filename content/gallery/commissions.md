@@ -15,6 +15,10 @@ layout: "list"
 [![GalileoCat01](/images/gallery/commissions/2.jpg)](/images/gallery/commissions/2.jpg)
 [![GalileoCat01](/images/gallery/commissions/4.jpg)](/images/gallery/commissions/4.jpg)
 [![GalileoCat01](/images/gallery/commissions/3.jpg)](/images/gallery/commissions/3.jpg)
+[![GalileoCat01](/images/gallery/commissions/7.jpg)](/images/gallery/commissions/7.jpg)
+[![GalileoCat01](/images/gallery/commissions/10.jpg)](/images/gallery/commissions/10.jpg)
+[![GalileoCat01](/images/gallery/commissions/12.jpg)](/images/gallery/commissions/12.jpg)
+[![GalileoCat01](/images/gallery/commissions/13.jpg)](/images/gallery/commissions/13.jpg)
 
 </div>
 </div>
