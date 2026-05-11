@@ -24,7 +24,7 @@
       <meta name="description" content="The official webcomic archive, gallery, and lore database for Samurai Smokey. Created by GalileoCat.">
     
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdnjs.cloudflare.com; connect-src 'self' https://galileocat.goatcounter.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://github.com https://*.githubusercontent.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdnjs.cloudflare.com https://giscus.app; frame-src 'self' https://giscus.app; connect-src 'self' https://galileocat.goatcounter.com https://giscus.app; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;">
     
     <meta name="referrer" content="no-referrer-when-downgrade">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
@@ -50,53 +50,115 @@
      
     body, html {
         margin: 0; padding: 0; min-height: 100vh;
-        background: radial-gradient(circle at center, #111 0%, #000 100%);
+         
+        background-color: #000 !important;
+        background-image: 
+            linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95)),
+            url('/images/comicsicon/ss.png') !important;
+        background-size: cover !important;
+        background-position: center 20% !important;
+        background-attachment: fixed !important;
+        
         font-family: 'Courier New', Courier, monospace;
         color: #fff;
     }
 
     .community-viewport {
-        max-width: 900px;
-        margin: 80px auto;
-        padding: 40px;
-        background: rgba(20, 20, 20, 0.8);
-        border: 1px solid #333;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(255,255,255,0.02);
-        backdrop-filter: blur(10px);
+        max-width: 1000px;
+        margin: 60px auto;
+        padding: 50px 40px;
+         
+        background: rgba(230, 25, 25, 0.03);  
+        backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        
+         
+        border: 2px solid rgba(230, 25, 25, 0.6); 
+        border-radius: 25px;
+        
+         
+        box-shadow: 
+            0 0 30px rgba(230, 25, 25, 0.4),
+            inset 0 0 15px rgba(230, 25, 25, 0.2);
+        
+         
+        opacity: 0; animation: fade-glitch-in 0.8s ease-out forwards;
+    }
+
+     
+    @keyframes fade-glitch-in {
+        0% { opacity: 0; transform: translateY(-20px) scale(0.98); filter: blur(5px); }
+        80% { opacity: 1; transform: translateY(0) scale(1.01); filter: blur(0px); }
+        90% { transform: scale(1.0); filter: hue-rotate(90deg); }
+        100% { transform: scale(1); filter: hue-rotate(0deg); }
     }
 
     .community-header {
         text-align: center;
-        border-bottom: 2px dashed #444;
-        padding-bottom: 20px;
-        margin-bottom: 40px;
+        border-bottom: 2px dashed rgba(230, 25, 25, 0.3);
+        padding-bottom: 25px;
+        margin-bottom: 50px;
+        position: relative;
     }
 
     .community-title {
         font-family: 'Impact', sans-serif;
-        font-size: 3rem;
-        letter-spacing: 8px;
-        color: #fff;
-        text-shadow: 0 0 15px rgba(255,255,255,0.2);
-        margin: 0 0 10px 0;
+        font-size: 3.8rem;
+        letter-spacing: 12px;
+        color: #ffb300;  
+        text-transform: uppercase;
+        margin: 0;
+        
+         
+        text-shadow: 0 0 10px rgba(255, 179, 0, 0.8);
+        animation: neon-pulse 1.5s infinite alternate;
+    }
+
+    @keyframes neon-pulse {
+        from { text-shadow: 0 0 10px rgba(255, 179, 0, 0.8); }
+        to { text-shadow: 0 0 25px rgba(255, 179, 0, 1), 0 0 50px rgba(230, 25, 25, 0.6); }
     }
 
     .community-subtitle {
-        color: #888;
-        font-size: 0.9rem;
-        letter-spacing: 3px;
+        color: #ccc;
+        font-size: 1rem;
+        letter-spacing: 4px;
         text-transform: uppercase;
+        margin-top: 10px;
+    }
+    
+     
+    .giscus-intro {
+        text-align: center; color: #aaa; margin-bottom: 30px; font-size: 0.85rem;
+        background: rgba(0,0,0,0.4); padding: 15px; border-radius: 10px;
+        border: 1px solid #333;
+    }
+    .anon-tip { color: #ffb300; font-weight: bold; text-decoration: none; border-bottom: 1px dashed #ffb300; transition: 0.3s; }
+    .anon-tip:hover { color: #fff; border-color: #fff; }
+
+     
+    .giscus, .giscus-frame {
+        width: 100% !important;
+        margin: 0 auto;
+    }
+
+    .giscus-container {
+        width: 100%;
+        min-height: 400px;
     }
 </style>
 
 <div class="community-viewport">
     <div class="community-header">
         <h1 class="community-title">COMMUNITY LOGS</h1>
-        <div class="community-subtitle">Leave a message. Report a bug. Talk about the comic.</div>
+        <div class="community-subtitle">Status: Active</div>
+    </div>
+    
+    <div class="giscus-intro">
+        [ LOGGED MESSAGES WILL BE ARCHIVED TO GITHUB DISCUSSIONS. ]<br>
+        NOTE: <a href="https://github.com/GalileoCat/samurai-smokey/discussions/categories/general" target="_blank" class="anon-tip">Post in "Guest Logs"</a> if you wish to remain an <span style="color:#d32f2f">Anonymous.</span>
     </div>
 
-    <div class="giscus-container" style="min-height: 300px;">
+    <div class="giscus-container">
         <script src="https://giscus.app/client.js"
                 data-repo="GalileoCat/samurai-smokey"
                 data-repo-id="R_kgDOSAR3ug"
