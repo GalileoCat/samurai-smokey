@@ -19,6 +19,8 @@ layout: "list"
 [![GalileoCat01](/images/gallery/commissions/10.jpg)](/images/gallery/commissions/10.jpg)
 [![GalileoCat01](/images/gallery/commissions/12.jpg)](/images/gallery/commissions/12.jpg)
 [![GalileoCat01](/images/gallery/commissions/13.jpg)](/images/gallery/commissions/13.jpg)
+[![GalileoCat01](/images/gallery/commissions/14.jpg)](/images/gallery/commissions/14.jpg)
+[![GalileoCat01](/images/gallery/commissions/15.jpg)](/images/gallery/commissions/15.jpg)
 
 </div>
 </div>
