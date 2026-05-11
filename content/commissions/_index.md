@@ -297,7 +297,7 @@ title: " "
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
             <div style="flex: 1; min-width: 200px;">
                 <h4 style="color: #9d50bb; text-transform: uppercase; letter-spacing: 2px;">Software</h4>
-                <p style="color: #eee; font-size: 0.95rem;">Clip Studio Paint<br><span style="color: #666; font-size: 0.8rem;">Primary Illustration & Lining</span></p>
+                <p style="color: #eee; font-size: 0.95rem;">Clip Studio Paint + PureRef<br><span style="color: #666; font-size: 0.8rem;">Primary Illustration & Reference</span></p>
             </div>
             <div style="flex: 1; min-width: 200px;">
                 <h4 style="color: #9d50bb; text-transform: uppercase; letter-spacing: 2px;">Hardware</h4>
@@ -305,7 +305,7 @@ title: " "
             </div>
             <div style="flex: 1; min-width: 200px;">
                 <h4 style="color: #9d50bb; text-transform: uppercase; letter-spacing: 2px;">The Vibe</h4>
-                <p style="color: #eee; font-size: 0.95rem;">Lo-fi Beats<br><span style="color: #666; font-size: 0.8rem;">& Excessive amounts of Coffee</span></p>
+                <p style="color: #eee; font-size: 0.95rem;">A giant spotify playlist<br><span style="color: #666; font-size: 0.8rem;">& Excessive amounts of Coffee</span></p>
             </div>
         </div>
     </div>
