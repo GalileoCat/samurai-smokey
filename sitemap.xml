@@ -48,6 +48,8 @@
   </url><url>
     <loc>//localhost:1313/commissions/</loc>
   </url><url>
+    <loc>//localhost:1313/comments/</loc>
+  </url><url>
     <loc>//localhost:1313/play/defender/</loc>
   </url><url>
     <loc>//localhost:1313/play/fishclicker/</loc>
