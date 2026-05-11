@@ -5,30 +5,53 @@
     {{ $style := resources.Get "css/custom.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
     <title>{{ .Title }}</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://github.com https://*.githubusercontent.com https://giscus.app; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://giscus.app; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdnjs.cloudflare.com https://giscus.app; frame-src 'self' https://giscus.app; connect-src 'self' https://galileocat.goatcounter.com https://giscus.app https://api.github.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;">
+    
+    <style>
+        /* This forces the comment section to stay visible regardless of what is in the .md file */
+        #comment-zone {
+            display: block !important;
+            clear: both !important;
+            position: relative !important;
+            z-index: 9999 !important; /* Above all nightmare effects */
+            background: #000 !important;
+            margin-top: 100px !important;
+            padding: 50px 20px !important;
+            min-height: 400px !important;
+        }
+    </style>
 </head>
-<body style="background-color: #000; color: #fff; text-align: center; font-family: sans-serif; margin: 0; padding: 50px 20px;">
+<body style="background-color: #000; color: #fff; text-align: center; font-family: sans-serif; margin: 0; padding: 0;">
     
-    <nav class="chapter-nav" style="text-align: center; margin-top: 20px;">
-    {{ if in .RelPermalink "/archive/" }}
-        <a href="/archive/" style="font-size: 0.8rem; opacity: 0.7;">← BACK TO ARCHIVE</a>
-    {{ else if in .RelPermalink "/samurai-smokey/" }}
-        <a href="/comics/samurai-smokey/" style="font-size: 0.8rem; opacity: 0.7;">← BACK TO CHAPTERS</a>
-    {{ end }}
-</nav>
-    
-    <hr style="border: 0; border-top: 1px solid #333; width: 60%; margin: 20px auto;">
-    
-    <h1>{{ .Title }}</h1>
-
-    <div class="vertical-reader">
+    <div class="content-area" style="padding: 50px 20px;">
         {{ .Content }}
     </div>
 
-    <div style="margin-top: 80px; padding-bottom: 50px;">
-        <hr style="border: 0; border-top: 1px solid #333; width: 40%; margin: 20px auto;">
-        <a href="#" style="font-weight: 900; text-transform: uppercase; letter-spacing: 3px; font-size: 1.2rem;">
-            ↑ Back to Top
-        </a>
+    <section id="comment-zone">
+        <hr style="border: 0; border-top: 1px solid #333; width: 40%; margin: 0 auto 40px auto;">
+        <h3 style="color: #ffb300; letter-spacing: 2px; text-transform: uppercase;">Chapter Logs</h3>
+        
+        <div class="giscus">
+            <script src="https://giscus.app/client.js"
+                    data-repo="GalileoCat/samurai-smokey"
+                    data-repo-id="R_kgDOSAR3ug"
+                    data-category="General"
+                    data-category-id="DIC_kwDOSAR3us4C8v2D"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="bottom"
+                    data-theme="dark"
+                    data-lang="en"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+    </section>
+
+    <div style="padding: 50px 0; position: relative; z-index: 9999;">
+        <a href="#" style="color: #fff; text-decoration: none; font-weight: bold;">↑ BACK TO TOP</a>
     </div>
 
 </body>
