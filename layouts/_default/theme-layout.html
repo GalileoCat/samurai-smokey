@@ -1158,7 +1158,8 @@ title: "Ophelia's Domain"
     position: fixed !important;
     top: 0 !important; left: 0 !important; 
     width: 100vw !important; height: 100vh !important;
-    background: radial-gradient(circle at 75% 50%, #1a0b2e 0%, #05020a 100%) !important;
+    /* Midnight purple gradient */
+    background: radial-gradient(circle at 75% 50%, #000000 0%, #000000 100%) !important;
     overflow: hidden !important;
     z-index: 9998 !important;
     font-family: 'Georgia', serif;
@@ -1172,22 +1173,33 @@ title: "Ophelia's Domain"
     transform: translateY(-50%);
     width: 55vw;
     height: 100vh;
+    /* Linked to your local image folder */
     background-image: url('/images/ophelia.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    opacity: 0.15;
+    
+    /* MODIFIED: Opacity is now 100% to be fully visible */
+    opacity: 1.0;
+    
+    /* PRESERVED mixed-blend-mode to maintain blending */
     mix-blend-mode: screen; 
+    
+    /* PRESERVED: Mask-image fades the edges completely to transparency */
     -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%);
     mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%);
-    z-index: 1; 
+    
+    z-index: 1; /* Pushed behind the petals and UI */
     pointer-events: none;
-    animation: ethereal-breathe 12s infinite ease-in-out;
+    
+    /* MODIFIED: Updated animation for 100% baseline visibility */
+    animation: opaque-breathe 12s infinite ease-in-out;
 }
 
-@keyframes ethereal-breathe {
-    0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.15; }
-    50% { transform: translateY(-52%) scale(1.02); opacity: 0.2; }
+/* MODIFIED Animation for opaque visibility */
+@keyframes opaque-breathe {
+    0%, 100% { transform: translateY(-50%) scale(1); opacity: 1.0; } /* Baseline full visibility */
+    50% { transform: translateY(-52%) scale(1.02); opacity: 0.95; } /* Slight dip for "breath" */
 }
 
 /* 3. THE IDENTITY PANEL */
@@ -1209,7 +1221,7 @@ title: "Ophelia's Domain"
 .ophelia-name {
     font-size: 3.5rem;
     font-style: italic;
-    color: #ffb6c1; 
+    color: #ffb6c1; /* Rose Gold */
     margin: 0 0 5px 0;
     text-shadow: 0 0 20px rgba(255, 182, 193, 0.4);
     letter-spacing: 2px;
@@ -1278,12 +1290,13 @@ title: "Ophelia's Domain"
 .particle {
     position: absolute;
     background: #ffb6c1;
+    /* Bends the square into a teardrop/petal shape */
     border-radius: 70% 0 70% 50%;
     pointer-events: none;
     opacity: 0;
     z-index: 4;
     filter: blur(1px);
-    box-shadow: inset 2px 2px 4px rgba(255,255,255,0.3); 
+    box-shadow: inset 2px 2px 4px rgba(255,255,255,0.3); /* Adds a little depth to the petal */
 }
 
 /* 6. VISUAL WIND GUSTS */
@@ -1311,7 +1324,7 @@ title: "Ophelia's Domain"
             <a href="/comics/" class="o-link">Comics</a>
             <a href="/archive/" class="o-link">Archive</a>
             <a href="/gallery/" class="o-link">Gallery</a>
-            <a href="/commissions/" class="o-link">Studio</a>
+            <a href="/commissions/" class="o-link">Commissions</a>
             <a href="/info/" class="o-link">Database</a>
             <a href="/play/" class="o-link">Play</a>
         </div>
