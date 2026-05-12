@@ -100,6 +100,8 @@
   </url><url>
     <loc>//localhost:1313/play/breach/</loc>
   </url><url>
+    <loc>//localhost:1313/ps-theme/</loc>
+  </url><url>
     <loc>//localhost:1313/tags/</loc>
   </url><url>
     <loc>//localhost:1313/archive/</loc>

@@ -59,244 +59,265 @@
 
 
 
-
-
-<button id="popit-color-btn" style="position: fixed; top: 85px; right: 20px; z-index: 10000; background: #ff4da6; color: white; border: none; border-radius: 50%; width: 70px; height: 70px; font-size: 32px; box-shadow: 0 8px 0 #cc0066, 0 12px 25px rgba(0,0,0,0.5); cursor: pointer; transition: all 0.2s;">
-    🎨
-</button>
+---
+title: "X & B"
+layout: "single"
+---
 
 <style>
- 
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap');
+     
+     
+    .ps-viewport {
+        position: fixed !important;
+        top: 0 !important; 
+        left: 0 !important; 
+        width: 100vw !important; 
+        height: 100vh !important;
+        background: linear-gradient(-45deg, #050d1a, #112240, #1a1025, #0a192f) !important;
+        background-size: 400% 400% !important;
+        animation: ambient-shift 25s ease infinite;
+        overflow: hidden !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #fff;
+        z-index: 99998 !important;  
+        margin: 0 !important;
+        padding: 0 !important;
+    }
 
-:root {
-    --bg-start: #8a5a44;
-    --bg-end: #3e2723;
-    --menu-bg: rgba(40, 40, 40, 0.45);
-    --border-color: rgba(255, 255, 255, 0.85);
-    --accent: #ffd700;
-}
+    @keyframes ambient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
 
-body, html {
-    margin: 0; padding: 0;
-    background: radial-gradient(circle at center, var(--bg-start), var(--bg-end));
-    font-family: 'Nunito', sans-serif;
-    overflow-x: hidden;
-    transition: background 0.8s ease;
-}
+     
+    .ps-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        opacity: 0.4;
+        animation: orb-float 20s infinite alternate ease-in-out;
+        pointer-events: none;
+    }
 
- 
-.pod-dust {
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background-image: radial-gradient(rgba(255,255,255,0.1) 2px, transparent 0);
-    background-size: 40px 40px;
-    z-index: 0;
-    pointer-events: none;
-    animation: drift 20s linear infinite;
-}
-@keyframes drift { 
-    from { background-position: 0 0; } 
-    to { background-position: 100px 100px; } 
-}
+    .orb-1 { width: 60vw; height: 60vh; background: #2fb98f; top: -10%; left: -10%; animation-duration: 25s; }
+    .orb-2 { width: 50vw; height: 50vh; background: #9d50bb; bottom: -20%; right: -10%; animation-duration: 30s; animation-direction: alternate-reverse; }
+    .orb-3 { width: 40vw; height: 40vh; background: #4a90e2; top: 30%; left: 40%; animation-duration: 35s; }
 
- 
-.popit-menu {
-    position: relative;
-    z-index: 10;
-    max-width: 800px;
-    margin: 60px auto;
-    background: var(--menu-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 4px solid var(--border-color);
-    border-radius: 35px;
-    padding: 30px;
-    box-shadow:
-        0 20px 50px rgba(0,0,0,0.5),
-        inset 0 0 20px rgba(255,255,255,0.2);
-    animation: float 6s ease-in-out infinite;
-}
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(0.5deg); }
-}
+    @keyframes orb-float {
+        0% { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(100px, 50px) scale(1.2); }
+    }
 
- 
-.popit-header {
-    background: rgba(0,0,0,0.2);
-    border-radius: 20px;
-    padding: 15px;
-    margin-bottom: 30px;
-    text-align: center;
-    border: 2px dashed rgba(255,255,255,0.3);
-}
-.popit-title {
-    color: #fff;
-    font-size: 2.5rem;
-    margin: 0;
-    text-shadow: 2px 2px 0 #000, 0 0 10px rgba(255,255,255,0.5);
-    letter-spacing: 2px;
-}
+     
+    .ps-topbar {
+        position: absolute;
+        top: 40px; 
+        right: 60px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        z-index: 10;
+    }
 
- 
-.popit-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 25px;
-    padding: 10px;
-}
+    .ps-user {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-weight: 300;
+        font-size: 1.1rem;
+    }
 
- 
-.popit-item {
-    position: relative;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-}
-.sticker-wrapper {
-    position: relative;
-    width: 140px;
-    height: 140px;
-    border-radius: 20px;
-    border: 6px solid #fff;
-    overflow: hidden;
-    box-shadow:
-        0 10px 20px rgba(0,0,0,0.4),
-        inset 0 4px 0 rgba(255,255,255,0.5);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background: #222;
-}
-.sticker-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s;
-}
+    .ps-avatar {
+        width: 35px; height: 35px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
 
- 
-.popit-item:hover {
-    transform: scale(1.15) rotate(-3deg);
-    z-index: 20;
-}
-.popit-item:hover .sticker-wrapper {
-    border-color: var(--accent);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.6), 0 0 20px var(--accent);
-}
-.popit-item:hover .sticker-wrapper img {
-    transform: scale(1.1);
-}
+    .ps-clock {
+        font-size: 1.4rem;
+        font-weight: 200;
+        letter-spacing: 1px;
+        border-left: 1px solid rgba(255,255,255,0.3);
+        padding-left: 20px;
+    }
 
- 
-.sticker-label {
-    margin-top: 15px;
-    color: #fff;
-    font-size: 1.2rem;
-    background: rgba(0,0,0,0.6);
-    padding: 5px 15px;
-    border-radius: 15px;
-    border: 2px solid rgba(255,255,255,0.5);
-    text-shadow: 1px 1px 0 #000;
-    transition: all 0.2s;
-}
-.popit-item:hover .sticker-label {
-    background: var(--accent);
-    color: #000;
-    border-color: #fff;
-    text-shadow: none;
-    transform: translateY(5px);
-}
+     
+    .xmb-container {
+        position: absolute;
+        top: 50%; 
+        left: 0;
+        width: 100vw;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        padding-left: 15vw; 
+        gap: 40px;  
+        overflow-x: auto;
+        -ms-overflow-style: none;  
+        scrollbar-width: none;  
+        padding-bottom: 100px;  
+        padding-top: 50px;
+    }
+    
+    .xmb-container::-webkit-scrollbar { display: none; }
 
- 
-@media screen and (max-width: 768px) {
-    .popit-menu { margin: 20px; padding: 20px; }
-    .sticker-wrapper { width: 110px; height: 110px; border-width: 4px; }
-    .popit-grid { gap: 15px; grid-template-columns: repeat(2, 1fr); }
-    .popit-title { font-size: 1.8rem; }
-}
+    .xmb-item {
+        position: relative;  
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        text-decoration: none;
+        width: 120px;  
+    }
+
+    .xmb-item:hover {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+    .xmb-icon {
+        width: 120px;
+        height: 120px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 15px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        color: #888;
+        transition: all 0.3s ease;
+        z-index: 2;
+    }
+
+    .xmb-item:hover .xmb-icon {
+        border-color: rgba(255,255,255,0.8);
+        box-shadow: 0 0 20px rgba(255,255,255,0.3), inset 0 0 20px rgba(255,255,255,0.1);
+    }
+
+    .xmb-title {
+        position: absolute;
+        top: 140px;  
+        width: 300px;  
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 300;
+        color: #fff;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        letter-spacing: 1px;
+        pointer-events: none;  
+    }
+
+    .xmb-item:hover .xmb-title {
+        opacity: 1;
+    }
+
 </style>
 
-<div class="pod-dust"></div>
+<div class="ps-viewport">
+    
+    <div class="ps-orb orb-1"></div>
+    <div class="ps-orb orb-2"></div>
+    <div class="ps-orb orb-3"></div>
 
-<div class="popit-menu">
-    <div class="popit-header">
-        <h1 class="popit-title">MAIN MENU</h1>
+    <div class="ps-topbar">
+        <div class="ps-user">
+            <div class="ps-avatar" style="background-image: url('/images/gallery/commissions/1.jpg'); background-size: cover; background-position: center;"></div>
+            Welcome
+        </div>
+        <div class="ps-clock" id="live-clock">00:00 PM</div>
     </div>
-    <div class="popit-grid">
-        <a href="/comics/" class="popit-item">
-            <div class="sticker-wrapper"><img src="/images/comicsicon/ss.png" alt="Comics"></div>
-            <div class="sticker-label">Comics</div>
-        </a>
-        <a href="/archive/" class="popit-item">
-            <div class="sticker-wrapper"><img src="/images/comicsicon/1.png" alt="Archive"></div>
-            <div class="sticker-label">Archive</div>
-        </a>
-        <a href="/gallery/" class="popit-item">
-            <div class="sticker-wrapper"><img src="/images/comicsicon/gallery.jpg" alt="Gallery"></div>
-            <div class="sticker-label">Gallery</div>
-        </a>
-        <a href="/commissions/" class="popit-item">
-            <div class="sticker-wrapper"><img src="/images/comicsicon/comms.jpg" alt="Orders"></div>
-            <div class="sticker-label">Orders</div>
-        </a>
-        <a href="/info/" class="popit-item">
-            <div class="sticker-wrapper"><img src="/images/comicsicon/database.jpg" alt="Info"></div>
-            <div class="sticker-label">System</div>
-        </a>
-        <a href="/play/" class="popit-item">
-            <div class="sticker-wrapper"><img src="/images/comicsicon/play.jpg" alt="Play"></div>
-            <div class="sticker-label">Play</div>
-        </a>
-    </div>
-</div>
 
+   <div class="xmb-container">
+        
+        <a href="/comics/" class="xmb-item">
+            <div class="xmb-icon" style="background-image: url('/images/comicsicon/3.png'); background-size: cover; background-position: center;"></div>
+            <div class="xmb-title">
+                COMICS
+                <span style="display: block; font-size: 0.8rem; color: #aaa; margin-top: 5px; font-style: italic;">Current and upcoming series.</span>
+            </div>
+        </a>
 
-<div id="popit-palette" style="display:none; position: fixed; top: 170px; right: 25px; background: rgba(30,30,30,0.95); border: 6px solid #fff; border-radius: 30px; padding: 20px; z-index: 9999; width: 290px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); backdrop-filter: blur(10px);">
-    <h3 style="color:#fff; text-align:center; margin: 0 0 18px 0; font-size: 1.4rem; text-shadow: 1px 1px 2px #000;">MENU Color</h3>
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
-        <div class="color-swatch" style="background:#8a5a44; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#8a5a44" data-end="#3e2723" title="Classic"></div>
-        <div class="color-swatch" style="background:#0d7bc4; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#0d7bc4" data-end="#0a3d5e" title="Blue"></div>
-        <div class="color-swatch" style="background:#e91e63; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#e91e63" data-end="#6d1b3f" title="Pink"></div>
-        <div class="color-swatch" style="background:#9c27b0; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#9c27b0" data-end="#4a1259" title="Purple"></div>
-        <div class="color-swatch" style="background:#00c853; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#00c853" data-end="#1b5e20" title="Green"></div>
-        <div class="color-swatch" style="background:#ff9800; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#ff9800" data-end="#c25a00" title="Orange"></div>
-        <div class="color-swatch" style="background:#f44336; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#f44336" data-end="#7f1d1d" title="Red"></div>
-        <div class="color-swatch" style="background:#ffd700; border-radius:50%; width:48px; height:48px; cursor:pointer; box-shadow: 0 4px 0 #000;" data-start="#ffd700" data-end="#b36b00" title="Yellow"></div>
+        <a href="/archive/" class="xmb-item">
+            <div class="xmb-icon" style="background-image: url('/images/comicsicon/1.png'); background-size: cover; background-position: center;"></div>
+            <div class="xmb-title">
+                ARCHIVE
+                <span style="display: block; font-size: 0.8rem; color: #aaa; margin-top: 5px; font-style: italic;">Legacy chapters.</span>
+            </div>
+        </a>
+
+        <a href="/gallery/" class="xmb-item">
+            <div class="xmb-icon" style="background-image: url('/images/comicsicon/gallery.jpg'); background-size: cover; background-position: center;"></div>
+            <div class="xmb-title">
+                GALLERY
+                <span style="display: block; font-size: 0.8rem; color: #aaa; margin-top: 5px; font-style: italic;">Concept art and illustrations.</span>
+            </div>
+        </a>
+
+        <a href="/commissions/" class="xmb-item">
+            <div class="xmb-icon" style="background-image: url('/images/comicsicon/comms.jpg'); background-size: cover; background-position: center;"></div>
+            <div class="xmb-title">
+                COMMISSIONS
+                <span style="display: block; font-size: 0.8rem; color: #aaa; margin-top: 5px; font-style: italic;">Creative Studio.</span>
+            </div>
+        </a>
+
+        <a href="/info/" class="xmb-item">
+            <div class="xmb-icon" style="background-image: url('/images/comicsicon/database.jpg'); background-size: cover; background-position: center;"></div>
+            <div class="xmb-title">
+                DATABASE
+                <span style="display: block; font-size: 0.8rem; color: #aaa; margin-top: 5px; font-style: italic;">Website Info.</span>
+            </div>
+        </a>
+
+        <a href="/play/" class="xmb-item">
+            <div class="xmb-icon" style="background-image: url('/images/comicsicon/play.jpg'); background-size: cover; background-position: center;"></div>
+            <div class="xmb-title">
+                PLAY
+                <span style="display: block; font-size: 0.8rem; color: #aaa; margin-top: 5px; font-style: italic;">Take a break.</span>
+            </div>
+        </a>
+        
     </div>
+    <div style="position: absolute; bottom: 30px; right: 40px; font-size: 0.8rem; opacity: 0.4; font-weight: 300;">
+        Maintained By: &nbsp;&nbsp; GalileoCat
+    </div>
+
 </div>
 
 <script>
-
-const colorBtn = document.getElementById('popit-color-btn');
-const palette = document.getElementById('popit-palette');
-
-colorBtn.addEventListener('click', () => {
-    palette.style.display = palette.style.display === 'block' ? 'none' : 'block';
-});
-
-document.querySelectorAll('.color-swatch').forEach(swatch => {
-    swatch.addEventListener('click', () => {
-        const start = swatch.getAttribute('data-start');
-        const end = swatch.getAttribute('data-end');
-
-        document.documentElement.style.setProperty('--bg-start', start);
-        document.documentElement.style.setProperty('--bg-end', end);
-
+    
+    function updateClock() {
+        const now = new Date();
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
         
-        colorBtn.style.transform = 'scale(0.85)';
-        setTimeout(() => { colorBtn.style.transform = 'scale(1)'; }, 180);
-    });
-});
-
-
-document.addEventListener('click', (e) => {
-    if (!colorBtn.contains(e.target) && !palette.contains(e.target)) {
-        palette.style.display = 'none';
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        
+        const timeString = hours + ':' + minutes + ' ' + ampm;
+        
+        const clockElement = document.getElementById('live-clock');
+        if(clockElement) {
+            clockElement.innerText = timeString;
+        }
     }
-});
+    
+    setInterval(updateClock, 1000);
+    updateClock();
 </script>
 
 
