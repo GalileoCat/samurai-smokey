@@ -1,4 +1,4 @@
 ---
-title: "Cardboard Menu"
+title: "ophelia Menu"
 layout: "theme-layout"
 ---

@@ -29,9 +29,9 @@ themes:
     desc: "CINEMATIC BOSS INTERFACE"
     color: "#e61919"
 
-  - name: "CRAFTWORLD"
-    id: "popit"
-    path: "/themes/popit/"
+  - name: "Ophelia"
+    id: "ophelia"
+    path: "/themes/ophelia/"
     desc: "TACTILE UI SANDBOX"
     color: "#ff4da6"
     

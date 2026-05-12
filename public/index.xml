@@ -92,13 +92,6 @@
       <description></description>
     </item>
     <item>
-      <title>Cardboard Menu</title>
-      <link>//localhost:1313/themes/cardboard/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/themes/cardboard/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Chapter 1 - Sky Burns Black</title>
       <link>//localhost:1313/comics/samurai-smokey/chapter-1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -152,6 +145,13 @@
       <link>//localhost:1313/play/neonrush/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/play/neonrush/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ophelia Menu</title>
+      <link>//localhost:1313/themes/ophelia/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/themes/ophelia/</guid>
       <description></description>
     </item>
     <item>

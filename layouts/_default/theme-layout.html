@@ -1148,268 +1148,248 @@ body, html {
 </script>
 {{ end }}
 
-{{ if (in .Permalink "/cardboard/") }}
+{{ if (in .Permalink "/ophelia/") }}
 ---
-title: "X & B"
-layout: "single"
+title: "Ophelia's Domain"
 ---
-
 <style>
-    /* 1. BULLETPROOF VIEWPORT */
-    /* Using extremely high z-index and !important to stop your global theme from breaking it */
-    .ps-viewport {
-        position: fixed !important;
-        top: 0 !important; 
-        left: 0 !important; 
-        width: 100vw !important; 
-        height: 100vh !important;
-        background: linear-gradient(-45deg, #050d1a, #112240, #1a1025, #0a192f) !important;
-        background-size: 400% 400% !important;
-        animation: ambient-shift 25s ease infinite;
-        overflow: hidden !important;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        color: #fff;
-        z-index: 99998 !important; /* Just under your Change Theme button if you still want to click it */
-        margin: 0 !important;
-        padding: 0 !important;
-    }
+/* 1. THE BASE VIEWPORT */
+.ophelia-viewport {
+    position: fixed !important;
+    top: 0 !important; left: 0 !important; 
+    width: 100vw !important; height: 100vh !important;
+    background: radial-gradient(circle at 75% 50%, #1a0b2e 0%, #05020a 100%) !important;
+    overflow: hidden !important;
+    z-index: 9998 !important;
+    font-family: 'Georgia', serif;
+}
 
-    @keyframes ambient-shift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
+/* 2. THE ETHEREAL CHARACTER BACKGROUND */
+.character-art {
+    position: absolute;
+    right: 5%;
+    top: 50%; 
+    transform: translateY(-50%);
+    width: 55vw;
+    height: 100vh;
+    background-image: url('/images/ophelia.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0.15;
+    mix-blend-mode: screen; 
+    -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%);
+    mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%);
+    z-index: 1; 
+    pointer-events: none;
+    animation: ethereal-breathe 12s infinite ease-in-out;
+}
 
-    /* 2. THE FLOATING ORBS */
-    .ps-orb {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(100px);
-        opacity: 0.4;
-        animation: orb-float 20s infinite alternate ease-in-out;
-        pointer-events: none;
-    }
+@keyframes ethereal-breathe {
+    0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.15; }
+    50% { transform: translateY(-52%) scale(1.02); opacity: 0.2; }
+}
 
-    .orb-1 { width: 60vw; height: 60vh; background: #2fb98f; top: -10%; left: -10%; animation-duration: 25s; }
-    .orb-2 { width: 50vw; height: 50vh; background: #9d50bb; bottom: -20%; right: -10%; animation-duration: 30s; animation-direction: alternate-reverse; }
-    .orb-3 { width: 40vw; height: 40vh; background: #4a90e2; top: 30%; left: 40%; animation-duration: 35s; }
+/* 3. THE IDENTITY PANEL */
+.ophelia-panel {
+    position: absolute;
+    left: 12%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 350px;
+    padding: 50px 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 182, 193, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    z-index: 10;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
 
-    @keyframes orb-float {
-        0% { transform: translate(0, 0) scale(1); }
-        100% { transform: translate(100px, 50px) scale(1.2); }
-    }
+.ophelia-name {
+    font-size: 3.5rem;
+    font-style: italic;
+    color: #ffb6c1; 
+    margin: 0 0 5px 0;
+    text-shadow: 0 0 20px rgba(255, 182, 193, 0.4);
+    letter-spacing: 2px;
+}
 
-    /* 3. TOP BAR (Clock & User) */
-    .ps-topbar {
-        position: absolute;
-        top: 40px; 
-        right: 60px;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-        z-index: 10;
-    }
+.ophelia-role {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #a980c0;
+    letter-spacing: 5px;
+    margin-bottom: 40px;
+}
 
-    .ps-user {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        font-weight: 300;
-        font-size: 1.1rem;
-    }
+/* 4. NAVIGATION LINKS */
+.ophelia-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
-    .ps-avatar {
-        width: 35px; height: 35px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(255,255,255,0.2);
-    }
+.o-link {
+    position: relative; /* Crucial for positioning the mini-petal */
+    text-decoration: none;
+    color: #ddd;
+    font-size: 1.1rem;
+    padding: 15px 20px;
+    border-left: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+}
 
-    .ps-clock {
-        font-size: 1.4rem;
-        font-weight: 200;
-        letter-spacing: 1px;
-        border-left: 1px solid rgba(255,255,255,0.3);
-        padding-left: 20px;
-    }
+/* The tiny hover petal */
+.o-link::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    margin-top: -7px;
+    width: 14px;
+    height: 14px;
+    background: #ffb6c1;
+    border-radius: 70% 0 70% 50%; /* The Sakura Shape */
+    opacity: 0;
+    transform: rotate(0deg) scale(0);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: inset 1px 1px 3px rgba(255,255,255,0.5);
+    pointer-events: none;
+}
 
-    /* 4. THE X & B HORIZONTAL UI */
-    .xmb-container {
-        position: absolute;
-        top: 50%; 
-        left: 0;
-        width: 100vw;
-        transform: translateY(-50%);
-        display: flex;
-        align-items: center;
-        padding-left: 15vw; 
-        gap: 40px; /* Increased gap to give icons breathing room */
-        overflow-x: auto;
-        -ms-overflow-style: none;  
-        scrollbar-width: none;  
-        padding-bottom: 100px; /* Room for the title text to not get cut off */
-        padding-top: 50px;
-    }
-    
-    .xmb-container::-webkit-scrollbar { display: none; }
+.o-link:hover {
+    color: #fff;
+    border-left: 2px solid #ffb6c1;
+    background: linear-gradient(90deg, rgba(255, 182, 193, 0.15) 0%, transparent 100%);
+    transform: translateX(10px);
+    padding-left: 38px; /* Pushes the text right to make room for the petal */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
 
-    .xmb-item {
-        position: relative; /* Crucial for fixing the text overlap */
-        flex: 0 0 auto;
-        display: flex;
-        justify-content: center;
-        cursor: pointer;
-        opacity: 0.5;
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        text-decoration: none;
-        width: 120px; /* Lock the width to the icon */
-    }
+.o-link:hover::before {
+    opacity: 1;
+    left: 12px; /* Places the petal perfectly between the border and text */
+    transform: rotate(135deg) scale(1); /* Tumbles it into a falling angle */
+}
 
-    .xmb-item:hover {
-        opacity: 1;
-        transform: scale(1.15);
-    }
+/* 5. SAKURA PETALS */
+.particle {
+    position: absolute;
+    background: #ffb6c1;
+    border-radius: 70% 0 70% 50%;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 4;
+    filter: blur(1px);
+    box-shadow: inset 2px 2px 4px rgba(255,255,255,0.3); 
+}
 
-    .xmb-icon {
-        width: 120px;
-        height: 120px;
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.2);
-        border-radius: 15px; 
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        backdrop-filter: blur(10px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.8rem;
-        color: #888;
-        transition: all 0.3s ease;
-        z-index: 2;
-    }
-
-    .xmb-item:hover .xmb-icon {
-        border-color: rgba(255,255,255,0.8);
-        box-shadow: 0 0 20px rgba(255,255,255,0.3), inset 0 0 20px rgba(255,255,255,0.1);
-    }
-
-    .xmb-title {
-        position: absolute;
-        top: 140px; /* Pushes text directly below the icon */
-        width: 300px; /* Allows text to be wider than the icon without pushing other icons away */
-        text-align: center;
-        font-size: 1.2rem;
-        font-weight: 300;
-        color: #fff;
-        text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        letter-spacing: 1px;
-        pointer-events: none; /* Stops the text from interfering with hovering */
-    }
-
-    .xmb-item:hover .xmb-title {
-        opacity: 1;
-    }
-
+/* 6. VISUAL WIND GUSTS */
+.wind-gust {
+    position: absolute;
+    height: 2px;
+    /* Creates a soft fading streak */
+    background: linear-gradient(90deg, transparent, rgba(255, 182, 193, 0.2), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 3;
+    filter: blur(3px); /* High blur makes it look like air/magic */
+}
 </style>
 
-<div class="ps-viewport">
+<div class="ophelia-viewport" id="ophelia-bg">
     
-    <div class="ps-orb orb-1"></div>
-    <div class="ps-orb orb-2"></div>
-    <div class="ps-orb orb-3"></div>
+    <div class="character-art"></div>
 
-    <div class="ps-topbar">
-        <div class="ps-user">
-            <div class="ps-avatar" style="background-image: url('/images/gallery/commissions/1.jpg'); background-size: cover; background-position: center;"></div>
-            Welcome
+    <div class="ophelia-panel">
+        <h1 class="ophelia-name">Ophelia</h1>
+        <div class="ophelia-role">Samurai Smokey</div>
+        
+        <div class="ophelia-nav">
+            <a href="/comics/" class="o-link">Comics</a>
+            <a href="/archive/" class="o-link">Archive</a>
+            <a href="/gallery/" class="o-link">Gallery</a>
+            <a href="/commissions/" class="o-link">Studio</a>
+            <a href="/info/" class="o-link">Database</a>
+            <a href="/play/" class="o-link">Play</a>
         </div>
-        <div class="ps-clock" id="live-clock">00:00 PM</div>
-    </div>
-
-   <div class="xmb-container">
-        
-        <a href="/comics/" class="xmb-item">
-            <div class="xmb-icon" style="background-image: url('/images/comicsicon/3.png'); background-size: cover; background-position: center;"></div>
-            <div class="xmb-title">
-                COMICS
-                <span style="display: block; font-size: 0.8rem; color: #aaa; margin-top: 5px; font-style: italic;">Current and upcoming series.</span>
-            </div>
-        </a>
-
-        <a href="/archive/" class="xmb-item">
-            <div class="xmb-icon" style="background-image: url('/images/comicsicon/1.png'); background-size: cover; background-position: center;"></div>
-            <div class="xmb-title">
-                ARCHIVE
-                <span style="display: block; font-size: 0.8rem; color: #aaa; margin-top: 5px; font-style: italic;">Legacy chapters.</span>
-            </div>
-        </a>
-
-        <a href="/gallery/" class="xmb-item">
-            <div class="xmb-icon" style="background-image: url('/images/comicsicon/gallery.jpg'); background-size: cover; background-position: center;"></div>
-            <div class="xmb-title">
-                GALLERY
-                <span style="display: block; font-size: 0.8rem; color: #aaa; margin-top: 5px; font-style: italic;">Concept art and illustrations.</span>
-            </div>
-        </a>
-
-        <a href="/commissions/" class="xmb-item">
-            <div class="xmb-icon" style="background-image: url('/images/comicsicon/comms.jpg'); background-size: cover; background-position: center;"></div>
-            <div class="xmb-title">
-                COMMISSIONS
-                <span style="display: block; font-size: 0.8rem; color: #aaa; margin-top: 5px; font-style: italic;">Creative Studio.</span>
-            </div>
-        </a>
-
-        <a href="/info/" class="xmb-item">
-            <div class="xmb-icon" style="background-image: url('/images/comicsicon/database.jpg'); background-size: cover; background-position: center;"></div>
-            <div class="xmb-title">
-                DATABASE
-                <span style="display: block; font-size: 0.8rem; color: #aaa; margin-top: 5px; font-style: italic;">Website Info.</span>
-            </div>
-        </a>
-
-        <a href="/play/" class="xmb-item">
-            <div class="xmb-icon" style="background-image: url('/images/comicsicon/play.jpg'); background-size: cover; background-position: center;"></div>
-            <div class="xmb-title">
-                PLAY
-                <span style="display: block; font-size: 0.8rem; color: #aaa; margin-top: 5px; font-style: italic;">Take a break.</span>
-            </div>
-        </a>
-        
-    </div>
-    <div style="position: absolute; bottom: 30px; right: 40px; font-size: 0.8rem; opacity: 0.4; font-weight: 300;">
-        Maintained By: &nbsp;&nbsp; GalileoCat
     </div>
 
 </div>
 
 <script>
-    // Just the clock. The glitchy JS hover effects have been removed for pure CSS smoothness.
-    function updateClock() {
-        const now = new Date();
-        let hours = now.getHours();
-        let minutes = now.getMinutes();
-        const ampm = hours >= 12 ? 'PM' : 'AM';
-        
-        hours = hours % 12;
-        hours = hours ? hours : 12;
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        
-        const timeString = hours + ':' + minutes + ' ' + ampm;
-        
-        const clockElement = document.getElementById('live-clock');
-        if(clockElement) {
-            clockElement.innerText = timeString;
-        }
-    }
-    
-    setInterval(updateClock, 1000);
-    updateClock();
-</script>
+    const bg = document.getElementById('ophelia-bg');
 
+    // 1. Sakura Petal Engine (Updated for horizontal wind)
+    const particleCount = 35; 
+
+    for(let i = 0; i < particleCount; i++) {
+        let p = document.createElement('div');
+        p.className = 'particle';
+        
+        let size = Math.random() * 8 + 6; 
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        
+        // Start petals further to the left so they can blow across the screen
+        p.style.left = (Math.random() * 150 - 50) + 'vw';
+        p.style.top = (Math.random() * 120 - 20) + 'vh'; 
+        
+        let duration = Math.random() * 8 + 6; // slightly faster because of the wind
+        let delay = Math.random() * 10;
+        
+        // WIND MATH: Strong push to the right, gentle push down
+        let driftX = Math.random() * 600 + 300; 
+        let driftY = Math.random() * 200 + 100; 
+        let rotations = Math.random() * 720 - 360; 
+        
+        p.animate([
+            { transform: 'translate(0, 0) rotate(0deg)', opacity: 0 },
+            { opacity: 0.8, offset: 0.1 },
+            { opacity: 0.6, offset: 0.8 },
+            { transform: `translate(${driftX}px, ${driftY}px) rotate(${rotations}deg)`, opacity: 0 }
+        ], {
+            duration: duration * 1000,
+            delay: delay * 1000,
+            iterations: Infinity,
+            easing: 'linear'
+        });
+        
+        bg.appendChild(p);
+    }
+
+    // 2. Visual Wind Gust Engine
+    function spawnWind() {
+        let w = document.createElement('div');
+        w.className = 'wind-gust';
+        
+        // Random lengths for the wind streaks
+        w.style.width = (Math.random() * 40 + 20) + 'vw';
+        w.style.top = (Math.random() * 100) + 'vh';
+        w.style.left = '-50vw'; // Always start off-screen left
+        
+        let duration = Math.random() * 3 + 2; // Very fast (2-5 seconds)
+        
+        w.animate([
+            { transform: 'translateX(0)', opacity: 0 },
+            { opacity: 1, offset: 0.5 },
+            { transform: 'translateX(180vw)', opacity: 0 } // Sweep all the way across
+        ], {
+            duration: duration * 1000,
+            easing: 'ease-in-out'
+        });
+        
+        bg.appendChild(w);
+        
+        // Clean up the DOM after animation finishes
+        setTimeout(() => w.remove(), duration * 1000);
+    }
+
+    // Spawn a new visual gust randomly every 1 to 3 seconds
+    setInterval(spawnWind, Math.random() * 2000 + 1000);
+</script>
 {{ end }}
 
 <script src="/js/theme-switcher.js"></script>

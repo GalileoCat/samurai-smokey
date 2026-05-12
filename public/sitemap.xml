@@ -40,8 +40,6 @@
   </url><url>
     <loc>//localhost:1313/themes/bubble/</loc>
   </url><url>
-    <loc>//localhost:1313/themes/cardboard/</loc>
-  </url><url>
     <loc>//localhost:1313/categories/</loc>
   </url><url>
     <loc>//localhost:1313/comics/samurai-smokey/chapter-1/</loc>
@@ -61,6 +59,8 @@
     <loc>//localhost:1313/play/neongrid/</loc>
   </url><url>
     <loc>//localhost:1313/play/neonrush/</loc>
+  </url><url>
+    <loc>//localhost:1313/themes/ophelia/</loc>
   </url><url>
     <loc>//localhost:1313/themes/popit/</loc>
   </url><url>
