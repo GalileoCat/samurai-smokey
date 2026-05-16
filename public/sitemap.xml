@@ -14,8 +14,6 @@
   </url><url>
     <loc>//localhost:1313/comics/samurai-smokey/</loc>
   </url><url>
-    <loc>//localhost:1313/commissions/</loc>
-  </url><url>
     <loc>//localhost:1313/gallery/</loc>
   </url><url>
     <loc>//localhost:1313/gallery/commissions/</loc>
@@ -45,6 +43,8 @@
     <loc>//localhost:1313/comics/samurai-smokey/chapter-1/</loc>
   </url><url>
     <loc>//localhost:1313/comics/samurai-smokey/characters/</loc>
+  </url><url>
+    <loc>//localhost:1313/commissions/</loc>
   </url><url>
     <loc>//localhost:1313/comments/</loc>
   </url><url>
