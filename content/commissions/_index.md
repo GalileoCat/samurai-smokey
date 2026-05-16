@@ -182,9 +182,12 @@ title: " "
         </p>
     </div>
     <div class="art-catalog">
-         <div class="art-card">
+        <div class="art-card" style="border-color: #2fb98f; box-shadow: 0 0 15px rgba(47, 185, 143, 0.1);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h3 style="margin: 0;">Chibi</h3>
+                <span style="font-size: 0.75rem; font-weight: bold; color: #2fb98f; background: rgba(47, 185, 143, 0.15); padding: 3px 10px; border-radius: 20px; border: 1px solid #2fb98f; letter-spacing: 1px;">AVAILABLE</span>
+            </div>
             <div class="art-preview" style="background-image: url('/images/gallery/art6.jpg');"></div>   
-            <h3>Chibi</h3>
             <div class="price-circle">$25</div>
             <ul class="list-style">
                 <li>Chibi style</li>
@@ -193,10 +196,13 @@ title: " "
                 <li>+$10 per extra character</li>
             </ul>
         </div>
-        <div class="art-card">
+        <div class="art-card" style="opacity: 0.6; filter: grayscale(20%); position: relative;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h3 style="margin: 0; color: #aaa;">Headshot</h3>
+                <span style="font-size: 0.75rem; font-weight: bold; color: #ff5555; background: rgba(255, 85, 85, 0.1); padding: 3px 10px; border-radius: 20px; border: 1px solid #ff5555; letter-spacing: 1px;">CLOSED</span>
+            </div>
             <div class="art-preview" style="background-image: url('/images/gallery/commissions/5.jpg');"></div>
-            <h3>Headshot</h3>
-            <div class="price-circle">$30</div>
+            <div class="price-circle" style="color: #aaa;">$30</div>
             <ul class="list-style">
                 <li>Detailed character focus</li>
                 <li>Expression-heavy work</li>
@@ -204,10 +210,13 @@ title: " "
                 <li>+$10 per extra character</li>
             </ul>
         </div>
-        <div class="art-card">
+        <div class="art-card" style="opacity: 0.6; filter: grayscale(20%); position: relative;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h3 style="margin: 0; color: #aaa;">Waist & Bust</h3>
+                <span style="font-size: 0.75rem; font-weight: bold; color: #ff5555; background: rgba(255, 85, 85, 0.1); padding: 3px 10px; border-radius: 20px; border: 1px solid #ff5555; letter-spacing: 1px;">CLOSED</span>
+            </div>
             <div class="art-preview" style="background-image: url('/images/gallery/commissions/9.jpg');"></div>
-            <h3>Waist & Bust</h3>
-            <div class="price-circle">$50</div>
+            <div class="price-circle" style="color: #aaa;">$50</div>
             <ul class="list-style">
                 <li>Waist-up framing</li>
                 <li>Posed character study</li>
@@ -215,10 +224,13 @@ title: " "
                 <li>+$20 per extra character</li>
             </ul>
         </div>
-        <div class="art-card">
+        <div class="art-card" style="opacity: 0.6; filter: grayscale(20%); position: relative;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h3 style="margin: 0; color: #aaa;">Full Body</h3>
+                <span style="font-size: 0.75rem; font-weight: bold; color: #ff5555; background: rgba(255, 85, 85, 0.1); padding: 3px 10px; border-radius: 20px; border: 1px solid #ff5555; letter-spacing: 1px;">CLOSED</span>
+            </div>
             <div class="art-preview" style="background-image: url('/images/gallery/commissions/8.jpg');"></div>
-            <h3>Full Body</h3>
-            <div class="price-circle">$70+</div>
+            <div class="price-circle" style="color: #aaa;">$70+</div>
             <ul class="list-style">
                 <li>Complete character design</li>
                 <li>Dynamic action posing</li>
@@ -226,10 +238,13 @@ title: " "
                 <li>+$30 per extra character</li>
             </ul>
         </div>
-        <div class="art-card" style="border-color: rgba(157, 80, 187, 0.4);">
+        <div class="art-card" style="opacity: 0.6; filter: grayscale(20%); position: relative;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h3 style="margin: 0; color: #aaa;">Illustration</h3>
+                <span style="font-size: 0.75rem; font-weight: bold; color: #ff5555; background: rgba(255, 85, 85, 0.1); padding: 3px 10px; border-radius: 20px; border: 1px solid #ff5555; letter-spacing: 1px;">CLOSED</span>
+            </div>
             <div class="art-preview" style="background-image: url('/images/gallery/commissions/4.jpg');"></div>
-            <h3>Illustration</h3>
-            <div class="price-circle">$100+</div>
+            <div class="price-circle" style="color: #aaa;">$100+</div>
             <ul class="list-style">
                 <li>Full background environment</li>
                 <li>Cinematic lighting & story</li>

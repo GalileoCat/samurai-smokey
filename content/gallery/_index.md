@@ -56,12 +56,14 @@ layout: "list"
     <h2 style="text-align: center;">Featured Art</h2>
   <div class="comic-grid">
 
+[![Dahlia1](/images/gallery/DahliaSticker.png)](/images/gallery/DahliaSticker.png)
 [![GalileoCat01](/images/gallery/art12.jpg)](/images/gallery/art12.jpg)
 [![Smokey and Sage 01 - 2021](/images/gallery/art14.jpg)](/images/gallery/art14.jpg)
 [![Cover Page Arc 1 - 2020](/images/gallery/art1.jpg)](/images/gallery/art1.jpg)
 [![Smokey Concept 1 - 2023](/images/gallery/art2.jpg)](/images/gallery/art2.jpg)
 [![Original Tapas Cover - 2022](/images/gallery/art3.png)](/images/gallery/art3.png)
 [![Squad 15 - 2024](/images/gallery/art4.jpg)](/images/gallery/art4.jpg)
+
 
 </div>
 

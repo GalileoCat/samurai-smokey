@@ -26,6 +26,7 @@ layout: "list"
 [![Babu Chibi - 2024](/images/gallery/art10.jpg)](/images/gallery/art10.jpg)
 [![Smokey Standing - 2021](/images/gallery/art11.jpg)](/images/gallery/art11.jpg)
 [![Original Smokey Concept 2019](/images/gallery/art17.jpg)](/images/gallery/art17.jpg)
+[![Dahlia1](/images/gallery/DahliaSticker.png)](/images/gallery/DahliaSticker.png)
 
 
 </div>
