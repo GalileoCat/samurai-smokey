@@ -250,7 +250,7 @@ title: " "
             </div>
             <div class="guide-item">
                 <h4>Timeline</h4>
-                <p>Standard turnaround is 2-4 weeks. I provide regular progress updates at the end of the day.</p>
+                <p>Standard turnaround is 1-2 weeks. I provide regular progress updates at the end of the day.</p>
             </div>
         </div>
     </div>
