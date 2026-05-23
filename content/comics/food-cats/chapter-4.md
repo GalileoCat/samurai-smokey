@@ -1,5 +1,6 @@
 ---
 title: "Season 1 - Andrena-line"
+enable_chat: true
 ---
 <div class="back-to-top-section" style="text-align: center;">
     <a href="/comics/food-cats/" style="color: #2fb98f; text-decoration: none; font-family: monospace; letter-spacing: 1px;">← RETURN TO CHAPTER LIST</a>

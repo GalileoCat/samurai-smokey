@@ -1,11 +1,11 @@
 ---
 title: "Season 1 - El Beast"
+enable_chat: true
 ---
+
 <div class="back-to-top-section" style="text-align: center;">
     <a href="/comics/food-cats/" style="color: #2fb98f; text-decoration: none; font-family: monospace; letter-spacing: 1px;">← RETURN TO CHAPTER LIST</a>
 </div>
-
-## ---------------------------
 
 
 <div style="max-width: 800px; margin: 0 auto; text-align: center;">

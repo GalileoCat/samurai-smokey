@@ -1,6 +1,7 @@
 ---
 title: "The Great Archive"
 layout: "list"
+enable_chat: true
 ---
 
 <div style="text-align: center; margin-top: 40px; margin-bottom: 60px;">

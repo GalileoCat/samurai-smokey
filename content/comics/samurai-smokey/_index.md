@@ -1,6 +1,7 @@
 ---
 title: " "
 layout: "list"
+enable_chat: true
 ---
 
 <style>
