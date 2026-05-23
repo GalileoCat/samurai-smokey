@@ -1,5 +1,6 @@
 ---
 title: "Season 1 - Don't Be Alarmed"
+enable_chat: true
 ---
 
 <div style="max-width: 800px; margin: 0 auto; text-align: center;">

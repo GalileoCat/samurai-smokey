@@ -1,11 +1,13 @@
 ---
 title: "Season 1 - Snot Cool"
+enable_chat: true
 ---
+
 <div class="back-to-top-section" style="text-align: center;">
     <a href="/comics/food-cats/" style="color: #2fb98f; text-decoration: none; font-family: monospace; letter-spacing: 1px;">← RETURN TO CHAPTER LIST</a>
 </div>
 
-## ---------------------------
+
 
 <div style="max-width: 800px; margin: 0 auto; text-align: center;">
     <div style="display: flex; justify-content: space-between; align-items: center; max-width: 800px; margin: 0 auto 30px auto; padding: 10px 20px; border: 1px solid #333; background: #0a0a0a; border-radius: 5px;">

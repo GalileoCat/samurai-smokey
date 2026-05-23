@@ -671,3 +671,65 @@ nav a {
     color: #fff;
     box-shadow: 0 0 20px rgba(255, 102, 0, 0.6);
 }
+/* ==========================================================
+   NIGHTMARE EFFECT & COMIC PLUG DESIGN TOKENS
+   ========================================================== */
+.nightmare-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background-image: 
+        radial-gradient(4px 4px at 10% 10%, #8a2be2, transparent),
+        radial-gradient(6px 6px at 90% 20%, #4b0082, transparent),
+        radial-gradient(3px 3px at 15% 50%, #9932cc, transparent),
+        radial-gradient(5px 5px at 85% 80%, #800080, transparent),
+        radial-gradient(4px 4px at 50% 90%, #8a2be2, transparent);
+    background-size: 100% 100%;
+    animation: nightmareDrift 15s ease-in-out infinite alternate;
+}
+
+@keyframes nightmareDrift {
+    from { transform: scale(1); opacity: 0.4; }
+    to { transform: scale(1.2); opacity: 0.8; }
+}
+
+.nightmare-content {
+    position: relative;
+    z-index: 2;
+}
+
+.nightmare-content .vertical-reader, 
+.nightmare-content .vertical-reader p {
+    background: transparent !important;
+}
+
+.nightmare-content img {
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.3) !important;
+    margin-bottom: 0 !important;
+}
+
+/* CHAPTER NAV & INTERFACE BLOCKS */
+.chapter-nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 10px 20px;
+    border: 1px solid #333;
+    background: #0a0a0a;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.nav-disabled { color: #444; font-family: monospace; letter-spacing: 1px; font-weight: bold; cursor: not-allowed; }
+.nav-index-link { color: #aaa !important; font-family: monospace; letter-spacing: 2px; }
+.nav-active-link { color: #2fb98f !important; font-family: monospace; letter-spacing: 1px; font-weight: bold; }
+
+.support-panel { max-width: 800px; margin: 40px auto; text-align: center; }
+.terminal-text { font-family: monospace; color: #fff; letter-spacing: 2px; }
+.support-links-row { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; justify-content: center; }
+
+.btn-kofi { border: 1px solid #ff4d4d; color: #ff4d4d !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 77, 77, 0.05); font-weight: bold; font-size: 0.9rem; }
+.btn-social { border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; }

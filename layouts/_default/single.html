@@ -1,57 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" style="background-color: #000;">
+<html lang="en" style="background-color: #000 !important;">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ $style := resources.Get "css/custom.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
     <title>{{ .Title }}</title>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://github.com https://*.githubusercontent.com https://giscus.app; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://giscus.app; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdnjs.cloudflare.com https://giscus.app; frame-src 'self' https://giscus.app; connect-src 'self' https://galileocat.goatcounter.com https://giscus.app https://api.github.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;">
-    
     <style>
-        /* This forces the comment section to stay visible regardless of what is in the .md file */
-        #comment-zone {
+        /* Force the chat container to break through any fixed position elements or clipping masks */
+        #forced-global-chat-zone {
             display: block !important;
-            clear: both !important;
+            visibility: visible !important;
             position: relative !important;
-            z-index: 9999 !important; /* Above all nightmare effects */
-            background: #000 !important;
-            margin-top: 100px !important;
-            padding: 50px 20px !important;
-            min-height: 400px !important;
+            z-index: 999999 !important; 
+            clear: both !important;
+            max-width: 800px !important;
+            margin: 80px auto 40px auto !important;
+            padding: 0 20px !important;
+            box-sizing: border-box !important;
         }
     </style>
 </head>
-<body style="background-color: #000; color: #fff; text-align: center; font-family: sans-serif; margin: 0; padding: 0;">
+<body style="background-color: #000 !important; color: #fff !important; text-align: center; font-family: sans-serif; margin: 0; padding: 0;">
     
-    <div class="content-area" style="padding: 50px 20px;">
+    <nav style="text-align: center; padding: 15px 0; background: #000; border-bottom: 1px solid #111;">
+        <a href="/" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px; text-decoration: none; color: #fff;">HOME</a>
+        <span style="opacity: 0.2; margin: 0 10px; color: #fff;">|</span>
+        <a href="/comments/" style="color: #ffb300; text-decoration: none; font-weight: bold; letter-spacing: 2px;">COMMUNITY LOGS</a>
+    </nav>
+
+    <div class="content-area" style="padding: 20px 0; position: relative; z-index: 10;">
         {{ .Content }}
     </div>
 
-    <section id="comment-zone">
-        <hr style="border: 0; border-top: 1px solid #333; width: 40%; margin: 0 auto 40px auto;">
-        <h3 style="color: #ffb300; letter-spacing: 2px; text-transform: uppercase;">Chapter Logs</h3>
-        
-        <div class="giscus">
-            <script src="https://giscus.app/client.js"
-                    data-repo="GalileoCat/samurai-smokey"
-                    data-repo-id="R_kgDOSAR3ug"
-                    data-category="General"
-                    data-category-id="DIC_kwDOSAR3us4C8v2D"
-                    data-mapping="pathname"
-                    data-strict="0"
-                    data-reactions-enabled="1"
-                    data-emit-metadata="0"
-                    data-input-position="bottom"
-                    data-theme="dark"
-                    data-lang="en"
-                    crossorigin="anonymous"
-                    async>
-            </script>
+    <section id="forced-global-chat-zone">
+        <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(47, 185, 143, 0.5), rgba(255,255,255,0)); margin-bottom: 40px;">
+        <h3 style="font-family: monospace; color: #2fb98f; letter-spacing: 3px; border-bottom: 1px dashed #333; padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase; font-size: 0.9rem; text-align: left; font-weight: normal;">
+            [ COURIER_TERMINAL // SYSTEM_COMM_CONNECTED ]
+        </h3>
+        <div style="background: #0a0a0a !important; padding: 10px; border-radius: 12px; border: 2px solid #222; box-shadow: 0 0 25px rgba(47, 185, 143, 0.25);">
+            <iframe src="https://www3.cbox.ws/box/?boxid=3555243&boxtag=8KGelo" 
+                    width="100%" 
+                    height="450" 
+                    allowtransparency="yes" 
+                    allow="autoplay" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    scrolling="auto" 
+                    style="border-radius: 8px; display: block; background: #000 !important;">
+            </iframe>
         </div>
     </section>
 
-    <div style="padding: 50px 0; position: relative; z-index: 9999;">
-        <a href="#" style="color: #fff; text-decoration: none; font-weight: bold;">↑ BACK TO TOP</a>
+    <div style="padding: 60px 0 40px 0; position: relative; z-index: 100;">
+        <a href="#" style="color: #666; text-decoration: none; font-family: monospace; font-size: 0.8rem; letter-spacing: 2px;">↑ BACK TO TOP</a>
     </div>
 
 </body>

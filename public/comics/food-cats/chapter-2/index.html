@@ -1,29 +1,54 @@
 <!DOCTYPE html>
-<html lang="en" style="background-color: #000;">
+<html lang="en">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem("samurai_active_theme");
+            const currentPath = window.location.pathname;
+
+            
+            
+            if (savedTheme && savedTheme !== "/" && currentPath === "/" && !document.referrer.includes('/themes/')) {
+                window.location.href = savedTheme;
+            }
+        })();
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Season 1 - Apple Luck | Samurai Smokey</title>
+    <link rel="icon" type="image/png" href="/icon.png">
+    <link rel="apple-touch-icon" href="/icon.png">
     
-    <link rel="stylesheet" href="//localhost:1313/css/custom.min.59500a6fbe4d5225a52fbfa0cae07e42ae74e0d3cb7cde64d6eedcc97446b189.css" integrity="sha256-WVAKb75NUiWlL7&#43;gyuB&#43;Qq504NPLfN5k1u7cyXRGsYk=">
-    <title>Season 1 - Apple Luck</title>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://github.com https://*.githubusercontent.com https://giscus.app; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://giscus.app; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdnjs.cloudflare.com https://giscus.app; frame-src 'self' https://giscus.app; connect-src 'self' https://galileocat.goatcounter.com https://giscus.app https://api.github.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;">
+      <meta name="description" content="The official webcomic archive, gallery, and lore database for Samurai Smokey. Created by GalileoCat.">
     
-    <style>
-         
-        #comment-zone {
-            display: block !important;
-            clear: both !important;
-            position: relative !important;
-            z-index: 9999 !important;  
-            background: #000 !important;
-            margin-top: 100px !important;
-            padding: 50px 20px !important;
-            min-height: 400px !important;
-        }
-    </style>
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://github.com https://*.githubusercontent.com https://giscus.app https://*.cbox.ws; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://giscus.app https://*.cbox.ws; script-src 'self' 'unsafe-inline' https://gc.zgo.at https://cdnjs.cloudflare.com https://giscus.app https://*.cbox.ws; frame-src 'self' https://giscus.app https://*.cbox.ws; connect-src 'self' https://galileocat.goatcounter.com https://giscus.app https://api.github.com https://*.cbox.ws; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    
+    
+    <link rel="stylesheet" href="//localhost:1313/css/custom.min.7fb82a617bba1c15f7508944681d321d7bacc4a013c6b470028ce88196e303a2.css" integrity="sha256-f7gqYXu6HBX3UIlEaB0yHXusxKATxrRwAozogZbjA6I=" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.0/simple-lightbox.min.css">
+    <script data-goatcounter="https://galileocat.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
-<body style="background-color: #000; color: #fff; text-align: center; font-family: sans-serif; margin: 0; padding: 0;">
+<body>
+    <nav style="text-align: center; padding: 15px 0; position: relative; z-index: 9999;">
+        <a href="/" id="dynamic-home-link" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px; text-decoration: none; color: inherit;">HOME</a>
+        <span style="opacity: 0.2; margin: 0 10px;">|</span>
+        <a href="#" id="refresh-btn" style="font-size: 0.8rem; opacity: 0.6; letter-spacing: 2px; text-decoration: none; color: inherit;">REFRESH SITE</a>
+        <span style="opacity: 0.2; margin: 0 10px;">|</span>
+        <a href="/comments/" style="color: #ffb300; text-decoration: none; font-weight: bold; letter-spacing: 2px; text-shadow: 0 0 10px rgba(255,179,0,0.5);">COMMUNITY LOGS</a>
+    </nav>
+
+    <main>
+        
+<article class="single-viewport-container" style="max-width: 900px; margin: 0 auto; padding: 0 15px; box-sizing: border-box;">
     
-    <div class="content-area" style="padding: 50px 20px;">
+    
+    <div class="page-rendered-markdown-content">
         <div class="back-to-top-section" style="text-align: center;">
     <a href="/comics/food-cats/" style="color: #2fb98f; text-decoration: none; font-family: monospace; letter-spacing: 1px;">← RETURN TO CHAPTER LIST</a>
 </div>
@@ -57,32 +82,86 @@
 
     </div>
 
-    <section id="comment-zone">
-        <hr style="border: 0; border-top: 1px solid #333; width: 40%; margin: 0 auto 40px auto;">
-        <h3 style="color: #ffb300; letter-spacing: 2px; text-transform: uppercase;">Chapter Logs</h3>
+    
+    
+    <section id="arcade-chat-terminal-zone" style="margin: 60px auto 40px auto; width: 100%; max-width: 800px; box-sizing: border-box; position: relative; z-index: 100;">
+        <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(138, 43, 226, 0.5), rgba(255,255,255,0)); margin-bottom: 40px;">
         
-        <div class="giscus">
-            <script src="https://giscus.app/client.js"
-                    data-repo="GalileoCat/samurai-smokey"
-                    data-repo-id="R_kgDOSAR3ug"
-                    data-category="General"
-                    data-category-id="DIC_kwDOSAR3us4C8v2D"
-                    data-mapping="pathname"
-                    data-strict="0"
-                    data-reactions-enabled="1"
-                    data-emit-metadata="0"
-                    data-input-position="bottom"
-                    data-theme="dark"
-                    data-lang="en"
-                    crossorigin="anonymous"
-                    async>
-            </script>
+        <h3 style="font-family: monospace; color: #2fb98f; letter-spacing: 3px; border-bottom: 1px dashed #333; padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase; font-size: 0.9rem; text-align: left;">
+            [ COURIER_TERMINAL // USER_COMMENTS_ONLINE ]
+        </h3>
+        
+        <div class="cbox-chat-wrapper-frame" style="background: #0a0a0a; padding: 10px; border-radius: 12px; border: 2px solid #222; box-shadow: 0 0 25px rgba(138, 43, 226, 0.15);">
+            <iframe src="https://www3.cbox.ws/box/?boxid=3555243&boxtag=8KGelo" 
+                    width="100%" 
+                    height="450" 
+                    allowtransparency="yes" 
+                    allow="autoplay" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    scrolling="auto" 
+                    style="border-radius: 8px; display: block; background: #000;">
+            </iframe>
         </div>
     </section>
+    
 
-    <div style="padding: 50px 0; position: relative; z-index: 9999;">
-        <a href="#" style="color: #fff; text-decoration: none; font-weight: bold;">↑ BACK TO TOP</a>
+    
+    <div class="global-footer-anchor" style="text-align: center; margin: 60px 0 40px 0; font-family: monospace; font-size: 0.8rem; letter-spacing: 2px;">
+        <a href="/" style="color: #fff;">HOME</a> 
+        <span style="opacity: 0.2; margin: 0 10px;">|</span> 
+        <a href="/archive/" style="color: #fff;">BACK TO ARCHIVE</a>
     </div>
 
+</article>
+
+    </main>
+
+    <script>
+        
+        window.setHomeTheme = function(themeName) {
+            let target = "/";
+            if (themeName === 'sonic') target = "/themes/sonic/";
+            if (themeName === 'flower') target = "/themes/flower/";
+            if (themeName === 'smokey') target = "/themes/smokey/";
+            if (themeName === 'popit') target = "/themes/popit/";
+            if (themeName === 'bubble') target = "/themes/bubble/"; 
+            if (themeName === 'ophelia') target = "/themes/ophelia/";
+
+            localStorage.setItem("samurai_active_theme", target);
+            console.log("Theme securely saved as: " + target);
+        };
+
+        
+        (function() {
+            const savedTheme = localStorage.getItem("samurai_active_theme");
+            const currentPath = window.location.pathname;
+
+            
+            
+            if (savedTheme && savedTheme !== "/" && (currentPath === "/" || currentPath === "/index.html") && !document.referrer.includes('/themes/')) {
+                window.location.replace(savedTheme);
+            }
+
+            
+            document.addEventListener("DOMContentLoaded", function() {
+                const homeLink = document.getElementById("dynamic-home-link");
+                const refreshBtn = document.getElementById("refresh-btn");
+
+                
+                if (savedTheme && homeLink) {
+                    homeLink.href = savedTheme;
+                }
+
+                if (refreshBtn) {
+                    refreshBtn.addEventListener("click", function(e) {
+                        e.preventDefault();
+                        window.location.reload();
+                    });
+                }
+            });
+        })();
+    </script>
 </body>
 </html>

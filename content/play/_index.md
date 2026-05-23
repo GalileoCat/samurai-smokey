@@ -1,5 +1,6 @@
 ---
 title: " "
+enable_chat: true
 ---
 
 <style>

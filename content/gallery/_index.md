@@ -1,6 +1,7 @@
 ---
 title: " "
 layout: "list"
+enable_chat: true
 ---
 
 <div class="archive-vault" style="max-width: 900px; margin: 0 auto;">

@@ -1,6 +1,8 @@
 {{ define "main" }}
 <style>
-    /* SOLID SYSTEM LAYOUT (NO ANIMATIONS) */
+    /* ==========================================================
+       SOLID SYSTEM LAYOUT (RESTORED TO DESIGN BLACKOUT TOKENS)
+       ========================================================== */
     body, html {
         margin: 0; padding: 0; min-height: 100vh;
         background-color: #000 !important;
@@ -18,13 +20,13 @@
         max-width: 1000px;
         margin: 60px auto;
         padding: 40px;
-        /* Static Solid Frame */
         background: rgba(15, 15, 15, 0.95);
         border: 2px solid #333; 
         border-radius: 10px;
         box-shadow: 0 0 40px rgba(0,0,0,1);
         position: relative;
         z-index: 1;
+        box-sizing: border-box;
     }
 
     .community-header {
@@ -44,25 +46,48 @@
     }
 
     .community-subtitle {
-        color: #19e63f; /* System Green */
+        color: #19e63f; /* System Green Token */
         font-size: 0.9rem;
         letter-spacing: 3px;
         text-transform: uppercase;
         margin-top: 10px;
     }
     
-    
-    .giscus-intro {
-        text-align: center; color: #888; margin-bottom: 30px; font-size: 0.8rem;
-        padding: 15px; border: 1px dashed #333;
+    .chat-intro {
+        text-align: center; 
+        color: #888; 
+        margin-bottom: 30px; 
+        font-size: 0.8rem;
+        padding: 15px; 
+        border: 1px dashed #333;
+        font-family: monospace;
     }
 
-    /* THE BULLETPROOF CONTAINER */
-    .giscus-container {
+    /* BULLETPROOF RESPONSIVE TERMINAL RENDER */
+    .cbox-container {
         width: 100%;
-        min-height: 600px; /* Force it to exist */
+        min-height: 470px;
         display: block !important;
         visibility: visible !important;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid #333;
+        box-sizing: border-box;
+    }
+
+    /* ==========================================================
+       MOBILE RESPONSIVE BREAKPOINT CONTRAINTS
+       ========================================================== */
+    @media screen and (max-width: 768px) {
+        .community-viewport {
+            margin: 20px 10px;
+            padding: 20px 15px;
+        }
+        .community-title {
+            font-size: 2.2rem;
+            letter-spacing: 4px;
+        }
     }
 </style>
 
@@ -70,32 +95,37 @@
     <div class="community-header">
         <h1 class="community-title">MAIN LOUNGE</h1>
         <div class="community-subtitle">STATUS: LINK ESTABLISHED // CATEGORY: GENERAL</div>
+        
+        <!-- Cleaned navigation target section -->
         <div style="margin-top: 20px;">
-    </a>
-</div>
+            <a href="/" style="font-size: 0.8rem; color: #888; text-decoration: none; letter-spacing: 2px;">&larr; EXIT TERMINAL</a>
+        </div>
     </div>
     
-    <div class="giscus-intro">
-        [ CHANNEL MONITORED BY GITHUB DISCUSSIONS ]
+    <div class="chat-intro">
+        [ CHANNEL SECURED BY FRICTIONLESS CHAT TERMINAL ENGINE ]
     </div>
 
-    <div class="giscus-container">
-        <script src="https://giscus.app/client.js"
-                data-repo="GalileoCat/samurai-smokey"
-                data-repo-id="R_kgDOSAR3ug"
-                data-category="General"
-                data-category-id="DIC_kwDOSAR3us4C8v2D"
-                data-mapping="specific"
-                data-term="GLOBAL LOUNGE"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="bottom"
-                data-theme="dark"
-                data-lang="en"
-                crossorigin="anonymous"
-                async>
-        </script>
+    <!-- Conditional Front-matter Engine evaluation -->
+    {{ if eq .Params.enable_chat true }}
+    <div class="cbox-container">
+        <!-- Target engine pulled explicitly from static config -->
+        <iframe src="https://www3.cbox.ws/box/?boxid=3555243&boxtag=8KGelo" 
+                width="100%" 
+                height="450" 
+                allowtransparency="yes" 
+                allow="autoplay" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0" 
+                scrolling="auto" 
+                style="border-radius: 8px; display: block; background: #000;">
+        </iframe>
     </div>
+    {{ else }}
+    <div class="chat-intro" style="color: #ff4444; border-color: #ff4444;">
+        [ ERROR: ACCESS DISCONNECTED // COMM_LINK FALSE ]
+    </div>
+    {{ end }}
 </div>
 {{ end }}

@@ -1,6 +1,7 @@
 ---
 title: " "
 layout: "list"
+enable_chat: true
 ---
 <div class="archive-vault" style="max-width: 800px; margin: 0 auto;">
     <a href="/gallery" style="color: #ff4d4d; text-decoration: none;">← Back to Vault</a>
