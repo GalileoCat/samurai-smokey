@@ -1,25 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>  on Samurai Smokey</title>
-    <link>//localhost:1313/comics/samurai-smokey/</link>
-    <description>Recent content in   on Samurai Smokey</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <atom:link href="//localhost:1313/comics/samurai-smokey/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Chapter 1 - Sky Burns Black</title>
-      <link>//localhost:1313/comics/samurai-smokey/chapter-1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/comics/samurai-smokey/chapter-1/</guid>
-      <description>&lt;div style=&#34;max-width: 800px; margin: 0 auto; text-align: center;&#34;&gt;&#xD;&#xA;    &lt;div style=&#34;display: flex; justify-content: space-between; align-items: center; max-width: 800px; margin: 0 auto 30px auto; padding: 10px 20px; border: 1px solid #333; background: #0a0a0a; border-radius: 5px;&#34;&gt;&#xD;&#xA;        &lt;span style=&#34;color: #444; font-family: monospace; letter-spacing: 1px; font-weight: bold; cursor: not-allowed;&#34;&gt;← PREV&lt;/span&gt;&#xD;&#xA;        &lt;a href=&#34;//localhost:1313/comics/samurai-smokey/&#34; style=&#34;color: #aaa; text-decoration: none; font-family: monospace; letter-spacing: 2px;&#34;&gt;INDEX&lt;/a&gt;&#xD;&#xA;        &lt;span style=&#34;color: #444; font-family: monospace; letter-spacing: 1px; font-weight: bold; cursor: not-allowed;&#34;&gt;NEXT →&lt;/a&gt;&#xD;&#xA;    &lt;/div&gt;&#xD;&#xA;&lt;p&gt;Coming Soon!&lt;/p&gt;&#xA;&lt;h3 id=&#34;support--connect-with-me&#34;&gt;Support &amp;amp; Connect with me!&lt;/h3&gt;&#xA;&lt;div style=&#34;display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; justify-content: center;&#34;&gt;&#xD;&#xA;    &lt;a href=&#34;https://ko-fi.com/galileo_cat&#34; target=&#34;_blank&#34; style=&#34;border: 1px solid #ff4d4d; color: #ff4d4d !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 77, 77, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;&#34;&gt;SUPPORT ON KO-FI&lt;/a&gt;&#xD;&#xA;    &lt;a href=&#34;https://x.com/galileo_cat&#34; target=&#34;_blank&#34; style=&#34;border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;&#34;&gt;TWITTER&lt;/a&gt;&#xD;&#xA;    &lt;a href=&#34;https://linktr.ee/GalileoCat&#34; target=&#34;_blank&#34; style=&#34;border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;&#34;&gt;LINKTREE&lt;/a&gt;&#xD;&#xA;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>Character Files</title>
-      <link>//localhost:1313/comics/samurai-smokey/characters/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/comics/samurai-smokey/characters/</guid>
-      <description></description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>on Samurai Smokey</title><link>/comics/samurai-smokey/</link><description>Recent content in on Samurai Smokey</description><generator>Hugo</generator><language>en-us</language><atom:link href="/comics/samurai-smokey/index.xml" rel="self" type="application/rss+xml"/><item><title>Chapter 1 - Sky Burns Black</title><link>/comics/samurai-smokey/chapter-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/comics/samurai-smokey/chapter-1/</guid><description>&lt;div style="max-width: 800px; margin: 0 auto; text-align: center;"&gt;
+ &lt;div style="display: flex; justify-content: space-between; align-items: center; max-width: 800px; margin: 0 auto 30px auto; padding: 10px 20px; border: 1px solid #333; background: #0a0a0a; border-radius: 5px;"&gt;
+ &lt;span style="color: #444; font-family: monospace; letter-spacing: 1px; font-weight: bold; cursor: not-allowed;"&gt;← PREV&lt;/span&gt;
+ &lt;a href="/comics/samurai-smokey/" style="color: #aaa; text-decoration: none; font-family: monospace; letter-spacing: 2px;"&gt;INDEX&lt;/a&gt;
+ &lt;span style="color: #444; font-family: monospace; letter-spacing: 1px; font-weight: bold; cursor: not-allowed;"&gt;NEXT →&lt;/a&gt;
+ &lt;/div&gt;
+&lt;p&gt;Coming Soon!&lt;/p&gt;
+&lt;h3 id="support--connect-with-me"&gt;Support &amp;amp; Connect with me!&lt;/h3&gt;
+&lt;div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; justify-content: center;"&gt;
+ &lt;a href="https://ko-fi.com/galileo_cat" target="_blank" style="border: 1px solid #ff4d4d; color: #ff4d4d !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 77, 77, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;"&gt;SUPPORT ON KO-FI&lt;/a&gt;
+ &lt;a href="https://x.com/galileo_cat" target="_blank" style="border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;"&gt;TWITTER&lt;/a&gt;
+ &lt;a href="https://linktr.ee/GalileoCat" target="_blank" style="border: 1px solid #fff; color: #fff !important; padding: 10px 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.05); font-weight: bold; font-size: 0.9rem; text-decoration: none;"&gt;LINKTREE&lt;/a&gt;
+&lt;/div&gt;</description></item><item><title>Character Files</title><link>/comics/samurai-smokey/characters/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/comics/samurai-smokey/characters/</guid><description/></item></channel></rss>
