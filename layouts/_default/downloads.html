@@ -1,0 +1,64 @@
+{{ define "main" }}
+<style>
+    /* Reuse the retro window styles from your queue page */
+    .win-container {
+        background: #c0c0c0;
+        border: 2px solid;
+        border-color: #fff #808080 #808080 #fff;
+        width: 600px;
+        margin: 50px auto;
+        padding: 2px;
+        box-shadow: 10px 10px 0px rgba(0,0,0,0.3);
+    }
+    .win-titlebar {
+        background: linear-gradient(to right, #000080, #1084d0);
+        padding: 3px 5px;
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        font-weight: bold;
+        font-size: 0.8rem;
+    }
+    .win-content {
+        padding: 20px;
+        background: #fff;
+        border: 2px inset #808080;
+        text-align: center;
+        color: #000 !important; /* Force text to be black */
+    }
+
+    /* Also force headers and links to be black */
+    .win-content h2, .win-content p, .win-content li, .win-content a {
+        color: #000 !important;
+    }
+    .feature-list { text-align: left; margin-top: 15px; font-size: 0.9rem; }
+</style>
+
+<div class="win-container">
+    <div class="win-titlebar">
+        <span>PERSONAREF_SETUP.EXE</span>
+        <a href="/" style="color:white; text-decoration:none;">[X]</a>
+    </div>
+    <div class="win-content">
+        <h2 style="margin: 0; color: #ff007f;">✨ PersonaRef Beta</h2>
+        <p><i>The artist's friction-free workflow companion.</i></p>
+        
+        <div class="feature-list">
+            <ul>
+                <li><b>Advanced Reference Boards</b> 
+                <li><b>Smart Tagging & Organization</b></li>
+                <li><b>Pomodoro & Pose Timers</b></li>
+                <li><b>Mass Folder/Rename Automation</b></li>
+                <li><b>Accessibility Tools</b> (Colorblind modes & more)</li>
+            </ul>
+        </div>
+
+       <div style="margin-top: 20px; padding: 15px; background: #eee; border: 1px dashed #ff007f;">
+            <strong>STATUS:</strong> Still working on it, you can download it here for free when it's finished.<br>
+            <i>Follow me on 
+                <a href="https://twitter.com/Galileo_Cat" style="color: #1da1f2; text-decoration: underline;">Twitter</a> 
+            for release updates!</i>
+        </div>
+    </div>
+</div>
+{{ end }}
