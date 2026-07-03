@@ -1,1 +1,60 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Select Interface on Samurai Smokey</title><link>/themes/</link><description>Recent content in Select Interface on Samurai Smokey</description><generator>Hugo</generator><language>en-us</language><atom:link href="/themes/index.xml" rel="self" type="application/rss+xml"/><item><title>Ash &amp; Iron</title><link>/themes/smokey/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/themes/smokey/</guid><description/></item><item><title>Bubble Menu</title><link>/themes/bubble/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/themes/bubble/</guid><description/></item><item><title>ophelia Menu</title><link>/themes/ophelia/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/themes/ophelia/</guid><description/></item><item><title>Popit Menu</title><link>/themes/popit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/themes/popit/</guid><description/></item><item><title>Sakura Drift</title><link>/themes/flower/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/themes/flower/</guid><description/></item><item><title>shinobi</title><link>/themes/shinobi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/themes/shinobi/</guid><description/></item><item><title>Y2K Overdrive</title><link>/themes/sonic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/themes/sonic/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Select Interface on Samurai Smokey</title>
+    <link>//localhost:1313/themes/</link>
+    <description>Recent content in Select Interface on Samurai Smokey</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="//localhost:1313/themes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ash &amp; Iron</title>
+      <link>//localhost:1313/themes/smokey/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/themes/smokey/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bubble Menu</title>
+      <link>//localhost:1313/themes/bubble/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/themes/bubble/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ophelia Menu</title>
+      <link>//localhost:1313/themes/ophelia/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/themes/ophelia/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Popit Menu</title>
+      <link>//localhost:1313/themes/popit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/themes/popit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sakura Drift</title>
+      <link>//localhost:1313/themes/flower/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/themes/flower/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>shinobi</title>
+      <link>//localhost:1313/themes/shinobi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/themes/shinobi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Y2K Overdrive</title>
+      <link>//localhost:1313/themes/sonic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/themes/sonic/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
